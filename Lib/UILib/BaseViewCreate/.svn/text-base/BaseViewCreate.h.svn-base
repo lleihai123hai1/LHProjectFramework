@@ -1,0 +1,66 @@
+#import <UIKit/UIKit.h>
+#import "YGTextField.h"
+#import "RadioButton.h"
+@interface BaseViewCreate:NSObject
++(CGFloat)getLeftDistance;
++(CGFloat)getRightDistance;
++(CGFloat)getBotomDistance;
++(CGFloat)getHeadeDistance;
+    
+#pragma mark-属性字符串声称
++(NSMutableAttributedString *)getAttributedStringWithString:(NSString *)string;
++(NSMutableAttributedString *)getAttributedStringWithString:(NSString *)string color:(NSString *)color fontSize:(CGFloat)fontSize;
++(NSMutableAttributedString *)getAttributedStringWithString:(NSString *)string color:(NSString *)color font:(UIFont*)font;
++(NSMutableAttributedString *)getAttributedStringWithString:(NSString *)string color:(NSString *)color font:(UIFont*)font  isNeedStrikethrough:(BOOL)isNeedStrikethrough;
++(NSAttributedString *)getSpaceAttributedStringWithWidth:(CGFloat)width;
++(NSAttributedString *)getSpaceAttributedStringWithWidth:(CGFloat)width height:(CGFloat)height offsetY:(CGFloat)offsetY;
++(NSAttributedString *)getImageTextAttributedStringWithImage:(UIImage *)image fontSize:(CGFloat)fontSize;
+#pragma mark-给view添加渐变层
++(void)addGradientWithView:(UIView *)view colors:(NSArray *)colors locations:(NSArray *)locations;
+
+#pragma mark- 纯色按钮生成
++(UIButton *)createButtonWithTitle:(NSString *)title font:(UIFont*)font target:(id)target sel:(SEL)sel normalColor:(NSString *)normalColor highlightColor:(NSString *)highlightColor;
+
++(UIButton *)createColorButtonWithFrame:(CGRect)frame title:(NSString *)title target:(id)target sel:(SEL)sel normalColor:(NSString *)normalColor highlightColor:(NSString *)highlightColor;
+#pragma mark- 创建特殊按钮（图片文字混合）
++(UIButton *)createSpecalButton:(NSString *)title  font:(UIFont*)font color:(UIColor *)color normalImage:(NSString *)normalImage target:(id)target sel:(SEL)sel;
+#pragma mark- 创建按钮（
++(UIButton *)createButton:(NSString *)normalImage target:(id)target sel:(SEL)sel;
++(UIButton *)createButton:(NSString *)normalImage  highlightedImage:(NSString *)highlightedImage target:(id)target sel:(SEL)sel;
++(UIButton *)createButton:(NSString *)normalImage  selectImage:(NSString *)selectImage target:(id)target sel:(SEL)sel;
++(UIButton *)createButton:(NSString *)normalImage  disabledImage:(NSString *)disabledImage target:(id)target sel:(SEL)sel;
+#pragma mark- create Label
++(UILabel *)createLabelWithFrame:(CGRect)frame;
++(UILabel *)createLabelWithFrame:(CGRect)frame font:(UIFont*)font textColor:(NSString *)textColor;
++(UILabel *)createLabelWithFrame:(CGRect)frame font:(UIFont*)font textColor:(NSString *)textColor textAlignment:(NSTextAlignment)textAlignment;
+#pragma mark- createColorLayer
++(CALayer *)createColorLayerWithFrame:(CGRect)frame color:(NSString *)color;
++(UIProgressView *)createProgressViewWithFrame:(CGRect)frame progressTintColor:(UIColor *)progressTintColor trackTintColor:(UIColor *)trackTintColor;
++(UIView *)createUiviewWithFrame:(CGRect)frame color:(UIColor*)color borderWidth:(CGFloat)borderWidth borderColor:(UIColor*)borderColor cornerRadius:(CGFloat)cornerRadius;
++(UIView *)createUiviewWithFrame:(CGRect)frame color:(UIColor*)color borderWidth:(CGFloat)borderWidth borderColor:(UIColor*)borderColor;
++(UIView *)createUiviewWithFrame:(CGRect)frame color:(UIColor*)color;
+
++(UIImageView *)createUIImageView:(NSString*)image;
+
+
+#pragma mark- YGTextField
++(YGTextField *)createYGTextField:(CGRect)frame placeholder:(NSString*)placeholder font:(UIFont*)font;
++(YGTextField *)createYGTextField:(CGRect)frame placeholder:(NSString*)placeholder font:(UIFont*)font  textColor:(UIColor*)textColor borderWidth:(CGFloat)borderWidth borderColor:(UIColor*)borderColor;
+
++(UIScrollView*)createUIScrollViewWithFrame:(CGRect)frame color:(UIColor*)color;
++(RadioButton*)createRadioButton:(NSString*)normal  highlighted:(NSString*)highlighted font:(UIFont*)font title:(NSString*)title  titleColor:(UIColor*)titleColor groupId:(NSString*)groupId delegate:(id)delegate;
+@end
+
+
+typedef  UIView * (^PropertyById)(NSString*propertyList,id value);
+typedef  UIView * (^ReturnBlock)(id value);
+@interface UIView (LHUI)
+@property (nonatomic,readonly) PropertyById propertyById;
++ (instancetype)return:(ReturnBlock)block;
+@end
+//UIButton*button = [UIButton return:^UIView *(UIButton* value) {
+//    value.propertyById(@"backgroundColor",hColorRandomColor)
+//    .propertyById(@"layer.cornerRadius",@(5))
+//    .propertyById(@"frame.size.height",@"100");
+//    return value;
+//}];

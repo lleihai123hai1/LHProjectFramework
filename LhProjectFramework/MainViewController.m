@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "EnterSDAutoLayoutViewController.h"
 #import "JsPathViewController.h"
+#import "BaseViewCreateViewController.h"
 @interface MainViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView*table;
 @end
@@ -24,7 +25,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    _contenArray = @[@{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"},@{@"title":@"JsPathViewController",@"content":@"热修复"}];
+    _contenArray = @[@{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"},@{@"title":@"JsPathViewController",@"content":@"热修复"},@{@"title":@"BaseViewCreateViewController",@"content":@"测试BaseViewCreate"}];
     [self.view addSubview:self.table];
     [self.table reloadData];
 }

@@ -1,0 +1,350 @@
+#import "BaseViewCreate.h"
+#import "YGNavButton.h"
+@implementation BaseViewCreate
+
+
+#pragma mark 根据设备返回默认距离
+
++(CGFloat)getLeftDistance{
+    if ([Utility getNode].isIpad) {
+        return 20;
+    }
+    return 15;
+}
++(CGFloat)getRightDistance{
+    if ([Utility getNode].isIpad) {
+        return 20;
+    }
+    return 14;
+}
+
++(CGFloat)getBotomDistance{
+    if ([Utility getNode].isIpad) {
+        return 20;
+    }
+    return 15;
+}
+
++(CGFloat)getHeadeDistance{
+    if ([Utility getNode].isIpad) {
+        return 20;
+    }
+    return 15;
+}
+
+
+#pragma mark-属性字符串声称
++(NSMutableAttributedString *)getAttributedStringWithString:(NSString *)string{
+    
+    return [self getAttributedStringWithString:string color:nil fontSize:0];
+}
++(NSMutableAttributedString *)getAttributedStringWithString:(NSString *)string color:(NSString *)color fontSize:(CGFloat)fontSize{
+    return [self getAttributedStringWithString:string color:color font:[UIFont systemFontOfSize:fontSize]  isNeedStrikethrough:NO];
+}
+
++(NSMutableAttributedString *)getAttributedStringWithString:(NSString *)string color:(NSString *)color font:(UIFont*)font{
+    return [self getAttributedStringWithString:string color:color font:font  isNeedStrikethrough:NO];
+}
+
++(NSMutableAttributedString *)getAttributedStringWithString:(NSString *)string color:(NSString *)color font:(UIFont*)font  isNeedStrikethrough:(BOOL)isNeedStrikethrough{
+    if (!string) {
+        return nil;
+    }
+    NSMutableDictionary *atrDict = [NSMutableDictionary dictionary];
+    if (color) {
+        [atrDict setObject:[Utility hexStringToColor:color] forKey:NSForegroundColorAttributeName];
+    }else{
+        [atrDict setObject:[Utility hexStringToColor:@""] forKey:NSForegroundColorAttributeName];
+    }
+    if (font) {
+        [atrDict setObject:font forKey:NSFontAttributeName];
+    }else{
+        [atrDict setObject:[UIFont systemFontOfSize:10] forKey:NSFontAttributeName];
+    }
+    
+    if (isNeedStrikethrough) {
+        [atrDict setObject:@(NSUnderlineStyleSingle) forKey:NSStrikethroughStyleAttributeName];
+    }
+    
+    NSMutableAttributedString *tmpAttr = [[NSMutableAttributedString alloc] initWithString:string attributes:atrDict];
+    return tmpAttr;
+}
++(NSAttributedString *)getSpaceAttributedStringWithWidth:(CGFloat)width{
+    
+    return [self getSpaceAttributedStringWithWidth:width height:1 offsetY:0];
+}
++(NSAttributedString *)getSpaceAttributedStringWithWidth:(CGFloat)width height:(CGFloat)height offsetY:(CGFloat)offsetY{
+    
+    NSTextAttachment *atext = [[NSTextAttachment alloc] init];
+    atext.bounds = CGRectMake(0, offsetY, width, height);
+    return [NSAttributedString attributedStringWithAttachment:atext];
+}
++(NSAttributedString *)getImageTextAttributedStringWithImage:(UIImage *)image fontSize:(CGFloat)fontSize{
+    
+    NSTextAttachment *atext = [[NSTextAttachment alloc] init];
+    atext.image = image;
+    atext.bounds = (CGRect){CGPointMake(0, (fontSize-image.size.height)/2),image.size};
+    return [NSAttributedString attributedStringWithAttachment:atext];
+}
+
+#pragma mark-给view添加渐变层
++(void)addGradientWithView:(UIView *)view colors:(NSArray *)colors locations:(NSArray *)locations{
+    
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.frame = view.bounds;
+    gradientLayer.startPoint = CGPointMake(0, 0);
+    gradientLayer.endPoint = CGPointMake(0, 1);
+    gradientLayer.colors = colors;
+    gradientLayer.locations = locations;
+    [view.layer addSublayer:gradientLayer];
+}
++(UIButton *)createButtonWithTitle:(NSString *)title font:(UIFont*)font target:(id)target sel:(SEL)sel normalColor:(NSString *)normalColor highlightColor:(NSString *)highlightColor{
+    UIButton *button = [YGNavButton buttonWithType:UIButtonTypeCustom];
+    button.titleLabel.font = font;
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:[Utility hexStringToColor:normalColor] forState:UIControlStateNormal];
+    [button setTitleColor:[Utility hexStringToColor:highlightColor] forState:UIControlStateHighlighted];
+    button.size = [Utility getSizeFormString:title maxW:MAXFLOAT font:font];
+    [button addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
+    return button;
+
+}
+#pragma mark- 纯色按钮生成
++(UIButton *)createColorButtonWithFrame:(CGRect)frame title:(NSString *)title target:(id)target sel:(SEL)sel normalColor:(NSString *)normalColor highlightColor:(NSString *)highlightColor{
+    
+    UIButton *button = [YGNavButton buttonWithType:UIButtonTypeCustom];
+    button.frame = frame;
+    button.layer.masksToBounds = YES;
+    button.layer.cornerRadius = 5.0;
+    [button setBackgroundImage:[Utility imageFromColor:[Utility hexStringToColor:normalColor] size:CGSizeMake(1, 1)] forState:UIControlStateNormal];
+    if (highlightColor) {
+        [button setBackgroundImage:[Utility imageFromColor:[Utility hexStringToColor:highlightColor] size:CGSizeMake(1, 1)] forState:UIControlStateHighlighted];
+    }
+    [button setTitle:title forState:UIControlStateNormal];
+    [button addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
+    
+    return button;
+}
+
++(UIButton *)createSpecalButton:(NSString *)title  font:(UIFont*)font color:(UIColor *)color normalImage:(NSString *)normalImage target:(id)target sel:(SEL)sel{
+    UIButton *button = [[YGNavButton alloc] init];
+    [button.titleLabel setFont:font];
+    [button setTitleColor:color forState:UIControlStateNormal];
+    UIImage*image = [UIImage imageNamed:normalImage];
+    [button setImage:image forState:UIControlStateNormal];
+    [button setTitle:title forState:UIControlStateNormal];
+    CGSize size = [Utility getSizeFormString:button.titleLabel.text maxW:MAXFLOAT font:button.titleLabel.font];
+    button.size = CGSizeMake(size.width+image.size.width+10, size.height+2);
+    [button addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
+    [button setImageEdgeInsets:UIEdgeInsetsMake(button.imageEdgeInsets.top,0, button.imageEdgeInsets.bottom,button.imageEdgeInsets.right)];
+    [button setTitleEdgeInsets:UIEdgeInsetsMake(button.titleEdgeInsets.top,image.size.width-10,button.titleEdgeInsets.right, button.titleEdgeInsets.bottom)];
+
+    return button;
+}
+
++(UIButton *)createButton:(NSString *)normalImage target:(id)target sel:(SEL)sel{
+    UIButton *button = [[YGNavButton alloc] init];
+    UIImage*image = [UIImage imageNamed:normalImage];
+    CGSize size = [self getSize:image.size];
+    [button setImage:image forState:UIControlStateNormal];
+    button.size = size;
+    [button addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
+    return button;
+}
+
+
++(UIButton *)createButton:(NSString *)normalImage  highlightedImage:(NSString *)highlightedImage target:(id)target sel:(SEL)sel{
+    UIButton *button = [[YGNavButton alloc] init];
+    UIImage*image = [UIImage imageNamed:normalImage];
+    CGSize size = [self getSize:image.size];
+    [button setImage:image forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:highlightedImage] forState:UIControlStateHighlighted];
+    button.size = size;
+    [button addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
+    return button;
+}
+
+
++(UIButton *)createButton:(NSString *)normalImage  selectImage:(NSString *)selectImage target:(id)target sel:(SEL)sel{
+    UIButton *button = [[YGNavButton alloc] init];
+    UIImage*image = [UIImage imageNamed:normalImage];
+    CGSize size = [self getSize:image.size];
+    [button setImage:image forState:UIControlStateNormal];
+    [button setImage:image forState:UIControlStateHighlighted];
+    [button setImage:[UIImage imageNamed:selectImage] forState:UIControlStateSelected];
+    button.size = size;
+    [button addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
+    return button;
+}
+
+
++(UIButton *)createButton:(NSString *)normalImage  disabledImage:(NSString *)disabledImage target:(id)target sel:(SEL)sel{
+    UIButton *button = [[YGNavButton alloc] init];
+    UIImage*image = [UIImage imageNamed:normalImage];
+    CGSize size = [self getSize:image.size];
+    [button setImage:image forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:disabledImage] forState:UIControlStateDisabled];
+    button.size = size;
+    [button addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
+    return button;
+}
+
+#pragma mark 大小改变
++(CGSize)getSize:(CGSize)size{
+    if ([Utility getNode].isIphone6plus || [Utility getNode].isIpad) {
+        return size;
+    }
+    return  CGSizeMake(size.width, size.height);
+}
++(UIProgressView *)createProgressViewWithFrame:(CGRect)frame progressTintColor:(UIColor *)progressTintColor trackTintColor:(UIColor *)trackTintColor{
+    UIProgressView*_progressView = [[UIProgressView alloc] initWithFrame:frame];
+    _progressView.progressTintColor = progressTintColor;
+    _progressView.trackTintColor = RGB(0xecedec);
+    return _progressView;
+}
+
+
+#pragma mark- create Label
++(UILabel *)createLabelWithFrame:(CGRect)frame{
+    return [self createLabelWithFrame:frame font:[UIFont systemFontOfSize:15] textColor:@"#000000"];
+}
++(UILabel *)createLabelWithFrame:(CGRect)frame font:(UIFont*)font textColor:(NSString *)textColor{
+    
+    return [self createLabelWithFrame:frame font:(UIFont*)font textColor:textColor textAlignment:NSTextAlignmentCenter];
+}
++(UILabel *)createLabelWithFrame:(CGRect)frame font:(UIFont*)font textColor:(NSString *)textColor textAlignment:(NSTextAlignment)textAlignment{
+    if (frame.size.height <= (font.pointSize -1.0)) {
+        frame.size.height = font.pointSize+1.3;
+    }
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.font = font;
+    label.textColor = [Utility hexStringToColor:textColor];
+    label.textAlignment = textAlignment;
+    label.userInteractionEnabled = NO;
+    return label;
+}
+#pragma mark- createColorLayer
++(CALayer *)createColorLayerWithFrame:(CGRect)frame color:(NSString *)color{
+
+    CALayer *layer = [CALayer layer];
+    layer.frame = frame;
+    layer.backgroundColor = [Utility hexStringToColor:color].CGColor;
+    return layer;
+}
+
+
++(UIView *)createUiviewWithFrame:(CGRect)frame color:(UIColor*)color {
+    return [self createUiviewWithFrame:frame color:color borderWidth:-1 borderColor:nil cornerRadius:0];
+}
+
+
++(UIView *)createUiviewWithFrame:(CGRect)frame color:(UIColor*)color borderWidth:(CGFloat)borderWidth borderColor:(UIColor*)borderColor {
+    return [self createUiviewWithFrame:frame color:color borderWidth:borderWidth borderColor:borderColor cornerRadius:0];
+}
+
++(UIView *)createUiviewWithFrame:(CGRect)frame color:(UIColor*)color borderWidth:(CGFloat)borderWidth borderColor:(UIColor*)borderColor cornerRadius:(CGFloat)cornerRadius{
+    UIView *view = [[UIView alloc]initWithFrame:frame];
+    view.backgroundColor = color;
+    if (borderWidth > 0) {
+        view.layer.borderWidth = borderWidth;
+        view.layer.borderColor = [borderColor CGColor];
+    }
+    view.layer.cornerRadius = cornerRadius;
+    view.userInteractionEnabled = NO;
+    return view;
+}
+
++(UIImageView *)createUIImageView:(NSString*)name{
+    UIImage*image = [UIImage imageNamed:name];
+    CGSize size = [self getSize:image.size];
+    UIImageView*view = [[UIImageView alloc]init];
+    view.image = image;
+    view.size = size;
+    view.userInteractionEnabled = NO;
+    return view;
+}
+
+
++(YGTextField *)createYGTextField:(CGRect)frame placeholder:(NSString*)placeholder font:(UIFont*)font {
+    return [self createYGTextField:frame placeholder:placeholder font:font];
+}
++(YGTextField *)createYGTextField:(CGRect)frame placeholder:(NSString*)placeholder font:(UIFont*)font  textColor:(UIColor*)textColor borderWidth:(CGFloat)borderWidth borderColor:(UIColor*)borderColor{
+    YGTextField*textField = [[YGTextField alloc] initWithFrame:frame];
+    textField.layer.borderWidth = 1;
+    textField.layer.borderColor = [borderColor CGColor];
+    textField.placeholder = placeholder;
+    textField.textColor = textColor;
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textField.secureTextEntry = NO;
+    [textField setFont:font];
+    textField.backgroundColor = [UIColor clearColor];
+    return textField;
+}
+
++(UIScrollView*)createUIScrollViewWithFrame:(CGRect)frame color:(UIColor*)color{
+    UIScrollView*scrollView = [[UIScrollView alloc] initWithFrame:frame];
+    scrollView.backgroundColor = color;
+    scrollView.showsVerticalScrollIndicator = NO;
+    return scrollView;
+}
+
+
+
++(RadioButton*)createRadioButton:(NSString*)normal  highlighted:(NSString*)highlighted font:(UIFont*)font title:(NSString*)title  titleColor:(UIColor*)titleColor groupId:(NSString*)groupId delegate:(id)delegate{
+    RadioButton*ra = [[RadioButton alloc] initWithDelegate:delegate groupId:groupId];
+    [ra setImage:[UIImage imageNamed:normal] forState:UIControlStateNormal];
+    [ra setImage:[UIImage imageNamed:highlighted] forState:UIControlStateSelected];
+    ra.titleLabel.font = font;
+    [ra setTitle:[NSString stringWithFormat:@"  %@",title] forState:UIControlStateNormal];
+    [ra setTitleColor:titleColor forState:UIControlStateNormal];
+    return ra;
+}
+@end
+
+
+@implementation UIView (LHUI)
+-(PropertyById)propertyById{
+    @weakify(self);
+    PropertyById tmppropertyById = ^(NSString*propertyList,id value){
+        @strongify(self);
+        NSArray *aArray = [propertyList componentsSeparatedByString:@"."];
+        __block id tmpValue = self;
+        NSInteger count = aArray.count -1;
+        for (NSInteger i = 0; i < count; i++) {
+            @try{
+                tmpValue = [tmpValue valueForKey:aArray[i]];
+            }@catch(NSException* e) {
+                NSLog(@"Error:传入的(%@)属性没有读取到",aArray[i]);
+                return self;
+            }
+            
+            if(!tmpValue || ![tmpValue isKindOfClass:[NSObject class]]){
+                NSLog(@"Error:传入的(%@)属性没有读取到",aArray[i]);
+                return self;
+            }
+        }
+        if(value){
+            @try{
+                [tmpValue setValue:value forKey:aArray[count]];
+            }@catch(NSException* e) {
+                NSLog(@"Error:修改(%@)属性错误",aArray[count]);
+            }
+        }else{
+            NSLog(@"warning:传入的value的类型和要修改的属性的类型一样");
+        }
+        
+        return self;
+    };
+    return tmppropertyById;
+}
+
++ (instancetype)return:(ReturnBlock)block {
+    if(block){
+       return block([self new]);
+    }
+    return [self new];
+}
+
+
+@end
+

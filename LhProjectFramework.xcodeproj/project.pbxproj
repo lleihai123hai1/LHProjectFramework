@@ -305,6 +305,8 @@
 		EBB4AC621E5EC2BA0011AEB1 /* JSPatch.js in Resources */ = {isa = PBXBuildFile; fileRef = EBB4AC361E5EC2BA0011AEB1 /* JSPatch.js */; };
 		EBB4AC631E5EC2BA0011AEB1 /* lh.js in Resources */ = {isa = PBXBuildFile; fileRef = EBB4AC371E5EC2BA0011AEB1 /* lh.js */; };
 		EBB4AC681E5EC3DC0011AEB1 /* JsPathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC671E5EC3DC0011AEB1 /* JsPathViewController.m */; };
+		EBB4AC6C1E5ECF040011AEB1 /* BaseViewCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC6B1E5ECF040011AEB1 /* BaseViewCreate.m */; };
+		EBB4AC701E5ED3BD0011AEB1 /* BaseViewCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC6F1E5ED3BD0011AEB1 /* BaseViewCreateViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -912,6 +914,10 @@
 		EBB4AC371E5EC2BA0011AEB1 /* lh.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lh.js; sourceTree = "<group>"; };
 		EBB4AC661E5EC3DC0011AEB1 /* JsPathViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsPathViewController.h; sourceTree = "<group>"; };
 		EBB4AC671E5EC3DC0011AEB1 /* JsPathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsPathViewController.m; sourceTree = "<group>"; };
+		EBB4AC6A1E5ECF040011AEB1 /* BaseViewCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewCreate.h; sourceTree = "<group>"; };
+		EBB4AC6B1E5ECF040011AEB1 /* BaseViewCreate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewCreate.m; sourceTree = "<group>"; };
+		EBB4AC6E1E5ED3BD0011AEB1 /* BaseViewCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewCreateViewController.h; sourceTree = "<group>"; };
+		EBB4AC6F1E5ED3BD0011AEB1 /* BaseViewCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewCreateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -998,6 +1004,7 @@
 		EB12C2281E5C3C2C00564DE6 /* UILib */ = {
 			isa = PBXGroup;
 			children = (
+				EBB4AC691E5ECF040011AEB1 /* BaseViewCreate */,
 				EB12C39E1E5C40CA00564DE6 /* LEETheme */,
 				EB12C3A11E5C40CA00564DE6 /* MLEmojiLabel */,
 				EB12C3C61E5C40CA00564DE6 /* SDCycleScrollView */,
@@ -1025,6 +1032,7 @@
 		EB12C2311E5C3C8200564DE6 /* TestUILib */ = {
 			isa = PBXGroup;
 			children = (
+				EBB4AC6D1E5ED3BC0011AEB1 /* BaseViewCreate */,
 				EB12C2321E5C3C8200564DE6 /* SDAutoLayout */,
 			);
 			path = TestUILib;
@@ -2311,6 +2319,24 @@
 			path = jspathlib;
 			sourceTree = "<group>";
 		};
+		EBB4AC691E5ECF040011AEB1 /* BaseViewCreate */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4AC6A1E5ECF040011AEB1 /* BaseViewCreate.h */,
+				EBB4AC6B1E5ECF040011AEB1 /* BaseViewCreate.m */,
+			);
+			path = BaseViewCreate;
+			sourceTree = "<group>";
+		};
+		EBB4AC6D1E5ED3BC0011AEB1 /* BaseViewCreate */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4AC6E1E5ED3BD0011AEB1 /* BaseViewCreateViewController.h */,
+				EBB4AC6F1E5ED3BD0011AEB1 /* BaseViewCreateViewController.m */,
+			);
+			path = BaseViewCreate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2441,6 +2467,7 @@
 				EB12C3771E5C3C8200564DE6 /* DemoVC14Cell.m in Sources */,
 				EBB4AC5B1E5EC2BA0011AEB1 /* JPDevErrorView.m in Sources */,
 				EB12C3721E5C3C8200564DE6 /* SDChatTableViewCell.m in Sources */,
+				EBB4AC701E5ED3BD0011AEB1 /* BaseViewCreateViewController.m in Sources */,
 				EB12C3361E5C3C8200564DE6 /* AFSecurityPolicy.m in Sources */,
 				EBB4ABAC1E5EC0FB0011AEB1 /* RACSignal+Operations.m in Sources */,
 				EBB4AC491E5EC2BA0011AEB1 /* JPCGColor.m in Sources */,
@@ -2514,6 +2541,7 @@
 				EB12C3981E5C3FE300564DE6 /* EnterSDAutoLayoutViewController.m in Sources */,
 				EBB4ABBD1E5EC0FB0011AEB1 /* UIActionSheet+RACSignalSupport.m in Sources */,
 				EB12C3871E5C3C8200564DE6 /* DemoVC9.m in Sources */,
+				EBB4AC6C1E5ECF040011AEB1 /* BaseViewCreate.m in Sources */,
 				EB12C3311E5C3C8200564DE6 /* DemoVC10.m in Sources */,
 				EB12C42A1E5C40CB00564DE6 /* SDRefreshView.m in Sources */,
 				EBB4AB991E5EC0FB0011AEB1 /* RACEmptySignal.m in Sources */,
