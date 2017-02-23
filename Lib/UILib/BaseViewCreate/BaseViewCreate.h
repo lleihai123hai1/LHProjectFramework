@@ -24,11 +24,20 @@ typedef  UIButton* (^ClickActionBlock)(ClickBlock value);
 @property (nonatomic,readonly) ClickActionBlock lh_clickAction;
 @end
 
-//UIButton*button = [UIButton return:^UIView *(UIButton* value) {
-//    value.propertyById(@"backgroundColor",hColorRandomColor)
-//    .propertyById(@"layer.cornerRadius",@(5))
-//    .propertyById(@"frame.size.height",@"100");
-//    return value;
-//}];
+//-(UIButton*)button{
+//    if(!_button){
+//        _button = [UIButton return:^NSObject *(UIButton* value) {
+//            return value
+//            .lh_clickAction(^(UIButton *sender){
+//                NSLog(@"clickAction");
+//            })
+//            .lh_backgroundColor([UIColor redColor])
+//            .lh_alpha(@(0.4))
+//            .lh_layer_cornerRadius(@(10))
+//            .lh_frame(CGRectMake(100, 200, 100, 100));
+//        }];
+//    }
+//    return _button;
+//}
 
 
