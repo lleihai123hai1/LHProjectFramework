@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/scm/svn/ios_h2o/!svn/ver/4344/trunk/DailyYoga/lhlib/thirdlib/jspathlib/Extensions/JPCFunction/libffi/src/aarch64
+END
+ffi_arm64.c
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/scm/svn/ios_h2o/!svn/ver/4344/trunk/DailyYoga/lhlib/thirdlib/jspathlib/Extensions/JPCFunction/libffi/src/aarch64/ffi_arm64.c
+END
+sysv_arm64.S
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/scm/svn/ios_h2o/!svn/ver/4344/trunk/DailyYoga/lhlib/thirdlib/jspathlib/Extensions/JPCFunction/libffi/src/aarch64/sysv_arm64.S
+END

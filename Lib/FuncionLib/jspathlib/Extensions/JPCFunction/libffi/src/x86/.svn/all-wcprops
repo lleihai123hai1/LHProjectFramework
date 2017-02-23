@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/scm/svn/ios_h2o/!svn/ver/4344/trunk/DailyYoga/lhlib/thirdlib/jspathlib/Extensions/JPCFunction/libffi/src/x86
+END
+win32_i386.S
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/scm/svn/ios_h2o/!svn/ver/4344/trunk/DailyYoga/lhlib/thirdlib/jspathlib/Extensions/JPCFunction/libffi/src/x86/win32_i386.S
+END
+darwin64_x86_64.S
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/scm/svn/ios_h2o/!svn/ver/4344/trunk/DailyYoga/lhlib/thirdlib/jspathlib/Extensions/JPCFunction/libffi/src/x86/darwin64_x86_64.S
+END
+ffi64_x86_64.c
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/scm/svn/ios_h2o/!svn/ver/4344/trunk/DailyYoga/lhlib/thirdlib/jspathlib/Extensions/JPCFunction/libffi/src/x86/ffi64_x86_64.c
+END
+darwin_i386.S
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/scm/svn/ios_h2o/!svn/ver/4344/trunk/DailyYoga/lhlib/thirdlib/jspathlib/Extensions/JPCFunction/libffi/src/x86/darwin_i386.S
+END
+ffi_i386.c
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/scm/svn/ios_h2o/!svn/ver/4344/trunk/DailyYoga/lhlib/thirdlib/jspathlib/Extensions/JPCFunction/libffi/src/x86/ffi_i386.c
+END

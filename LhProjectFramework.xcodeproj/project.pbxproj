@@ -260,6 +260,51 @@
 		EBB4ABCD1E5EC0FB0011AEB1 /* UITableViewHeaderFooterView+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AB6E1E5EC0FB0011AEB1 /* UITableViewHeaderFooterView+RACSignalSupport.m */; };
 		EBB4ABCE1E5EC0FB0011AEB1 /* UITextField+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AB701E5EC0FB0011AEB1 /* UITextField+RACSignalSupport.m */; };
 		EBB4ABCF1E5EC0FB0011AEB1 /* UITextView+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AB721E5EC0FB0011AEB1 /* UITextView+RACSignalSupport.m */; };
+		EBB4AC381E5EC2BA0011AEB1 /* JPCFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABD41E5EC2BA0011AEB1 /* JPCFunction.m */; };
+		EBB4AC391E5EC2BA0011AEB1 /* JPMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABD61E5EC2BA0011AEB1 /* JPMemory.m */; };
+		EBB4AC3A1E5EC2BA0011AEB1 /* JPStructPointer.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABD81E5EC2BA0011AEB1 /* JPStructPointer.m */; };
+		EBB4AC3B1E5EC2BA0011AEB1 /* ffi_arm64.c in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABED1E5EC2BA0011AEB1 /* ffi_arm64.c */; };
+		EBB4AC3C1E5EC2BA0011AEB1 /* sysv_arm64.S in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABEE1E5EC2BA0011AEB1 /* sysv_arm64.S */; };
+		EBB4AC3D1E5EC2BA0011AEB1 /* ffi_armv7.c in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABF01E5EC2BA0011AEB1 /* ffi_armv7.c */; };
+		EBB4AC3E1E5EC2BA0011AEB1 /* sysv_armv7.S in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABF11E5EC2BA0011AEB1 /* sysv_armv7.S */; };
+		EBB4AC3F1E5EC2BA0011AEB1 /* trampoline_armv7.S in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABF21E5EC2BA0011AEB1 /* trampoline_armv7.S */; };
+		EBB4AC401E5EC2BA0011AEB1 /* prep_cif.c in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABF41E5EC2BA0011AEB1 /* prep_cif.c */; };
+		EBB4AC411E5EC2BA0011AEB1 /* raw_api.c in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABF51E5EC2BA0011AEB1 /* raw_api.c */; };
+		EBB4AC421E5EC2BA0011AEB1 /* types.c in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABF61E5EC2BA0011AEB1 /* types.c */; };
+		EBB4AC431E5EC2BA0011AEB1 /* darwin64_x86_64.S in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABF81E5EC2BA0011AEB1 /* darwin64_x86_64.S */; };
+		EBB4AC441E5EC2BA0011AEB1 /* darwin_i386.S in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABF91E5EC2BA0011AEB1 /* darwin_i386.S */; };
+		EBB4AC451E5EC2BA0011AEB1 /* ffi64_x86_64.c in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABFA1E5EC2BA0011AEB1 /* ffi64_x86_64.c */; };
+		EBB4AC461E5EC2BA0011AEB1 /* ffi_i386.c in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABFB1E5EC2BA0011AEB1 /* ffi_i386.c */; };
+		EBB4AC471E5EC2BA0011AEB1 /* win32_i386.S in Sources */ = {isa = PBXBuildFile; fileRef = EBB4ABFC1E5EC2BA0011AEB1 /* win32_i386.S */; };
+		EBB4AC481E5EC2BA0011AEB1 /* JPCGBitmapContext.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC001E5EC2BA0011AEB1 /* JPCGBitmapContext.m */; };
+		EBB4AC491E5EC2BA0011AEB1 /* JPCGColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC021E5EC2BA0011AEB1 /* JPCGColor.m */; };
+		EBB4AC4A1E5EC2BA0011AEB1 /* JPCGContext.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC041E5EC2BA0011AEB1 /* JPCGContext.m */; };
+		EBB4AC4B1E5EC2BA0011AEB1 /* JPCGGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC061E5EC2BA0011AEB1 /* JPCGGeometry.m */; };
+		EBB4AC4C1E5EC2BA0011AEB1 /* JPCGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC081E5EC2BA0011AEB1 /* JPCGImage.m */; };
+		EBB4AC4D1E5EC2BA0011AEB1 /* JPCGPath.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC0A1E5EC2BA0011AEB1 /* JPCGPath.m */; };
+		EBB4AC4E1E5EC2BA0011AEB1 /* JPCGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC0C1E5EC2BA0011AEB1 /* JPCGTransform.m */; };
+		EBB4AC4F1E5EC2BA0011AEB1 /* JPCoreGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC0E1E5EC2BA0011AEB1 /* JPCoreGraphics.m */; };
+		EBB4AC501E5EC2BA0011AEB1 /* JPUIGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC111E5EC2BA0011AEB1 /* JPUIGeometry.m */; };
+		EBB4AC511E5EC2BA0011AEB1 /* JPUIGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC131E5EC2BA0011AEB1 /* JPUIGraphics.m */; };
+		EBB4AC521E5EC2BA0011AEB1 /* JPUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC151E5EC2BA0011AEB1 /* JPUIImage.m */; };
+		EBB4AC531E5EC2BA0011AEB1 /* JPUIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC171E5EC2BA0011AEB1 /* JPUIKit.m */; };
+		EBB4AC541E5EC2BA0011AEB1 /* JPCleaner.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC191E5EC2BA0011AEB1 /* JPCleaner.m */; };
+		EBB4AC551E5EC2BA0011AEB1 /* JPDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC1B1E5EC2BA0011AEB1 /* JPDispatch.m */; };
+		EBB4AC561E5EC2BA0011AEB1 /* JPLocker.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC1D1E5EC2BA0011AEB1 /* JPLocker.m */; };
+		EBB4AC571E5EC2BA0011AEB1 /* JPNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC1F1E5EC2BA0011AEB1 /* JPNumber.m */; };
+		EBB4AC581E5EC2BA0011AEB1 /* JPPlayground.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC221E5EC2BA0011AEB1 /* JPPlayground.m */; };
+		EBB4AC591E5EC2BA0011AEB1 /* JPKeyCommands.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC251E5EC2BA0011AEB1 /* JPKeyCommands.m */; };
+		EBB4AC5A1E5EC2BA0011AEB1 /* SGDirWatchdog.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC271E5EC2BA0011AEB1 /* SGDirWatchdog.m */; };
+		EBB4AC5B1E5EC2BA0011AEB1 /* JPDevErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC2A1E5EC2BA0011AEB1 /* JPDevErrorView.m */; };
+		EBB4AC5C1E5EC2BA0011AEB1 /* JPDevMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC2C1E5EC2BA0011AEB1 /* JPDevMenu.m */; };
+		EBB4AC5D1E5EC2BA0011AEB1 /* JPDevTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC2E1E5EC2BA0011AEB1 /* JPDevTipView.m */; };
+		EBB4AC5E1E5EC2BA0011AEB1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC2F1E5EC2BA0011AEB1 /* README.md */; };
+		EBB4AC5F1E5EC2BA0011AEB1 /* JPProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC311E5EC2BA0011AEB1 /* JPProtocol.m */; };
+		EBB4AC601E5EC2BA0011AEB1 /* JPSpecialInit.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC331E5EC2BA0011AEB1 /* JPSpecialInit.m */; };
+		EBB4AC611E5EC2BA0011AEB1 /* JPEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC351E5EC2BA0011AEB1 /* JPEngine.m */; };
+		EBB4AC621E5EC2BA0011AEB1 /* JSPatch.js in Resources */ = {isa = PBXBuildFile; fileRef = EBB4AC361E5EC2BA0011AEB1 /* JSPatch.js */; };
+		EBB4AC631E5EC2BA0011AEB1 /* lh.js in Resources */ = {isa = PBXBuildFile; fileRef = EBB4AC371E5EC2BA0011AEB1 /* lh.js */; };
+		EBB4AC681E5EC3DC0011AEB1 /* JsPathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AC671E5EC3DC0011AEB1 /* JsPathViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -777,6 +822,96 @@
 		EBB4AB711E5EC0FB0011AEB1 /* UITextView+RACSignalSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+RACSignalSupport.h"; sourceTree = "<group>"; };
 		EBB4AB721E5EC0FB0011AEB1 /* UITextView+RACSignalSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+RACSignalSupport.m"; sourceTree = "<group>"; };
 		EBB4AB731E5EC0FB0011AEB1 /* ReactiveCocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactiveCocoa.h; sourceTree = "<group>"; };
+		EBB4ABD31E5EC2BA0011AEB1 /* JPCFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCFunction.h; sourceTree = "<group>"; };
+		EBB4ABD41E5EC2BA0011AEB1 /* JPCFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCFunction.m; sourceTree = "<group>"; };
+		EBB4ABD51E5EC2BA0011AEB1 /* JPMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMemory.h; sourceTree = "<group>"; };
+		EBB4ABD61E5EC2BA0011AEB1 /* JPMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMemory.m; sourceTree = "<group>"; };
+		EBB4ABD71E5EC2BA0011AEB1 /* JPStructPointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPStructPointer.h; sourceTree = "<group>"; };
+		EBB4ABD81E5EC2BA0011AEB1 /* JPStructPointer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPStructPointer.m; sourceTree = "<group>"; };
+		EBB4ABDB1E5EC2BA0011AEB1 /* ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
+		EBB4ABDC1E5EC2BA0011AEB1 /* ffi_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_arm64.h; sourceTree = "<group>"; };
+		EBB4ABDD1E5EC2BA0011AEB1 /* ffi_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_armv7.h; sourceTree = "<group>"; };
+		EBB4ABDE1E5EC2BA0011AEB1 /* ffi_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_common.h; sourceTree = "<group>"; };
+		EBB4ABDF1E5EC2BA0011AEB1 /* ffi_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_i386.h; sourceTree = "<group>"; };
+		EBB4ABE01E5EC2BA0011AEB1 /* ffi_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_x86_64.h; sourceTree = "<group>"; };
+		EBB4ABE11E5EC2BA0011AEB1 /* fficonfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig.h; sourceTree = "<group>"; };
+		EBB4ABE21E5EC2BA0011AEB1 /* fficonfig_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_arm64.h; sourceTree = "<group>"; };
+		EBB4ABE31E5EC2BA0011AEB1 /* fficonfig_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_armv7.h; sourceTree = "<group>"; };
+		EBB4ABE41E5EC2BA0011AEB1 /* fficonfig_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_i386.h; sourceTree = "<group>"; };
+		EBB4ABE51E5EC2BA0011AEB1 /* fficonfig_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig_x86_64.h; sourceTree = "<group>"; };
+		EBB4ABE61E5EC2BA0011AEB1 /* ffitarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget.h; sourceTree = "<group>"; };
+		EBB4ABE71E5EC2BA0011AEB1 /* ffitarget_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_arm64.h; sourceTree = "<group>"; };
+		EBB4ABE81E5EC2BA0011AEB1 /* ffitarget_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_armv7.h; sourceTree = "<group>"; };
+		EBB4ABE91E5EC2BA0011AEB1 /* ffitarget_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_i386.h; sourceTree = "<group>"; };
+		EBB4ABEA1E5EC2BA0011AEB1 /* ffitarget_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_x86_64.h; sourceTree = "<group>"; };
+		EBB4ABED1E5EC2BA0011AEB1 /* ffi_arm64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi_arm64.c; sourceTree = "<group>"; };
+		EBB4ABEE1E5EC2BA0011AEB1 /* sysv_arm64.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = sysv_arm64.S; sourceTree = "<group>"; };
+		EBB4ABF01E5EC2BA0011AEB1 /* ffi_armv7.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi_armv7.c; sourceTree = "<group>"; };
+		EBB4ABF11E5EC2BA0011AEB1 /* sysv_armv7.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = sysv_armv7.S; sourceTree = "<group>"; };
+		EBB4ABF21E5EC2BA0011AEB1 /* trampoline_armv7.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = trampoline_armv7.S; sourceTree = "<group>"; };
+		EBB4ABF41E5EC2BA0011AEB1 /* prep_cif.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = prep_cif.c; sourceTree = "<group>"; };
+		EBB4ABF51E5EC2BA0011AEB1 /* raw_api.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = raw_api.c; sourceTree = "<group>"; };
+		EBB4ABF61E5EC2BA0011AEB1 /* types.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = types.c; sourceTree = "<group>"; };
+		EBB4ABF81E5EC2BA0011AEB1 /* darwin64_x86_64.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = darwin64_x86_64.S; sourceTree = "<group>"; };
+		EBB4ABF91E5EC2BA0011AEB1 /* darwin_i386.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = darwin_i386.S; sourceTree = "<group>"; };
+		EBB4ABFA1E5EC2BA0011AEB1 /* ffi64_x86_64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi64_x86_64.c; sourceTree = "<group>"; };
+		EBB4ABFB1E5EC2BA0011AEB1 /* ffi_i386.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ffi_i386.c; sourceTree = "<group>"; };
+		EBB4ABFC1E5EC2BA0011AEB1 /* win32_i386.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = win32_i386.S; sourceTree = "<group>"; };
+		EBB4ABFF1E5EC2BA0011AEB1 /* JPCGBitmapContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCGBitmapContext.h; sourceTree = "<group>"; };
+		EBB4AC001E5EC2BA0011AEB1 /* JPCGBitmapContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCGBitmapContext.m; sourceTree = "<group>"; };
+		EBB4AC011E5EC2BA0011AEB1 /* JPCGColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCGColor.h; sourceTree = "<group>"; };
+		EBB4AC021E5EC2BA0011AEB1 /* JPCGColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCGColor.m; sourceTree = "<group>"; };
+		EBB4AC031E5EC2BA0011AEB1 /* JPCGContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCGContext.h; sourceTree = "<group>"; };
+		EBB4AC041E5EC2BA0011AEB1 /* JPCGContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCGContext.m; sourceTree = "<group>"; };
+		EBB4AC051E5EC2BA0011AEB1 /* JPCGGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCGGeometry.h; sourceTree = "<group>"; };
+		EBB4AC061E5EC2BA0011AEB1 /* JPCGGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCGGeometry.m; sourceTree = "<group>"; };
+		EBB4AC071E5EC2BA0011AEB1 /* JPCGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCGImage.h; sourceTree = "<group>"; };
+		EBB4AC081E5EC2BA0011AEB1 /* JPCGImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCGImage.m; sourceTree = "<group>"; };
+		EBB4AC091E5EC2BA0011AEB1 /* JPCGPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCGPath.h; sourceTree = "<group>"; };
+		EBB4AC0A1E5EC2BA0011AEB1 /* JPCGPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCGPath.m; sourceTree = "<group>"; };
+		EBB4AC0B1E5EC2BA0011AEB1 /* JPCGTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCGTransform.h; sourceTree = "<group>"; };
+		EBB4AC0C1E5EC2BA0011AEB1 /* JPCGTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCGTransform.m; sourceTree = "<group>"; };
+		EBB4AC0D1E5EC2BA0011AEB1 /* JPCoreGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCoreGraphics.h; sourceTree = "<group>"; };
+		EBB4AC0E1E5EC2BA0011AEB1 /* JPCoreGraphics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCoreGraphics.m; sourceTree = "<group>"; };
+		EBB4AC101E5EC2BA0011AEB1 /* JPUIGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUIGeometry.h; sourceTree = "<group>"; };
+		EBB4AC111E5EC2BA0011AEB1 /* JPUIGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPUIGeometry.m; sourceTree = "<group>"; };
+		EBB4AC121E5EC2BA0011AEB1 /* JPUIGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUIGraphics.h; sourceTree = "<group>"; };
+		EBB4AC131E5EC2BA0011AEB1 /* JPUIGraphics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPUIGraphics.m; sourceTree = "<group>"; };
+		EBB4AC141E5EC2BA0011AEB1 /* JPUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUIImage.h; sourceTree = "<group>"; };
+		EBB4AC151E5EC2BA0011AEB1 /* JPUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPUIImage.m; sourceTree = "<group>"; };
+		EBB4AC161E5EC2BA0011AEB1 /* JPUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUIKit.h; sourceTree = "<group>"; };
+		EBB4AC171E5EC2BA0011AEB1 /* JPUIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPUIKit.m; sourceTree = "<group>"; };
+		EBB4AC181E5EC2BA0011AEB1 /* JPCleaner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCleaner.h; sourceTree = "<group>"; };
+		EBB4AC191E5EC2BA0011AEB1 /* JPCleaner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCleaner.m; sourceTree = "<group>"; };
+		EBB4AC1A1E5EC2BA0011AEB1 /* JPDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDispatch.h; sourceTree = "<group>"; };
+		EBB4AC1B1E5EC2BA0011AEB1 /* JPDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDispatch.m; sourceTree = "<group>"; };
+		EBB4AC1C1E5EC2BA0011AEB1 /* JPLocker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPLocker.h; sourceTree = "<group>"; };
+		EBB4AC1D1E5EC2BA0011AEB1 /* JPLocker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPLocker.m; sourceTree = "<group>"; };
+		EBB4AC1E1E5EC2BA0011AEB1 /* JPNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNumber.h; sourceTree = "<group>"; };
+		EBB4AC1F1E5EC2BA0011AEB1 /* JPNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNumber.m; sourceTree = "<group>"; };
+		EBB4AC211E5EC2BA0011AEB1 /* JPPlayground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPlayground.h; sourceTree = "<group>"; };
+		EBB4AC221E5EC2BA0011AEB1 /* JPPlayground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPlayground.m; sourceTree = "<group>"; };
+		EBB4AC241E5EC2BA0011AEB1 /* JPKeyCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPKeyCommands.h; sourceTree = "<group>"; };
+		EBB4AC251E5EC2BA0011AEB1 /* JPKeyCommands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPKeyCommands.m; sourceTree = "<group>"; };
+		EBB4AC261E5EC2BA0011AEB1 /* SGDirWatchdog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGDirWatchdog.h; sourceTree = "<group>"; };
+		EBB4AC271E5EC2BA0011AEB1 /* SGDirWatchdog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGDirWatchdog.m; sourceTree = "<group>"; };
+		EBB4AC291E5EC2BA0011AEB1 /* JPDevErrorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDevErrorView.h; sourceTree = "<group>"; };
+		EBB4AC2A1E5EC2BA0011AEB1 /* JPDevErrorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDevErrorView.m; sourceTree = "<group>"; };
+		EBB4AC2B1E5EC2BA0011AEB1 /* JPDevMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDevMenu.h; sourceTree = "<group>"; };
+		EBB4AC2C1E5EC2BA0011AEB1 /* JPDevMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDevMenu.m; sourceTree = "<group>"; };
+		EBB4AC2D1E5EC2BA0011AEB1 /* JPDevTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDevTipView.h; sourceTree = "<group>"; };
+		EBB4AC2E1E5EC2BA0011AEB1 /* JPDevTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDevTipView.m; sourceTree = "<group>"; };
+		EBB4AC2F1E5EC2BA0011AEB1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EBB4AC301E5EC2BA0011AEB1 /* JPProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProtocol.h; sourceTree = "<group>"; };
+		EBB4AC311E5EC2BA0011AEB1 /* JPProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProtocol.m; sourceTree = "<group>"; };
+		EBB4AC321E5EC2BA0011AEB1 /* JPSpecialInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSpecialInit.h; sourceTree = "<group>"; };
+		EBB4AC331E5EC2BA0011AEB1 /* JPSpecialInit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPSpecialInit.m; sourceTree = "<group>"; };
+		EBB4AC341E5EC2BA0011AEB1 /* JPEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPEngine.h; sourceTree = "<group>"; };
+		EBB4AC351E5EC2BA0011AEB1 /* JPEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPEngine.m; sourceTree = "<group>"; };
+		EBB4AC361E5EC2BA0011AEB1 /* JSPatch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSPatch.js; sourceTree = "<group>"; };
+		EBB4AC371E5EC2BA0011AEB1 /* lh.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lh.js; sourceTree = "<group>"; };
+		EBB4AC661E5EC3DC0011AEB1 /* JsPathViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsPathViewController.h; sourceTree = "<group>"; };
+		EBB4AC671E5EC3DC0011AEB1 /* JsPathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsPathViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -853,6 +988,8 @@
 		EB12C2271E5C3C2C00564DE6 /* FuncionLib */ = {
 			isa = PBXGroup;
 			children = (
+				EBB4AC641E5EC3DC0011AEB1 /* TestFuncionLib */,
+				EBB4ABD01E5EC2BA0011AEB1 /* jspathlib */,
 				EBB4AAB01E5EC0FB0011AEB1 /* ReactiveCocoa */,
 			);
 			path = FuncionLib;
@@ -1942,6 +2079,238 @@
 			path = extobjc;
 			sourceTree = "<group>";
 		};
+		EBB4ABD01E5EC2BA0011AEB1 /* jspathlib */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4ABD11E5EC2BA0011AEB1 /* Extensions */,
+				EBB4AC341E5EC2BA0011AEB1 /* JPEngine.h */,
+				EBB4AC351E5EC2BA0011AEB1 /* JPEngine.m */,
+				EBB4AC361E5EC2BA0011AEB1 /* JSPatch.js */,
+				EBB4AC371E5EC2BA0011AEB1 /* lh.js */,
+			);
+			path = jspathlib;
+			sourceTree = "<group>";
+		};
+		EBB4ABD11E5EC2BA0011AEB1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4ABD21E5EC2BA0011AEB1 /* JPCFunction */,
+				EBB4ABFD1E5EC2BA0011AEB1 /* JPCFunctionBinder */,
+				EBB4AC181E5EC2BA0011AEB1 /* JPCleaner.h */,
+				EBB4AC191E5EC2BA0011AEB1 /* JPCleaner.m */,
+				EBB4AC1A1E5EC2BA0011AEB1 /* JPDispatch.h */,
+				EBB4AC1B1E5EC2BA0011AEB1 /* JPDispatch.m */,
+				EBB4AC1C1E5EC2BA0011AEB1 /* JPLocker.h */,
+				EBB4AC1D1E5EC2BA0011AEB1 /* JPLocker.m */,
+				EBB4AC1E1E5EC2BA0011AEB1 /* JPNumber.h */,
+				EBB4AC1F1E5EC2BA0011AEB1 /* JPNumber.m */,
+				EBB4AC201E5EC2BA0011AEB1 /* JPPlaygroundTool */,
+				EBB4AC301E5EC2BA0011AEB1 /* JPProtocol.h */,
+				EBB4AC311E5EC2BA0011AEB1 /* JPProtocol.m */,
+				EBB4AC321E5EC2BA0011AEB1 /* JPSpecialInit.h */,
+				EBB4AC331E5EC2BA0011AEB1 /* JPSpecialInit.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EBB4ABD21E5EC2BA0011AEB1 /* JPCFunction */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4ABD31E5EC2BA0011AEB1 /* JPCFunction.h */,
+				EBB4ABD41E5EC2BA0011AEB1 /* JPCFunction.m */,
+				EBB4ABD51E5EC2BA0011AEB1 /* JPMemory.h */,
+				EBB4ABD61E5EC2BA0011AEB1 /* JPMemory.m */,
+				EBB4ABD71E5EC2BA0011AEB1 /* JPStructPointer.h */,
+				EBB4ABD81E5EC2BA0011AEB1 /* JPStructPointer.m */,
+				EBB4ABD91E5EC2BA0011AEB1 /* libffi */,
+			);
+			path = JPCFunction;
+			sourceTree = "<group>";
+		};
+		EBB4ABD91E5EC2BA0011AEB1 /* libffi */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4ABDA1E5EC2BA0011AEB1 /* headers */,
+				EBB4ABEB1E5EC2BA0011AEB1 /* src */,
+			);
+			path = libffi;
+			sourceTree = "<group>";
+		};
+		EBB4ABDA1E5EC2BA0011AEB1 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4ABDB1E5EC2BA0011AEB1 /* ffi.h */,
+				EBB4ABDC1E5EC2BA0011AEB1 /* ffi_arm64.h */,
+				EBB4ABDD1E5EC2BA0011AEB1 /* ffi_armv7.h */,
+				EBB4ABDE1E5EC2BA0011AEB1 /* ffi_common.h */,
+				EBB4ABDF1E5EC2BA0011AEB1 /* ffi_i386.h */,
+				EBB4ABE01E5EC2BA0011AEB1 /* ffi_x86_64.h */,
+				EBB4ABE11E5EC2BA0011AEB1 /* fficonfig.h */,
+				EBB4ABE21E5EC2BA0011AEB1 /* fficonfig_arm64.h */,
+				EBB4ABE31E5EC2BA0011AEB1 /* fficonfig_armv7.h */,
+				EBB4ABE41E5EC2BA0011AEB1 /* fficonfig_i386.h */,
+				EBB4ABE51E5EC2BA0011AEB1 /* fficonfig_x86_64.h */,
+				EBB4ABE61E5EC2BA0011AEB1 /* ffitarget.h */,
+				EBB4ABE71E5EC2BA0011AEB1 /* ffitarget_arm64.h */,
+				EBB4ABE81E5EC2BA0011AEB1 /* ffitarget_armv7.h */,
+				EBB4ABE91E5EC2BA0011AEB1 /* ffitarget_i386.h */,
+				EBB4ABEA1E5EC2BA0011AEB1 /* ffitarget_x86_64.h */,
+			);
+			path = headers;
+			sourceTree = "<group>";
+		};
+		EBB4ABEB1E5EC2BA0011AEB1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4ABEC1E5EC2BA0011AEB1 /* aarch64 */,
+				EBB4ABEF1E5EC2BA0011AEB1 /* arm */,
+				EBB4ABF31E5EC2BA0011AEB1 /* common */,
+				EBB4ABF71E5EC2BA0011AEB1 /* x86 */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		EBB4ABEC1E5EC2BA0011AEB1 /* aarch64 */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4ABED1E5EC2BA0011AEB1 /* ffi_arm64.c */,
+				EBB4ABEE1E5EC2BA0011AEB1 /* sysv_arm64.S */,
+			);
+			path = aarch64;
+			sourceTree = "<group>";
+		};
+		EBB4ABEF1E5EC2BA0011AEB1 /* arm */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4ABF01E5EC2BA0011AEB1 /* ffi_armv7.c */,
+				EBB4ABF11E5EC2BA0011AEB1 /* sysv_armv7.S */,
+				EBB4ABF21E5EC2BA0011AEB1 /* trampoline_armv7.S */,
+			);
+			path = arm;
+			sourceTree = "<group>";
+		};
+		EBB4ABF31E5EC2BA0011AEB1 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4ABF41E5EC2BA0011AEB1 /* prep_cif.c */,
+				EBB4ABF51E5EC2BA0011AEB1 /* raw_api.c */,
+				EBB4ABF61E5EC2BA0011AEB1 /* types.c */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		EBB4ABF71E5EC2BA0011AEB1 /* x86 */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4ABF81E5EC2BA0011AEB1 /* darwin64_x86_64.S */,
+				EBB4ABF91E5EC2BA0011AEB1 /* darwin_i386.S */,
+				EBB4ABFA1E5EC2BA0011AEB1 /* ffi64_x86_64.c */,
+				EBB4ABFB1E5EC2BA0011AEB1 /* ffi_i386.c */,
+				EBB4ABFC1E5EC2BA0011AEB1 /* win32_i386.S */,
+			);
+			path = x86;
+			sourceTree = "<group>";
+		};
+		EBB4ABFD1E5EC2BA0011AEB1 /* JPCFunctionBinder */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4ABFE1E5EC2BA0011AEB1 /* CoreGraphics */,
+				EBB4AC0F1E5EC2BA0011AEB1 /* UIKit */,
+			);
+			path = JPCFunctionBinder;
+			sourceTree = "<group>";
+		};
+		EBB4ABFE1E5EC2BA0011AEB1 /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4ABFF1E5EC2BA0011AEB1 /* JPCGBitmapContext.h */,
+				EBB4AC001E5EC2BA0011AEB1 /* JPCGBitmapContext.m */,
+				EBB4AC011E5EC2BA0011AEB1 /* JPCGColor.h */,
+				EBB4AC021E5EC2BA0011AEB1 /* JPCGColor.m */,
+				EBB4AC031E5EC2BA0011AEB1 /* JPCGContext.h */,
+				EBB4AC041E5EC2BA0011AEB1 /* JPCGContext.m */,
+				EBB4AC051E5EC2BA0011AEB1 /* JPCGGeometry.h */,
+				EBB4AC061E5EC2BA0011AEB1 /* JPCGGeometry.m */,
+				EBB4AC071E5EC2BA0011AEB1 /* JPCGImage.h */,
+				EBB4AC081E5EC2BA0011AEB1 /* JPCGImage.m */,
+				EBB4AC091E5EC2BA0011AEB1 /* JPCGPath.h */,
+				EBB4AC0A1E5EC2BA0011AEB1 /* JPCGPath.m */,
+				EBB4AC0B1E5EC2BA0011AEB1 /* JPCGTransform.h */,
+				EBB4AC0C1E5EC2BA0011AEB1 /* JPCGTransform.m */,
+				EBB4AC0D1E5EC2BA0011AEB1 /* JPCoreGraphics.h */,
+				EBB4AC0E1E5EC2BA0011AEB1 /* JPCoreGraphics.m */,
+			);
+			path = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		EBB4AC0F1E5EC2BA0011AEB1 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4AC101E5EC2BA0011AEB1 /* JPUIGeometry.h */,
+				EBB4AC111E5EC2BA0011AEB1 /* JPUIGeometry.m */,
+				EBB4AC121E5EC2BA0011AEB1 /* JPUIGraphics.h */,
+				EBB4AC131E5EC2BA0011AEB1 /* JPUIGraphics.m */,
+				EBB4AC141E5EC2BA0011AEB1 /* JPUIImage.h */,
+				EBB4AC151E5EC2BA0011AEB1 /* JPUIImage.m */,
+				EBB4AC161E5EC2BA0011AEB1 /* JPUIKit.h */,
+				EBB4AC171E5EC2BA0011AEB1 /* JPUIKit.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		EBB4AC201E5EC2BA0011AEB1 /* JPPlaygroundTool */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4AC211E5EC2BA0011AEB1 /* JPPlayground.h */,
+				EBB4AC221E5EC2BA0011AEB1 /* JPPlayground.m */,
+				EBB4AC231E5EC2BA0011AEB1 /* JPPlaygroundModule */,
+				EBB4AC281E5EC2BA0011AEB1 /* JPPlaygroundView */,
+				EBB4AC2F1E5EC2BA0011AEB1 /* README.md */,
+			);
+			path = JPPlaygroundTool;
+			sourceTree = "<group>";
+		};
+		EBB4AC231E5EC2BA0011AEB1 /* JPPlaygroundModule */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4AC241E5EC2BA0011AEB1 /* JPKeyCommands.h */,
+				EBB4AC251E5EC2BA0011AEB1 /* JPKeyCommands.m */,
+				EBB4AC261E5EC2BA0011AEB1 /* SGDirWatchdog.h */,
+				EBB4AC271E5EC2BA0011AEB1 /* SGDirWatchdog.m */,
+			);
+			path = JPPlaygroundModule;
+			sourceTree = "<group>";
+		};
+		EBB4AC281E5EC2BA0011AEB1 /* JPPlaygroundView */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4AC291E5EC2BA0011AEB1 /* JPDevErrorView.h */,
+				EBB4AC2A1E5EC2BA0011AEB1 /* JPDevErrorView.m */,
+				EBB4AC2B1E5EC2BA0011AEB1 /* JPDevMenu.h */,
+				EBB4AC2C1E5EC2BA0011AEB1 /* JPDevMenu.m */,
+				EBB4AC2D1E5EC2BA0011AEB1 /* JPDevTipView.h */,
+				EBB4AC2E1E5EC2BA0011AEB1 /* JPDevTipView.m */,
+			);
+			path = JPPlaygroundView;
+			sourceTree = "<group>";
+		};
+		EBB4AC641E5EC3DC0011AEB1 /* TestFuncionLib */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4AC651E5EC3DC0011AEB1 /* jspathlib */,
+			);
+			path = TestFuncionLib;
+			sourceTree = "<group>";
+		};
+		EBB4AC651E5EC3DC0011AEB1 /* jspathlib */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4AC661E5EC3DC0011AEB1 /* JsPathViewController.h */,
+				EBB4AC671E5EC3DC0011AEB1 /* JsPathViewController.m */,
+			);
+			path = jspathlib;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2007,6 +2376,8 @@
 				EB12C4271E5C40CB00564DE6 /* sdRefeshView_arrow@2x.png in Resources */,
 				EB12C21A1E5C3BBF00564DE6 /* Assets.xcassets in Resources */,
 				EB12C35F1E5C3C8200564DE6 /* MJRefresh.bundle in Resources */,
+				EBB4AC621E5EC2BA0011AEB1 /* JSPatch.js in Resources */,
+				EBB4AC631E5EC2BA0011AEB1 /* lh.js in Resources */,
 				EB12C41A1E5C40CB00564DE6 /* LICENSE in Resources */,
 				EB12C33B1E5C3C8200564DE6 /* LICENSE in Resources */,
 				EB12C40C1E5C40CB00564DE6 /* MLEmoji_Expression.bundle in Resources */,
@@ -2026,10 +2397,13 @@
 				EBB4ABB81E5EC0FB0011AEB1 /* RACTuple.m in Sources */,
 				EBB4ABB11E5EC0FB0011AEB1 /* RACStringSequence.m in Sources */,
 				EBB4ABB71E5EC0FB0011AEB1 /* RACTestScheduler.m in Sources */,
+				EBB4AC3F1E5EC2BA0011AEB1 /* trampoline_armv7.S in Sources */,
+				EBB4AC3B1E5EC2BA0011AEB1 /* ffi_arm64.c in Sources */,
 				EB12C39D1E5C400400564DE6 /* DemoCell.m in Sources */,
 				EB12C38F1E5C3C8200564DE6 /* SDTimeLineTableHeaderView.m in Sources */,
 				EB12C36C1E5C3C8200564DE6 /* ThreeFourthCell.m in Sources */,
 				EBB4AB951E5EC0FB0011AEB1 /* RACDynamicSequence.m in Sources */,
+				EBB4AC3E1E5EC2BA0011AEB1 /* sysv_armv7.S in Sources */,
 				EB12C4171E5C40CB00564DE6 /* MLLabelLayoutManager.m in Sources */,
 				EB12C35C1E5C3C8200564DE6 /* MJRefreshGifHeader.m in Sources */,
 				EBB4ABA91E5EC0FB0011AEB1 /* RACScopedDisposable.m in Sources */,
@@ -2052,20 +2426,30 @@
 				EB12C3921E5C3C8200564DE6 /* SDTimeLineRefreshFooter.m in Sources */,
 				EB12C3671E5C3C8200564DE6 /* Editor.m in Sources */,
 				EB12C3741E5C3C8200564DE6 /* DemoVC12.m in Sources */,
+				EBB4AC3C1E5EC2BA0011AEB1 /* sysv_arm64.S in Sources */,
 				EB12C33C1E5C3C8200564DE6 /* README.md in Sources */,
 				EBB4ABBE1E5EC0FB0011AEB1 /* UIAlertView+RACSignalSupport.m in Sources */,
 				EB12C42F1E5C40CB00564DE6 /* SDWebImageCompat.m in Sources */,
+				EBB4AC581E5EC2BA0011AEB1 /* JPPlayground.m in Sources */,
 				EB12C3481E5C3C8200564DE6 /* MJProperty.m in Sources */,
+				EBB4AC601E5EC2BA0011AEB1 /* JPSpecialInit.m in Sources */,
 				EBB4ABBC1E5EC0FB0011AEB1 /* RACValueTransformer.m in Sources */,
 				EBB4AB9E1E5EC0FB0011AEB1 /* RACIndexSetSequence.m in Sources */,
 				EBB4ABB91E5EC0FB0011AEB1 /* RACTupleSequence.m in Sources */,
+				EBB4AC501E5EC2BA0011AEB1 /* JPUIGeometry.m in Sources */,
+				EBB4AC4F1E5EC2BA0011AEB1 /* JPCoreGraphics.m in Sources */,
 				EB12C3771E5C3C8200564DE6 /* DemoVC14Cell.m in Sources */,
+				EBB4AC5B1E5EC2BA0011AEB1 /* JPDevErrorView.m in Sources */,
 				EB12C3721E5C3C8200564DE6 /* SDChatTableViewCell.m in Sources */,
 				EB12C3361E5C3C8200564DE6 /* AFSecurityPolicy.m in Sources */,
 				EBB4ABAC1E5EC0FB0011AEB1 /* RACSignal+Operations.m in Sources */,
+				EBB4AC491E5EC2BA0011AEB1 /* JPCGColor.m in Sources */,
 				EB12C3891E5C3C8200564DE6 /* SDBaseNavigationController.m in Sources */,
+				EBB4AC5A1E5EC2BA0011AEB1 /* SGDirWatchdog.m in Sources */,
 				EBB4ABBB1E5EC0FB0011AEB1 /* RACUnit.m in Sources */,
+				EBB4AC3D1E5EC2BA0011AEB1 /* ffi_armv7.c in Sources */,
 				EBB4AB891E5EC0FB0011AEB1 /* NSURLConnection+RACSupport.m in Sources */,
+				EBB4AC431E5EC2BA0011AEB1 /* darwin64_x86_64.S in Sources */,
 				EB12C2301E5C3C2C00564DE6 /* UIView+SDAutoLayout.m in Sources */,
 				EB12C4201E5C40CB00564DE6 /* TAPageControl.m in Sources */,
 				EB12C3861E5C3C8200564DE6 /* DemoVC8.m in Sources */,
@@ -2074,6 +2458,7 @@
 				EBB4AB7B1E5EC0FB0011AEB1 /* NSIndexSet+RACSequenceAdditions.m in Sources */,
 				EB12C33D1E5C3C8200564DE6 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				EB12C3911E5C3C8200564DE6 /* SDWeiXinPhotoContainerView.m in Sources */,
+				EBB4AC381E5EC2BA0011AEB1 /* JPCFunction.m in Sources */,
 				EB12C35A1E5C3C8200564DE6 /* MJRefreshBackNormalFooter.m in Sources */,
 				EB12C4371E5C40CB00564DE6 /* UIImage+MultiFormat.m in Sources */,
 				EBB4ABAD1E5EC0FB0011AEB1 /* RACSignal.m in Sources */,
@@ -2082,27 +2467,35 @@
 				EB12C4241E5C40CB00564DE6 /* SDBrowserImageView.m in Sources */,
 				EB12C3821E5C3C8200564DE6 /* DemoVC7.m in Sources */,
 				EB12C4121E5C40CB00564DE6 /* NSString+MLLabel.m in Sources */,
+				EBB4AC5F1E5EC2BA0011AEB1 /* JPProtocol.m in Sources */,
 				EB12C3791E5C3C8200564DE6 /* PhotosContainerView.m in Sources */,
 				EB12C4311E5C40CB00564DE6 /* SDWebImageDownloader.m in Sources */,
 				EB12C3751E5C3C8200564DE6 /* DemoVC13.m in Sources */,
 				EB12C37F1E5C3C8200564DE6 /* DemoVC5CellTableViewCell.m in Sources */,
+				EBB4AC531E5EC2BA0011AEB1 /* JPUIKit.m in Sources */,
 				EB12C3331E5C3C8200564DE6 /* AFHTTPRequestOperationManager.m in Sources */,
 				EBB4AB7C1E5EC0FB0011AEB1 /* NSInvocation+RACTypeParsing.m in Sources */,
 				EB12C32F1E5C3C8200564DE6 /* DemoVC0.m in Sources */,
+				EBB4AC411E5EC2BA0011AEB1 /* raw_api.c in Sources */,
 				EB12C20C1E5C3BBF00564DE6 /* AppDelegate.m in Sources */,
+				EBB4AC451E5EC2BA0011AEB1 /* ffi64_x86_64.c in Sources */,
 				EB12C3301E5C3C8200564DE6 /* DemoVC1.m in Sources */,
 				EBB4AB7A1E5EC0FB0011AEB1 /* NSFileHandle+RACSupport.m in Sources */,
 				EB12C3571E5C3C8200564DE6 /* MJRefreshAutoNormalFooter.m in Sources */,
+				EBB4AC391E5EC2BA0011AEB1 /* JPMemory.m in Sources */,
 				EB12C34E1E5C3C8200564DE6 /* NSObject+MJProperty.m in Sources */,
+				EBB4AC591E5EC2BA0011AEB1 /* JPKeyCommands.m in Sources */,
 				EBB4ABCC1E5EC0FB0011AEB1 /* UITableViewCell+RACSignalSupport.m in Sources */,
 				EBB4ABCD1E5EC0FB0011AEB1 /* UITableViewHeaderFooterView+RACSignalSupport.m in Sources */,
 				EBB4AB981E5EC0FB0011AEB1 /* RACEmptySequence.m in Sources */,
 				EB12C4261E5C40CB00564DE6 /* SDWaitingView.m in Sources */,
 				EB12C34A1E5C3C8200564DE6 /* MJPropertyType.m in Sources */,
+				EBB4AC471E5EC2BA0011AEB1 /* win32_i386.S in Sources */,
 				EBB4AB851E5EC0FB0011AEB1 /* NSSet+RACSequenceAdditions.m in Sources */,
 				EBB4AB971E5EC0FB0011AEB1 /* RACEagerSequence.m in Sources */,
 				EB12C38A1E5C3C8200564DE6 /* SDBaseTableViewController.m in Sources */,
 				EBB4ABA21E5EC0FB0011AEB1 /* RACMulticastConnection.m in Sources */,
+				EBB4AC521E5EC2BA0011AEB1 /* JPUIImage.m in Sources */,
 				EB12C36F1E5C3C8200564DE6 /* SDAnalogDataGenerator.m in Sources */,
 				EBB4ABAF1E5EC0FB0011AEB1 /* RACSignalSequence.m in Sources */,
 				EB12C3411E5C3C8200564DE6 /* UIImageView+AFNetworking.m in Sources */,
@@ -2113,6 +2506,7 @@
 				EBB4ABCB1E5EC0FB0011AEB1 /* UISwitch+RACSignalSupport.m in Sources */,
 				EBB4AB9C1E5EC0FB0011AEB1 /* RACGroupedSignal.m in Sources */,
 				EB12C41C1E5C40CB00564DE6 /* TTTAttributedLabel.m in Sources */,
+				EBB4AC3A1E5EC2BA0011AEB1 /* JPStructPointer.m in Sources */,
 				EB12C38D1E5C3C8200564DE6 /* SDTimeLineCell.m in Sources */,
 				EBB4AB881E5EC0FB0011AEB1 /* NSString+RACSupport.m in Sources */,
 				EB12C41D1E5C40CB00564DE6 /* TAAbstractDotView.m in Sources */,
@@ -2129,9 +2523,12 @@
 				EBB4AB751E5EC0FB0011AEB1 /* MKAnnotationView+RACSignalSupport.m in Sources */,
 				EB12C3431E5C3C8200564DE6 /* UIRefreshControl+AFNetworking.m in Sources */,
 				EB12C42B1E5C40CB00564DE6 /* UIView+SDExtension.m in Sources */,
+				EBB4AC4C1E5EC2BA0011AEB1 /* JPCGImage.m in Sources */,
 				EB12C3691E5C3C8200564DE6 /* ThreeModel.m in Sources */,
 				EB12C4101E5C40CB00564DE6 /* NSAttributedString+MLLabel.m in Sources */,
+				EBB4AC441E5EC2BA0011AEB1 /* darwin_i386.S in Sources */,
 				EBB4AB831E5EC0FB0011AEB1 /* NSObject+RACSelectorSignal.m in Sources */,
+				EBB4AC551E5EC2BA0011AEB1 /* JPDispatch.m in Sources */,
 				EB12C3471E5C3C8200564DE6 /* MJFoundation.m in Sources */,
 				EB12C3811E5C3C8200564DE6 /* DemoVC6.m in Sources */,
 				EB12C36D1E5C3C8200564DE6 /* ThreeSecondCell.m in Sources */,
@@ -2149,6 +2546,7 @@
 				EB12C3991E5C3FE300564DE6 /* ViewController.m in Sources */,
 				EB12C4141E5C40CB00564DE6 /* MLTextAttachment.m in Sources */,
 				EBB4AB901E5EC0FB0011AEB1 /* RACCompoundDisposable.m in Sources */,
+				EBB4AC611E5EC2BA0011AEB1 /* JPEngine.m in Sources */,
 				EBB4AB8D1E5EC0FB0011AEB1 /* RACBlockTrampoline.m in Sources */,
 				EB12C4131E5C40CB00564DE6 /* MLExpressionManager.m in Sources */,
 				EBB4ABCA1E5EC0FB0011AEB1 /* UIStepper+RACSignalSupport.m in Sources */,
@@ -2164,7 +2562,9 @@
 				EBB4AB791E5EC0FB0011AEB1 /* NSEnumerator+RACSequenceAdditions.m in Sources */,
 				EB12C3931E5C3C8200564DE6 /* SDTimeLineRefreshHeader.m in Sources */,
 				EB12C34D1E5C3C8200564DE6 /* NSObject+MJKeyValue.m in Sources */,
+				EBB4AC541E5EC2BA0011AEB1 /* JPCleaner.m in Sources */,
 				EB12C36B1E5C3C8200564DE6 /* ThreeFirstCell.m in Sources */,
+				EBB4AC461E5EC2BA0011AEB1 /* ffi_i386.c in Sources */,
 				EBB4AB941E5EC0FB0011AEB1 /* RACDynamicPropertySuperclass.m in Sources */,
 				EBB4ABBF1E5EC0FB0011AEB1 /* UIBarButtonItem+RACCommandSupport.m in Sources */,
 				EBB4ABCE1E5EC0FB0011AEB1 /* UITextField+RACSignalSupport.m in Sources */,
@@ -2182,10 +2582,12 @@
 				EB12C22F1E5C3C2C00564DE6 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				EB12C4151E5C40CB00564DE6 /* NSAttributedString+MLExpression.m in Sources */,
 				EBB4ABC71E5EC0FB0011AEB1 /* UIRefreshControl+RACCommandSupport.m in Sources */,
+				EBB4AC5E1E5EC2BA0011AEB1 /* README.md in Sources */,
 				EB12C3631E5C3C8200564DE6 /* UIView+MJExtension.m in Sources */,
 				EB12C3831E5C3C8200564DE6 /* DemoVC7Cell.m in Sources */,
 				EBB4ABB61E5EC0FB0011AEB1 /* RACTargetQueueScheduler.m in Sources */,
 				EB12C3761E5C3C8200564DE6 /* DemoVC14.m in Sources */,
+				EBB4AC4A1E5EC2BA0011AEB1 /* JPCGContext.m in Sources */,
 				EB12C37C1E5C3C8200564DE6 /* TestCell2.m in Sources */,
 				EB12C3601E5C3C8200564DE6 /* MJRefreshConst.m in Sources */,
 				EB12C3381E5C3C8200564DE6 /* AFURLRequestSerialization.m in Sources */,
@@ -2194,6 +2596,8 @@
 				EB12C4111E5C40CB00564DE6 /* NSMutableAttributedString+MLLabel.m in Sources */,
 				EB12C4221E5C40CB00564DE6 /* SDCycleScrollView.m in Sources */,
 				EB12C3591E5C3C8200564DE6 /* MJRefreshBackGifFooter.m in Sources */,
+				EBB4AC4E1E5EC2BA0011AEB1 /* JPCGTransform.m in Sources */,
+				EBB4AC561E5EC2BA0011AEB1 /* JPLocker.m in Sources */,
 				EB12C3511E5C3C8200564DE6 /* MJRefreshAutoFooter.m in Sources */,
 				EB12C3711E5C3C8200564DE6 /* SDChatModel.m in Sources */,
 				EBB4AB911E5EC0FB0011AEB1 /* RACCompoundDisposableProvider.d in Sources */,
@@ -2201,18 +2605,23 @@
 				EBB4ABBA1E5EC0FB0011AEB1 /* RACUnarySequence.m in Sources */,
 				EB12C3351E5C3C8200564DE6 /* AFNetworkReachabilityManager.m in Sources */,
 				EBB4AB9B1E5EC0FB0011AEB1 /* RACEvent.m in Sources */,
+				EBB4AC421E5EC2BA0011AEB1 /* types.c in Sources */,
 				EB12C3681E5C3C8200564DE6 /* Imgextra.m in Sources */,
+				EBB4AC4D1E5EC2BA0011AEB1 /* JPCGPath.m in Sources */,
 				EB12C3531E5C3C8200564DE6 /* MJRefreshComponent.m in Sources */,
 				EB12C35B1E5C3C8200564DE6 /* MJRefreshBackStateFooter.m in Sources */,
 				EBB4ABA61E5EC0FB0011AEB1 /* RACReplaySubject.m in Sources */,
 				EB12C3641E5C3C8200564DE6 /* README.md in Sources */,
 				EB12C3541E5C3C8200564DE6 /* MJRefreshFooter.m in Sources */,
+				EBB4AC571E5EC2BA0011AEB1 /* JPNumber.m in Sources */,
 				EB12C4391E5C40CB00564DE6 /* UIImageView+HighlightedWebCache.m in Sources */,
 				EBB4AB7E1E5EC0FB0011AEB1 /* NSObject+RACDeallocating.m in Sources */,
 				EBB4ABC51E5EC0FB0011AEB1 /* UIGestureRecognizer+RACSignalSupport.m in Sources */,
 				EB12C40B1E5C40CB00564DE6 /* LEETheme.m in Sources */,
 				EB12C4301E5C40CB00564DE6 /* SDWebImageDecoder.m in Sources */,
 				EBB4AB821E5EC0FB0011AEB1 /* NSObject+RACPropertySubscribing.m in Sources */,
+				EBB4AC401E5EC2BA0011AEB1 /* prep_cif.c in Sources */,
+				EBB4AC511E5EC2BA0011AEB1 /* JPUIGraphics.m in Sources */,
 				EBB4ABC21E5EC0FB0011AEB1 /* UIControl+RACSignalSupport.m in Sources */,
 				EB12C37A1E5C3C8200564DE6 /* DemoVC2.m in Sources */,
 				EB12C42D1E5C40CB00564DE6 /* NSData+ImageContentType.m in Sources */,
@@ -2230,7 +2639,10 @@
 				EB12C4211E5C40CB00564DE6 /* SDCollectionViewCell.m in Sources */,
 				EBB4AB781E5EC0FB0011AEB1 /* NSDictionary+RACSequenceAdditions.m in Sources */,
 				EBB4AB7D1E5EC0FB0011AEB1 /* NSNotificationCenter+RACSupport.m in Sources */,
+				EBB4AC5D1E5EC2BA0011AEB1 /* JPDevTipView.m in Sources */,
+				EBB4AC681E5EC3DC0011AEB1 /* JsPathViewController.m in Sources */,
 				EB12C41B1E5C40CB00564DE6 /* README.md in Sources */,
+				EBB4AC5C1E5EC2BA0011AEB1 /* JPDevMenu.m in Sources */,
 				EB12C43B1E5C40CB00564DE6 /* UIView+WebCacheOperation.m in Sources */,
 				EBB4AB8C1E5EC0FB0011AEB1 /* RACBehaviorSubject.m in Sources */,
 				EBB4AB761E5EC0FB0011AEB1 /* NSArray+RACSequenceAdditions.m in Sources */,
@@ -2254,10 +2666,12 @@
 				EBB4ABA81E5EC0FB0011AEB1 /* RACScheduler.m in Sources */,
 				EB12C3341E5C3C8200564DE6 /* AFHTTPSessionManager.m in Sources */,
 				EB12C38E1E5C3C8200564DE6 /* SDTimeLineCellCommentView.m in Sources */,
+				EBB4AC481E5EC2BA0011AEB1 /* JPCGBitmapContext.m in Sources */,
 				EB12C34B1E5C3C8200564DE6 /* NSObject+MJClass.m in Sources */,
 				EB12C35E1E5C3C8200564DE6 /* MJRefreshStateHeader.m in Sources */,
 				EBB4AB741E5EC0FB0011AEB1 /* EXTRuntimeExtensions.m in Sources */,
 				EB12C33F1E5C3C8200564DE6 /* UIAlertView+AFNetworking.m in Sources */,
+				EBB4AC4B1E5EC2BA0011AEB1 /* JPCGGeometry.m in Sources */,
 				EB12C37D1E5C3C8200564DE6 /* DemoVC4.m in Sources */,
 				EB12C4321E5C40CB00564DE6 /* SDWebImageDownloaderOperation.m in Sources */,
 				EBB4ABCF1E5EC0FB0011AEB1 /* UITextView+RACSignalSupport.m in Sources */,

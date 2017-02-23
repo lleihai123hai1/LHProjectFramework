@@ -25,8 +25,6 @@
 
 #import "UITableView+SDAutoTableViewCellHeight.h"
 
-#import "DemoCell.h"
-
 NSString * const demo0Description = @"自动布局动画，修改一个view的布局约束，其他view也会自动重新排布";
 NSString * const demo1Description = @"1.设置view1高度根据子view而自适应(在view1中加入两个子view(testLabel和testView)，然后设置view1高度根据子view内容自适应)\n2.高度自适应lable\n3.宽度自适应label";
 NSString * const demo2Description = @"1.自定义button内部label和imageView的位置\n2.设置间距固定自动调整宽度的一组子view\n3.设置宽度固定自动调整间距的一组子view";

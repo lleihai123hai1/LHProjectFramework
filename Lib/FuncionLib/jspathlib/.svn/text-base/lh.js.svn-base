@@ -1,0 +1,75 @@
+
+//defineClass("ViewController", {
+//            
+//            tableView_cellForRowAtIndexPath: function(tableView, indexPath) {
+//            var cell = tableView.dequeueReusableCellWithIdentifier("cell")
+//            if (!cell) {
+//            cell = require('UITableViewCell').alloc().initWithStyle_reuseIdentifier(0, "cell")
+//            }
+//            cell.textLabel().setText("meijiaqing");
+//            var redColor = require('UIColor').redColor();
+//            cell.setBackgroundColor(redColor);
+//            return cell
+//            },
+//            
+//            //instance method definitions
+//            tableView_didSelectRowAtIndexPath: function(tableView, indexPath) {
+//            var row = indexPath.row()
+//            if (self.dataSource().length > row) {  // 加上判断越界的逻辑
+//            var content = self.dataArr()[row];
+//            }
+//            }
+//            }, {});
+//
+//
+
+
+//defineClass('HYGAdManager', {
+//            requestAdData: function() {
+//            var tmprefreshCount = self.refreshCount();
+//            var tmpindex = self.refreshCount();
+//            self.setRefreshCount(tmprefreshCount++);
+//            if (self.refreshCount() > 3) {
+//            self.setIndex(tmpindex++);
+//            if (self.index() >= self.hTypeArr().count()) {
+//                self.setIndex(0);
+//            }
+//            if(self.hTypeArr().count()){
+//                self.setStyle(self.hTypeArr[self.index()].integerValue());
+//            }else{
+//                self.setStyle(2);
+//            }
+//            self.setRefreshCount(0);
+//            }
+//            switch (self.style()) {
+//            case 1:
+//            {
+//            self.loadYeahMobiData();
+//            break;
+//            }
+//            case 2:
+//            {
+//            self.loadPubNativeData();
+//            break;
+//            }
+//            default:
+//            {
+//            if (self.hTypeArr() && self.hTypeArr().count()) {
+//            self.setStyle(self.hTypeArr().firstObject().integerValue());
+//            } else {
+//            self.setStyle(2);
+//            }
+//            self.requestAdData();
+//            break;
+//            }
+//            }
+//            
+//            },
+//            });
+
+
+defineClass('HCategoryDetailVC', {
+            tableView_numberOfRowsInSection: function(tableView, section) {
+            return self.hDataSourceArray().count();
+            },
+            });
