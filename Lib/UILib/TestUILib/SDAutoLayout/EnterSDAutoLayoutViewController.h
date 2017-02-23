@@ -24,5 +24,4 @@
 #import <UIKit/UIKit.h>
 
 @interface EnterSDAutoLayoutViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-@property(nonatomic,strong)UITableView*table;
 @end

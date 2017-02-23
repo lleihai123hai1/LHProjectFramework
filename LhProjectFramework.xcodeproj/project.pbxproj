@@ -167,6 +167,7 @@
 		EB12C4391E5C40CB00564DE6 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C4061E5C40CB00564DE6 /* UIImageView+HighlightedWebCache.m */; };
 		EB12C43A1E5C40CB00564DE6 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C4081E5C40CB00564DE6 /* UIImageView+WebCache.m */; };
 		EB12C43B1E5C40CB00564DE6 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C40A1E5C40CB00564DE6 /* UIView+WebCacheOperation.m */; };
+		EBB4AAAF1E5EBC040011AEB1 /* LhNSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AAAE1E5EBC040011AEB1 /* LhNSDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -488,6 +489,9 @@
 		EB12C4081E5C40CB00564DE6 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		EB12C4091E5C40CB00564DE6 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		EB12C40A1E5C40CB00564DE6 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		EBB4AAAA1E5EB9F10011AEB1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
+		EBB4AAAD1E5EBC040011AEB1 /* LhNSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LhNSDictionary.h; sourceTree = "<group>"; };
+		EBB4AAAE1E5EBC040011AEB1 /* LhNSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LhNSDictionary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,14 +525,15 @@
 		EB12C2061E5C3BBF00564DE6 /* LhProjectFramework */ = {
 			isa = PBXGroup;
 			children = (
-				EB12C39A1E5C400400564DE6 /* selfClass */,
+				EBB4AAAA1E5EB9F10011AEB1 /* PrefixHeader.pch */,
 				EB12C20A1E5C3BBF00564DE6 /* AppDelegate.h */,
 				EB12C20B1E5C3BBF00564DE6 /* AppDelegate.m */,
+				EB12C2191E5C3BBF00564DE6 /* Assets.xcassets */,
+				EB12C21E1E5C3BBF00564DE6 /* Info.plist */,
+				EB12C21B1E5C3BBF00564DE6 /* LaunchScreen.storyboard */,
 				EB12C2101E5C3BBF00564DE6 /* MainViewController.h */,
 				EB12C2111E5C3BBF00564DE6 /* MainViewController.m */,
-				EB12C2191E5C3BBF00564DE6 /* Assets.xcassets */,
-				EB12C21B1E5C3BBF00564DE6 /* LaunchScreen.storyboard */,
-				EB12C21E1E5C3BBF00564DE6 /* Info.plist */,
+				EB12C39A1E5C400400564DE6 /* selfClass */,
 				EB12C2071E5C3BBF00564DE6 /* Supporting Files */,
 			);
 			path = LhProjectFramework;
@@ -545,19 +550,12 @@
 		EB12C2241E5C3C2C00564DE6 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				EB12C2251E5C3C2C00564DE6 /* Category */,
+				EBB4AAAB1E5EBC040011AEB1 /* Category */,
 				EB12C2261E5C3C2C00564DE6 /* DataLib */,
 				EB12C2271E5C3C2C00564DE6 /* FuncionLib */,
 				EB12C2281E5C3C2C00564DE6 /* UILib */,
 			);
 			path = Lib;
-			sourceTree = "<group>";
-		};
-		EB12C2251E5C3C2C00564DE6 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Category;
 			sourceTree = "<group>";
 		};
 		EB12C2261E5C3C2C00564DE6 /* DataLib */ = {
@@ -1425,6 +1423,23 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		EBB4AAAB1E5EBC040011AEB1 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4AAAC1E5EBC040011AEB1 /* NSDictionary */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		EBB4AAAC1E5EBC040011AEB1 /* NSDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4AAAD1E5EBC040011AEB1 /* LhNSDictionary.h */,
+				EBB4AAAE1E5EBC040011AEB1 /* LhNSDictionary.m */,
+			);
+			path = NSDictionary;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1511,6 +1526,7 @@
 				EB12C4171E5C40CB00564DE6 /* MLLabelLayoutManager.m in Sources */,
 				EB12C35C1E5C3C8200564DE6 /* MJRefreshGifHeader.m in Sources */,
 				EB12C3371E5C3C8200564DE6 /* AFURLConnectionOperation.m in Sources */,
+				EBB4AAAF1E5EBC040011AEB1 /* LhNSDictionary.m in Sources */,
 				EB12C3651E5C3C8200564DE6 /* XYString.m in Sources */,
 				EB12C3841E5C3C8200564DE6 /* DemoVC7Cell2.m in Sources */,
 				EB12C41E1E5C40CB00564DE6 /* TAAnimatedDotView.m in Sources */,
@@ -1701,6 +1717,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1747,6 +1765,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1766,6 +1786,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KN53KWRMZ5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = LhProjectFramework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1779,6 +1800,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KN53KWRMZ5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = LhProjectFramework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

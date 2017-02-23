@@ -7,16 +7,69 @@
 //
 
 #import "MainViewController.h"
-
-@interface MainViewController ()
-
+#import "EnterSDAutoLayoutViewController.h"
+#import "DemoCell.h"
+@interface MainViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property(nonatomic,strong)UITableView*table;
 @end
 
 @implementation MainViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+{
+    NSArray *_contenArray;
 }
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    _contenArray = @[@{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"}];
+    [self.view addSubview:self.table];
+    [self.table reloadData];
+}
+
+#pragma mark - tableview datasourece and delegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _contenArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *ID = @"test";
+    DemoCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[DemoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    NSDictionary*dict = _contenArray[indexPath.row];
+    cell.titleLabel.text = [dict strValue:@"title"];
+    cell.contentLabel.text = [dict strValue:@"content"];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary*dict = _contenArray[indexPath.row];
+    NSString *demoClassString = [dict strValue:@"title"];
+    UIViewController *vc = [NSClassFromString(demoClassString) new];
+    vc.title = demoClassString;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [self cellHeightForIndexPath:indexPath cellContentViewWidth:self.view.frame.size.width tableView:tableView];;
+}
+-(UITableView*)table{
+    if(!_table){
+        _table = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _table.dataSource = self;
+        _table.delegate = self;
+        _table.separatorInset = UIEdgeInsetsZero;
+    }
+    return _table;
+}
+
 
 @end

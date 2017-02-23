@@ -43,6 +43,10 @@ NSString * const demo12Description = @"scroll任意布局内容自适应";
 NSString * const demo13Description = @"scroll任意布局内容自适应自动布局";
 NSString * const demo14Description = @"xib的cell高度自适应";
 
+@interface EnterSDAutoLayoutViewController ()
+@property(nonatomic,strong)UITableView*table;
+@end
+
 @implementation EnterSDAutoLayoutViewController
 {
     NSArray *_contenArray;
@@ -55,7 +59,7 @@ NSString * const demo14Description = @"xib的cell高度自适应";
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-    [self.navigationController pushViewController:[NSClassFromString(@"DemoVC13") new] animated:YES];
+//    [self.navigationController pushViewController:[NSClassFromString(@"DemoVC13") new] animated:YES];
     _contenArray = @[demo0Description, demo1Description, demo2Description, demo3Description, demo4Description, demo5Description, demo6Description, demo7Description, demo8Description, demo9Description, demo10Description, demo11Description, demo12Description, demo13Description, demo14Description];
     [self.view addSubview:self.table];
     [self.table reloadData];

@@ -1,0 +1,45 @@
+//
+//  PrefixHeader.pch
+//  LhProjectFramework
+//
+//  Created by lh on 2017/2/23.
+//  Copyright © 2017年 LH. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+//#import "NSObject+MJKeyValue.h"
+//#import "ReactiveCocoa.h"
+#import "LhNSDictionary.h"
+#import "SDAutoLayout.h"
+#define AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES
+#define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_ 1
+#endif
+
+#ifdef __llvm__
+#pragma GCC diagnostic ignored "-Wdangling-else"
+#endif
+
+
+
+
+
+#endif /* PrefixHeader_pch */
+
+
