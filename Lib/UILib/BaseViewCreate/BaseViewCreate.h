@@ -57,5 +57,5 @@ typedef  UIAlertView * (^UIAlertViewSetPropertyBlock)(NSString* value);
 @property (nonatomic,readonly) UIAlertViewSetPropertyBlock lh_title;
 @property (nonatomic,readonly) UIAlertViewSetPropertyBlock lh_message;
 @property (nonatomic,readonly) UIAlertViewSetPropertyBlock lh_btnTitle;//多个以"<,>"隔开
-@property (nonatomic,readonly) UIAlertViewClickActionBlock lh_clickAction;//多个以"<,>"隔开
+@property (nonatomic,readonly) UIAlertViewClickActionBlock lh_clickAction;
 @end
