@@ -1027,6 +1027,7 @@
 		EB12C1FB1E5C3BBF00564DE6 = {
 			isa = PBXGroup;
 			children = (
+				EB8823761E6016BF00CBCFD2 /* TestLib */,
 				EB12C2241E5C3C2C00564DE6 /* Lib */,
 				EB12C2061E5C3BBF00564DE6 /* LhProjectFramework */,
 				EB12C2051E5C3BBF00564DE6 /* Products */,
@@ -1081,7 +1082,6 @@
 		EB12C2261E5C3C2C00564DE6 /* DataLib */ = {
 			isa = PBXGroup;
 			children = (
-				EB8823681E5FD63C00CBCFD2 /* TestDataLib */,
 				EB8822E71E5FD23A00CBCFD2 /* LhCoreData */,
 			);
 			path = DataLib;
@@ -1090,7 +1090,6 @@
 		EB12C2271E5C3C2C00564DE6 /* FuncionLib */ = {
 			isa = PBXGroup;
 			children = (
-				EBB4AC641E5EC3DC0011AEB1 /* TestFuncionLib */,
 				EBB4ABD01E5EC2BA0011AEB1 /* jspathlib */,
 				EBB4AAB01E5EC0FB0011AEB1 /* ReactiveCocoa */,
 			);
@@ -1107,7 +1106,6 @@
 				EB12C3D61E5C40CA00564DE6 /* SDPhotoBrowser */,
 				EB12C3DE1E5C40CA00564DE6 /* SDRefeshView */,
 				EB12C3E91E5C40CA00564DE6 /* SDWebImage */,
-				EB12C2311E5C3C8200564DE6 /* TestUILib */,
 				EB12C2291E5C3C2C00564DE6 /* SDAutoLayout */,
 			);
 			path = UILib;
@@ -1131,7 +1129,8 @@
 				EBB4AC6D1E5ED3BC0011AEB1 /* BaseViewCreate */,
 				EB12C2321E5C3C8200564DE6 /* SDAutoLayout */,
 			);
-			path = TestUILib;
+			name = TestUILib;
+			path = Lib/UILib/TestUILib;
 			sourceTree = "<group>";
 		};
 		EB12C2321E5C3C8200564DE6 /* SDAutoLayout */ = {
@@ -2120,7 +2119,8 @@
 			children = (
 				EB8823691E5FD63C00CBCFD2 /* LhCoreData */,
 			);
-			path = TestDataLib;
+			name = TestDataLib;
+			path = Lib/DataLib/TestDataLib;
 			sourceTree = "<group>";
 		};
 		EB8823691E5FD63C00CBCFD2 /* LhCoreData */ = {
@@ -2136,6 +2136,16 @@
 				EB88236B1E5FD63C00CBCFD2 /* LhCoreDataViewController.m */,
 			);
 			path = LhCoreData;
+			sourceTree = "<group>";
+		};
+		EB8823761E6016BF00CBCFD2 /* TestLib */ = {
+			isa = PBXGroup;
+			children = (
+				EB12C2311E5C3C8200564DE6 /* TestUILib */,
+				EBB4AC641E5EC3DC0011AEB1 /* TestFuncionLib */,
+				EB8823681E5FD63C00CBCFD2 /* TestDataLib */,
+			);
+			name = TestLib;
 			sourceTree = "<group>";
 		};
 		EBB4AAAB1E5EBC040011AEB1 /* Category */ = {
@@ -2591,7 +2601,8 @@
 			children = (
 				EBB4AC651E5EC3DC0011AEB1 /* jspathlib */,
 			);
-			path = TestFuncionLib;
+			name = TestFuncionLib;
+			path = Lib/FuncionLib/TestFuncionLib;
 			sourceTree = "<group>";
 		};
 		EBB4AC651E5EC3DC0011AEB1 /* jspathlib */ = {
