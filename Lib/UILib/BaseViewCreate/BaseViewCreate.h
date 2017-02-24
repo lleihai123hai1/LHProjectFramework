@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+#define NullReturn(property) if (!property || [property isKindOfClass:[NSNull class]]) {NSLog(@"不能输入nill");return self;}
 typedef  void (^ClickBlock)(id value);
 typedef  void (^ClickIndexBlock)(id value,NSInteger index);
 typedef  void (^KVOBlock)(id value);

@@ -5,6 +5,7 @@
     @weakify(self);
     PropertyBlock tmppropertyById = ^(NSString*propertyList,id value){
         @strongify(self);
+        NullReturn(propertyList)
         NSArray *aArray = [propertyList componentsSeparatedByString:@"."];
         __block id tmpValue = self;
         NSInteger count = aArray.count -1;
@@ -45,6 +46,8 @@
 -(PropertyKVOBlock)lh_kvo{
     @weakify(self);
     PropertyKVOBlock tmpBlock= ^(NSString*property,KVOBlock blcok){
+        NullReturn(blcok)
+        NullReturn(property)
         @strongify(self);
         [[self rac_valuesForKeyPath:property observer:nil] subscribeNext:^(id x) {
             blcok(x);
@@ -153,6 +156,7 @@
     @weakify(self);
     UIViewAnimationActionBlock tmpBlock= ^(UIViewAnimationBlock value,UIViewAnimationCurve curve,NSTimeInterval duration){
         @strongify(self);
+        NullReturn(value)
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationCurve:curve];
         [UIView setAnimationDuration:duration];
@@ -172,7 +176,9 @@
     UIButtonClickActionBlock tmpBlock= ^(ClickBlock value){
         @strongify(self);
         self.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-            value(input);
+            if(value){
+                value(input);
+            }
             return [RACSignal empty];
         }];
         return self;
@@ -256,6 +262,7 @@
     @weakify(self);
     UIAlertViewSetPropertyBlock tmpBlock= ^(NSString* value){
         @strongify(self);
+        NullReturn(value)
         NSArray *aArray = [value componentsSeparatedByString:@"<,>"];
         for (NSInteger i = 0; i < aArray.count; i++) {
             [self addButtonWithTitle:aArray[i]];
@@ -269,7 +276,9 @@
     UIAlertViewClickActionBlock tmpBlock= ^(ClickIndexBlock value){
         @strongify(self);
         [[self rac_buttonClickedSignal] subscribeNext:^(id x) {
-            value(self,[x integerValue]);
+            if(value){
+                value(self,[x integerValue]);
+            }
         }];
         return self;
     };
