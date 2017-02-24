@@ -51,21 +51,6 @@ typedef  UIButton * (^UIButtonSetImageBlock)(UIImage* value,UIControlState state
 @property (nonatomic,readonly) UIButtonSetImageBlock lh_image;
 @end
 
-//-(UIButton*)button{
-//    if(!_button){
-//        _button = [UIButton return:^NSObject *(UIButton* value) {
-//            return value
-//            .lh_clickAction(^(UIButton *sender){
-//                NSLog(@"clickAction");
-//            })
-//            .lh_backgroundColor([UIColor redColor])
-//            .lh_alpha(@(0.4))
-//            .lh_layer_cornerRadius(@(10))
-//            .lh_frame(CGRectMake(100, 200, 100, 100));
-//        }];
-//    }
-//    return _button;
-//}
 typedef  UIAlertView* (^UIAlertViewClickActionBlock)(ClickIndexBlock value);
 typedef  UIAlertView * (^UIAlertViewSetPropertyBlock)(NSString* value);
 @interface UIAlertView (LHUI)
