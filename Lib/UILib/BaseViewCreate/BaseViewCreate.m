@@ -42,6 +42,18 @@
     }
     return [self new];
 }
+-(PropertyKVOBlock)lh_kvo{
+    @weakify(self);
+    PropertyKVOBlock tmpBlock= ^(NSString*property,KVOBlock blcok){
+        @strongify(self);
+        [[self rac_valuesForKeyPath:property observer:nil] subscribeNext:^(id x) {
+            blcok(x);
+        }];
+        
+        return self;
+    };
+    return tmpBlock;
+}
 @end
 
 

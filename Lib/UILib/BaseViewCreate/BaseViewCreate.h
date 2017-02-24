@@ -1,10 +1,14 @@
 #import <UIKit/UIKit.h>
 typedef  void (^ClickBlock)(id value);
+typedef  void (^KVOBlock)(id value);
+typedef  NSObject * (^PropertyKVOBlock)(NSString*property,KVOBlock blcok);
+
 typedef  void (^UIViewAnimationBlock)(UIView* value);
 typedef  NSObject * (^PropertyBlock)(NSString*propertyList,id value);
 typedef  NSObject * (^ReturnBlock)(id value);
 @interface NSObject (LHUI)
 @property (nonatomic,readonly) PropertyBlock lh_propertyById;
+@property (nonatomic,readonly) PropertyKVOBlock lh_kvo;
 + (instancetype)return:(ReturnBlock)block;
 @end
 
