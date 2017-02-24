@@ -231,3 +231,49 @@
 
 @end
 
+
+
+@implementation UIAlertView (LHUI)
+-(UIAlertViewSetPropertyBlock)lh_title{
+    @weakify(self);
+    UIAlertViewSetPropertyBlock tmpBlock= ^(NSString* value){
+        @strongify(self);
+        self.title = value;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UIAlertViewSetPropertyBlock)lh_message{
+    @weakify(self);
+    UIAlertViewSetPropertyBlock tmpBlock= ^(NSString* value){
+        @strongify(self);
+        self.message = value;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UIAlertViewSetPropertyBlock)lh_btnTitle{
+    @weakify(self);
+    UIAlertViewSetPropertyBlock tmpBlock= ^(NSString* value){
+        @strongify(self);
+        NSArray *aArray = [value componentsSeparatedByString:@"<,>"];
+        for (NSInteger i = 0; i < aArray.count; i++) {
+            [self addButtonWithTitle:aArray[i]];
+        }
+        return self;
+    };
+    return tmpBlock;
+}
+-(UIAlertViewClickActionBlock)lh_clickAction{
+    @weakify(self);
+    UIAlertViewClickActionBlock tmpBlock= ^(ClickIndexBlock value){
+        @strongify(self);
+        [[self rac_buttonClickedSignal] subscribeNext:^(id x) {
+            value(self,[x integerValue]);
+        }];
+        return self;
+    };
+    return tmpBlock;
+}
+@end
+

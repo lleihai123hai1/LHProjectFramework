@@ -19,6 +19,16 @@
             .lh_clickAction(^(UIButton *sender){
                 sender.width += 2;
                 NSLog(@"clickAction");
+                [(UIAlertView*)[UIAlertView return:^NSObject *(UIAlertView* value) {
+                    return value
+                    .lh_title(@"hello")
+                    .lh_message(@"good")
+                    .lh_btnTitle(@"ok")
+                    .lh_btnTitle(@"cancel")
+                    .lh_clickAction(^(UIAlertView* value,NSInteger index){
+                        NSLog(@"UIAlertView:%ld",(long)index);
+                    });
+                }] show];
             })
             .lh_backgroundColor([UIColor redColor])
             .lh_alpha(@(0.4))

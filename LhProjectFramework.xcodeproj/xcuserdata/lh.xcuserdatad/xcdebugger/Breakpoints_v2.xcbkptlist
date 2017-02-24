@@ -26,27 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lib/UILib/TestUILib/BaseViewCreate/BaseViewCreateViewController.m"
-            timestampString = "509608081.570235"
+            timestampString = "509609660.996682"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "-button"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Lib/UILib/TestUILib/BaseViewCreate/BaseViewCreateViewController.m"
-            timestampString = "509608086.328857"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "-button"
             landmarkType = "7">
          </BreakpointContent>

@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 typedef  void (^ClickBlock)(id value);
+typedef  void (^ClickIndexBlock)(id value,NSInteger index);
 typedef  void (^KVOBlock)(id value);
 typedef  NSObject * (^PropertyKVOBlock)(NSString*property,KVOBlock blcok);
 
@@ -65,5 +66,11 @@ typedef  UIButton * (^UIButtonSetImageBlock)(UIImage* value,UIControlState state
 //    }
 //    return _button;
 //}
-
-
+typedef  UIAlertView* (^UIAlertViewClickActionBlock)(ClickIndexBlock value);
+typedef  UIAlertView * (^UIAlertViewSetPropertyBlock)(NSString* value);
+@interface UIAlertView (LHUI)
+@property (nonatomic,readonly) UIAlertViewSetPropertyBlock lh_title;
+@property (nonatomic,readonly) UIAlertViewSetPropertyBlock lh_message;
+@property (nonatomic,readonly) UIAlertViewSetPropertyBlock lh_btnTitle;//多个以"<,>"隔开
+@property (nonatomic,readonly) UIAlertViewClickActionBlock lh_clickAction;//多个以"<,>"隔开
+@end
