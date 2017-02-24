@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/scm/svn/ios_h2o/!svn/ver/5516/trunk/DailyYoga/lhlib/projectlib/common/LhCoreData/Lib/Db
+END
+CoreFMDB.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/scm/svn/ios_h2o/!svn/ver/1501/trunk/DailyYoga/lhlib/projectlib/common/LhCoreData/Lib/Db/CoreFMDB.h
+END
+CoreFMDBSingleton.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/scm/svn/ios_h2o/!svn/ver/1501/trunk/DailyYoga/lhlib/projectlib/common/LhCoreData/Lib/Db/CoreFMDBSingleton.h
+END
+CoreFMDB.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/scm/svn/ios_h2o/!svn/ver/1501/trunk/DailyYoga/lhlib/projectlib/common/LhCoreData/Lib/Db/CoreFMDB.m
+END

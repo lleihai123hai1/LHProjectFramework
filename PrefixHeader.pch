@@ -29,6 +29,9 @@
 #import "SDAutoLayout.h"
 #import "DemoCell.h"
 #import "BaseViewCreate.h"
+
+#define NSLog(format, ...) NSLog((@"%s [Line %d] " format), __FUNCTION__, __LINE__, ##__VA_ARGS__);
+
 #define AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES
 #define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_ 1
 #endif
@@ -42,5 +45,8 @@
 
 
 #endif /* PrefixHeader_pch */
+
+
+
 
 

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/scm/svn/ios_h2o/!svn/ver/5516/trunk/DailyYoga/lhlib/projectlib/common/LhCoreData/Lib/Db/extra/fts3
+END
+fts3_tokenizer.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/scm/svn/ios_h2o/!svn/ver/5516/trunk/DailyYoga/lhlib/projectlib/common/LhCoreData/Lib/Db/extra/fts3/fts3_tokenizer.h
+END
+FMTokenizers.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/scm/svn/ios_h2o/!svn/ver/5516/trunk/DailyYoga/lhlib/projectlib/common/LhCoreData/Lib/Db/extra/fts3/FMTokenizers.h
+END
+FMDatabase+FTS3.h
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/scm/svn/ios_h2o/!svn/ver/5516/trunk/DailyYoga/lhlib/projectlib/common/LhCoreData/Lib/Db/extra/fts3/FMDatabase+FTS3.h
+END
+FMTokenizers.m
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/scm/svn/ios_h2o/!svn/ver/5516/trunk/DailyYoga/lhlib/projectlib/common/LhCoreData/Lib/Db/extra/fts3/FMTokenizers.m
+END
+FMDatabase+FTS3.m
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/scm/svn/ios_h2o/!svn/ver/5516/trunk/DailyYoga/lhlib/projectlib/common/LhCoreData/Lib/Db/extra/fts3/FMDatabase+FTS3.m
+END
