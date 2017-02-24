@@ -120,11 +120,12 @@ HMSingletonM(CoreFMDB)
     CoreFMDB *coreFMDB=[CoreFMDB sharedCoreFMDB];
     
     [coreFMDB.queue inDatabase:^(FMDatabase *db) {
-        
         FMResultSet *set = [db executeQuery:sql];
-        
-        if(queryResBlock != nil) queryResBlock(set);
-        
+        @try{
+            if(queryResBlock != nil) queryResBlock(set);
+        }@catch(NSException* e) {
+            NSLog(@"Error:(%@)",sql);
+        }
     }];
 }
 

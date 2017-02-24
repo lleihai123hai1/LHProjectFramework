@@ -7,15 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseCoreModel.h"
-@interface BaseCoreModel1 : BaseCoreModel
-@property (nonatomic, retain) NSString * objDesc;
-@property (nonatomic, retain) NSString * downloadLink;
-@property (nonatomic, assign) NSInteger isMySession;
-@property (nonatomic, assign) BOOL isDownloaded;
-@property (nonatomic, assign) CGFloat percentage;
-@property (nonatomic, retain) NSMutableArray *poseArray;
-@end
+#import "City.h"
+#import "Pen.h"
+#import "Person.h"
 
 @interface LhCoreDataViewController : UIViewController
 

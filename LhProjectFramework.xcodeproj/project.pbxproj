@@ -193,6 +193,9 @@
 		EB8823641E5FD41800CBCFD2 /* Base64Str.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8823631E5FD41800CBCFD2 /* Base64Str.m */; };
 		EB8823671E5FD52300CBCFD2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8823661E5FD52300CBCFD2 /* libsqlite3.tbd */; };
 		EB88236C1E5FD63C00CBCFD2 /* LhCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB88236B1E5FD63C00CBCFD2 /* LhCoreDataViewController.m */; };
+		EB8823731E5FDBC900CBCFD2 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = EB88236E1E5FDBC900CBCFD2 /* City.m */; };
+		EB8823741E5FDBC900CBCFD2 /* Pen.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8823701E5FDBC900CBCFD2 /* Pen.m */; };
+		EB8823751E5FDBC900CBCFD2 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8823721E5FDBC900CBCFD2 /* Person.m */; };
 		EBB4AAAF1E5EBC040011AEB1 /* LhNSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AAAE1E5EBC040011AEB1 /* LhNSDictionary.m */; };
 		EBB4AB741E5EC0FB0011AEB1 /* EXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AAB51E5EC0FB0011AEB1 /* EXTRuntimeExtensions.m */; };
 		EBB4AB751E5EC0FB0011AEB1 /* MKAnnotationView+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB4AAB91E5EC0FB0011AEB1 /* MKAnnotationView+RACSignalSupport.m */; };
@@ -711,6 +714,12 @@
 		EB8823661E5FD52300CBCFD2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		EB88236A1E5FD63C00CBCFD2 /* LhCoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LhCoreDataViewController.h; sourceTree = "<group>"; };
 		EB88236B1E5FD63C00CBCFD2 /* LhCoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LhCoreDataViewController.m; sourceTree = "<group>"; };
+		EB88236D1E5FDBC900CBCFD2 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		EB88236E1E5FDBC900CBCFD2 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		EB88236F1E5FDBC900CBCFD2 /* Pen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pen.h; sourceTree = "<group>"; };
+		EB8823701E5FDBC900CBCFD2 /* Pen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pen.m; sourceTree = "<group>"; };
+		EB8823711E5FDBC900CBCFD2 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		EB8823721E5FDBC900CBCFD2 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		EBB4AAAA1E5EB9F10011AEB1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		EBB4AAAD1E5EBC040011AEB1 /* LhNSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LhNSDictionary.h; sourceTree = "<group>"; };
 		EBB4AAAE1E5EBC040011AEB1 /* LhNSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LhNSDictionary.m; sourceTree = "<group>"; };
@@ -2117,6 +2126,12 @@
 		EB8823691E5FD63C00CBCFD2 /* LhCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				EB88236D1E5FDBC900CBCFD2 /* City.h */,
+				EB88236E1E5FDBC900CBCFD2 /* City.m */,
+				EB88236F1E5FDBC900CBCFD2 /* Pen.h */,
+				EB8823701E5FDBC900CBCFD2 /* Pen.m */,
+				EB8823711E5FDBC900CBCFD2 /* Person.h */,
+				EB8823721E5FDBC900CBCFD2 /* Person.m */,
 				EB88236A1E5FD63C00CBCFD2 /* LhCoreDataViewController.h */,
 				EB88236B1E5FD63C00CBCFD2 /* LhCoreDataViewController.m */,
 			);
@@ -2689,6 +2704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB8823641E5FD41800CBCFD2 /* Base64Str.m in Sources */,
+				EB8823741E5FDBC900CBCFD2 /* Pen.m in Sources */,
 				EBB4ABB41E5EC0FB0011AEB1 /* RACSubscriptingAssignmentTrampoline.m in Sources */,
 				EBB4ABB81E5EC0FB0011AEB1 /* RACTuple.m in Sources */,
 				EBB4ABB11E5EC0FB0011AEB1 /* RACStringSequence.m in Sources */,
@@ -2763,6 +2779,7 @@
 				EB12C35A1E5C3C8200564DE6 /* MJRefreshBackNormalFooter.m in Sources */,
 				EB12C4371E5C40CB00564DE6 /* UIImage+MultiFormat.m in Sources */,
 				EBB4ABAD1E5EC0FB0011AEB1 /* RACSignal.m in Sources */,
+				EB8823731E5FDBC900CBCFD2 /* City.m in Sources */,
 				EB12C43A1E5C40CB00564DE6 /* UIImageView+WebCache.m in Sources */,
 				EBB4ABB21E5EC0FB0011AEB1 /* RACSubject.m in Sources */,
 				EB12C4241E5C40CB00564DE6 /* SDBrowserImageView.m in Sources */,
@@ -2863,6 +2880,7 @@
 				EB12C36E1E5C3C8200564DE6 /* ThreeThirdCell.m in Sources */,
 				EB12C4361E5C40CB00564DE6 /* UIImage+GIF.m in Sources */,
 				EBB4AB961E5EC0FB0011AEB1 /* RACDynamicSignal.m in Sources */,
+				EB8823751E5FDBC900CBCFD2 /* Person.m in Sources */,
 				EB88235B1E5FD23A00CBCFD2 /* SBJsonStreamWriter.m in Sources */,
 				EB12C3401E5C3C8200564DE6 /* UIButton+AFNetworking.m in Sources */,
 				EB8823461E5FD23A00CBCFD2 /* FMDatabaseAdditions.m in Sources */,

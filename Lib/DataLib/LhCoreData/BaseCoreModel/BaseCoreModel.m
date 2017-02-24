@@ -456,7 +456,9 @@
                         }else if ([type isEqualToString:typeStrDate]){
                             if (value.length ) {
                                  NSDate*date = [self getDateFromString:value key:@"yyyy-MM-dd HH:mm:ss"];
-                                [model setValue:date forKey:property.name];
+                                if(date){
+                                    [model setValue:date forKey:property.name];
+                                }
                             }
                         }
 
