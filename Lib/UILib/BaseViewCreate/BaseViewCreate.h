@@ -50,9 +50,10 @@ typedef  UIButton * (^UIButtonSetImageBlock)(UIImage* value,UIControlState state
 
 typedef  UIAlertView* (^UIAlertViewClickActionBlock)(ClickIndexBlock value);
 typedef  UIAlertView * (^UIAlertViewSetPropertyBlock)(NSString* value);
+typedef  UIAlertView * (^UIAlertViewSetBtnTitleBlock)(NSString* value,...);
 @interface UIAlertView (LHUI)
 @property (nonatomic,readonly) UIAlertViewSetPropertyBlock lh_title;
 @property (nonatomic,readonly) UIAlertViewSetPropertyBlock lh_message;
-@property (nonatomic,readonly) UIAlertViewSetPropertyBlock lh_btnTitle;//多个以"<,>"隔开
+@property (nonatomic,readonly) UIAlertViewSetBtnTitleBlock lh_btnTitle;//结尾必须nill
 @property (nonatomic,readonly) UIAlertViewClickActionBlock lh_clickAction;
 @end

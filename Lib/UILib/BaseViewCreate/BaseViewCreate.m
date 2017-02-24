@@ -258,15 +258,30 @@
     };
     return tmpBlock;
 }
--(UIAlertViewSetPropertyBlock)lh_btnTitle{
+-(UIAlertViewSetBtnTitleBlock)lh_btnTitle{
     @weakify(self);
-    UIAlertViewSetPropertyBlock tmpBlock= ^(NSString* value){
+    UIAlertViewSetBtnTitleBlock tmpBlock= ^(NSString* value,...){
         @strongify(self);
-        NullReturn(value)
-        NSArray *aArray = [value componentsSeparatedByString:@"<,>"];
-        for (NSInteger i = 0; i < aArray.count; i++) {
-            [self addButtonWithTitle:aArray[i]];
+        va_list params;
+        va_start(params, value);
+        if (value) {
+            [self addButtonWithTitle:value];
+            NSString *temp = nil;;
+            while (YES) {
+                @try{
+                    temp = va_arg(params, NSString*);
+                }@catch(NSException* e) {
+                    NSLog(@"Error:动态读取属性错误");
+                    break;
+                }
+                if (temp ==nil) {
+                    break;
+                }else{
+                    [self addButtonWithTitle:temp];
+                }
+            }
         }
+        va_end(params);
         return self;
     };
     return tmpBlock;
