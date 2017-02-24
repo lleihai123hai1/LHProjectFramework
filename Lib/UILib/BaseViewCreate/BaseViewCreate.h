@@ -4,7 +4,6 @@ typedef  void (^ClickBlock)(id value);
 typedef  void (^ClickIndexBlock)(id value,NSInteger index);
 typedef  void (^KVOBlock)(id value);
 typedef  NSObject * (^PropertyKVOBlock)(NSString*property,KVOBlock blcok);
-
 typedef  void (^UIViewAnimationBlock)(UIView* value);
 typedef  NSObject * (^PropertyBlock)(NSString*propertyList,id value);
 typedef  NSObject * (^ReturnBlock)(id value);
@@ -14,15 +13,12 @@ typedef  NSObject * (^ReturnBlock)(id value);
 + (instancetype)return:(ReturnBlock)block;
 @end
 
+
 typedef  UIView * (^UISetValueBlock)(id value);
 typedef  UIView * (^UISetCGRectBlock)(CGRect value);
 typedef  UIView * (^UISetCGSizeBlock)(CGSize value);
 typedef  UIView * (^UISetCGPointBlock)(CGPoint value);
-
-
 typedef  UIView* (^UIViewAnimationActionBlock)(UIViewAnimationBlock value,UIViewAnimationCurve curve,NSTimeInterval duration);
-
-
 @interface UIView (LHUI)
 @property (nonatomic,readonly) UISetValueBlock lh_layer_cornerRadius;
 @property (nonatomic,readonly) UISetValueBlock lh_backgroundColor;
@@ -39,7 +35,6 @@ typedef  UIView* (^UIViewAnimationActionBlock)(UIViewAnimationBlock value,UIView
 
 typedef  UIButton * (^UIButtonSetTitleFontBlock)(UIFont* value);
 typedef  UIButton* (^UIButtonClickActionBlock)(ClickBlock value);
-
 typedef  UIButton * (^UIButtonSetTitleBlock)(NSString* value,UIControlState state);
 typedef  UIButton * (^UIButtonSetTitleColorBlock)(UIColor* value,UIControlState state);
 typedef  UIButton * (^UIButtonSetImageBlock)(UIImage* value,UIControlState state);
@@ -51,6 +46,7 @@ typedef  UIButton * (^UIButtonSetImageBlock)(UIImage* value,UIControlState state
 @property (nonatomic,readonly) UIButtonSetImageBlock lh_backgroundImage;
 @property (nonatomic,readonly) UIButtonSetImageBlock lh_image;
 @end
+
 
 typedef  UIAlertView* (^UIAlertViewClickActionBlock)(ClickIndexBlock value);
 typedef  UIAlertView * (^UIAlertViewSetPropertyBlock)(NSString* value);
