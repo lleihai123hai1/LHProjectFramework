@@ -23,8 +23,10 @@
                     return value
                     .lh_title(@"hello")
                     .lh_message(@"good")
-                    .lh_btnTitle(@"ok",nil)
-                    .lh_btnTitle(@"cancel",@"later",nil)
+                    .lh_btnTitle(@"ok1",nil)
+                    .lh_btnTitle(@"ok2",@"ok3",nil)
+                    .lh_btnTitle(LH_Valist(@"ok4",@"ok5"))
+                    .lh_btnTitle(LH_Valist(@"ok6",@"ok7",nil))
                     .lh_clickAction(^(UIAlertView* value,NSInteger index){
                         NSLog(@"UIAlertView:%ld",(long)index);
                     });

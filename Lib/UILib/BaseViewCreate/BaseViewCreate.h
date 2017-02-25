@@ -1,4 +1,6 @@
 #import <UIKit/UIKit.h>
+#define LH_Valist(...)  lh_valist(metamacro_argcount(__VA_ARGS__),__VA_ARGS__)
+NSMutableArray* lh_valist(NSUInteger count, NSString* value,...);
 #define NullReturn(property) if (!property || [property isKindOfClass:[NSNull class]]) {NSLog(@"不能输入nill");return self;}
 typedef  void (^ClickBlock)(id value);
 typedef  void (^ClickIndexBlock)(id value,NSInteger index);
@@ -50,10 +52,10 @@ typedef  UIButton * (^UIButtonSetImageBlock)(UIImage* value,UIControlState state
 
 typedef  UIAlertView* (^UIAlertViewClickActionBlock)(ClickIndexBlock value);
 typedef  UIAlertView * (^UIAlertViewSetPropertyBlock)(NSString* value);
-typedef  UIAlertView * (^UIAlertViewSetBtnTitleBlock)(NSString* value,...);
+typedef  UIAlertView * (^UIAlertViewSetBtnTitleBlock)(id value,...);
 @interface UIAlertView (LHUI)
 @property (nonatomic,readonly) UIAlertViewSetPropertyBlock lh_title;
 @property (nonatomic,readonly) UIAlertViewSetPropertyBlock lh_message;
-@property (nonatomic,readonly) UIAlertViewSetBtnTitleBlock lh_btnTitle;//结尾必须nill
+@property (nonatomic,readonly) UIAlertViewSetBtnTitleBlock lh_btnTitle;//NSString结尾必须nill
 @property (nonatomic,readonly) UIAlertViewClickActionBlock lh_clickAction;
 @end

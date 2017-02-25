@@ -1,4 +1,30 @@
 #import "BaseViewCreate.h"
+NSMutableArray* lh_valist(NSUInteger count, NSString* value,...){
+    NSMutableArray*array = [NSMutableArray array];
+    va_list params;
+    va_start(params, value);
+     NSString*valueeee = [[NSString alloc] initWithFormat:@"%@" arguments:params];
+    NSLog(@"%@",valueeee);
+    [array addObject:value];
+    NSString *temp = nil;
+    while (--count) {
+        @try{
+            temp = va_arg(params, NSString*);
+        }@catch(NSException* e) {
+            NSLog(@"Error:动态读取属性错误");
+            break;
+        }
+        if (temp ==nil) {
+            break;
+        }else{
+            [array addObject:temp];
+        }
+    }
+    NSLog(@"%@",array);
+    return array;
+}
+
+
 
 @implementation NSObject (LHUI)
 -(PropertyBlock)lh_propertyById{
@@ -260,14 +286,23 @@
 }
 -(UIAlertViewSetBtnTitleBlock)lh_btnTitle{
     @weakify(self);
-    UIAlertViewSetBtnTitleBlock tmpBlock= ^(NSString* value,...){
+    UIAlertViewSetBtnTitleBlock tmpBlock= ^(id value,...){
         @strongify(self);
+        if(!value){
+            return self;
+        }else if ([value isKindOfClass:[NSArray class]]){
+            for (NSString*title in value) {
+                [self addButtonWithTitle:title];
+            }
+            return self;
+        }
         va_list params;
         va_start(params, value);
         if (value) {
             [self addButtonWithTitle:value];
             NSString *temp = nil;;
             while (YES) {
+                NSLog(@"%@",[NSString stringWithCString:params encoding:NSUTF8StringEncoding]);
                 @try{
                     temp = va_arg(params, NSString*);
                 }@catch(NSException* e) {
