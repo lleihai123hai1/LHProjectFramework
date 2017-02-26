@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+#pragma mark --基本方法扩展
 #define LH_Valist(...)  lh_valist(metamacro_argcount(__VA_ARGS__),__VA_ARGS__)
 NSMutableArray* lh_valist(NSUInteger count, NSString* value,...);
 #define NullReturn(property) if (!property || [property isKindOfClass:[NSNull class]]) {NSLog(@"不能输入nill");return self;}
@@ -15,7 +16,7 @@ typedef  NSObject * (^ReturnBlock)(id value);
 + (instancetype)return:(ReturnBlock)block;
 @end
 
-
+#pragma mark --UIView扩展
 typedef  void (^UILayoutBlock)(SDAutoLayoutModel *sd_layout);
 typedef  UIView* (^UILayoutActionBlock)(UIView*superview,UILayoutBlock value);
 typedef  UIView * (^UISetValueBlock)(id value);
@@ -38,7 +39,7 @@ typedef  UIView* (^UIViewAnimationActionBlock)(UIViewAnimationBlock value,UIView
 
 @end
 
-
+#pragma mark --UIButton扩展
 typedef  UIButton * (^UIButtonSetTitleFontBlock)(UIFont* value);
 typedef  UIButton* (^UIButtonClickActionBlock)(ClickBlock value);
 typedef  UIButton * (^UIButtonSetTitleBlock)(NSString* value,UIControlState state);
@@ -53,7 +54,7 @@ typedef  UIButton * (^UIButtonSetImageBlock)(UIImage* value,UIControlState state
 @property (nonatomic,readonly) UIButtonSetImageBlock lh_image;
 @end
 
-
+#pragma mark --UIAlertView扩展
 typedef  UIAlertView* (^UIAlertViewClickActionBlock)(ClickIndexBlock value);
 typedef  UIAlertView * (^UIAlertViewSetPropertyBlock)(NSString* value);
 typedef  UIAlertView * (^UIAlertViewSetBtnTitleBlock)(id value,...);
