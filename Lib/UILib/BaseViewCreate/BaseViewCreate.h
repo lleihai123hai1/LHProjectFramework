@@ -16,6 +16,8 @@ typedef  NSObject * (^ReturnBlock)(id value);
 @end
 
 
+typedef  void (^UILayoutBlock)(SDAutoLayoutModel *sd_layout);
+typedef  UIView* (^UILayoutActionBlock)(UIView*superview,UILayoutBlock value);
 typedef  UIView * (^UISetValueBlock)(id value);
 typedef  UIView * (^UISetCGRectBlock)(CGRect value);
 typedef  UIView * (^UISetCGSizeBlock)(CGSize value);
@@ -32,6 +34,8 @@ typedef  UIView* (^UIViewAnimationActionBlock)(UIViewAnimationBlock value,UIView
 @property (nonatomic,readonly) UISetValueBlock lh_enabled;
 @property (nonatomic,readonly) UISetValueBlock lh_scale;
 @property (nonatomic,readonly) UIViewAnimationActionBlock lh_anim;
+@property (nonatomic,readonly) UILayoutActionBlock lh_layout;
+
 @end
 
 

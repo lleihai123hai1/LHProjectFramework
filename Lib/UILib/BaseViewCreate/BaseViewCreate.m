@@ -193,6 +193,21 @@ NSMutableArray* lh_valist(NSUInteger count, NSString* value,...){
     return tmpBlock;
 }
 
+-(UILayoutActionBlock)lh_layout{
+    @weakify(self);
+    UILayoutActionBlock tmpBlock= ^(UIView*superview,UILayoutBlock value){
+        @strongify(self);
+        NullReturn(value)
+        NullReturn(superview)
+        [superview addSubview:self];
+        value(self.sd_layout);
+        return self;
+    };
+    return tmpBlock;
+}
+
+
+
 @end
 
 
