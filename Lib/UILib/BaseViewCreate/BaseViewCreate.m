@@ -460,3 +460,30 @@ NSMutableArray* lh_valist(NSUInteger count, NSString* value,...){
 }
 
 @end
+
+
+
+#pragma mark --UIImageView扩展
+//typedef  UIImageView * (^UIImageViewSetImageBlock)(UIImage* value);
+//typedef  UIImageView * (^UIImageViewSetNameBlock)(NSString* value);
+@implementation UIImageView (LHUI)
+-(UIImageViewSetImageBlock)lh_image{
+    @weakify(self);
+    UIImageViewSetImageBlock tmpBlock=  ^(UIImage* value){
+        @strongify(self);
+        return (UIImageView*)(self
+                          .lh_propertyById(@"image",value));
+    };
+    return tmpBlock;
+}
+-(UIImageViewSetNameBlock)lh_name{
+    @weakify(self);
+    UIImageViewSetNameBlock tmpBlock=  ^(NSString* value){
+        @strongify(self);
+        NullReturn(value);
+        self.image = [UIImage imageNamed:value];
+        return self;
+    };
+    return tmpBlock;
+}
+@end

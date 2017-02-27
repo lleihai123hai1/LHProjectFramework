@@ -91,3 +91,13 @@ typedef  UILabel * (^UILabelSetTextBlock)(NSString* value);
 @property (nonatomic,readonly) UILabelSetLineBreakModeBlock lh_lineBreakMode;
 @property (nonatomic,readonly) UILabelSetTextBlock lh_text;
 @end
+
+
+#pragma mark --UIImageView扩展
+typedef  UIImageView * (^UIImageViewSetImageBlock)(UIImage* value);
+typedef  UIImageView * (^UIImageViewSetNameBlock)(NSString* value);
+@interface UIImageView (LHUI)
+@property (nonatomic,readonly) UIImageViewSetImageBlock lh_image;
+@property (nonatomic,readonly) UIImageViewSetNameBlock lh_name;
+@end
+
