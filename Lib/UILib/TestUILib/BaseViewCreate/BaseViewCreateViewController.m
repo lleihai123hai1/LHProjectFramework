@@ -39,6 +39,7 @@
     if(!_button){
         _button = [UIButton return:^NSObject *(UIButton* value) {
             return value
+            .lh_title(@"btn",UIControlStateNormal)
             .lh_clickAction(^(UIButton *sender){
                 sender.width += 2;
                 NSLog(@"clickAction");
@@ -56,10 +57,10 @@
                 }] show];
             })
             .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
-                sd_layout.leftSpaceToView(self.view,50)
+                sd_layout.leftSpaceToView(self.view,10)
                 .topSpaceToView(self.view,100)
-                .widthIs(40)
-                .heightIs(90);
+                .widthIs(60)
+                .heightIs(40);
             })
             .lh_backgroundColor([UIColor redColor])
             .lh_alpha(@(0.4))
@@ -81,10 +82,10 @@
             })
             .lh_backgroundColor([UIColor grayColor])
             .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
-                sd_layout.leftSpaceToView(self.view,150)
+                sd_layout.leftSpaceToView(self.view,70)
                 .topSpaceToView(self.view,100)
                 .widthIs(140)
-                .heightIs(50);
+                .heightIs(40);
             });
         }];
     }
@@ -100,10 +101,10 @@
             })
             .lh_backgroundColor([UIColor blueColor])
             .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
-                sd_layout.leftSpaceToView(self.view,150)
-                .topSpaceToView(self.view,200)
+                sd_layout.leftSpaceToView(self.view,70)
+                .topSpaceToView(self.textFiled,10)
                 .widthIs(140)
-                .heightIs(50);
+                .heightIs(80);
             });
         }];
     }
@@ -119,8 +120,8 @@
             .lh_textAlignment(NSTextAlignmentCenter)
             .lh_backgroundColor([UIColor whiteColor])
             .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
-                sd_layout.leftSpaceToView(self.view,10)
-                .topSpaceToView(self.view,300)
+                sd_layout.leftSpaceToView(self.textFiled,10)
+                .topEqualToView(self.textFiled)
                 .widthIs(150)
                 .heightIs(50);
             })
@@ -148,8 +149,8 @@
             return value
             .lh_image([UIImage imageNamed:@"icon_ProRight2"])
             .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
-                sd_layout.leftSpaceToView(self.view,250)
-                .topSpaceToView(self.view,350)
+                sd_layout.leftEqualToView(self.lable)
+                .topSpaceToView(self.lable,10)
                 .widthIs(50)
                 .heightIs(50);
             });
@@ -165,8 +166,8 @@
             return value
             .lh_name(@"icon_ProRight2")
             .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
-                sd_layout.leftSpaceToView(self.view,200)
-                .topSpaceToView(self.view,350)
+                sd_layout.leftEqualToView(self.uiImageView)
+                .topSpaceToView(self.uiImageView,20)
                 .widthIs(40)
                 .heightIs(40);
             })
