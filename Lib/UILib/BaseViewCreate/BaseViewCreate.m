@@ -218,6 +218,7 @@ NSMutableArray* lh_valist(NSUInteger count, NSString* value,...){
                 value(x);
             }
         }];
+        self.userInteractionEnabled = YES;
         [self addGestureRecognizer:tap];
         return self;
     };
@@ -402,3 +403,60 @@ NSMutableArray* lh_valist(NSUInteger count, NSString* value,...){
 }
 @end
 
+#pragma mark --UILabel扩展
+//@property (nonatomic,readonly) UILabelSetTextColorBlock lh_textColor;
+//@property (nonatomic,readonly) UILabelSetTextAlignmentBlock lh_textAlignment;
+//@property (nonatomic,readonly) UILabelSetLineBreakModeBlock lh_lineBreakMode;
+//@property (nonatomic,readonly) UILabelSetNumberOfLinesBlock lh_numberOfLines;
+@implementation UILabel (LHUI)
+-(UILabelSetTextColorBlock)lh_textColor{
+    @weakify(self);
+    UILabelSetTextColorBlock tmpBlock= ^(UIColor* value){
+        @strongify(self);
+        return (UILabel*)(self
+                         .lh_propertyById(@"textColor",value));
+    };
+    return tmpBlock;
+}
+
+-(UILabelSetTextAlignmentBlock)lh_textAlignment{
+    @weakify(self);
+    UILabelSetTextAlignmentBlock tmpBlock= ^(NSTextAlignment value){
+        @strongify(self);
+        return (UILabel*)(self
+                          .lh_propertyById(@"textAlignment",@(value)));
+    };
+    return tmpBlock;
+}
+
+-(UILabelSetLineBreakModeBlock)lh_lineBreakMode{
+    @weakify(self);
+    UILabelSetLineBreakModeBlock tmpBlock=  ^(NSLineBreakMode value){
+        @strongify(self);
+        return (UILabel*)(self
+                          .lh_propertyById(@"lineBreakMode",@(value)));
+    };
+    return tmpBlock;
+}
+
+-(UILabelSetNumberOfLinesBlock)lh_numberOfLines{
+    @weakify(self);
+    UILabelSetNumberOfLinesBlock tmpBlock=  ^(NSInteger value){
+        @strongify(self);
+        return (UILabel*)(self
+                          .lh_propertyById(@"numberOfLines",@(value)));
+    };
+    return tmpBlock;
+}
+
+-(UILabelSetTextBlock)lh_text{
+    @weakify(self);
+    UILabelSetTextBlock tmpBlock=  ^(NSString* value){
+        @strongify(self);
+        return (UILabel*)(self              
+                          .lh_propertyById(@"text",value));
+    };
+    return tmpBlock;
+}
+
+@end

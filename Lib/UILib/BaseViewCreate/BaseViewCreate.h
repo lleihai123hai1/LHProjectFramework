@@ -68,16 +68,26 @@ typedef  UIAlertView * (^UIAlertViewSetBtnTitleBlock)(id value,...);
 @end
 
 #pragma mark --UITextField扩展
-
 typedef  UITextField* (^UITextFieldClickActionBlock)(SelfClickBlock value);
 @interface UITextField (LHUI)
 @property (nonatomic,readonly) UITextFieldClickActionBlock lh_clickAction;
 @end
 
 #pragma mark --UITextView扩展
-
 typedef  UITextView* (^UITextViewClickActionBlock)(SelfClickBlock value);
 @interface UITextView (LHUI)
 @property (nonatomic,readonly) UITextViewClickActionBlock lh_clickAction;
 @end
 
+#pragma mark --UILabel扩展
+typedef  UILabel * (^UILabelSetTextColorBlock)(UIColor* value);
+typedef  UILabel * (^UILabelSetTextAlignmentBlock)(NSTextAlignment value);
+typedef  UILabel * (^UILabelSetLineBreakModeBlock)(NSLineBreakMode value);
+typedef  UILabel * (^UILabelSetNumberOfLinesBlock)(NSInteger value);
+typedef  UILabel * (^UILabelSetTextBlock)(NSString* value);
+@interface UILabel (LHUI)
+@property (nonatomic,readonly) UILabelSetTextColorBlock lh_textColor;
+@property (nonatomic,readonly) UILabelSetTextAlignmentBlock lh_textAlignment;
+@property (nonatomic,readonly) UILabelSetLineBreakModeBlock lh_lineBreakMode;
+@property (nonatomic,readonly) UILabelSetTextBlock lh_text;
+@end

@@ -4,7 +4,7 @@
 @property(nonatomic,strong)UIButton*button;
 @property(nonatomic,strong)UITextField*textFiled;
 @property(nonatomic,strong)UITextView*textView;
-
+@property(nonatomic,strong)UILabel*lable;
 @end
 
 @implementation BaseViewCreateViewController
@@ -15,16 +15,16 @@
     [self.view addSubview:self.button];
     [self.view addSubview:self.textFiled];
     [self.view addSubview:self.textView];
-    
-    self.view.lh_gesture(1,1,^(id value){
-        NSLog(@"singleFingerOne");
-    })
-    .lh_gesture(1,2,^(id value){
-        NSLog(@"singleFingerTwo");
-    })
-    .lh_gesture(2,2,^(id value){
-        NSLog(@"TwoFingerTwo");
-    });
+    [self.view addSubview:self.lable];
+//    self.view.lh_gesture(1,1,^(id value){
+//        NSLog(@"singleFingerOne");
+//    })
+//    .lh_gesture(1,2,^(id value){
+//        NSLog(@"singleFingerTwo");
+//    })
+//    .lh_gesture(2,2,^(id value){
+//        NSLog(@"TwoFingerTwo");
+//    });
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view.window endEditing:YES];
@@ -104,5 +104,35 @@
     return _textView;
 }
 
+-(UILabel*)lable{
+    if(!_lable){
+        _lable = [UILabel return:^NSObject *(UILabel* value) {
+            return value
+            .lh_text(@"uilable click me")
+            .lh_textColor([UIColor blackColor])
+            .lh_textAlignment(NSTextAlignmentCenter)
+            .lh_backgroundColor([UIColor whiteColor])
+            .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
+                sd_layout.leftSpaceToView(self.view,10)
+                .topSpaceToView(self.view,300)
+                .widthIs(150)
+                .heightIs(50);
+            })
+            .lh_gesture(1,1,^(id value){
+                [(UIAlertView*)[UIAlertView return:^NSObject *(UIAlertView* value) {
+                    return value
+                    .lh_title(@"hello")
+                    .lh_message(@"thanks click")
+                    .lh_btnTitle(LH_Valist(@"ok",nil))
+                    .lh_clickAction(^(UIAlertView* value,NSInteger index){
+                        NSLog(@"UIAlertView:%ld",(long)index);
+                    });
+                }] show];
+
+            });
+        }];
+    }
+    return _lable;
+}
 
 @end
