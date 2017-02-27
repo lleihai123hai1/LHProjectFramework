@@ -8,12 +8,20 @@ typedef  void (^SelfClickBlock)(id selfValue,id value);
 typedef  void (^ClickIndexBlock)(id value,NSInteger index);
 typedef  void (^KVOBlock)(id value);
 typedef  NSObject * (^PropertyKVOBlock)(NSString*property,KVOBlock blcok);
+typedef  NSObject * (^NSNotificationBlock)(NSString*property,KVOBlock blcok);
+typedef  NSObject * (^RemoveNSNotificationBlock)(NSString*name);
+typedef  NSObject * (^PostNSNotificationBlock)(NSString*name,id value);
 typedef  void (^UIViewAnimationBlock)(UIView* value);
 typedef  NSObject * (^PropertyBlock)(NSString*propertyList,id value);
 typedef  NSObject * (^ReturnBlock)(id value);
 @interface NSObject (LHUI)
+@property (nonatomic,readonly) NSMutableDictionary* lh_Mudict;
 @property (nonatomic,readonly) PropertyBlock lh_propertyById;
 @property (nonatomic,readonly) PropertyKVOBlock lh_kvo;
+@property (nonatomic,readonly) NSNotificationBlock lh_notification;
+@property (nonatomic,readonly) RemoveNSNotificationBlock lh_removeNotification;
+@property (nonatomic,readonly) PostNSNotificationBlock lh_postNotification;
+
 + (instancetype)return:(ReturnBlock)block;
 @end
 

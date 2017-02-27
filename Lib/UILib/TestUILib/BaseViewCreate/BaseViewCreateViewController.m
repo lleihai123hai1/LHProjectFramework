@@ -31,9 +31,13 @@
     .lh_gesture(2,2,^(id value){
         NSLog(@"TwoFingerTwo");
     });
+    self.lh_notification(@"hello",^(id value){
+        NSLog(@"hello");
+    });
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view.window endEditing:YES];
+    self.lh_postNotification(@"hello",nil);
 }
 -(UIButton*)button{
     if(!_button){
@@ -53,6 +57,7 @@
                     .lh_btnTitle(LH_Valist(@"ok6",@"ok7",nil))
                     .lh_clickAction(^(UIAlertView* value,NSInteger index){
                         NSLog(@"UIAlertView:%ld",(long)index);
+                        self.lh_removeNotification(@"hello");
                     });
                 }] show];
             })

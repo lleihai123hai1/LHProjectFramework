@@ -1,4 +1,5 @@
 #import "BaseViewCreate.h"
+#import <objc/runtime.h>
 NSMutableArray* lh_valist(NSUInteger count, NSString* value,...){
     NSMutableArray*array = [NSMutableArray array];
     va_list params;
@@ -27,6 +28,8 @@ NSMutableArray* lh_valist(NSUInteger count, NSString* value,...){
 
 
 @implementation NSObject (LHUI)
+@dynamic lh_Mudict;
+const static void *lh_Mudict_Key = &lh_Mudict_Key;
 -(PropertyBlock)lh_propertyById{
     @weakify(self);
     PropertyBlock tmppropertyById = ^(NSString*propertyList,id value){
@@ -82,6 +85,57 @@ NSMutableArray* lh_valist(NSUInteger count, NSString* value,...){
         return self;
     };
     return tmpBlock;
+}
+-(NSNotificationBlock)lh_notification{
+    @weakify(self);
+    NSNotificationBlock tmpBlock= ^(NSString*property,KVOBlock blcok){
+        NullReturn(blcok)
+        NullReturn(property)
+        @strongify(self);
+        self.lh_removeNotification(property);
+        RACDisposable*disposable = [[[NSNotificationCenter defaultCenter] rac_addObserverForName:property object:nil] subscribeNext:^(NSNotification *notification) {
+            blcok(notification);
+        }];
+        [self.lh_Mudict setObject:disposable forKey:property];
+        return self;
+    };
+    return tmpBlock;
+}
+
+-(RemoveNSNotificationBlock)lh_removeNotification{
+    @weakify(self);
+    RemoveNSNotificationBlock tmpBlock= ^(NSString*property){
+        NullReturn(property)
+        @strongify(self);
+        RACDisposable*disposable = [self.lh_Mudict objectForKey:property];
+        if(disposable){
+            [disposable dispose];
+            [self.lh_Mudict removeObjectForKey:property];
+        }
+        return self;
+    };
+    return tmpBlock;
+}
+-(PostNSNotificationBlock)lh_postNotification{
+    @weakify(self);
+    PostNSNotificationBlock tmpBlock= ^(NSString*property,id value){
+        NullReturn(property)
+        @strongify(self);
+        [[NSNotificationCenter defaultCenter] postNotificationName:property object:value];
+        return self;
+    };
+    return tmpBlock;
+}
+
+
+- (NSMutableDictionary *)lh_Mudict {
+    NSMutableDictionary *operations = objc_getAssociatedObject(self, &lh_Mudict_Key);
+    if (operations) {
+        return operations;
+    }
+    operations = [NSMutableDictionary dictionary];
+    objc_setAssociatedObject(self, &lh_Mudict_Key, operations, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return operations;
 }
 @end
 
