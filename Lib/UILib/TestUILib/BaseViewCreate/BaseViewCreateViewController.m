@@ -5,6 +5,8 @@
 @property(nonatomic,strong)UITextField*textFiled;
 @property(nonatomic,strong)UITextView*textView;
 @property(nonatomic,strong)UILabel*lable;
+@property(nonatomic,strong)UIImageView*uiImageView;
+@property(nonatomic,strong)UIImageView*uiImageNameView;
 @end
 
 @implementation BaseViewCreateViewController
@@ -16,6 +18,9 @@
     [self.view addSubview:self.textFiled];
     [self.view addSubview:self.textView];
     [self.view addSubview:self.lable];
+    [self.view addSubview:self.uiImageView];
+    [self.view addSubview:self.uiImageNameView];
+//    icon_ProRight2
     self.view
 //    .lh_gesture(1,1,^(id value){
 //        NSLog(@"singleFingerOne");
@@ -136,4 +141,49 @@
     return _lable;
 }
 
+
+-(UIImageView*)uiImageView{
+    if(!_uiImageView){
+        _uiImageView = [UIImageView return:^NSObject *(UIImageView* value) {
+            return value
+            .lh_image([UIImage imageNamed:@"icon_ProRight2"])
+            .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
+                sd_layout.leftSpaceToView(self.view,250)
+                .topSpaceToView(self.view,350)
+                .widthIs(50)
+                .heightIs(50);
+            });
+;
+        }];
+    }
+    return _uiImageView;
+}
+
+-(UIImageView*)uiImageNameView{
+    if(!_uiImageNameView){
+        _uiImageNameView = [UIImageView return:^NSObject *(UIImageView* value) {
+            return value
+            .lh_name(@"icon_ProRight2")
+            .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
+                sd_layout.leftSpaceToView(self.view,200)
+                .topSpaceToView(self.view,350)
+                .widthIs(40)
+                .heightIs(40);
+            })
+            .lh_gesture(1,1,^(id value){
+                [(UIAlertView*)[UIAlertView return:^NSObject *(UIAlertView* value) {
+                    return value
+                    .lh_title(@"hello")
+                    .lh_message(@"thanks click")
+                    .lh_btnTitle(LH_Valist(@"ok",nil))
+                    .lh_clickAction(^(UIAlertView* value,NSInteger index){
+                        NSLog(@"UIAlertView:%ld",(long)index);
+                    });
+                }] show];
+                
+            });;
+        }];
+    }
+    return _uiImageView;
+}
 @end
