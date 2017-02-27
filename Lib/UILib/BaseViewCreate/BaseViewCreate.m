@@ -464,8 +464,6 @@ NSMutableArray* lh_valist(NSUInteger count, NSString* value,...){
 
 
 #pragma mark --UIImageView扩展
-//typedef  UIImageView * (^UIImageViewSetImageBlock)(UIImage* value);
-//typedef  UIImageView * (^UIImageViewSetNameBlock)(NSString* value);
 @implementation UIImageView (LHUI)
 -(UIImageViewSetImageBlock)lh_image{
     @weakify(self);
