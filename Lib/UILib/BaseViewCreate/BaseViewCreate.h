@@ -25,6 +25,7 @@ typedef  UIView * (^UISetCGRectBlock)(CGRect value);
 typedef  UIView * (^UISetCGSizeBlock)(CGSize value);
 typedef  UIView * (^UISetCGPointBlock)(CGPoint value);
 typedef  UIView* (^UIViewAnimationActionBlock)(UIViewAnimationBlock value,UIViewAnimationCurve curve,NSTimeInterval duration);
+typedef  UIView * (^UITapGestureBlock)(NSInteger numberTouches,NSInteger numberTaps,ClickBlock value);
 @interface UIView (LHUI)
 @property (nonatomic,readonly) UISetValueBlock lh_layer_cornerRadius;
 @property (nonatomic,readonly) UISetValueBlock lh_backgroundColor;
@@ -37,7 +38,7 @@ typedef  UIView* (^UIViewAnimationActionBlock)(UIViewAnimationBlock value,UIView
 @property (nonatomic,readonly) UISetValueBlock lh_scale;
 @property (nonatomic,readonly) UIViewAnimationActionBlock lh_anim;
 @property (nonatomic,readonly) UILayoutActionBlock lh_layout;
-
+@property (nonatomic,readonly) UITapGestureBlock lh_gesture;
 @end
 
 #pragma mark --UIButton扩展

@@ -206,7 +206,23 @@ NSMutableArray* lh_valist(NSUInteger count, NSString* value,...){
     return tmpBlock;
 }
 
-
+-(UITapGestureBlock)lh_gesture{
+    @weakify(self);
+    UITapGestureBlock tmpBlock= ^(NSInteger numberTouches,NSInteger numberTaps,ClickBlock value){
+        @strongify(self);
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
+        tap.numberOfTouchesRequired = numberTouches; //手指数
+        tap.numberOfTapsRequired = numberTaps; //tap次数
+        [[tap rac_gestureSignal] subscribeNext:^(id x) {
+            if(value){
+                value(x);
+            }
+        }];
+        [self addGestureRecognizer:tap];
+        return self;
+    };
+    return tmpBlock;
+}
 
 @end
 
