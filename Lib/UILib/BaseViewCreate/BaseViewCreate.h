@@ -4,6 +4,7 @@
 NSMutableArray* lh_valist(NSUInteger count, NSString* value,...);
 #define NullReturn(property) if (!property || [property isKindOfClass:[NSNull class]]) {NSLog(@"不能输入nill");return self;}
 typedef  void (^ClickBlock)(id value);
+typedef  void (^SelfClickBlock)(id selfValue,id value);
 typedef  void (^ClickIndexBlock)(id value,NSInteger index);
 typedef  void (^KVOBlock)(id value);
 typedef  NSObject * (^PropertyKVOBlock)(NSString*property,KVOBlock blcok);
@@ -64,3 +65,18 @@ typedef  UIAlertView * (^UIAlertViewSetBtnTitleBlock)(id value,...);
 @property (nonatomic,readonly) UIAlertViewSetBtnTitleBlock lh_btnTitle;//NSString结尾必须nill
 @property (nonatomic,readonly) UIAlertViewClickActionBlock lh_clickAction;
 @end
+
+#pragma mark --UITextField扩展
+
+typedef  UITextField* (^UITextFieldClickActionBlock)(SelfClickBlock value);
+@interface UITextField (LHUI)
+@property (nonatomic,readonly) UITextFieldClickActionBlock lh_clickAction;
+@end
+
+#pragma mark --UITextView扩展
+
+typedef  UITextView* (^UITextViewClickActionBlock)(SelfClickBlock value);
+@interface UITextView (LHUI)
+@property (nonatomic,readonly) UITextViewClickActionBlock lh_clickAction;
+@end
+

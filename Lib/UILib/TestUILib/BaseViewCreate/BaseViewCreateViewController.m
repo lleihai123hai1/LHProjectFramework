@@ -2,6 +2,9 @@
 
 @interface BaseViewCreateViewController ()
 @property(nonatomic,strong)UIButton*button;
+@property(nonatomic,strong)UITextField*textFiled;
+@property(nonatomic,strong)UITextView*textView;
+
 @end
 
 @implementation BaseViewCreateViewController
@@ -10,7 +13,11 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.button];
-
+    [self.view addSubview:self.textFiled];
+    [self.view addSubview:self.textView];
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view.window endEditing:YES];
 }
 -(UIButton*)button{
     if(!_button){
@@ -48,6 +55,43 @@
         }];
     }
     return _button;
+}
+-(UITextField*)textFiled{
+    if(!_textFiled){
+        _textFiled = [UITextField return:^NSObject *(UITextField* value) {
+            return value
+            .lh_clickAction(^(UITextField *sender,NSString*value){
+                NSLog(@"%@",value);
+            })
+            .lh_backgroundColor([UIColor grayColor])
+            .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
+                sd_layout.leftSpaceToView(self.view,150)
+                .topSpaceToView(self.view,100)
+                .widthIs(140)
+                .heightIs(50);
+            });
+        }];
+    }
+    return _textFiled;
+}
+
+-(UITextView*)textView{
+    if(!_textView){
+        _textView = [UITextView return:^NSObject *(UITextField* value) {
+            return value
+            .lh_clickAction(^(UITextField *sender,NSString*value){
+                NSLog(@"%@",value);
+            })
+            .lh_backgroundColor([UIColor blueColor])
+            .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
+                sd_layout.leftSpaceToView(self.view,150)
+                .topSpaceToView(self.view,200)
+                .widthIs(140)
+                .heightIs(50);
+            });
+        }];
+    }
+    return _textView;
 }
 
 

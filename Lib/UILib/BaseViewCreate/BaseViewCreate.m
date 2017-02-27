@@ -351,3 +351,38 @@ NSMutableArray* lh_valist(NSUInteger count, NSString* value,...){
 }
 @end
 
+@implementation UITextField (LHUI)
+-(UITextFieldClickActionBlock)lh_clickAction{
+    @weakify(self);
+    UITextFieldClickActionBlock tmpBlock= ^(SelfClickBlock value){
+        @strongify(self);
+        [[self rac_textSignal] subscribeNext:^(id x) {
+            if(value){
+                value(self,x);
+            }
+        }];
+        return self;
+    };
+    return tmpBlock;
+
+}
+@end
+
+
+@implementation UITextView (LHUI)
+-(UITextViewClickActionBlock)lh_clickAction{
+    @weakify(self);
+    UITextViewClickActionBlock tmpBlock= ^(SelfClickBlock value){
+        @strongify(self);
+        [[self rac_textSignal] subscribeNext:^(id x) {
+            if(value){
+                value(self,x);
+            }
+        }];
+        return self;
+    };
+    return tmpBlock;
+    
+}
+@end
+
