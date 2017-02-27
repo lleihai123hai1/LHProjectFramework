@@ -10,7 +10,9 @@
 @end
 
 @implementation BaseViewCreateViewController
-
+-(void)dealloc{
+    NSLog(@"dealloc %@",[self class]);
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -20,7 +22,6 @@
     [self.view addSubview:self.lable];
     [self.view addSubview:self.uiImageView];
     [self.view addSubview:self.uiImageNameView];
-//    icon_ProRight2
     self.view
 //    .lh_gesture(1,1,^(id value){
 //        NSLog(@"singleFingerOne");
@@ -41,12 +42,14 @@
 }
 -(UIButton*)button{
     if(!_button){
+        @weakify(self);//只能解决一层block 循环引用  若是多层必须添加@strongify(self); 然而 __weak typeof(self) weakSelf = self;  不存在此问题
         _button = [UIButton return:^NSObject *(UIButton* value) {
             return value
             .lh_title(@"btn",UIControlStateNormal)
             .lh_clickAction(^(UIButton *sender){
                 sender.width += 2;
                 NSLog(@"clickAction");
+                @strongify(self);
                 [(UIAlertView*)[UIAlertView return:^NSObject *(UIAlertView* value) {
                     return value
                     .lh_title(@"hello")
@@ -70,9 +73,11 @@
             .lh_backgroundColor([UIColor redColor])
             .lh_alpha(@(0.4))
             .lh_layer_cornerRadius(@(10))
-//            .lh_frame(CGRectMake(100, 200, 100, 100))
+            .lh_frame(CGRectMake(100, 200, 100, 100))
             .lh_kvo(@"frame",^(id value){
                 NSLog(@"change_frame");
+//                @strongify(self);
+//                self.lh_removeNotification(@"hello");
             });
         }];
     }
