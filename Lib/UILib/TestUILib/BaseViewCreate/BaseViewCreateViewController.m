@@ -16,15 +16,16 @@
     [self.view addSubview:self.textFiled];
     [self.view addSubview:self.textView];
     [self.view addSubview:self.lable];
-//    self.view.lh_gesture(1,1,^(id value){
+    self.view
+//    .lh_gesture(1,1,^(id value){
 //        NSLog(@"singleFingerOne");
 //    })
-//    .lh_gesture(1,2,^(id value){
-//        NSLog(@"singleFingerTwo");
-//    })
-//    .lh_gesture(2,2,^(id value){
-//        NSLog(@"TwoFingerTwo");
-//    });
+    .lh_gesture(1,2,^(id value){
+        NSLog(@"singleFingerTwo");
+    })
+    .lh_gesture(2,2,^(id value){
+        NSLog(@"TwoFingerTwo");
+    });
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view.window endEditing:YES];
@@ -108,7 +109,7 @@
     if(!_lable){
         _lable = [UILabel return:^NSObject *(UILabel* value) {
             return value
-            .lh_text(@"uilable click me")
+            .lh_text(@"uilable -_click， me")
             .lh_textColor([UIColor blackColor])
             .lh_textAlignment(NSTextAlignmentCenter)
             .lh_backgroundColor([UIColor whiteColor])
