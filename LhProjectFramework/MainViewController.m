@@ -65,10 +65,15 @@
 }
 -(UITableView*)table{
     if(!_table){
-        _table = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        _table.dataSource = self;
-        _table.delegate = self;
-        _table.separatorInset = UIEdgeInsetsZero;
+        _table = [UITableView return:^NSObject *(UITableView* value) {
+            return value
+            .lh_delegateDataSource(self)
+            .lh_separatorStyle(UITableViewCellSeparatorStyleSingleLine)
+            .lh_style(UITableViewStyleGrouped)
+            .lh_style(UITableViewStylePlain)
+            .lh_separatorInset(UIEdgeInsetsZero)
+            .lh_frame(self.view.bounds);
+        }];
     }
     return _table;
 }

@@ -123,6 +123,34 @@ typedef  UIActionSheet* (^UIActionSheetClickActionBlock)(ClickIndexBlock value);
 @property (nonatomic,readonly) UIActionSheetClickActionBlock lh_clickAction;
 @end
 
+#pragma mark --UIProgressView扩展
+typedef  UIProgressView * (^UIProgressViewSetPropertyBlock)(UIColor* value);
+@interface UIProgressView (LHUI)
+@property (nonatomic,readonly) UIProgressViewSetPropertyBlock lh_progressTintColor;
+@property (nonatomic,readonly) UIProgressViewSetPropertyBlock lh_trackTintColor;
+@end
+
+#pragma mark --UIProgressView扩展
+typedef  UITableView * (^UITableViewDelegateBlock)(id<UITableViewDelegate> value);
+typedef  UITableView * (^UITableViewDataSourceBlock)(id<UITableViewDataSource> value);
+typedef  UITableView * (^UITableDelegateAndDataBlock)(id<UITableViewDelegate,UITableViewDataSource> value);
+typedef  UITableView * (^UITableViewCellSeparatorStyleBlock)(UITableViewCellSeparatorStyle value);
+typedef  UITableView * (^UITableViewStyleBlock)(UITableViewStyle value);
+typedef  UITableView * (^UITableViewSetUIViewBlock)(UIView* value);
+typedef  UITableView * (^UITableViewSetUIEdgeInsetsBlock)(UIEdgeInsets value);
+@interface UITableView (LHUI)
+@property (nonatomic,readonly) UITableViewDelegateBlock lh_delegate;
+@property (nonatomic,readonly) UITableViewDataSourceBlock lh_dataSource;
+@property (nonatomic,readonly) UITableDelegateAndDataBlock lh_delegateDataSource;
+@property (nonatomic,readonly) UITableViewCellSeparatorStyleBlock lh_separatorStyle;
+@property (nonatomic,readonly) UITableViewStyleBlock lh_style;
+@property (nonatomic,readonly) UITableViewSetUIViewBlock lh_tableFooterView;
+@property (nonatomic,readonly) UITableViewSetUIViewBlock lh_tableHeaderView;
+@property (nonatomic,readonly) UITableViewSetUIEdgeInsetsBlock lh_separatorInset;
+@end
+
+
+
 #pragma mark --UIColor扩展
 @interface UIColor (LHUI)
 + (UIColor*)lh_ff32ff;

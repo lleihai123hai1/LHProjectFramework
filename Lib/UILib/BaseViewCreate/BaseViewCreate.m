@@ -650,6 +650,111 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 @end
 
+#pragma mark --UIProgressView扩展
+@implementation UIProgressView (LHUI)
+-(UIProgressViewSetPropertyBlock)lh_progressTintColor{
+    @weakify(self);
+    UIProgressViewSetPropertyBlock tmpBlock= ^(UIColor* value){
+        @strongify(self);
+        self.progressTintColor = value;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UIProgressViewSetPropertyBlock)lh_trackTintColor{
+    @weakify(self);
+    UIProgressViewSetPropertyBlock tmpBlock= ^(UIColor* value){
+        @strongify(self);
+        self.trackTintColor = value;
+        return self;
+    };
+    return tmpBlock;
+}
+@end
+
+#pragma mark --UIProgressView扩展
+@implementation UITableView (LHUI)
+-(UITableViewDelegateBlock)lh_delegate{
+    @weakify(self);
+    UITableViewDelegateBlock tmpBlock= ^(id<UITableViewDelegate> value){
+        @strongify(self);
+        NullReturn(value);
+        self.delegate = value;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UITableViewDataSourceBlock)lh_dataSource{
+    @weakify(self);
+    UITableViewDataSourceBlock tmpBlock= ^(id<UITableViewDataSource> value){
+        @strongify(self);
+        NullReturn(value);
+        self.dataSource = value;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UITableDelegateAndDataBlock)lh_delegateDataSource{
+    @weakify(self);
+    UITableDelegateAndDataBlock tmpBlock= ^(id<UITableViewDelegate,UITableViewDataSource> value){
+        @strongify(self);
+        NullReturn(value);
+        self.delegate = value;
+        self.dataSource = value;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UITableViewCellSeparatorStyleBlock)lh_separatorStyle{
+    @weakify(self);
+    UITableViewCellSeparatorStyleBlock tmpBlock= ^(UITableViewCellSeparatorStyle value){
+        @strongify(self);
+        self.separatorStyle = value;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UITableViewStyleBlock)lh_style{
+    @weakify(self);
+    UITableViewStyleBlock tmpBlock= ^(UITableViewStyle value){
+        @strongify(self);
+        UITableView*tmpself = [self initWithFrame:self.frame style:value];
+        return tmpself;
+    };
+    return tmpBlock;
+}
+
+-(UITableViewSetUIViewBlock)lh_tableFooterView{
+    @weakify(self);
+    UITableViewSetUIViewBlock tmpBlock= ^(UIView* value){
+        @strongify(self);
+        self.tableFooterView = value;
+        return self;
+    };
+    return tmpBlock;
+}
+
+-(UITableViewSetUIViewBlock)lh_tableHeaderView{
+    @weakify(self);
+    UITableViewSetUIViewBlock tmpBlock= ^(UIView* value){
+        @strongify(self);
+        self.tableHeaderView = value;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UITableViewSetUIEdgeInsetsBlock)lh_separatorInset{
+    @weakify(self);
+    UITableViewSetUIEdgeInsetsBlock tmpBlock= ^(UIEdgeInsets value){
+        @strongify(self);
+        self.separatorInset = value;
+        return self;
+    };
+    return tmpBlock;
+}
+
+@end
+
 @implementation UIColor(LHUI)
 + (NSObject*)lh_manager{
     static dispatch_once_t onceToken;
