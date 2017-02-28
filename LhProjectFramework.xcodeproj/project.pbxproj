@@ -657,6 +657,7 @@
 		EB12C4081E5C40CB00564DE6 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		EB12C4091E5C40CB00564DE6 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		EB12C40A1E5C40CB00564DE6 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		EB82113A1E651C3700EA9F31 /* LhDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LhDefine.h; sourceTree = SOURCE_ROOT; };
 		EB8822E91E5FD23A00CBCFD2 /* BaseCoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCoreModel.h; sourceTree = "<group>"; };
 		EB8822EA1E5FD23A00CBCFD2 /* BaseCoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCoreModel.m; sourceTree = "<group>"; };
 		EB8822ED1E5FD23A00CBCFD2 /* CoreFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreFMDB.h; sourceTree = "<group>"; };
@@ -1046,6 +1047,7 @@
 		EB12C2061E5C3BBF00564DE6 /* LhProjectFramework */ = {
 			isa = PBXGroup;
 			children = (
+				EB82113A1E651C3700EA9F31 /* LhDefine.h */,
 				EBB4AAAA1E5EB9F10011AEB1 /* PrefixHeader.pch */,
 				EB12C20A1E5C3BBF00564DE6 /* AppDelegate.h */,
 				EB12C20B1E5C3BBF00564DE6 /* AppDelegate.m */,

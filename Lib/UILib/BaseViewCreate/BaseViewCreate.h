@@ -21,7 +21,6 @@ typedef  NSObject * (^ReturnBlock)(id value);
 @property (nonatomic,readonly) NSNotificationBlock lh_notification;
 @property (nonatomic,readonly) RemoveNSNotificationBlock lh_removeNotification;
 @property (nonatomic,readonly) PostNSNotificationBlock lh_postNotification;
-
 + (instancetype)return:(ReturnBlock)block;
 @end
 
@@ -122,5 +121,10 @@ typedef  UIActionSheet* (^UIActionSheetClickActionBlock)(ClickIndexBlock value);
 @property (nonatomic,readonly) UIActionSheetSetPropertyBlock lh_destructiveButtonTitle;
 @property (nonatomic,readonly) UIActionSheetSetBtnTitleBlock lh_btnTitle;//NSString结尾必须nill
 @property (nonatomic,readonly) UIActionSheetClickActionBlock lh_clickAction;
+@end
+
+#pragma mark --UIColor扩展
+@interface UIColor (LHUI)
++ (UIColor*)lh_ff32ff;
 @end
 

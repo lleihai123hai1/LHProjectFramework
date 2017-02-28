@@ -23,9 +23,6 @@
     [self.view addSubview:self.uiImageView];
     [self.view addSubview:self.uiImageNameView];
     self.view
-//    .lh_gesture(1,1,^(id value){
-//        NSLog(@"singleFingerOne");
-//    })
     .lh_gesture(1,2,^(id value){
         NSLog(@"singleFingerTwo");
         [[UIActionSheet return:^NSObject *(UIActionSheet* value) {
@@ -47,7 +44,6 @@
     self.lh_notification(@"hello",^(id value){
         NSLog(@"hello");
     });
-    
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view.window endEditing:YES];
@@ -103,7 +99,7 @@
             .lh_clickAction(^(UITextField *sender,NSString*value){
                 NSLog(@"%@",value);
             })
-            .lh_backgroundColor([UIColor grayColor])
+            .lh_backgroundColor(UIColor.lh_ff32ff)
             .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
                 sd_layout.leftSpaceToView(self.view,70)
                 .topSpaceToView(self.view,100)

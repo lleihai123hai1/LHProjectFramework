@@ -29,8 +29,7 @@
 #import "SDAutoLayout.h"
 #import "DemoCell.h"
 #import "BaseViewCreate.h"
-
-#define NSLog(format, ...) NSLog((@"%s [Line %d] " format), __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#import "LhDefine.h"
 
 #define AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES
 #define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_ 1

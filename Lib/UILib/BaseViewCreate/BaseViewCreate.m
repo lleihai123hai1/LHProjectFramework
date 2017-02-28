@@ -68,10 +68,11 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 
 + (instancetype)return:(ReturnBlock)block {
     if(block){
-        return block([self new]);
+        return block(self.new);
     }
-    return [self new];
+    return self.new;
 }
+
 -(PropertyKVOBlock)lh_kvo{
     @weakify(self);
     PropertyKVOBlock tmpBlock= ^(NSString*property,KVOBlock blcok){
@@ -650,5 +651,11 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     for (NSString*title in array) {
         [tmpSelf addButtonWithTitle:title];
     }
+}
+@end
+
+@implementation UIColor(LHUI)
++ (UIColor*)lh_ff32ff{
+    return RGB(0xff32ff);
 }
 @end
