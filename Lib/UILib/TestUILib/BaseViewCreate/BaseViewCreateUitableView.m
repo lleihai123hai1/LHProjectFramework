@@ -26,7 +26,10 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    _contenArray = @[@{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"},@{@"title":@"JsPathViewController",@"content":@"热修复"},@{@"title":@"BaseViewCreateViewController",@"content":@"测试BaseViewCreate"},@{@"title":@"LhCoreDataViewController",@"content":@"测试数据库存储"}];
+    _contenArray = @[@{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"}
+                     ,@{@"title":@"JsPathViewController",@"content":@"热修复"}
+                     ,@{@"title":@"LhCoreDataViewController",@"content":@"测试数据库存储"}
+                     ,@{@"title":@"BaseViewCreateViewController",@"content":@"测试BaseViewCreate"},];
     [self.view addSubview:self.table];
     [self.table reloadData];
 }
@@ -62,7 +65,7 @@
                 return [self cellHeightForIndexPath:indexPath cellContentViewWidth:self.view.frame.size.width tableView:self.table];;
             })
             .lh_didSelectRowAtIndexPath(^(NSIndexPath *indexPath){
-                NSDictionary*dict = _contenArray[indexPath.row];
+                NSDictionary*dict = self->_contenArray[indexPath.row];
                 NSLog(@"%@",[dict strValue:@"title"])
             })
             .lh_frame(self.view.bounds);
