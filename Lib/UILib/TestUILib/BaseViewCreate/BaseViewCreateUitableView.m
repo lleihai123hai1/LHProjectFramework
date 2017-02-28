@@ -44,10 +44,6 @@
     cell.contentLabel.text = [dict strValue:@"content"];
     return cell;
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [self cellHeightForIndexPath:indexPath cellContentViewWidth:self.view.frame.size.width tableView:tableView];;
-}
 -(UITableView*)table{
     if(!_table){
         @weakify(self);
