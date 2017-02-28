@@ -22,8 +22,10 @@
     [self.view addSubview:self.lable];
     [self.view addSubview:self.uiImageView];
     [self.view addSubview:self.uiImageNameView];
+    @weakify(self);
     self.view
     .lh_gesture(1,2,^(id value){
+        @strongify(self);
         NSLog(@"singleFingerTwo");
         [[UIActionSheet return:^NSObject *(UIActionSheet* value) {
             return value
