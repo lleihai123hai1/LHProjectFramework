@@ -145,7 +145,6 @@ typedef  void (^DelegateDidSelectRowBlock)(NSIndexPath *indexPath);
 typedef  UITableView* (^UITableDataSourceNumberOfRowsBlock)(DataSourceNumberOfRowsBlock value);
 typedef  UITableView* (^UITableViewDelegatehHeightForRowAtIndexPathBlock)(DelegatehHeightForRowAtIndexPathBlock value);
 typedef  UITableView* (^UITableViewDelegateDidSelectRowBlock)(DelegateDidSelectRowBlock value);
-
 typedef  NSUInteger (^NumberOfSectionsBlock)(UITableView* value);
 typedef  UITableView* (^UITableDataSourceNumberOfSectionsBlock)(NumberOfSectionsBlock value);
 @interface UITableView (LHUI)<UITableViewDelegate,UITableViewDataSource>
@@ -161,12 +160,8 @@ typedef  UITableView* (^UITableDataSourceNumberOfSectionsBlock)(NumberOfSections
 @property (nonatomic,readonly) UITableViewDelegatehHeightForRowAtIndexPathBlock lh_heightForRowAtIndexPath;
 @property (nonatomic,readonly) UITableViewDelegateDidSelectRowBlock lh_didSelectRowAtIndexPath;
 @property (nonatomic,readonly) UITableDataSourceNumberOfSectionsBlock lh_numberOfSectionsInTableView;
-
 @property (nonatomic,readonly) NSObjectVoidBlock lh_clear;
-
 @end
-
-
 
 #pragma mark --UIColor扩展
 @interface UIColor (LHUI)

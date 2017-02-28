@@ -878,7 +878,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     [super removeFromSuperview];
 }
 @end
-
+#pragma mark --UIColor扩展
 @implementation UIColor(LHUI)
 + (NSObject*)lh_manager{
     static dispatch_once_t onceToken;
