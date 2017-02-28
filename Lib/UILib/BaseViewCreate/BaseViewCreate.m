@@ -842,16 +842,16 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 -(NSObjectVoidBlock)lh_clear{
     @weakify(self);
     NSObjectVoidBlock tmpBlock= ^(){
-        [self removeFromSuperview];
         @strongify(self);
+        self.delegate = nil;
+        self.dataSource = nil;
+        [self.lh_Mudict removeAllObjects];
         return self;
     };
     return tmpBlock;
 }
 -(void)removeFromSuperview{
-    self.delegate = nil;
-    self.dataSource = nil;
-    [self.lh_Mudict removeAllObjects];
+    self.lh_clear();
     [super removeFromSuperview];
 }
 @end
