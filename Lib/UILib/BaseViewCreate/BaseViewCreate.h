@@ -131,7 +131,7 @@ typedef  UIProgressView * (^UIProgressViewSetPropertyBlock)(UIColor* value);
 @property (nonatomic,readonly) UIProgressViewSetPropertyBlock lh_trackTintColor;
 @end
 
-#pragma mark --UIProgressView扩展
+#pragma mark --UIProgressView扩展 切记退出的时候调用lh_clear
 typedef  UITableView * (^UITableViewDelegateBlock)(id<UITableViewDelegate> value);
 typedef  UITableView * (^UITableViewDataSourceBlock)(id<UITableViewDataSource> value);
 typedef  UITableView * (^UITableDelegateAndDataBlock)(id value);
