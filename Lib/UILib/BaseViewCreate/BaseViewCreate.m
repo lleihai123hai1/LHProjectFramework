@@ -815,6 +815,18 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     return tmpBlock;
 }
 
+-(UITableDataSourceNumberOfSectionsBlock)lh_numberOfSectionsInTableView{
+    @weakify(self);
+    UITableDataSourceNumberOfSectionsBlock tmpBlock= ^(NumberOfSectionsBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"dataSource_numberOfSectionsInTableView"];
+        return self;
+    };
+    return tmpBlock;
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id<UITableViewDelegate> value = [self.lh_Mudict objectForKey:@"delegate"];
@@ -827,6 +839,17 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     }
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    id<UITableViewDataSource> value = [self.lh_Mudict objectForKey:@"dataSource"];
+    if(value && [value respondsToSelector:@selector(numberOfSectionsInTableView:)]){
+        return [value numberOfSectionsInTableView:self];
+    }
+    NumberOfSectionsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfSectionsInTableView"];
+    if(valueBlcok){
+      return valueBlcok(self);
+    }
+    return 0;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     id<UITableViewDataSource> value = [self.lh_Mudict objectForKey:@"dataSource"];
     if(value && [value respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]){

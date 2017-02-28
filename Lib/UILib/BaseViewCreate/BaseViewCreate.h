@@ -145,6 +145,9 @@ typedef  void (^DelegateDidSelectRowBlock)(NSIndexPath *indexPath);
 typedef  UITableView* (^UITableDataSourceNumberOfRowsBlock)(DataSourceNumberOfRowsBlock value);
 typedef  UITableView* (^UITableViewDelegatehHeightForRowAtIndexPathBlock)(DelegatehHeightForRowAtIndexPathBlock value);
 typedef  UITableView* (^UITableViewDelegateDidSelectRowBlock)(DelegateDidSelectRowBlock value);
+
+typedef  NSUInteger (^NumberOfSectionsBlock)(UITableView* value);
+typedef  UITableView* (^UITableDataSourceNumberOfSectionsBlock)(NumberOfSectionsBlock value);
 @interface UITableView (LHUI)<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,readonly) UITableViewDelegateBlock lh_delegate;
 @property (nonatomic,readonly) UITableViewDataSourceBlock lh_dataSource;
@@ -157,6 +160,8 @@ typedef  UITableView* (^UITableViewDelegateDidSelectRowBlock)(DelegateDidSelectR
 @property (nonatomic,readonly) UITableDataSourceNumberOfRowsBlock lh_numberOfRowsInSection;
 @property (nonatomic,readonly) UITableViewDelegatehHeightForRowAtIndexPathBlock lh_heightForRowAtIndexPath;
 @property (nonatomic,readonly) UITableViewDelegateDidSelectRowBlock lh_didSelectRowAtIndexPath;
+@property (nonatomic,readonly) UITableDataSourceNumberOfSectionsBlock lh_numberOfSectionsInTableView;
+
 @property (nonatomic,readonly) NSObjectVoidBlock lh_clear;
 
 @end
