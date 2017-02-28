@@ -25,7 +25,11 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    _contenArray = @[@{@"title":@"BaseViewCreateUitableView",@"content":@"测试uitable"},@{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"},@{@"title":@"JsPathViewController",@"content":@"热修复"},@{@"title":@"BaseViewCreateViewController",@"content":@"测试BaseViewCreate"},@{@"title":@"LhCoreDataViewController",@"content":@"测试数据库存储"}];
+    _contenArray = @[@{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"}
+                     ,@{@"title":@"JsPathViewController",@"content":@"热修复"}
+                     ,@{@"title":@"LhCoreDataViewController",@"content":@"测试数据库存储"}
+                     ,@{@"title":@"BaseViewCreateUitableView",@"content":@"测试uitable"}
+                     ,@{@"title":@"BaseViewCreateViewController",@"content":@"测试BaseViewCreate"},];
     [self.view addSubview:self.table];
     [self.table reloadData];
 }
