@@ -459,10 +459,6 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 @end
 
 #pragma mark --UILabel扩展
-//@property (nonatomic,readonly) UILabelSetTextColorBlock lh_textColor;
-//@property (nonatomic,readonly) UILabelSetTextAlignmentBlock lh_textAlignment;
-//@property (nonatomic,readonly) UILabelSetLineBreakModeBlock lh_lineBreakMode;
-//@property (nonatomic,readonly) UILabelSetNumberOfLinesBlock lh_numberOfLines;
 @implementation UILabel (LHUI)
 -(UILabelSetTextColorBlock)lh_textColor{
     @weakify(self);
@@ -655,7 +651,20 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 @end
 
 @implementation UIColor(LHUI)
++ (NSObject*)lh_manager{
+    static dispatch_once_t onceToken;
+    static NSObject *_manager = nil;
+    dispatch_once(&onceToken, ^{
+        _manager = [[[self class] alloc] init];
+        [_manager.lh_Mudict setObject:@"" forKey:@""];
+    });
+    return _manager;
+}
+
 + (UIColor*)lh_ff32ff{
-    return RGB(0xff32ff);
+    if(![[self lh_manager].lh_Mudict objectForKey:@"0xff32ff"]){
+        [[self lh_manager].lh_Mudict setObject:RGB(0xff32ff) forKey:@"0xff32ff"];
+    }
+    return [[self lh_manager].lh_Mudict objectForKey:@"0xff32ff"];
 }
 @end
