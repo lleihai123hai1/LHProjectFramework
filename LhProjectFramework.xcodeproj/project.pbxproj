@@ -167,6 +167,7 @@
 		EB12C4391E5C40CB00564DE6 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C4061E5C40CB00564DE6 /* UIImageView+HighlightedWebCache.m */; };
 		EB12C43A1E5C40CB00564DE6 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C4081E5C40CB00564DE6 /* UIImageView+WebCache.m */; };
 		EB12C43B1E5C40CB00564DE6 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C40A1E5C40CB00564DE6 /* UIView+WebCacheOperation.m */; };
+		EB82113E1E656F8E00EA9F31 /* BaseViewCreateUitableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB82113D1E656F8E00EA9F31 /* BaseViewCreateUitableView.m */; };
 		EB88233F1E5FD23A00CBCFD2 /* BaseCoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8822EA1E5FD23A00CBCFD2 /* BaseCoreModel.m */; };
 		EB8823401E5FD23A00CBCFD2 /* CoreFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8822EE1E5FD23A00CBCFD2 /* CoreFMDB.m */; };
 		EB8823411E5FD23A00CBCFD2 /* DBMangeShare.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8822F21E5FD23A00CBCFD2 /* DBMangeShare.m */; };
@@ -658,6 +659,8 @@
 		EB12C4091E5C40CB00564DE6 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		EB12C40A1E5C40CB00564DE6 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		EB82113A1E651C3700EA9F31 /* LhDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LhDefine.h; sourceTree = SOURCE_ROOT; };
+		EB82113C1E656F8E00EA9F31 /* BaseViewCreateUitableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewCreateUitableView.h; sourceTree = "<group>"; };
+		EB82113D1E656F8E00EA9F31 /* BaseViewCreateUitableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewCreateUitableView.m; sourceTree = "<group>"; };
 		EB8822E91E5FD23A00CBCFD2 /* BaseCoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCoreModel.h; sourceTree = "<group>"; };
 		EB8822EA1E5FD23A00CBCFD2 /* BaseCoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCoreModel.m; sourceTree = "<group>"; };
 		EB8822ED1E5FD23A00CBCFD2 /* CoreFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreFMDB.h; sourceTree = "<group>"; };
@@ -1047,15 +1050,15 @@
 		EB12C2061E5C3BBF00564DE6 /* LhProjectFramework */ = {
 			isa = PBXGroup;
 			children = (
-				EB82113A1E651C3700EA9F31 /* LhDefine.h */,
-				EBB4AAAA1E5EB9F10011AEB1 /* PrefixHeader.pch */,
 				EB12C20A1E5C3BBF00564DE6 /* AppDelegate.h */,
-				EB12C20B1E5C3BBF00564DE6 /* AppDelegate.m */,
-				EB12C2191E5C3BBF00564DE6 /* Assets.xcassets */,
-				EB12C21E1E5C3BBF00564DE6 /* Info.plist */,
-				EB12C21B1E5C3BBF00564DE6 /* LaunchScreen.storyboard */,
+				EB82113A1E651C3700EA9F31 /* LhDefine.h */,
 				EB12C2101E5C3BBF00564DE6 /* MainViewController.h */,
+				EB12C20B1E5C3BBF00564DE6 /* AppDelegate.m */,
 				EB12C2111E5C3BBF00564DE6 /* MainViewController.m */,
+				EBB4AAAA1E5EB9F10011AEB1 /* PrefixHeader.pch */,
+				EB12C21E1E5C3BBF00564DE6 /* Info.plist */,
+				EB12C2191E5C3BBF00564DE6 /* Assets.xcassets */,
+				EB12C21B1E5C3BBF00564DE6 /* LaunchScreen.storyboard */,
 				EB12C39A1E5C400400564DE6 /* selfClass */,
 				EB12C2071E5C3BBF00564DE6 /* Supporting Files */,
 			);
@@ -2628,6 +2631,8 @@
 		EBB4AC6D1E5ED3BC0011AEB1 /* BaseViewCreate */ = {
 			isa = PBXGroup;
 			children = (
+				EB82113C1E656F8E00EA9F31 /* BaseViewCreateUitableView.h */,
+				EB82113D1E656F8E00EA9F31 /* BaseViewCreateUitableView.m */,
 				EBB4AC6E1E5ED3BD0011AEB1 /* BaseViewCreateViewController.h */,
 				EBB4AC6F1E5ED3BD0011AEB1 /* BaseViewCreateViewController.m */,
 			);
@@ -2953,6 +2958,7 @@
 				EB8823471E5FD23A00CBCFD2 /* FMDatabasePool.m in Sources */,
 				EB8823591E5FD23A00CBCFD2 /* SBJsonStreamParserAdapter.m in Sources */,
 				EBB4AC4D1E5EC2BA0011AEB1 /* JPCGPath.m in Sources */,
+				EB82113E1E656F8E00EA9F31 /* BaseViewCreateUitableView.m in Sources */,
 				EB12C3531E5C3C8200564DE6 /* MJRefreshComponent.m in Sources */,
 				EB12C35B1E5C3C8200564DE6 /* MJRefreshBackStateFooter.m in Sources */,
 				EBB4ABA61E5EC0FB0011AEB1 /* RACReplaySubject.m in Sources */,

@@ -3,6 +3,7 @@
 #define LH_Valist(...)  lh_valist(metamacro_argcount(__VA_ARGS__),__VA_ARGS__)
 NSMutableArray* lh_valist(NSUInteger count, NSString* value,...);
 #define NullReturn(property) if (!property || [property isKindOfClass:[NSNull class]]) {NSLog(@"不能输入nill");return self;}
+typedef  NSObject* (^NSObjectVoidBlock)();
 typedef  void (^ClickBlock)(id value);
 typedef  void (^SelfClickBlock)(id selfValue,id value);
 typedef  void (^ClickIndexBlock)(id value,NSInteger index);
@@ -133,12 +134,18 @@ typedef  UIProgressView * (^UIProgressViewSetPropertyBlock)(UIColor* value);
 #pragma mark --UIProgressView扩展
 typedef  UITableView * (^UITableViewDelegateBlock)(id<UITableViewDelegate> value);
 typedef  UITableView * (^UITableViewDataSourceBlock)(id<UITableViewDataSource> value);
-typedef  UITableView * (^UITableDelegateAndDataBlock)(id<UITableViewDelegate,UITableViewDataSource> value);
+typedef  UITableView * (^UITableDelegateAndDataBlock)(id value);
 typedef  UITableView * (^UITableViewCellSeparatorStyleBlock)(UITableViewCellSeparatorStyle value);
 typedef  UITableView * (^UITableViewStyleBlock)(UITableViewStyle value);
 typedef  UITableView * (^UITableViewSetUIViewBlock)(UIView* value);
 typedef  UITableView * (^UITableViewSetUIEdgeInsetsBlock)(UIEdgeInsets value);
-@interface UITableView (LHUI)
+typedef  NSUInteger (^DataSourceNumberOfRowsBlock)(NSInteger section);
+typedef  CGFloat (^DelegatehHeightForRowAtIndexPathBlock)(NSIndexPath *indexPath);
+typedef  void (^DelegateDidSelectRowBlock)(NSIndexPath *indexPath);
+typedef  UITableView* (^UITableDataSourceNumberOfRowsBlock)(DataSourceNumberOfRowsBlock value);
+typedef  UITableView* (^UITableViewDelegatehHeightForRowAtIndexPathBlock)(DelegatehHeightForRowAtIndexPathBlock value);
+typedef  UITableView* (^UITableViewDelegateDidSelectRowBlock)(DelegateDidSelectRowBlock value);
+@interface UITableView (LHUI)<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,readonly) UITableViewDelegateBlock lh_delegate;
 @property (nonatomic,readonly) UITableViewDataSourceBlock lh_dataSource;
 @property (nonatomic,readonly) UITableDelegateAndDataBlock lh_delegateDataSource;
@@ -147,6 +154,11 @@ typedef  UITableView * (^UITableViewSetUIEdgeInsetsBlock)(UIEdgeInsets value);
 @property (nonatomic,readonly) UITableViewSetUIViewBlock lh_tableFooterView;
 @property (nonatomic,readonly) UITableViewSetUIViewBlock lh_tableHeaderView;
 @property (nonatomic,readonly) UITableViewSetUIEdgeInsetsBlock lh_separatorInset;
+@property (nonatomic,readonly) UITableDataSourceNumberOfRowsBlock lh_numberOfRowsInSection;
+@property (nonatomic,readonly) UITableViewDelegatehHeightForRowAtIndexPathBlock lh_heightForRowAtIndexPath;
+@property (nonatomic,readonly) UITableViewDelegateDidSelectRowBlock lh_didSelectRowAtIndexPath;
+@property (nonatomic,readonly) NSObjectVoidBlock lh_clear;
+
 @end
 
 

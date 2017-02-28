@@ -679,7 +679,8 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UITableViewDelegateBlock tmpBlock= ^(id<UITableViewDelegate> value){
         @strongify(self);
         NullReturn(value);
-        self.delegate = value;
+        [self.lh_Mudict setObject:value forKey:@"delegate"];
+        self.delegate = self;
         return self;
     };
     return tmpBlock;
@@ -689,7 +690,8 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UITableViewDataSourceBlock tmpBlock= ^(id<UITableViewDataSource> value){
         @strongify(self);
         NullReturn(value);
-        self.dataSource = value;
+        [self.lh_Mudict setObject:value forKey:@"dataSource"];
+        self.dataSource = self;
         return self;
     };
     return tmpBlock;
@@ -699,8 +701,10 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UITableDelegateAndDataBlock tmpBlock= ^(id<UITableViewDelegate,UITableViewDataSource> value){
         @strongify(self);
         NullReturn(value);
-        self.delegate = value;
-        self.dataSource = value;
+        self.delegate = self;
+        self.dataSource = self;
+        [self.lh_Mudict setObject:value forKey:@"dataSource"];
+        [self.lh_Mudict setObject:value forKey:@"delegate"];
         return self;
     };
     return tmpBlock;
@@ -753,6 +757,103 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     return tmpBlock;
 }
 
+-(UITableDataSourceNumberOfRowsBlock)lh_numberOfRowsInSection{
+    @weakify(self);
+    UITableDataSourceNumberOfRowsBlock tmpBlock= ^(DataSourceNumberOfRowsBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"dataSource_numberOfRowsInSection"];
+        return self;
+    };
+    return tmpBlock;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    id<UITableViewDataSource> value = [self.lh_Mudict objectForKey:@"dataSource"];
+    if(value && [value respondsToSelector:@selector(tableView:numberOfRowsInSection:)]){
+        return [value tableView:tableView numberOfRowsInSection:section];
+    }
+    DataSourceNumberOfRowsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfRowsInSection"];
+    if(valueBlcok){
+        return  valueBlcok(section);
+    }
+    return 0;
+}
+
+
+-(UITableViewDelegatehHeightForRowAtIndexPathBlock)lh_heightForRowAtIndexPath{
+    @weakify(self);
+    UITableViewDelegatehHeightForRowAtIndexPathBlock tmpBlock= ^(DelegatehHeightForRowAtIndexPathBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_heightForRowAtIndexPath"];
+        return self;
+    };
+    return tmpBlock;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    id<UITableViewDelegate> value = [self.lh_Mudict objectForKey:@"delegate"];
+    if(value && [value respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]){
+        return [value tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+    DelegatehHeightForRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_heightForRowAtIndexPath"];
+    if(valueBlcok){
+        return  valueBlcok(indexPath);
+    }
+    return 0;
+}
+
+-(UITableViewDelegateDidSelectRowBlock)lh_didSelectRowAtIndexPath{
+    @weakify(self);
+    UITableViewDelegateDidSelectRowBlock tmpBlock= ^(DelegateDidSelectRowBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_didSelectRowAtIndexPath"];
+        return self;
+    };
+    return tmpBlock;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id<UITableViewDelegate> value = [self.lh_Mudict objectForKey:@"delegate"];
+    if(value && [value respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]){
+        return [value tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }
+    DelegateDidSelectRowBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_didSelectRowAtIndexPath"];
+    if(valueBlcok){
+        valueBlcok(indexPath);
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    id<UITableViewDataSource> value = [self.lh_Mudict objectForKey:@"dataSource"];
+    if(value && [value respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]){
+        return [value tableView:tableView cellForRowAtIndexPath:indexPath];
+    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableView_LHUI"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableView_LHUI"];
+    }
+    return cell;
+}
+
+-(NSObjectVoidBlock)lh_clear{
+    @weakify(self);
+    NSObjectVoidBlock tmpBlock= ^(){
+        [self removeFromSuperview];
+        @strongify(self);
+        return self;
+    };
+    return tmpBlock;
+}
+-(void)removeFromSuperview{
+    self.delegate = nil;
+    self.dataSource = nil;
+    [self.lh_Mudict removeAllObjects];
+    [super removeFromSuperview];
+}
 @end
 
 @implementation UIColor(LHUI)

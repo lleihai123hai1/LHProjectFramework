@@ -6,26 +6,27 @@
 //  Copyright © 2017年 LH. All rights reserved.
 //
 
-#import "MainViewController.h"
-#import "EnterSDAutoLayoutViewController.h"
-#import "JsPathViewController.h"
-#import "BaseViewCreateViewController.h"
-#import "LhCoreDataViewController.h"
 #import "BaseViewCreateUitableView.h"
-@interface MainViewController ()
+@interface BaseViewCreateUitableView ()
 @property(nonatomic,strong)UITableView*table;
 @end
 
-@implementation MainViewController{
+@implementation BaseViewCreateUitableView{
     NSArray *_contenArray;
 }
-
+-(void)dealloc{
+    NSLog(@"dealloc %@",[self class]);
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    self.table.lh_clear();
+    [super viewWillDisappear:animated];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    _contenArray = @[@{@"title":@"BaseViewCreateUitableView",@"content":@"测试uitable"},@{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"},@{@"title":@"JsPathViewController",@"content":@"热修复"},@{@"title":@"BaseViewCreateViewController",@"content":@"测试BaseViewCreate"},@{@"title":@"LhCoreDataViewController",@"content":@"测试数据库存储"}];
+    _contenArray = @[@{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"},@{@"title":@"JsPathViewController",@"content":@"热修复"},@{@"title":@"BaseViewCreateViewController",@"content":@"测试BaseViewCreate"},@{@"title":@"LhCoreDataViewController",@"content":@"测试数据库存储"}];
     [self.view addSubview:self.table];
     [self.table reloadData];
 }
@@ -61,12 +62,12 @@
             .lh_numberOfRowsInSection(^(NSInteger index){
                 return self->_contenArray.count;
             })
+            .lh_heightForRowAtIndexPath(^(NSIndexPath *indexPath){
+                return [self cellHeightForIndexPath:indexPath cellContentViewWidth:self.view.frame.size.width tableView:self.table];;
+            })
             .lh_didSelectRowAtIndexPath(^(NSIndexPath *indexPath){
                 NSDictionary*dict = _contenArray[indexPath.row];
-                NSString *demoClassString = [dict strValue:@"title"];
-                UIViewController *vc = [NSClassFromString(demoClassString) new];
-                vc.title = demoClassString;
-                [self.navigationController pushViewController:vc animated:YES];
+                NSLog(@"%@",[dict strValue:@"title"])
             })
             .lh_frame(self.view.bounds);
         }];
