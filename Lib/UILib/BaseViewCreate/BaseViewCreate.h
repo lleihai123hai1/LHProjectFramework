@@ -109,3 +109,18 @@ typedef  UIImageView * (^UIImageViewSetNameBlock)(NSString* value);
 @property (nonatomic,readonly) UIImageViewSetNameBlock lh_name;
 @end
 
+#pragma mark --UIActionSheet扩展
+typedef  UIActionSheet * (^UIActionSheetSetActionSheetStyleBlock)(UIActionSheetStyle value);
+typedef  UIActionSheet * (^UIActionSheetSetPropertyBlock)(NSString* value);
+typedef  UIActionSheet * (^UIActionSheetSetBtnTitleBlock)(id value,...);
+typedef  UIActionSheet* (^UIActionSheetClickActionBlock)(ClickIndexBlock value);
+@interface UIActionSheet (LHUI)
+
+@property (nonatomic,readonly) UIActionSheetSetActionSheetStyleBlock lh_actionSheetStyle;
+@property (nonatomic,readonly) UIActionSheetSetPropertyBlock lh_title;
+@property (nonatomic,readonly) UIActionSheetSetPropertyBlock lh_cancelButtonTitle;
+@property (nonatomic,readonly) UIActionSheetSetPropertyBlock lh_destructiveButtonTitle;
+@property (nonatomic,readonly) UIActionSheetSetBtnTitleBlock lh_btnTitle;//NSString结尾必须nill
+@property (nonatomic,readonly) UIActionSheetClickActionBlock lh_clickAction;
+@end
+

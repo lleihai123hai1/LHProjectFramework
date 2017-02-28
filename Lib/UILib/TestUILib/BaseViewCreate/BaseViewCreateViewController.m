@@ -28,6 +28,18 @@
 //    })
     .lh_gesture(1,2,^(id value){
         NSLog(@"singleFingerTwo");
+        [[UIActionSheet return:^NSObject *(UIActionSheet* value) {
+            return value
+            .lh_actionSheetStyle(UIActionSheetStyleBlackTranslucent)
+            .lh_title(@"test")
+            .lh_cancelButtonTitle(@"取消")
+            .lh_destructiveButtonTitle(@"加入黑名单")
+            .lh_cancelButtonTitle(@"test取消")
+            .lh_btnTitle(@"click1",@"click2",nil)
+            .lh_clickAction(^(id value,NSInteger index){
+                NSLog(@"index %ld",(long)index);
+            });
+        }]showInView:self.view];
     })
     .lh_gesture(2,2,^(id value){
         NSLog(@"TwoFingerTwo");
@@ -35,6 +47,7 @@
     self.lh_notification(@"hello",^(id value){
         NSLog(@"hello");
     });
+    
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view.window endEditing:YES];

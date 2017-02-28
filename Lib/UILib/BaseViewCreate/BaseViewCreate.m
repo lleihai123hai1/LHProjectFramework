@@ -539,3 +539,116 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     return tmpBlock;
 }
 @end
+
+#pragma mark --UIActionSheet扩展
+@implementation UIActionSheet (LHUI)
+-(UIActionSheetSetActionSheetStyleBlock)lh_actionSheetStyle{
+    @weakify(self);
+    UIActionSheetSetActionSheetStyleBlock tmpBlock=  ^(UIActionSheetStyle value){
+        @strongify(self);
+        self.actionSheetStyle = value;
+        return self;
+    };
+    return tmpBlock;
+}
+
+-(UIActionSheetSetPropertyBlock)lh_title{
+    @weakify(self);
+    UIActionSheetSetPropertyBlock tmpBlock=  ^(NSString* value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"title"];
+        [self lh_initView];
+        return self;
+    };
+    return tmpBlock;
+}
+
+-(UIActionSheetSetPropertyBlock)lh_cancelButtonTitle{
+    @weakify(self);
+    UIActionSheetSetPropertyBlock tmpBlock=  ^(NSString* value){
+        @strongify(self);
+        NullReturn(value);
+        self.title = value;
+        [self.lh_Mudict setObject:value forKey:@"cancelButtonTitle"];
+        [self lh_initView];
+        return self;
+    };
+    return tmpBlock;
+}
+-(UIActionSheetSetPropertyBlock)lh_destructiveButtonTitle{
+    @weakify(self);
+    UIActionSheetSetPropertyBlock tmpBlock=  ^(NSString* value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"destructiveButtonTitle"];
+        [self lh_initView];
+        return self;
+    };
+    return tmpBlock;
+}
+
+-(UIActionSheetClickActionBlock)lh_clickAction{
+    @weakify(self);
+    UIActionSheetClickActionBlock tmpBlock= ^(ClickIndexBlock value){
+        @strongify(self);
+        [[self rac_buttonClickedSignal] subscribeNext:^(id x) {
+            if(value){
+                value(self,[x integerValue]);
+            }
+        }];
+        return self;
+    };
+    return tmpBlock;
+}
+
+-(UIActionSheetSetBtnTitleBlock)lh_btnTitle{
+    @weakify(self);
+    UIActionSheetSetBtnTitleBlock tmpBlock= ^(id value,...){
+        @strongify(self);
+        NSMutableArray*array = [self.lh_Mudict arraymuValue:@"btnTitle"];
+        [self.lh_Mudict setObject:array forKey:@"btnTitle"];
+        if(!value){
+            return self;
+        }else if ([value isKindOfClass:[NSArray class]]){
+            for (NSString*title in value) {
+                [self addButtonWithTitle:title];
+                [array addObject:title];
+            }
+            return self;
+        }
+        va_list params;
+        va_start(params, value);
+        if (value) {
+            [self addButtonWithTitle:value];
+            [array addObject:value];
+            NSString *temp = nil;;
+            while (YES) {
+                NSLog(@"%@",[NSString stringWithCString:params encoding:NSUTF8StringEncoding]);
+                @try{
+                    temp = va_arg(params, NSString*);
+                }@catch(NSException* e) {
+                    NSLog(@"Error:动态读取属性错误");
+                    break;
+                }
+                if (temp ==nil) {
+                    break;
+                }else{
+                    [self addButtonWithTitle:temp];
+                    [array addObject:temp];
+                }
+            }
+        }
+        va_end(params);
+        return self;
+    };
+    return tmpBlock;
+}
+-(void)lh_initView{
+   UIActionSheet* tmpSelf = [self initWithTitle:[self.lh_Mudict strValue:@"title"] delegate:nil cancelButtonTitle:[self.lh_Mudict strValue:@"cancelButtonTitle"] destructiveButtonTitle:[self.lh_Mudict strValue:@"destructiveButtonTitle"] otherButtonTitles: nil];
+    NSMutableArray*array = [self.lh_Mudict arraymuValue:@"btnTitle"];
+    for (NSString*title in array) {
+        [tmpSelf addButtonWithTitle:title];
+    }
+}
+@end
