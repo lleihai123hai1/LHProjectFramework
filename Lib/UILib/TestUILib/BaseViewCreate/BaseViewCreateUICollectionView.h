@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SDCollectionViewCell.h"
-@interface LhCollectionCell : SDCollectionViewCell
+@interface LhCollectionCell : UICollectionViewCell
 +(LhCollectionCell*)getLhCollectionCell:(UICollectionView*)collectionCell dict:(NSDictionary*)dict indexPath:(NSIndexPath *)indexPath;
 
 @end

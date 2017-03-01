@@ -10,10 +10,7 @@
 #import "UIImageView+WebCache.h"
 @implementation LhCollectionCell
 +(LhCollectionCell*)getLhCollectionCell:(UICollectionView*)collectionCell dict:(NSDictionary*)dict indexPath:(NSIndexPath *)indexPath{
-    
     LhCollectionCell *cell = [collectionCell dequeueReusableCellWithReuseIdentifier:collectionCell.lh_NSObjectId forIndexPath:indexPath];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://img2.imgtn.bdimg.com/it/u=3690090967,1921132163&fm=11&gp=0.jpg"]];
-    cell.title = [dict strValue:@"title"];
     cell.backgroundColor = [UIColor lh_randomColor];
     return cell;
 }
@@ -62,7 +59,6 @@
                 CGFloat widthDiff = (self.view.width-layout.itemSize.width*3)/4.0;
                 layout.sectionInset = UIEdgeInsetsMake(20,widthDiff, 20, widthDiff);
                 return layout;
-
             })
             .lh_registerClass([LhCollectionCell class])
             .lh_numberOfItemsInSection(^(NSInteger index){

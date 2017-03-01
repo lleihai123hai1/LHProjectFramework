@@ -1105,7 +1105,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     if(value && [value respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)]){
         return [value collectionView:self didSelectItemAtIndexPath:indexPath];
     }
-    DelegateDidSelectRowBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_cellForItemAtIndexPath"];
+    DelegateDidSelectRowBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_didSelectItemAtIndexPath"];
     if(valueBlcok){
         return valueBlcok(indexPath);
     }
