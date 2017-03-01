@@ -138,6 +138,34 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     objc_setAssociatedObject(self, &lh_Mudict_Key, operations, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return operations;
 }
+
+-(SetWeakObjBlock)lh_weakSet{
+    @weakify(self);
+    SetWeakObjBlock tmpBlock= ^(NSString*key,id value){
+        NullReturn(key)
+        @strongify(self);
+        [self.lh_Mudict setObject:@"" forKey:key];
+        objc_setAssociatedObject(self,(__bridge const void *)([self.lh_Mudict objectForKey:key]),value,OBJC_ASSOCIATION_ASSIGN);
+        return self;
+    };
+    return tmpBlock;
+
+}
+
+-(GetWeakObjBlock)lh_weakGet{
+    @weakify(self);
+    GetWeakObjBlock tmpBlock= ^(NSString*key){
+        NullReturn(key)
+        @strongify(self);
+        NSObject* value = nil;
+        if(!key || ![self.lh_Mudict objectForKey:key]){
+            return value;
+        }
+        value = objc_getAssociatedObject(self,(__bridge const void *)([self.lh_Mudict objectForKey:key]));
+        return value;
+    };
+    return tmpBlock;
+}
 @end
 
 
@@ -679,7 +707,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UITableViewDelegateBlock tmpBlock= ^(id<UITableViewDelegate> value){
         @strongify(self);
         NullReturn(value);
-        [self.lh_Mudict setObject:value forKey:@"delegate"];
+        self.lh_weakSet(@"delegate",value);
         self.delegate = self;
         return self;
     };
@@ -690,7 +718,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UITableViewDataSourceBlock tmpBlock= ^(id<UITableViewDataSource> value){
         @strongify(self);
         NullReturn(value);
-        [self.lh_Mudict setObject:value forKey:@"dataSource"];
+        self.lh_weakSet(@"dataSource",value);
         self.dataSource = self;
         return self;
     };
@@ -703,8 +731,8 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
         NullReturn(value);
         self.delegate = self;
         self.dataSource = self;
-        [self.lh_Mudict setObject:value forKey:@"dataSource"];
-        [self.lh_Mudict setObject:value forKey:@"delegate"];
+        self.lh_weakSet(@"dataSource",value);
+        self.lh_weakSet(@"delegate",value);
         return self;
     };
     return tmpBlock;
@@ -769,7 +797,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    id<UITableViewDataSource> value = [self.lh_Mudict objectForKey:@"dataSource"];
+    id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
     if(value && [value respondsToSelector:@selector(tableView:numberOfRowsInSection:)]){
         return [value tableView:tableView numberOfRowsInSection:section];
     }
@@ -793,7 +821,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    id<UITableViewDelegate> value = [self.lh_Mudict objectForKey:@"delegate"];
+    id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
     if(value && [value respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]){
         return [value tableView:tableView heightForRowAtIndexPath:indexPath];
     }
@@ -815,6 +843,20 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     return tmpBlock;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
+    if(value && [value respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]){
+        return [value tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }
+    DelegateDidSelectRowBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_didSelectRowAtIndexPath"];
+    if(valueBlcok){
+        valueBlcok(indexPath);
+    }
+}
+
+
 -(UITableDataSourceNumberOfSectionsBlock)lh_numberOfSectionsInTableView{
     @weakify(self);
     UITableDataSourceNumberOfSectionsBlock tmpBlock= ^(NumberOfSectionsBlock value){
@@ -827,20 +869,8 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    id<UITableViewDelegate> value = [self.lh_Mudict objectForKey:@"delegate"];
-    if(value && [value respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]){
-        return [value tableView:tableView didSelectRowAtIndexPath:indexPath];
-    }
-    DelegateDidSelectRowBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_didSelectRowAtIndexPath"];
-    if(valueBlcok){
-        valueBlcok(indexPath);
-    }
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    id<UITableViewDataSource> value = [self.lh_Mudict objectForKey:@"dataSource"];
+    id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
     if(value && [value respondsToSelector:@selector(numberOfSectionsInTableView:)]){
         return [value numberOfSectionsInTableView:self];
     }
@@ -848,10 +878,10 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     if(valueBlcok){
       return valueBlcok(self);
     }
-    return 0;
+    return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    id<UITableViewDataSource> value = [self.lh_Mudict objectForKey:@"dataSource"];
+    id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
     if(value && [value respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]){
         return [value tableView:tableView cellForRowAtIndexPath:indexPath];
     }
@@ -860,22 +890,6 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableView_LHUI"];
     }
     return cell;
-}
-
--(NSObjectVoidBlock)lh_clear{
-    @weakify(self);
-    NSObjectVoidBlock tmpBlock= ^(){
-        @strongify(self);
-        self.delegate = nil;
-        self.dataSource = nil;
-        [self.lh_Mudict removeAllObjects];
-        return self;
-    };
-    return tmpBlock;
-}
--(void)removeFromSuperview{
-    self.lh_clear();
-    [super removeFromSuperview];
 }
 @end
 #pragma mark --UIColor扩展

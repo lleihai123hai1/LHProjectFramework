@@ -18,7 +18,6 @@
     NSLog(@"dealloc %@",[self class]);
 }
 -(void)viewWillDisappear:(BOOL)animated{
-    self.table.lh_clear();
     [super viewWillDisappear:animated];
 }
 - (void)viewDidLoad
@@ -59,12 +58,15 @@
             .lh_style(UITableViewStylePlain)
             .lh_separatorInset(UIEdgeInsetsZero)
             .lh_numberOfRowsInSection(^(NSInteger index){
+                @strongify(self);
                 return self->_contenArray.count;
             })
             .lh_heightForRowAtIndexPath(^(NSIndexPath *indexPath){
+                @strongify(self);
                 return [self cellHeightForIndexPath:indexPath cellContentViewWidth:self.view.frame.size.width tableView:self.table];;
             })
             .lh_didSelectRowAtIndexPath(^(NSIndexPath *indexPath){
+                @strongify(self);
                 NSDictionary*dict = self->_contenArray[indexPath.row];
                 NSLog(@"%@",[dict strValue:@"title"])
             })

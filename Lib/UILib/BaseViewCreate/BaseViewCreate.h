@@ -15,6 +15,8 @@ typedef  NSObject * (^PostNSNotificationBlock)(NSString*name,id value);
 typedef  void (^UIViewAnimationBlock)(UIView* value);
 typedef  NSObject * (^PropertyBlock)(NSString*propertyList,id value);
 typedef  NSObject * (^ReturnBlock)(id value);
+typedef  NSObject* (^SetWeakObjBlock)(NSString* key,id value);
+typedef  id (^GetWeakObjBlock)(NSString* key);
 @interface NSObject (LHUI)
 @property (nonatomic,readonly) NSMutableDictionary* lh_Mudict;
 @property (nonatomic,readonly) PropertyBlock lh_propertyById;
@@ -22,6 +24,8 @@ typedef  NSObject * (^ReturnBlock)(id value);
 @property (nonatomic,readonly) NSNotificationBlock lh_notification;
 @property (nonatomic,readonly) RemoveNSNotificationBlock lh_removeNotification;
 @property (nonatomic,readonly) PostNSNotificationBlock lh_postNotification;
+@property (nonatomic,readonly) SetWeakObjBlock lh_weakSet;
+@property (nonatomic,readonly) GetWeakObjBlock lh_weakGet;
 + (instancetype)return:(ReturnBlock)block;
 @end
 
@@ -160,7 +164,6 @@ typedef  UITableView* (^UITableDataSourceNumberOfSectionsBlock)(NumberOfSections
 @property (nonatomic,readonly) UITableViewDelegatehHeightForRowAtIndexPathBlock lh_heightForRowAtIndexPath;
 @property (nonatomic,readonly) UITableViewDelegateDidSelectRowBlock lh_didSelectRowAtIndexPath;
 @property (nonatomic,readonly) UITableDataSourceNumberOfSectionsBlock lh_numberOfSectionsInTableView;
-@property (nonatomic,readonly) NSObjectVoidBlock lh_clear;
 @end
 
 #pragma mark --UIColor扩展

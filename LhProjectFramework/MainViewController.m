@@ -57,6 +57,7 @@
         _table = [UITableView return:^NSObject *(UITableView* value) {
             @strongify(self);
             return value
+            
             .lh_delegateDataSource(self)
             .lh_separatorStyle(UITableViewCellSeparatorStyleSingleLine)
             .lh_style(UITableViewStyleGrouped)
