@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 #pragma mark --基本方法扩展
+#define NSObjectId  ([NSString stringWithFormat:@"%ld",(long)((NSInteger)self)])
 #define LH_Valist(...)  lh_valist(metamacro_argcount(__VA_ARGS__),__VA_ARGS__)
 NSMutableArray* lh_valist(NSUInteger count, NSString* value,...);
 #define NullReturn(property) if (!property || [property isKindOfClass:[NSNull class]]) {NSLog(@"不能输入nill");return self;}
@@ -26,6 +27,7 @@ typedef  id (^GetWeakObjBlock)(NSString* key);
 @property (nonatomic,readonly) PostNSNotificationBlock lh_postNotification;
 @property (nonatomic,readonly) SetWeakObjBlock lh_weakSet;
 @property (nonatomic,readonly) GetWeakObjBlock lh_weakGet;
+@property (nonatomic,readonly) NSString* lh_NSObjectId;
 + (instancetype)return:(ReturnBlock)block;
 @end
 
@@ -149,12 +151,12 @@ typedef  void (^DelegateDidSelectRowBlock)(NSIndexPath *indexPath);
 typedef  UITableView* (^UITableDataSourceNumberOfRowsBlock)(DataSourceNumberOfRowsBlock value);
 typedef  UITableView* (^UITableViewDelegatehHeightForRowAtIndexPathBlock)(DelegatehHeightForRowAtIndexPathBlock value);
 typedef  UITableView* (^UITableViewDelegateDidSelectRowBlock)(DelegateDidSelectRowBlock value);
-typedef  NSUInteger (^NumberOfSectionsBlock)(UITableView* value);
+typedef  NSUInteger (^NumberOfSectionsBlock)(id value);
 typedef  UITableView* (^UITableDataSourceNumberOfSectionsBlock)(NumberOfSectionsBlock value);
 
-typedef  UITableViewCell* (^CellForRowAtIndexPathBlock)(NSIndexPath *indexPath);
+typedef  id (^CellForRowAtIndexPathBlock)(NSIndexPath *indexPath);
 typedef  UITableView* (^UITableDataSourceCellForRowAtIndexPathBlock)(CellForRowAtIndexPathBlock value);
-
+typedef  UITableView * (^UITableViewRegisterClass)(Class value);
 @interface UITableView (LHUI)<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,readonly) UITableViewDelegateBlock lh_delegate;
 @property (nonatomic,readonly) UITableViewDataSourceBlock lh_dataSource;
@@ -169,10 +171,47 @@ typedef  UITableView* (^UITableDataSourceCellForRowAtIndexPathBlock)(CellForRowA
 @property (nonatomic,readonly) UITableViewDelegateDidSelectRowBlock lh_didSelectRowAtIndexPath;
 @property (nonatomic,readonly) UITableDataSourceNumberOfSectionsBlock lh_numberOfSectionsInTableView;
 @property (nonatomic,readonly) UITableDataSourceCellForRowAtIndexPathBlock lh_cellForRowAtIndexPath;
+@property (nonatomic,readonly) UITableViewRegisterClass lh_registerClass;
 @end
 
+#pragma mark --UICollectionViewFlowLayout扩展
+typedef  UICollectionViewFlowLayout * (^UICollectionViewFlowLayoutScrollDirectionBlock)(UICollectionViewScrollDirection value);
+typedef  UICollectionViewFlowLayout * (^UICollectionViewFlowLayoutItemSizeBlock)(CGSize value);
+typedef  UICollectionViewFlowLayout * (^UICollectionViewFlowLayoutSectionInsetBlock)(UIEdgeInsets value);
+@interface UICollectionViewFlowLayout (LHUI)
+@property (nonatomic,readonly) UICollectionViewFlowLayoutScrollDirectionBlock lh_scrollDirection;
+@property (nonatomic,readonly) UICollectionViewFlowLayoutItemSizeBlock lh_itemSize;
+@property (nonatomic,readonly) UICollectionViewFlowLayoutSectionInsetBlock lh_sectionInset;
+@end
+
+#pragma mark --UICollectionView扩展
+typedef  UICollectionViewLayout * (^UICollectionViewGetLayout)();
+typedef  UICollectionView * (^UICollectionViewSetLayout)(UICollectionViewGetLayout value);
+typedef  UICollectionView * (^UICollectionViewRegisterClass)(Class value);
+typedef  UICollectionView * (^UICollectionViewDataSourceAndDelegateBlock)(id value);
+
+
+typedef  NSUInteger (^NumberOfItemsInSectionBlock)(NSInteger value);
+typedef  UICollectionView* (^UICollectionViewDelegateDidSelectRowBlock)(DelegateDidSelectRowBlock value);
+typedef  UICollectionView* (^UICollectionDataSourceNumberOfItemsInSectionBlock)(NumberOfItemsInSectionBlock value);
+typedef  UICollectionView* (^UICollectionDataSourceNumberOfSectionsBlock)(NumberOfSectionsBlock value);
+typedef  UICollectionView* (^UICollectionDataSourceCellForItemAtIndexPathBlock)(CellForRowAtIndexPathBlock value);
+@interface UICollectionView (LHUI)<UICollectionViewDelegate,UICollectionViewDataSource>
+@property (nonatomic,readonly) UICollectionViewDataSourceAndDelegateBlock lh_delegate;
+@property (nonatomic,readonly) UICollectionViewDataSourceAndDelegateBlock lh_dataSource;
+@property (nonatomic,readonly) UICollectionViewDataSourceAndDelegateBlock lh_delegateDataSource;
+@property (nonatomic,readonly) UICollectionViewSetLayout lh_collectionViewLayout;
+@property (nonatomic,readonly) UICollectionViewRegisterClass lh_registerClass;
+
+@property (nonatomic,readonly) UICollectionViewDelegateDidSelectRowBlock lh_didSelectItemAtIndexPath;
+@property (nonatomic,readonly) UICollectionDataSourceNumberOfItemsInSectionBlock lh_numberOfItemsInSection;
+@property (nonatomic,readonly) UICollectionDataSourceNumberOfSectionsBlock lh_numberOfSectionsInCollectionView;
+@property (nonatomic,readonly) UICollectionDataSourceCellForItemAtIndexPathBlock lh_cellForItemAtIndexPath;
++ (instancetype)return:(ReturnBlock)block;
+@end
 #pragma mark --UIColor扩展
 @interface UIColor (LHUI)
 + (UIColor*)lh_ff32ff;
++ (UIColor *)lh_randomColor;
 @end
 

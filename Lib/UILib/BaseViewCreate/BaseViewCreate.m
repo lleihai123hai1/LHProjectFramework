@@ -72,6 +72,9 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     }
     return self.new;
 }
+-(NSString*)lh_NSObjectId{
+    return NSObjectId;
+}
 
 -(PropertyKVOBlock)lh_kvo{
     @weakify(self);
@@ -902,14 +905,219 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     if(valueBlcok){
         return valueBlcok(indexPath);
     }
-    NSString *ID = ([NSString stringWithFormat:@"%ld",(long)((NSInteger)tableView)]);
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    NSString *ID = NSObjectId;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     return cell;
 }
+
+-(UITableViewRegisterClass)lh_registerClass{
+    @weakify(self);
+    UITableViewRegisterClass tmpBlock= ^(Class value){
+        @strongify(self);
+        NullReturn(value)
+        [self registerClass:value forCellReuseIdentifier:NSObjectId];
+        return self;
+    };
+    return tmpBlock;
+}
 @end
+
+#pragma mark --UICollectionViewFlowLayout扩展
+@implementation UICollectionViewFlowLayout (LHUI)
+-(UICollectionViewFlowLayoutScrollDirectionBlock)lh_scrollDirection{
+    @weakify(self);
+    UICollectionViewFlowLayoutScrollDirectionBlock tmpBlock= ^(UICollectionViewScrollDirection value){
+        @strongify(self);
+        self.scrollDirection = value;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UICollectionViewFlowLayoutItemSizeBlock)lh_itemSize{
+    @weakify(self);
+    UICollectionViewFlowLayoutItemSizeBlock tmpBlock= ^(CGSize value){
+        @strongify(self);
+        self.itemSize = value;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UICollectionViewFlowLayoutSectionInsetBlock)lh_sectionInset{
+    @weakify(self);
+    UICollectionViewFlowLayoutSectionInsetBlock tmpBlock= ^(UIEdgeInsets value){
+        @strongify(self);
+        self.sectionInset = value;
+        return self;
+    };
+    return tmpBlock;
+}
+@end
+#pragma mark --UICollectionView扩展
+@implementation UICollectionView (LHUI)
+-(UICollectionViewSetLayout)lh_collectionViewLayout{
+    @weakify(self);
+    UICollectionViewSetLayout tmpBlock= ^(UICollectionViewGetLayout value){
+        @strongify(self);
+        NullReturn(value)
+        return [self initWithFrame:self.frame collectionViewLayout:value()];
+    };
+    return tmpBlock;
+}
+-(UICollectionViewRegisterClass)lh_registerClass{
+    @weakify(self);
+    UICollectionViewRegisterClass tmpBlock= ^(Class value){
+        @strongify(self);
+        NullReturn(value)
+        [self registerClass:value forCellWithReuseIdentifier:NSObjectId];
+        return self;
+    };
+    return tmpBlock;
+}
+-(UICollectionViewDataSourceAndDelegateBlock)lh_delegate{
+    @weakify(self);
+    UICollectionViewDataSourceAndDelegateBlock tmpBlock= ^(id value){
+        @strongify(self);
+        NullReturn(value);
+        self.lh_weakSet(@"delegate",value);
+        self.delegate = self;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UICollectionViewDataSourceAndDelegateBlock)lh_dataSource{
+    @weakify(self);
+    UICollectionViewDataSourceAndDelegateBlock tmpBlock= ^(id value){
+        @strongify(self);
+        NullReturn(value);
+        self.lh_weakSet(@"dataSource",value);
+        self.dataSource = self;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UICollectionViewDataSourceAndDelegateBlock)lh_delegateDataSource{
+    @weakify(self);
+    UICollectionViewDataSourceAndDelegateBlock tmpBlock= ^(id value){
+        @strongify(self);
+        NullReturn(value);
+        self.delegate = self;
+        self.dataSource = self;
+        self.lh_weakSet(@"dataSource",value);
+        self.lh_weakSet(@"delegate",value);
+        return self;
+    };
+    return tmpBlock;
+}
+-(UICollectionDataSourceNumberOfSectionsBlock)lh_numberOfSectionsInCollectionView{
+    @weakify(self);
+    UICollectionDataSourceNumberOfSectionsBlock tmpBlock= ^(NumberOfSectionsBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"dataSource_numberOfSectionsInCollectionView"];
+        return self;
+    };
+    return tmpBlock;
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    id<UICollectionViewDataSource> value = self.lh_weakGet(@"dataSource");
+    if(value && [value respondsToSelector:@selector(numberOfSectionsInCollectionView:)]){
+        return [value numberOfSectionsInCollectionView:self];
+    }
+    NumberOfSectionsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfSectionsInCollectionView"];
+    if(valueBlcok){
+        return valueBlcok(self);
+    }
+    return 1;
+}
+
+-(UICollectionDataSourceNumberOfItemsInSectionBlock)lh_numberOfItemsInSection{
+    @weakify(self);
+    UICollectionDataSourceNumberOfItemsInSectionBlock tmpBlock= ^(NumberOfItemsInSectionBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"dataSource_numberOfItemsInSection"];
+        return self;
+    };
+    return tmpBlock;
+}
+
+
+//返回每个分区的item个数
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    id<UICollectionViewDataSource> value = self.lh_weakGet(@"dataSource");
+    if(value && [value respondsToSelector:@selector(collectionView:numberOfItemsInSection:)]){
+        return [value numberOfSectionsInCollectionView:self];
+    }
+    NumberOfSectionsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfItemsInSection"];
+    if(valueBlcok){
+        return valueBlcok(self);
+    }
+    return 1;
+}
+
+-(UICollectionDataSourceCellForItemAtIndexPathBlock)lh_cellForItemAtIndexPath{
+    @weakify(self);
+    UICollectionDataSourceCellForItemAtIndexPathBlock tmpBlock= ^(CellForRowAtIndexPathBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"dataSource_cellForItemAtIndexPath"];
+        return self;
+    };
+    return tmpBlock;
+}
+//这是正确的方法
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    id<UICollectionViewDataSource> value = self.lh_weakGet(@"dataSource");
+    if(value && [value respondsToSelector:@selector(collectionView:cellForItemAtIndexPath:)]){
+        return [value collectionView:self cellForItemAtIndexPath:indexPath];
+    }
+    CellForRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_cellForItemAtIndexPath"];
+    if(valueBlcok){
+        return valueBlcok(indexPath);
+    }
+    NSString *ID = NSObjectId;
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    if (!cell) {
+        cell = [UICollectionViewCell return:^NSObject *(UICollectionViewCell* value) {
+            return value;
+        }];
+    }
+    return cell;
+
+}
+
+-(UICollectionViewDelegateDidSelectRowBlock)lh_didSelectItemAtIndexPath{
+    @weakify(self);
+    UICollectionViewDelegateDidSelectRowBlock tmpBlock= ^(DelegateDidSelectRowBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_didSelectItemAtIndexPath"];
+        return self;
+    };
+    return tmpBlock;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    id<UICollectionViewDelegate> value = self.lh_weakGet(@"delegate");
+    if(value && [value respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)]){
+        return [value collectionView:self didSelectItemAtIndexPath:indexPath];
+    }
+    DelegateDidSelectRowBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_cellForItemAtIndexPath"];
+    if(valueBlcok){
+        return valueBlcok(indexPath);
+    }
+}
++ (instancetype)return:(ReturnBlock)block{
+    if(block){
+        return (UICollectionView*)block([[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]]);
+    }
+    return [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]];
+}
+@end
+
 #pragma mark --UIColor扩展
 @implementation UIColor(LHUI)
 + (NSObject*)lh_manager{
@@ -927,5 +1135,11 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
         [[self lh_manager].lh_Mudict setObject:RGB(0xff32ff) forKey:@"0xff32ff"];
     }
     return [[self lh_manager].lh_Mudict objectForKey:@"0xff32ff"];
+}
++ (UIColor *)lh_randomColor{
+    int r = arc4random() % 255;
+    int g = arc4random() % 255;
+    int b = arc4random() % 255;
+    return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0];
 }
 @end
