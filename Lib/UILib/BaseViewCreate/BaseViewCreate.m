@@ -880,14 +880,32 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     }
     return 1;
 }
+
+
+-(UITableDataSourceCellForRowAtIndexPathBlock)lh_cellForRowAtIndexPath{
+    @weakify(self);
+    UITableDataSourceCellForRowAtIndexPathBlock tmpBlock= ^(CellForRowAtIndexPathBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"dataSource_cellForRowAtIndexPath"];
+        return self;
+    };
+    return tmpBlock;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
     if(value && [value respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]){
         return [value tableView:tableView cellForRowAtIndexPath:indexPath];
     }
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableView_LHUI"];
+    CellForRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_cellForRowAtIndexPath"];
+    if(valueBlcok){
+        return valueBlcok(indexPath);
+    }
+    NSString *ID = ([NSString stringWithFormat:@"%ld",(long)((NSInteger)tableView)]);
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableView_LHUI"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     return cell;
 }

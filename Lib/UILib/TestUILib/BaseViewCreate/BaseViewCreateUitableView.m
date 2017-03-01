@@ -7,6 +7,21 @@
 //
 
 #import "BaseViewCreateUitableView.h"
+
+@implementation LhDemoCell
++(UITableViewCell*)getLhDemoCell:(UITableView*)table  dict:(NSDictionary*)dict{
+    NSString *ID = ([NSString stringWithFormat:@"%ld",(long)((NSInteger)table)]);
+    DemoCell *cell = [table dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[DemoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    cell.titleLabel.text = [dict strValue:@"title"];
+    cell.contentLabel.text = [dict strValue:@"content"];
+    return cell;
+}
+@end
+
+
 @interface BaseViewCreateUitableView ()
 @property(nonatomic,strong)UITableView*table;
 @end
@@ -34,18 +49,6 @@
 }
 
 #pragma mark - tableview datasourece and delegate
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *ID = @"test";
-    DemoCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[DemoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    NSDictionary*dict = _contenArray[indexPath.row];
-    cell.titleLabel.text = [dict strValue:@"title"];
-    cell.contentLabel.text = [dict strValue:@"content"];
-    return cell;
-}
 -(UITableView*)table{
     if(!_table){
         @weakify(self);
@@ -69,6 +72,11 @@
                 @strongify(self);
                 NSDictionary*dict = self->_contenArray[indexPath.row];
                 NSLog(@"%@",[dict strValue:@"title"])
+            })
+            .lh_cellForRowAtIndexPath(^(NSIndexPath *indexPath){
+                @strongify(self);
+                NSDictionary*dict = self->_contenArray[indexPath.row];
+                return [LhDemoCell getLhDemoCell:self.table dict:dict];
             })
             .lh_frame(self.view.bounds);
         }];

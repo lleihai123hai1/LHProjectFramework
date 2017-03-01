@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@interface LhDemoCell : DemoCell
++(UITableViewCell*)getLhDemoCell:(UITableView*)table  dict:(NSDictionary*)dict;
+@end
+
 @interface BaseViewCreateUitableView : UIViewController
 
 @end

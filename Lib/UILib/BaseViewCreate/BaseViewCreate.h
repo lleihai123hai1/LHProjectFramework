@@ -151,6 +151,10 @@ typedef  UITableView* (^UITableViewDelegatehHeightForRowAtIndexPathBlock)(Delega
 typedef  UITableView* (^UITableViewDelegateDidSelectRowBlock)(DelegateDidSelectRowBlock value);
 typedef  NSUInteger (^NumberOfSectionsBlock)(UITableView* value);
 typedef  UITableView* (^UITableDataSourceNumberOfSectionsBlock)(NumberOfSectionsBlock value);
+
+typedef  UITableViewCell* (^CellForRowAtIndexPathBlock)(NSIndexPath *indexPath);
+typedef  UITableView* (^UITableDataSourceCellForRowAtIndexPathBlock)(CellForRowAtIndexPathBlock value);
+
 @interface UITableView (LHUI)<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,readonly) UITableViewDelegateBlock lh_delegate;
 @property (nonatomic,readonly) UITableViewDataSourceBlock lh_dataSource;
@@ -164,6 +168,7 @@ typedef  UITableView* (^UITableDataSourceNumberOfSectionsBlock)(NumberOfSections
 @property (nonatomic,readonly) UITableViewDelegatehHeightForRowAtIndexPathBlock lh_heightForRowAtIndexPath;
 @property (nonatomic,readonly) UITableViewDelegateDidSelectRowBlock lh_didSelectRowAtIndexPath;
 @property (nonatomic,readonly) UITableDataSourceNumberOfSectionsBlock lh_numberOfSectionsInTableView;
+@property (nonatomic,readonly) UITableDataSourceCellForRowAtIndexPathBlock lh_cellForRowAtIndexPath;
 @end
 
 #pragma mark --UIColor扩展

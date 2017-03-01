@@ -12,7 +12,7 @@
 #import "BaseViewCreateViewController.h"
 #import "LhCoreDataViewController.h"
 #import "BaseViewCreateUitableView.h"
-@interface MainViewController ()
+@interface MainViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView*table;
 @end
 
@@ -35,6 +35,13 @@
 }
 
 #pragma mark - tableview datasourece and delegate
+#pragma mark - tableview datasourece and delegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _contenArray.count;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *ID = @"test";
@@ -48,36 +55,26 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary*dict = _contenArray[indexPath.row];
+    NSString *demoClassString = [dict strValue:@"title"];
+    UIViewController *vc = [NSClassFromString(demoClassString) new];
+    vc.title = demoClassString;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [self cellHeightForIndexPath:indexPath cellContentViewWidth:self.view.frame.size.width tableView:tableView];;
 }
 -(UITableView*)table{
     if(!_table){
-        @weakify(self);
-        _table = [UITableView return:^NSObject *(UITableView* value) {
-            @strongify(self);
-            return value
-            
-            .lh_delegateDataSource(self)
-            .lh_separatorStyle(UITableViewCellSeparatorStyleSingleLine)
-            .lh_style(UITableViewStyleGrouped)
-            .lh_style(UITableViewStylePlain)
-            .lh_separatorInset(UIEdgeInsetsZero)
-            .lh_numberOfRowsInSection(^(NSInteger index){
-                return self->_contenArray.count;
-            })
-            .lh_didSelectRowAtIndexPath(^(NSIndexPath *indexPath){
-                NSDictionary*dict = _contenArray[indexPath.row];
-                NSString *demoClassString = [dict strValue:@"title"];
-                UIViewController *vc = [NSClassFromString(demoClassString) new];
-                vc.title = demoClassString;
-                [self.navigationController pushViewController:vc animated:YES];
-            })
-            .lh_frame(self.view.bounds);
-        }];
+        _table = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _table.dataSource = self;
+        _table.delegate = self;
+        _table.separatorInset = UIEdgeInsetsZero;
     }
     return _table;
 }
-
 
 @end
