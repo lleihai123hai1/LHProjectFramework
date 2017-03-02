@@ -18,6 +18,8 @@ typedef  NSObject * (^PropertyBlock)(NSString*propertyList,id value);
 typedef  NSObject * (^ReturnBlock)(id value);
 typedef  NSObject* (^SetWeakObjBlock)(NSString* key,id value);
 typedef  id (^GetWeakObjBlock)(NSString* key);
+typedef  void (^RACTupleBlock)(RACTuple *tuple);
+typedef  NSObject* (^SignalForSelectorBlock)(SEL selector,RACTupleBlock value);
 @interface NSObject (LHUI)
 @property (nonatomic,readonly) NSMutableDictionary* lh_Mudict;
 @property (nonatomic,readonly) PropertyBlock lh_propertyById;
@@ -27,6 +29,7 @@ typedef  id (^GetWeakObjBlock)(NSString* key);
 @property (nonatomic,readonly) PostNSNotificationBlock lh_postNotification;
 @property (nonatomic,readonly) SetWeakObjBlock lh_weakSet;
 @property (nonatomic,readonly) GetWeakObjBlock lh_weakGet;
+@property (nonatomic,readonly) SignalForSelectorBlock lh_signalForSelector;
 @property (nonatomic,readonly) NSString* lh_NSObjectId;
 + (instancetype)return:(ReturnBlock)block;
 @end

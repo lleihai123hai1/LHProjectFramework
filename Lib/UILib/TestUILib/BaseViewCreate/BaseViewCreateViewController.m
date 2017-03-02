@@ -15,6 +15,11 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.lh_signalForSelector(@selector(touchesBegan:withEvent:),^(RACTuple *tuple) {
+        NSLog(@"touchesBegan")
+    }).lh_signalForSelector(@selector(test),^(RACTuple *tuple) {
+        NSLog(@"test")
+    });
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.button];
     [self.view addSubview:self.textFiled];
@@ -50,6 +55,10 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view.window endEditing:YES];
     self.lh_postNotification(@"hello",nil);
+    [self test];
+}
+-(void)test{
+    
 }
 -(UIButton*)button{
     if(!_button){

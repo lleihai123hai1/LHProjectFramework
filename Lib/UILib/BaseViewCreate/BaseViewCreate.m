@@ -169,6 +169,21 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     };
     return tmpBlock;
 }
+
+-(SignalForSelectorBlock)lh_signalForSelector{
+    @weakify(self);
+    SignalForSelectorBlock tmpBlock= ^(SEL selector,RACTupleBlock value){
+        @strongify(self);
+        NullReturn(value)
+        if([self respondsToSelector:selector]){
+            [[self rac_signalForSelector:selector] subscribeNext:^(RACTuple *tuple) {
+                value(tuple);
+            }];
+        }
+        return self;
+    };
+    return tmpBlock;
+}
 @end
 
 
