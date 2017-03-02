@@ -9,8 +9,8 @@
 #import "BaseViewCreateUICollectionView.h"
 #import "UIImageView+WebCache.h"
 @implementation LhCollectionCell
-+(LhCollectionCell*)getLhCollectionCell:(UICollectionView*)collectionCell dict:(NSDictionary*)dict indexPath:(NSIndexPath *)indexPath{
-    LhCollectionCell *cell = [collectionCell dequeueReusableCellWithReuseIdentifier:collectionCell.lh_NSObjectId forIndexPath:indexPath];
++(LhCollectionCell*)getLhCollectionCell:(UICollectionView*)collectionView dict:(NSDictionary*)dict indexPath:(NSIndexPath *)indexPath{
+    LhCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionView.lh_NSObjectId forIndexPath:indexPath];
     cell.backgroundColor = [UIColor lh_randomColor];
     return cell;
 }
@@ -42,7 +42,7 @@
     [self.collection reloadData];
 }
 
-#pragma mark - tableview datasourece and delegate
+#pragma mark -UICollectionView Delegate and DataSource
 -(UICollectionView*)collection{
     if(!_collection){
         @weakify(self);
@@ -81,6 +81,4 @@
     }
     return _collection;
 }
-
-
 @end

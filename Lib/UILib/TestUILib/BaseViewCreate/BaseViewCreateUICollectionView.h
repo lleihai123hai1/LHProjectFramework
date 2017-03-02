@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SDCollectionViewCell.h"
 @interface LhCollectionCell : UICollectionViewCell
-+(LhCollectionCell*)getLhCollectionCell:(UICollectionView*)collectionCell dict:(NSDictionary*)dict indexPath:(NSIndexPath *)indexPath;
-
++(LhCollectionCell*)getLhCollectionCell:(UICollectionView*)collectionView dict:(NSDictionary*)dict indexPath:(NSIndexPath *)indexPath;
 @end
 
 @interface BaseViewCreateUICollectionView : UIViewController
