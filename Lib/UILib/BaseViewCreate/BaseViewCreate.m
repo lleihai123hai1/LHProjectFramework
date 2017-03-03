@@ -73,7 +73,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     return self.new;
 }
 -(NSString*)lh_NSObjectId{
-    return NSObjectId;
+    return ([NSString stringWithFormat:@"%ld",(long)((NSInteger)self)]);
 }
 
 -(PropertyKVOBlock)lh_kvo{
@@ -920,7 +920,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     if(valueBlcok){
         return valueBlcok(indexPath);
     }
-    NSString *ID = NSObjectId;
+    NSString *ID = self.lh_NSObjectId;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
@@ -933,7 +933,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UITableViewRegisterClass tmpBlock= ^(Class value){
         @strongify(self);
         NullReturn(value)
-        [self registerClass:value forCellReuseIdentifier:NSObjectId];
+        [self registerClass:value forCellReuseIdentifier:self.lh_NSObjectId];
         return self;
     };
     return tmpBlock;
@@ -986,7 +986,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UICollectionViewRegisterClass tmpBlock= ^(Class value){
         @strongify(self);
         NullReturn(value)
-        [self registerClass:value forCellWithReuseIdentifier:NSObjectId];
+        [self registerClass:value forCellWithReuseIdentifier:self.lh_NSObjectId];
         return self;
     };
     return tmpBlock;
@@ -1094,7 +1094,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     if(valueBlcok){
         return valueBlcok(indexPath);
     }
-    NSString *ID = NSObjectId;
+    NSString *ID = self.lh_NSObjectId;
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     if (!cell) {
         cell = [UICollectionViewCell return:^NSObject *(UICollectionViewCell* value) {

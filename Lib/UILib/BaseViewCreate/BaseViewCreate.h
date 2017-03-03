@@ -1,6 +1,5 @@
 #import <UIKit/UIKit.h>
 #pragma mark --基本方法扩展
-#define NSObjectId  ([NSString stringWithFormat:@"%ld",(long)((NSInteger)self)])
 #define LH_Valist(...)  lh_valist(metamacro_argcount(__VA_ARGS__),__VA_ARGS__)
 NSMutableArray* lh_valist(NSUInteger count, NSString* value,...);
 #define NullReturn(property) if (!property || [property isKindOfClass:[NSNull class]]) {NSLog(@"不能输入nill");return self;}
