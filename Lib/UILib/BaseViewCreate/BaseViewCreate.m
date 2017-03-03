@@ -1084,7 +1084,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     };
     return tmpBlock;
 }
-//这是正确的方法
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     id<UICollectionViewDataSource> value = self.lh_weakGet(@"dataSource");
     if(value && [value respondsToSelector:@selector(collectionView:cellForItemAtIndexPath:)]){
