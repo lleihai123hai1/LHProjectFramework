@@ -6,12 +6,12 @@
 //  Copyright (c) 2015年 冯成林. All rights reserved.
 //
 
-#import "BaseCoreModel.h"
+#import "LHBaseCoreModel.h"
 #import "City.h"
 #import "Pen.h"
 #import <UIKit/UIKit.h>
 
-@interface Person : BaseCoreModel
+@interface Person : LHBaseCoreModel
 
 
 @property (nonatomic,assign) NSUInteger nsu;

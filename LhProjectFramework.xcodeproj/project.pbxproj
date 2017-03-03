@@ -167,6 +167,8 @@
 		EB12C4391E5C40CB00564DE6 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C4061E5C40CB00564DE6 /* UIImageView+HighlightedWebCache.m */; };
 		EB12C43A1E5C40CB00564DE6 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C4081E5C40CB00564DE6 /* UIImageView+WebCache.m */; };
 		EB12C43B1E5C40CB00564DE6 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C40A1E5C40CB00564DE6 /* UIView+WebCacheOperation.m */; };
+		EB5FAD171E695F8900DD3E2A /* LhTestModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAD161E695F8900DD3E2A /* LhTestModelViewController.m */; };
+		EB5FAD1A1E69665E00DD3E2A /* LHBaseCoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAD191E69665E00DD3E2A /* LHBaseCoreModel.m */; };
 		EB82113E1E656F8E00EA9F31 /* BaseViewCreateUitableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB82113D1E656F8E00EA9F31 /* BaseViewCreateUitableView.m */; };
 		EB85CCB41E669B2D00E025A8 /* BaseViewCreateUICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB85CCB31E669B2D00E025A8 /* BaseViewCreateUICollectionView.m */; };
 		EB88233F1E5FD23A00CBCFD2 /* BaseCoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8822EA1E5FD23A00CBCFD2 /* BaseCoreModel.m */; };
@@ -659,6 +661,10 @@
 		EB12C4081E5C40CB00564DE6 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		EB12C4091E5C40CB00564DE6 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		EB12C40A1E5C40CB00564DE6 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		EB5FAD151E695F8900DD3E2A /* LhTestModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LhTestModelViewController.h; sourceTree = "<group>"; };
+		EB5FAD161E695F8900DD3E2A /* LhTestModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LhTestModelViewController.m; sourceTree = "<group>"; };
+		EB5FAD181E69665E00DD3E2A /* LHBaseCoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHBaseCoreModel.h; sourceTree = "<group>"; };
+		EB5FAD191E69665E00DD3E2A /* LHBaseCoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHBaseCoreModel.m; sourceTree = "<group>"; };
 		EB82113A1E651C3700EA9F31 /* LhDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LhDefine.h; sourceTree = SOURCE_ROOT; };
 		EB82113C1E656F8E00EA9F31 /* BaseViewCreateUitableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewCreateUitableView.h; sourceTree = "<group>"; };
 		EB82113D1E656F8E00EA9F31 /* BaseViewCreateUitableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewCreateUitableView.m; sourceTree = "<group>"; };
@@ -1970,6 +1976,8 @@
 		EB8822E81E5FD23A00CBCFD2 /* BaseCoreModel */ = {
 			isa = PBXGroup;
 			children = (
+				EB5FAD181E69665E00DD3E2A /* LHBaseCoreModel.h */,
+				EB5FAD191E69665E00DD3E2A /* LHBaseCoreModel.m */,
 				EB8822E91E5FD23A00CBCFD2 /* BaseCoreModel.h */,
 				EB8822EA1E5FD23A00CBCFD2 /* BaseCoreModel.m */,
 			);
@@ -2134,6 +2142,8 @@
 		EB8823691E5FD63C00CBCFD2 /* LhCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				EB5FAD151E695F8900DD3E2A /* LhTestModelViewController.h */,
+				EB5FAD161E695F8900DD3E2A /* LhTestModelViewController.m */,
 				EB88236D1E5FDBC900CBCFD2 /* City.h */,
 				EB88236E1E5FDBC900CBCFD2 /* City.m */,
 				EB88236F1E5FDBC900CBCFD2 /* Pen.h */,
@@ -2906,10 +2916,12 @@
 				EB8823751E5FDBC900CBCFD2 /* Person.m in Sources */,
 				EB88235B1E5FD23A00CBCFD2 /* SBJsonStreamWriter.m in Sources */,
 				EB12C3401E5C3C8200564DE6 /* UIButton+AFNetworking.m in Sources */,
+				EB5FAD1A1E69665E00DD3E2A /* LHBaseCoreModel.m in Sources */,
 				EB8823461E5FD23A00CBCFD2 /* FMDatabaseAdditions.m in Sources */,
 				EB12C38C1E5C3C8200564DE6 /* SDTimeLineTableViewController.m in Sources */,
 				EB85CCB41E669B2D00E025A8 /* BaseViewCreateUICollectionView.m in Sources */,
 				EB12C4341E5C40CB00564DE6 /* SDWebImagePrefetcher.m in Sources */,
+				EB5FAD171E695F8900DD3E2A /* LhTestModelViewController.m in Sources */,
 				EB12C41F1E5C40CB00564DE6 /* TADotView.m in Sources */,
 				EBB4AB791E5EC0FB0011AEB1 /* NSEnumerator+RACSequenceAdditions.m in Sources */,
 				EB12C3931E5C3C8200564DE6 /* SDTimeLineRefreshHeader.m in Sources */,

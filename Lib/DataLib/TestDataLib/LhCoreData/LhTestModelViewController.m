@@ -5,47 +5,12 @@
 //  Created by lh on 2017/2/21.
 //  Copyright © 2017年 LH. All rights reserved.
 //
-#import "LhCoreDataViewController.h"
 #import "LhTestModelViewController.h"
-@implementation LhDataBaseDemoCell
-+(UITableViewCell*)getLhDataBaseDemoCell:(UITableView*)table  dict:(NSDictionary*)dict{
-    NSString *ID = ([NSString stringWithFormat:@"%ld",(long)((NSInteger)table)]);
-    LhDataBaseDemoCell *cell = [table dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[LhDataBaseDemoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    cell.titleLabel.text = [dict strValue:@"title"];
-    cell.contentLabel.text = [dict strValue:@"content"];
-    return cell;
-}
-
-+(UITableViewCell*)getLhDataBaseDemoCell:(UITableView*)table  city:(City*)city{
-    NSString *ID = ([NSString stringWithFormat:@"%ld",(long)((NSInteger)table)]);
-    LhDataBaseDemoCell *cell = [table dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[LhDataBaseDemoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    cell.city = city;
-    city.updateBindBlock = ^(City* value){
-        if(cell.city && [cell.city.hostID isEqualToString:value.hostID]){
-            cell.city = value;
-        }
-    };
-    return cell;
-}
--(void)setCity:(City *)city{
-    _city = city;
-    self.titleLabel.text = city.cityName;
-    self.contentLabel.text = city.spell;
-}
-@end
-
-@interface LhCoreDataViewController ()
+#import "LhCoreDataViewController.h"
+@interface LhTestModelViewController ()
 @property(nonatomic,strong)UITableView*table;
 @end
-
-@implementation LhCoreDataViewController{
-    NSArray *_contenArray;
+@implementation LhTestModelViewController{
     NSArray *_modelArray;
 }
 
@@ -53,17 +18,11 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    _contenArray = @[@{@"title":@"test1",@"content":@"写入数据库"},
-                     @{@"title":@"test2",@"content":@"读取数据库"},
-                     @{@"title":@"test3",@"content":@"异步查询异步写入"}];
+    _modelArray = @[self.city];
     [self.view addSubview:self.table];
     [self.table reloadData];
+
     
-    City *city = [[City alloc] init];
-    city.hostID = @"lh_000881";
-    city.cityName = @"xian";
-    city.spell = @"xixianxianxianxianan";
-    _modelArray = @[city];
 
 }
 
@@ -88,44 +47,25 @@
             .lh_separatorInset(UIEdgeInsetsZero)
             .lh_numberOfRowsInSection(^(NSInteger section){
                 @strongify(self);
-                if(section == 0){
-                    return self->_contenArray.count;
-                }else{
-                    return self->_modelArray.count;
-                }
+                return self->_modelArray.count;
             })
             .lh_numberOfSectionsInTableView(^(id value){
-                return (NSUInteger)2;
+                return (NSUInteger)1;
             })
             .lh_heightForRowAtIndexPath(^(NSIndexPath *indexPath){
                return [self cellHeightForIndexPath:indexPath cellContentViewWidth:self.view.frame.size.width tableView:self.table];
             })
             .lh_didSelectRowAtIndexPath(^(NSIndexPath *indexPath){
                 @strongify(self);
-                if(indexPath.section == 0){
-                    NSDictionary*dict = self->_contenArray[indexPath.row];
-                    SEL selecter = NSSelectorFromString([dict strValue:@"title"]);
-                    if([self respondsToSelector:selecter]){
-                        [self performSelector:selecter];
-                    }
-                }else{
-                    City* city = self->_modelArray[indexPath.row];
-                    LhTestModelViewController *vc = [LhTestModelViewController new];
-                    vc.city = city;
-                    [self.navigationController pushViewController:vc animated:YES];
-                }
-                
+                self.city.cityName = @"nihao";
+                self.city.spell = @"dddddddd";
+                [self.city saveSelf];
+                [self.city updateBindView];
             })
             .lh_cellForRowAtIndexPath(^(NSIndexPath *indexPath){
                 @strongify(self);
-                if(indexPath.section == 0){
-                    NSDictionary*dict = self->_contenArray[indexPath.row];
-                    return [LhDataBaseDemoCell getLhDataBaseDemoCell:self.table dict:dict];
-                }else{
-                    City* city = self->_modelArray[indexPath.row];
-                    return [LhDataBaseDemoCell getLhDataBaseDemoCell:self.table city:city];
-                }
-               
+                City* city = self->_modelArray[indexPath.row];
+                return [LhDataBaseDemoCell getLhDataBaseDemoCell:self.table city:city];
             })
             .lh_frame(self.view.bounds);
         }];

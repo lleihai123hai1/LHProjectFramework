@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 冯成林. All rights reserved.
 //
 
-#import "BaseCoreModel.h"
+#import "LHBaseCoreModel.h"
 #import <UIKit/UIKit.h>
 
-@interface Pen : BaseCoreModel
+@interface Pen : LHBaseCoreModel
 
 @property (nonatomic,copy) NSString *color;
 

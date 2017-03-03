@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 冯成林. All rights reserved.
 //
 
-#import "BaseCoreModel.h"
+#import "LHBaseCoreModel.h"
 
-@interface City : BaseCoreModel
+@interface City : LHBaseCoreModel
 
 @property (nonatomic,copy) NSString *cityName;
 
