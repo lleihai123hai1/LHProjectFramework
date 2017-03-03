@@ -49,7 +49,7 @@
     
 }
 
-
+//动态读取属性 并赋值  无需子类实现  遗留解决
 - (id)copyWithZone:(NSZone *)zone {
     typeof(self) one = [self.class new];
     one.hostID = self.hostID;
