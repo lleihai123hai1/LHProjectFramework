@@ -33,7 +33,7 @@
 
 /** 封装 */
 +(void)enumNSObjectProperties:(void(^)(MJProperty *property, BOOL *stop))properties{
-    [self enumerateProperties:^(MJProperty *p, BOOL *stop) {
+    [self mj_enumerateProperties:^(MJProperty *p, BOOL *stop) {
         properties(p,stop);
     }];
 }
@@ -56,7 +56,7 @@
     [sql appendFormat:@"CREATE TABLE IF NOT EXISTS %@ (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0,",modelName];
     NSMutableArray *ivarsM=[NSMutableArray array];
     __weak __typeof(self)weakSelf = self;
-    [weakSelf enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
+    [weakSelf mj_enumerateProperties:^(MJProperty *property, BOOL *stop) {
         if (flag) {
             NSString *sql_field = [weakSelf fieldSql:property];
             BOOL skip=[weakSelf skipField:property];
