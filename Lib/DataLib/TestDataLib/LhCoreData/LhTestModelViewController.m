@@ -7,8 +7,10 @@
 //
 #import "LhTestModelViewController.h"
 #import "LhCoreDataViewController.h"
+#import "CityTest.h"
 @interface LhTestModelViewController ()
 @property(nonatomic,strong)UITableView*table;
+@property(nonatomic,copy)CityTest*cityTest;
 @end
 @implementation LhTestModelViewController{
     NSArray *_modelArray;
@@ -21,9 +23,17 @@
     _modelArray = @[self.city];
     [self.view addSubview:self.table];
     [self.table reloadData];
-
+    CityTest*cityTest = [CityTest return:^NSObject *(CityTest* value) {
+        value.cityName = @"d";
+        value.spell = @"ddd";
+        value.adress = [LHAddress return:^NSObject *(LHAddress* value) {
+            value.code = @"12";
+            return value;
+        }];
+        return value;
+    }];
     
-
+    self.cityTest = cityTest;
 }
 
 

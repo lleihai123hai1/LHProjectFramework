@@ -6,11 +6,15 @@
 //  Copyright (c) 2015年 冯成林. All rights reserved.
 //
 
-#import "City.h"
+#import "CityTest.h"
 
-@implementation City
+@implementation LHAddress
+
+@end
+
+@implementation CityTest
 -(LHBaseCoreModel*)updateSelf{
-    [[self class] findAction:self.hostID selectResultBlock:^(City* selectResult) {
+    [[self class] findAction:self.hostID selectResultBlock:^(CityTest* selectResult) {
         if(selectResult){
             self.cityName = selectResult.cityName;
             self.spell = selectResult.spell;

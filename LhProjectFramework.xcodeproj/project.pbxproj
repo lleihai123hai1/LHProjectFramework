@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24D412F11E6A606A0068BFA2 /* CityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D412F01E6A606A0068BFA2 /* CityTest.m */; };
 		EB12C2091E5C3BBF00564DE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C2081E5C3BBF00564DE6 /* main.m */; };
 		EB12C20C1E5C3BBF00564DE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C20B1E5C3BBF00564DE6 /* AppDelegate.m */; };
 		EB12C2121E5C3BBF00564DE6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C2111E5C3BBF00564DE6 /* MainViewController.m */; };
@@ -343,6 +344,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24D412EF1E6A606A0068BFA2 /* CityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTest.h; sourceTree = "<group>"; };
+		24D412F01E6A606A0068BFA2 /* CityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTest.m; sourceTree = "<group>"; };
 		EB12C2041E5C3BBF00564DE6 /* LhProjectFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LhProjectFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB12C2081E5C3BBF00564DE6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB12C20A1E5C3BBF00564DE6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2142,6 +2145,8 @@
 		EB8823691E5FD63C00CBCFD2 /* LhCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				24D412EF1E6A606A0068BFA2 /* CityTest.h */,
+				24D412F01E6A606A0068BFA2 /* CityTest.m */,
 				EB5FAD151E695F8900DD3E2A /* LhTestModelViewController.h */,
 				EB5FAD161E695F8900DD3E2A /* LhTestModelViewController.m */,
 				EB88236D1E5FDBC900CBCFD2 /* City.h */,
@@ -3022,6 +3027,7 @@
 				EB12C3661E5C3C8200564DE6 /* Ads.m in Sources */,
 				EB12C35D1E5C3C8200564DE6 /* MJRefreshNormalHeader.m in Sources */,
 				EBB4ABB51E5EC0FB0011AEB1 /* RACSubscriptionScheduler.m in Sources */,
+				24D412F11E6A606A0068BFA2 /* CityTest.m in Sources */,
 				EB12C3581E5C3C8200564DE6 /* MJRefreshAutoStateFooter.m in Sources */,
 				EB12C4191E5C40CB00564DE6 /* MLLinkLabel.m in Sources */,
 				EB12C3561E5C3C8200564DE6 /* MJRefreshAutoGifFooter.m in Sources */,

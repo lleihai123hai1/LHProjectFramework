@@ -7,10 +7,19 @@
 //
 
 #import "LHBaseCoreModel.h"
-@interface City : LHBaseCoreModel
+
+@interface LHAddress : NSObject
+
+@property (nonatomic,copy) NSString *code;
+
+
+@end
+
+@interface CityTest : LHBaseCoreModel
 
 @property (nonatomic,copy) NSString *cityName;
 
 @property (nonatomic,copy) NSString *spell;
+@property (nonatomic,strong) LHAddress*adress;
 
 @end

@@ -1,5 +1,6 @@
 #import "LHBaseCoreModel.h"
-
+#import "NSObject+MJProperty.h"
+#import "MJProperty.h"
 @implementation LHBaseCoreModel
 - (instancetype)init{
     self = [super init];
@@ -52,11 +53,27 @@
 //动态读取属性 并赋值  无需子类实现  遗留解决
 - (id)copyWithZone:(NSZone *)zone {
     typeof(self) one = [self.class new];
-    one.hostID = self.hostID;
-    one.className = self.className;
+    [self.class mj_enumerateProperties:^(MJProperty *property, BOOL *stop) {
+        if(!property || [self isNoCopyProperty:property.name] || [property.type.code isEqualToString:@"@?"]){
+            return ;
+        }
+       id value =[self valueForKeyPath:property.name];
+        if(value){
+            @try{
+                value = [value copy];
+            }@catch(NSException* e) {
+                NSLog(@"copy_error:%@",value);
+            }
+            [one setValue:value forKey:property.name];
+        }
+    }];
     return one;
 }
 
+-(BOOL)isNoCopyProperty:(NSString*)name{
+    NSDictionary*dict = @{@"updateBindBlock":@"1"};
+    return [dict intValue:name];
+}
 - (id)updateByDict:(NSDictionary *)dict{
     return self;
 }
