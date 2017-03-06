@@ -9,6 +9,13 @@
 #import "City.h"
 
 @implementation City
+- (id)updateByDict:(NSDictionary *)dict{
+    self.hostID = [dict strValue:@"hostID"];
+    self.cityName = [dict strValue:@"cityName"];
+    self.spell = [dict strValue:@"spell"];
+    return self;
+}
+
 -(LHBaseCoreModel*)updateSelf{
     [[self class] findAction:self.hostID selectResultBlock:^(City* selectResult) {
         if(selectResult){
