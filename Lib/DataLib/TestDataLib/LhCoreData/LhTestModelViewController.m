@@ -23,6 +23,7 @@
     _modelArray = @[self.city];
     [self.view addSubview:self.table];
     [self.table reloadData];
+
     CityTest*cityTest = [CityTest return:^NSObject *(CityTest* value) {
         value.cityName = @"d";
         value.spell = @"ddd";
@@ -32,8 +33,8 @@
         }];
         return value;
     }];
-    
     self.cityTest = cityTest;
+
 }
 
 
@@ -68,7 +69,7 @@
             .lh_didSelectRowAtIndexPath(^(NSIndexPath *indexPath){
                 @strongify(self);
                 self.city.cityName = @"nihao";
-                self.city.spell = @"dddddddd";
+                self.city.spell = @"dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd";
                 [self.city saveSelf];
                 [self.city updateBindView];
             })

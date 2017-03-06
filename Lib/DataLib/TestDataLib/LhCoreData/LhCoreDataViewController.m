@@ -28,7 +28,8 @@
     cell.city = city;
     city.updateBindBlock = ^(City* value){
         if(cell.city && [cell.city.hostID isEqualToString:value.hostID]){
-            cell.city = value;
+            NSIndexPath *indexPath = [table indexPathForCell:cell];
+            [table reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
     };
     return cell;
