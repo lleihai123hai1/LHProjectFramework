@@ -9,5 +9,5 @@ typedef  void (^LHBaseCoreModelUpdateViewBlock)(id value);
 -(LHBaseCoreModel*)deleteSelf;
 -(BOOL)isNoCopyProperty:(NSString*)name;
 -(void)updateBindView;
-+ (LHBaseCoreModel *)getLHBaseCoreModel:(NSDictionary*)dict;
++ (instancetype)getLHBaseCoreModel:(NSDictionary*)dict;
 @end

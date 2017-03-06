@@ -15,7 +15,7 @@
                 }
             });
         }
-       
+        
     });
     return self;
 }
@@ -57,7 +57,7 @@
         if(!property || [self isNoCopyProperty:property.name] || [property.type.code isEqualToString:@"@?"]){
             return ;
         }
-       id value =[self valueForKeyPath:property.name];
+        id value =[self valueForKeyPath:property.name];
         if(value){
             @try{
                 value = [value copy];
@@ -77,7 +77,7 @@
 - (id)updateByDict:(NSDictionary *)dict{
     return self;
 }
-+ (LHBaseCoreModel *)getLHBaseCoreModel:(NSDictionary*)dict{
++ (instancetype)getLHBaseCoreModel:(NSDictionary*)dict{
     return [[[self alloc]init]updateByDict:dict];
 }
 @end
