@@ -59,10 +59,7 @@
     [self.view addSubview:self.table];
     [self.table reloadData];
     
-    City *city = [[City alloc] init];
-    city.hostID = @"lh_000881";
-    city.cityName = @"xian";
-    city.spell = @"xixianxianxianxianan";
+    City *city = [City getLHBaseCoreModel:@{@"hostID":@"lh_000881",@"cityName":@"xian",@"spell":@"xixianxianxianxianan"}];
     _modelArray = @[city];
 
 }
