@@ -5,12 +5,25 @@
 
 static NSObject *_sharedManager = nil;
 static dispatch_once_t onceToken;
+
+/**
+ 返回缓存的model
+
+ @param hostID hostID
+ @return model
+ */
 +(instancetype)getModel:(NSString*)hostID{
     dispatch_once(&onceToken, ^{
         _sharedManager = [NSObject new];
     });
     return _sharedManager.lh_weakGet([NSString stringWithFormat:@"%@_%@",[self class],hostID]);;
 }
+
+/**
+ week方式缓存model
+
+ @param model model
+ */
 +(void)setModel:(LHBaseCoreModel*)model{
     dispatch_once(&onceToken, ^{
         _sharedManager = [NSObject new];
@@ -18,6 +31,12 @@ static dispatch_once_t onceToken;
     _sharedManager.lh_weakSet([NSString stringWithFormat:@"%@_%@",[model class],model.hostID],model);;
 }
 
+
+/**
+ 数据初始化，注入kvo并绑定通知
+
+ @return self
+ */
 - (instancetype)init{
     self = [super init];
     @weakify(self);
@@ -36,6 +55,11 @@ static dispatch_once_t onceToken;
     return self;
 }
 
+/**
+ 动态读取属性 并赋值  无需子类实现
+
+ @return self
+ */
 -(LHBaseCoreModel*)updateSelf{
     __block id result = [[self class] getModel:self.hostID];//可以用缓存
     if(!result){
@@ -55,18 +79,34 @@ static dispatch_once_t onceToken;
 
     return self;
 }
+
+/**
+ 保存自己到数据库
+
+ @return self
+ */
 -(LHBaseCoreModel*)saveSelf{
     [[self class] saveAction:self resBlock:^(BOOL res) {
         if(res)[[self class] setModel:self];//数据库保存的数据临时缓存
     }];
     return self;
 }
+
+/**
+ 删除自己从数据库
+
+ @return self
+ */
 -(LHBaseCoreModel*)deleteSelf{
     if(self.hostID.length){
         [[self class] deletehostID:self.hostID resBlock:nil];
     }
     return self;
 }
+
+/**
+ 刷新关联model的view
+ */
 -(void)updateBindView{
     if(self.hostID.length){
         if(self.updateBindBlock){
@@ -84,7 +124,11 @@ static dispatch_once_t onceToken;
     
 }
 
-//动态读取属性 并赋值  无需子类实现  遗留解决
+/**
+ 动态读取属性 并赋值  无需子类实现
+ 
+ @return self
+ */
 - (id)copyWithZone:(NSZone *)zone {
     typeof(self) one = [self.class new];
     [self.class mj_enumerateProperties:^(MJProperty *property, BOOL *stop) {
@@ -104,13 +148,34 @@ static dispatch_once_t onceToken;
     return one;
 }
 
+
+/**
+ 无需copy的属性
+
+ @param name 属性
+ @return 无需copy的属性返回YES  否则返回NO
+ */
 -(BOOL)isNoCopyProperty:(NSString*)name{
     NSDictionary*dict = @{@"updateBindBlock":@"1"};
     return [dict intValue:name];
 }
+
+/**
+ 通过dict生成model
+
+ @param  dict 字典
+ @return model
+ */
 - (id)updateByDict:(NSDictionary *)dict{
     return self;
 }
+
+/**
+  外部调用生成model方法
+
+  @param dict 字典
+  @return model
+  */
 + (instancetype)getLHBaseCoreModel:(NSDictionary*)dict{
     return [[[self alloc]init]updateByDict:dict];
 }
