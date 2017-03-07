@@ -15,14 +15,4 @@
     self.spell = [dict strValue:@"spell"];
     return self;
 }
-
--(LHBaseCoreModel*)updateSelf{
-    [[self class] findAction:self.hostID selectResultBlock:^(City* selectResult) {
-        if(selectResult){
-            self.cityName = selectResult.cityName;
-            self.spell = selectResult.spell;
-        }
-    }];
-    return [super updateSelf];
-}
 @end

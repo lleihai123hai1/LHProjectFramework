@@ -13,13 +13,13 @@
 @end
 
 @implementation CityTest
--(LHBaseCoreModel*)updateSelf{
-    [[self class] findAction:self.hostID selectResultBlock:^(CityTest* selectResult) {
-        if(selectResult){
-            self.cityName = selectResult.cityName;
-            self.spell = selectResult.spell;
-        }
-    }];
-    return [super updateSelf];
-}
+//-(LHBaseCoreModel*)updateSelf{
+//    [[self class] findAction:self.hostID selectResultBlock:^(CityTest* selectResult) {
+//        if(selectResult){
+//            self.cityName = selectResult.cityName;
+//            self.spell = selectResult.spell;
+//        }
+//    }];
+//    return [super updateSelf];
+//}
 @end

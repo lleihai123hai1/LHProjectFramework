@@ -21,6 +21,19 @@
 }
 
 -(LHBaseCoreModel*)updateSelf{
+    @weakify(self);
+    [[self class] findAction:self.hostID selectResultBlock:^(id selectResult) {
+        @strongify(self);
+        if(selectResult){
+            [self.class mj_enumerateProperties:^(MJProperty *property, BOOL *stop) {
+                if(![@"updateBindBlock" isEqualToString:property.name]){
+                    id value =[selectResult valueForKeyPath:property.name];
+                    [self setValue:value forKey:property.name];
+                }
+            }];
+
+        }
+    }];
     return self;
 }
 -(LHBaseCoreModel*)saveSelf{
