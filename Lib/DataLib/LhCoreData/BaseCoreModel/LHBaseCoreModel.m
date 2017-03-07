@@ -57,7 +57,7 @@ static dispatch_once_t onceToken;
 }
 -(LHBaseCoreModel*)saveSelf{
     [[self class] saveAction:self resBlock:^(BOOL res) {
-        if(res)[[self class] setModel:self];
+        if(res)[[self class] setModel:self];//数据库保存的数据临时缓存
     }];
     return self;
 }
