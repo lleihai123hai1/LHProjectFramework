@@ -10,4 +10,5 @@ typedef  void (^LHBaseCoreModelUpdateViewBlock)(id value);
 -(BOOL)isNoCopyProperty:(NSString*)name;
 -(void)updateBindView;
 + (instancetype)getLHBaseCoreModel:(NSDictionary*)dict;
++(instancetype)getModel:(NSString*)hostID;
 @end

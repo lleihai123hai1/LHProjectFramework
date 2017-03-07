@@ -2,6 +2,23 @@
 #import "NSObject+MJProperty.h"
 #import "MJProperty.h"
 @implementation LHBaseCoreModel
+
+static NSObject *_sharedManager = nil;
++(instancetype)getModel:(NSString*)hostID{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedManager = [NSObject new];
+    });
+    return _sharedManager.lh_weakGet([NSString stringWithFormat:@"%@_%@",[self class],hostID]);;
+}
++(void)setModel:(LHBaseCoreModel*)model{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedManager = [NSObject new];
+    });
+    _sharedManager.lh_weakSet([NSString stringWithFormat:@"%@_%@",[model class],model.hostID],model);;
+}
+
 - (instancetype)init{
     self = [super init];
     @weakify(self);
@@ -21,10 +38,12 @@
 }
 
 -(LHBaseCoreModel*)updateSelf{
-    __block id result;//可以用缓存
-    [[self class] findAction:self.hostID selectResultBlock:^(id selectResult) {
-        result = selectResult;
-    }];
+    __block id result = [[self class] getModel:self.hostID];//可以用缓存
+    if(!result){
+        [[self class] findAction:self.hostID selectResultBlock:^(id selectResult) {
+            result = selectResult;
+        }];
+    }
     if(result){
         [self.class mj_enumerateProperties:^(MJProperty *property, BOOL *stop) {
             if(![@"updateBindBlock" isEqualToString:property.name]){
@@ -38,7 +57,9 @@
     return self;
 }
 -(LHBaseCoreModel*)saveSelf{
-    [[self class] saveAction:self resBlock:nil];
+    [[self class] saveAction:self resBlock:^(BOOL res) {
+        if(res)[[self class] setModel:self];
+    }];
     return self;
 }
 -(LHBaseCoreModel*)deleteSelf{
