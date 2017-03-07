@@ -815,13 +815,17 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
-    if(value && [value respondsToSelector:@selector(tableView:numberOfRowsInSection:)]){
-        return [value tableView:tableView numberOfRowsInSection:section];
-    }
-    DataSourceNumberOfRowsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfRowsInSection"];
-    if(valueBlcok){
-        return  valueBlcok(section);
+    @try{
+        id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
+        if(value && [value respondsToSelector:@selector(tableView:numberOfRowsInSection:)]){
+            return [value tableView:tableView numberOfRowsInSection:section];
+        }
+        DataSourceNumberOfRowsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfRowsInSection"];
+        if(valueBlcok){
+            return  valueBlcok(section);
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:numberOfRowsInSection");
     }
     return 0;
 }
@@ -839,13 +843,17 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
-    if(value && [value respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]){
-        return [value tableView:tableView heightForRowAtIndexPath:indexPath];
-    }
-    DelegatehHeightForRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_heightForRowAtIndexPath"];
-    if(valueBlcok){
-        return  valueBlcok(indexPath);
+    @try{
+        id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]){
+            return [value tableView:tableView heightForRowAtIndexPath:indexPath];
+        }
+        DelegatehHeightForRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_heightForRowAtIndexPath"];
+        if(valueBlcok){
+            return  valueBlcok(indexPath);
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:heightForRowAtIndexPath");
     }
     return 0;
 }
@@ -864,13 +872,17 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
-    if(value && [value respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]){
-        return [value tableView:tableView didSelectRowAtIndexPath:indexPath];
-    }
-    DelegateDidSelectRowBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_didSelectRowAtIndexPath"];
-    if(valueBlcok){
-        valueBlcok(indexPath);
+    @try{
+        id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]){
+            return [value tableView:tableView didSelectRowAtIndexPath:indexPath];
+        }
+        DelegateDidSelectRowBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_didSelectRowAtIndexPath"];
+        if(valueBlcok){
+            valueBlcok(indexPath);
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:didSelectRowAtIndexPath");
     }
 }
 
@@ -888,13 +900,18 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
-    if(value && [value respondsToSelector:@selector(numberOfSectionsInTableView:)]){
-        return [value numberOfSectionsInTableView:self];
-    }
-    NumberOfSectionsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfSectionsInTableView"];
-    if(valueBlcok){
-      return valueBlcok(self);
+    @try{
+        id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
+        if(value && [value respondsToSelector:@selector(numberOfSectionsInTableView:)]){
+            return [value numberOfSectionsInTableView:self];
+        }
+        NumberOfSectionsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfSectionsInTableView"];
+        if(valueBlcok){
+            return valueBlcok(self);
+        }
+
+    }@catch(NSException* e) {
+        NSLog(@"Error:numberOfSectionsInTableView");
     }
     return 1;
 }
@@ -912,13 +929,17 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
-    if(value && [value respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]){
-        return [value tableView:tableView cellForRowAtIndexPath:indexPath];
-    }
-    CellForRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_cellForRowAtIndexPath"];
-    if(valueBlcok){
-        return valueBlcok(indexPath);
+    @try{
+        id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
+        if(value && [value respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]){
+            return [value tableView:tableView cellForRowAtIndexPath:indexPath];
+        }
+        CellForRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_cellForRowAtIndexPath"];
+        if(valueBlcok){
+            return valueBlcok(indexPath);
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:cellForRowAtIndexPath");
     }
     NSString *ID = self.lh_NSObjectId;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
@@ -1038,13 +1059,17 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    id<UICollectionViewDataSource> value = self.lh_weakGet(@"dataSource");
-    if(value && [value respondsToSelector:@selector(numberOfSectionsInCollectionView:)]){
-        return [value numberOfSectionsInCollectionView:self];
-    }
-    NumberOfSectionsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfSectionsInCollectionView"];
-    if(valueBlcok){
-        return valueBlcok(self);
+    @try{
+        id<UICollectionViewDataSource> value = self.lh_weakGet(@"dataSource");
+        if(value && [value respondsToSelector:@selector(numberOfSectionsInCollectionView:)]){
+            return [value numberOfSectionsInCollectionView:self];
+        }
+        NumberOfSectionsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfSectionsInCollectionView"];
+        if(valueBlcok){
+            return valueBlcok(self);
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:numberOfSectionsInCollectionView");
     }
     return 1;
 }
@@ -1063,13 +1088,17 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 
 //返回每个分区的item个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    id<UICollectionViewDataSource> value = self.lh_weakGet(@"dataSource");
-    if(value && [value respondsToSelector:@selector(collectionView:numberOfItemsInSection:)]){
-        return [value numberOfSectionsInCollectionView:self];
-    }
-    NumberOfSectionsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfItemsInSection"];
-    if(valueBlcok){
-        return valueBlcok(self);
+    @try{
+        id<UICollectionViewDataSource> value = self.lh_weakGet(@"dataSource");
+        if(value && [value respondsToSelector:@selector(collectionView:numberOfItemsInSection:)]){
+            return [value numberOfSectionsInCollectionView:self];
+        }
+        NumberOfSectionsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfItemsInSection"];
+        if(valueBlcok){
+            return valueBlcok(self);
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:numberOfItemsInSection");
     }
     return 1;
 }
@@ -1086,13 +1115,17 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    id<UICollectionViewDataSource> value = self.lh_weakGet(@"dataSource");
-    if(value && [value respondsToSelector:@selector(collectionView:cellForItemAtIndexPath:)]){
-        return [value collectionView:self cellForItemAtIndexPath:indexPath];
-    }
-    CellForRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_cellForItemAtIndexPath"];
-    if(valueBlcok){
-        return valueBlcok(indexPath);
+    @try{
+        id<UICollectionViewDataSource> value = self.lh_weakGet(@"dataSource");
+        if(value && [value respondsToSelector:@selector(collectionView:cellForItemAtIndexPath:)]){
+            return [value collectionView:self cellForItemAtIndexPath:indexPath];
+        }
+        CellForRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_cellForItemAtIndexPath"];
+        if(valueBlcok){
+            return valueBlcok(indexPath);
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:cellForItemAtIndexPath");
     }
     NSString *ID = self.lh_NSObjectId;
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
@@ -1116,13 +1149,17 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     return tmpBlock;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    id<UICollectionViewDelegate> value = self.lh_weakGet(@"delegate");
-    if(value && [value respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)]){
-        return [value collectionView:self didSelectItemAtIndexPath:indexPath];
-    }
-    DelegateDidSelectRowBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_didSelectItemAtIndexPath"];
-    if(valueBlcok){
-        return valueBlcok(indexPath);
+    @try{
+        id<UICollectionViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)]){
+            return [value collectionView:self didSelectItemAtIndexPath:indexPath];
+        }
+        DelegateDidSelectRowBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_didSelectItemAtIndexPath"];
+        if(valueBlcok){
+            return valueBlcok(indexPath);
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:didSelectItemAtIndexPath");
     }
 }
 + (instancetype)return:(ReturnBlock)block{
