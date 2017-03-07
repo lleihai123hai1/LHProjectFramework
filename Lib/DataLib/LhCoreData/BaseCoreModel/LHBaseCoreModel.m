@@ -21,19 +21,20 @@
 }
 
 -(LHBaseCoreModel*)updateSelf{
-    @weakify(self);
+    __block id result;//可以用缓存
     [[self class] findAction:self.hostID selectResultBlock:^(id selectResult) {
-        @strongify(self);
-        if(selectResult){
-            [self.class mj_enumerateProperties:^(MJProperty *property, BOOL *stop) {
-                if(![@"updateBindBlock" isEqualToString:property.name]){
-                    id value =[selectResult valueForKeyPath:property.name];
-                    [self setValue:value forKey:property.name];
-                }
-            }];
-
-        }
+        result = selectResult;
     }];
+    if(result){
+        [self.class mj_enumerateProperties:^(MJProperty *property, BOOL *stop) {
+            if(![@"updateBindBlock" isEqualToString:property.name]){
+                id value =[result valueForKeyPath:property.name];
+                [self setValue:value forKey:property.name];
+            }
+        }];
+        
+    }
+
     return self;
 }
 -(LHBaseCoreModel*)saveSelf{
