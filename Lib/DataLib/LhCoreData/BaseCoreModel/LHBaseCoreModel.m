@@ -4,15 +4,14 @@
 @implementation LHBaseCoreModel
 
 static NSObject *_sharedManager = nil;
+static dispatch_once_t onceToken;
 +(instancetype)getModel:(NSString*)hostID{
-    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedManager = [NSObject new];
     });
     return _sharedManager.lh_weakGet([NSString stringWithFormat:@"%@_%@",[self class],hostID]);;
 }
 +(void)setModel:(LHBaseCoreModel*)model{
-    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedManager = [NSObject new];
     });
