@@ -7,6 +7,7 @@ typedef  void (^LHBaseCoreModelUpdateViewBlock)(id value);
 -(LHBaseCoreModel*)updateSelf;
 -(LHBaseCoreModel*)saveSelf;
 -(LHBaseCoreModel*)deleteSelf;
+-(BOOL)isSaveDataBase;
 -(BOOL)isNoCopyProperty:(NSString*)name;
 -(void)updateBindView;
 + (instancetype)getLHBaseCoreModel:(NSDictionary*)dict;

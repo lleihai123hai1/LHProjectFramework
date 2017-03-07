@@ -15,4 +15,7 @@
     self.spell = [dict strValue:@"spell"];
     return self;
 }
+-(BOOL)isSaveDataBase{
+    return NO;
+}
 @end

@@ -62,7 +62,7 @@ static dispatch_once_t onceToken;
  */
 -(LHBaseCoreModel*)updateSelf{
     __block id result = [[self class] getModel:self.hostID];//可以用缓存
-    if(!result){
+    if(!result && [self isSaveDataBase]){
         [[self class] findAction:self.hostID selectResultBlock:^(id selectResult) {
             result = selectResult;
         }];
@@ -86,9 +86,13 @@ static dispatch_once_t onceToken;
  @return self
  */
 -(LHBaseCoreModel*)saveSelf{
-    [[self class] saveAction:self resBlock:^(BOOL res) {
-        if(res)[[self class] setModel:self];//数据库保存的数据临时缓存
-    }];
+    if([self isSaveDataBase]){
+        [[self class] saveAction:self resBlock:^(BOOL res) {
+            if(res)[[self class] setModel:self];//数据库保存的数据临时缓存
+        }];
+    }else{
+        [[self class] setModel:self];//数据库保存的数据临时缓存
+    }
     return self;
 }
 
@@ -98,7 +102,7 @@ static dispatch_once_t onceToken;
  @return self
  */
 -(LHBaseCoreModel*)deleteSelf{
-    if(self.hostID.length){
+    if(self.hostID.length && [self isSaveDataBase]){
         [[self class] deletehostID:self.hostID resBlock:nil];
     }
     return self;
@@ -158,6 +162,16 @@ static dispatch_once_t onceToken;
 -(BOOL)isNoCopyProperty:(NSString*)name{
     NSDictionary*dict = @{@"updateBindBlock":@"1"};
     return [dict intValue:name];
+}
+
+
+/**
+ 是否保存数据库
+
+ @return 保存数据库 YES  否则返回NO
+ */
+-(BOOL)isSaveDataBase{
+    return YES;
 }
 
 /**
