@@ -10,13 +10,15 @@
 #import "City.h"
 #import "Pen.h"
 #import "Person.h"
-@interface LhDataBaseDemoCell : DemoCell
-@property(nonatomic,strong)City*city;
+@interface LhDataBaseDemoCell : DemoCell@property(nonatomic,strong)City*city;
 +(UITableViewCell*)getLhDataBaseDemoCell:(UITableView*)table  dict:(NSDictionary*)dict;
 +(UITableViewCell*)getLhDataBaseDemoCell:(UITableView*)table  city:(City*)city;
 @end
 
-@interface LhCoreDataViewController : UIViewController
+@interface LhCoreDataViewController : UIViewController{
+    CGFloat tmpHeight;
+}
+
 
 @end
 

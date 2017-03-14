@@ -423,61 +423,61 @@
     NSMutableArray *resultsM=[NSMutableArray array];
     NSMutableArray *tmpM=[NSMutableArray array];
     __weak __typeof(self)weakSelf = self;
-    __block FMResultSet *set = nil;
-    [CoreFMDB executeQuery:sql queryResBlock:^(FMResultSet *tmpSet) {
-        set = tmpSet;
-    }];
-    while (set && [set next]) {
-        BaseCoreModel *model=[[weakSelf alloc] init];
-        [weakSelf enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
-            
-            BOOL skip=[weakSelf skipField:property];
-            
-            if(!skip){
-                NSString *value=[set stringForColumn:property.name];
+    [CoreFMDB executeQuery:sql queryResBlock:^(FMResultSet *set) {
+        
+        while ([set next]) {
+            BaseCoreModel *model=[[weakSelf alloc] init];
+            [weakSelf enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
                 
-                NSString*type =[self sqliteDataType:property.type.code];
-                if (type) {
-                    if ([type isEqualToString:typeNumberFloat]) {
-                        NSNumber*ttt=[NSNumber numberWithFloat:[value floatValue]];
-                        [model setValue:ttt forKey:property.name];
-                    }else  if ([type isEqualToString:typeNumber]) {
-                        NSNumber*ttt=[NSNumber numberWithInteger:[value integerValue]];
-                        [model setValue:ttt forKey:property.name];
-                    }else if ([type isEqualToString:typeStr]){
-                        NSString* v = [Base64Str textFromBase64String:value];
-                        [model setValue:v forKey:property.name];
-                    }else if ([type isEqualToString:typeNsDataGetStr]){
-                        if (value.length ) {
-                            NSString* v = [Base64Str textFromBase64String:value];
-                            id data = [v JSONValue];
-                            if(data) {
-                                [model setValue:data forKey:property.name];
-                            }
-                        }
-                    }else if ([type isEqualToString:typeStrDate]){
-                        if (value.length ) {
-                            NSDate*date = [self getDateFromString:value key:@"yyyy-MM-dd HH:mm:ss"];
-                            if(date){
-                                [model setValue:date forKey:property.name];
-                            }
-                        }
-                    }
+                BOOL skip=[weakSelf skipField:property];
+                
+                if(!skip){
+                    NSString *value=[set stringForColumn:property.name];
                     
-                }else{
-                    if (value && value.length > 0) {
-                        NSDictionary*dict = @{@"model":model,@"value":value,@"name":property.name,@"code":property.type.code};
-                        [tmpM addObject:dict];
+                    NSString*type =[self sqliteDataType:property.type.code];
+                    if (type) {
+                        if ([type isEqualToString:typeNumberFloat]) {
+                            NSNumber*ttt=[NSNumber numberWithFloat:[value floatValue]];
+                            [model setValue:ttt forKey:property.name];
+                        }else  if ([type isEqualToString:typeNumber]) {
+                            NSNumber*ttt=[NSNumber numberWithInteger:[value integerValue]];
+                            [model setValue:ttt forKey:property.name];
+                        }else if ([type isEqualToString:typeStr]){
+                            NSString* v = [Base64Str textFromBase64String:value];
+                            [model setValue:v forKey:property.name];
+                        }else if ([type isEqualToString:typeNsDataGetStr]){
+                            if (value.length ) {
+                                NSString* v = [Base64Str textFromBase64String:value];
+                                id data = [v JSONValue];
+                                if(data) {
+                                    [model setValue:data forKey:property.name];
+                                }
+                            }
+                        }else if ([type isEqualToString:typeStrDate]){
+                            if (value.length ) {
+                                 NSDate*date = [self getDateFromString:value key:@"yyyy-MM-dd HH:mm:ss"];
+                                if(date){
+                                    [model setValue:date forKey:property.name];
+                                }
+                            }
+                        }
+
+                    }else{
+                        if (value && value.length > 0) {
+                            NSDictionary*dict = @{@"model":model,@"value":value,@"name":property.name,@"code":property.type.code};
+                            [tmpM addObject:dict];
+                        }
+
                     }
                     
                 }
                 
-            }
+            }];
             
-        }];
-        
-        [resultsM addObject:model];
-    }
+            [resultsM addObject:model];
+        }
+    }];
+    
     for (NSDictionary*dict in tmpM) {
         BaseCoreModel *model = [dict objectForKey:@"model"];
         Class clas = NSClassFromString([dict objectForKey:@"code"]);

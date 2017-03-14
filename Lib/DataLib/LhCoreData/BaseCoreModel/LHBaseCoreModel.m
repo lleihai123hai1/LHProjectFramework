@@ -2,7 +2,7 @@
 #import "NSObject+MJProperty.h"
 #import "MJProperty.h"
 @implementation LHBaseCoreModel
-
+@synthesize hostID;
 static NSObject *_sharedManager = nil;
 static dispatch_once_t onceToken;
 
@@ -33,26 +33,29 @@ static dispatch_once_t onceToken;
 
 
 /**
- 数据初始化，注入kvo并绑定通知
-
- @return self
+ 注入kvo并绑定通知
+ 
+ @param hostID hostID
  */
-- (instancetype)init{
-    self = [super init];
+-(void)setHostID:(NSString *)hostID{
+    if(self.hostID){
+        self.lh_removeNotification(self.hostID);
+    }
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshadow-ivar"
+    self->hostID = hostID;
+#pragma clang diagnostic pop
     @weakify(self);
-    self.lh_kvo(@"hostID",^(id value){
-        @strongify(self);
-        if(self.hostID){
-            self.lh_notification(self.hostID,^(id value){
-                if(self.updateBindBlock){
-                    [self updateSelf];
-                    self.updateBindBlock(self);
-                }
-            });
-        }
-        
-    });
-    return self;
+    if(self.hostID){
+        self.lh_notification(self.hostID,^(id value){
+            @strongify(self);
+            if(self.updateBindBlock){
+                [self updateSelf];
+                self.updateBindBlock(self);
+            }
+        });
+    }
+    
 }
 
 /**
