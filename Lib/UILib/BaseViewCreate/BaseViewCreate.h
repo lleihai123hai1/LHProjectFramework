@@ -33,20 +33,30 @@ typedef  NSObject* (^SignalForSelectorBlock)(SEL selector,RACTupleBlock value);
 + (instancetype)return:(ReturnBlock)block;
 @end
 
+
+@interface NSString (LHUI)
+-(NSUInteger)lh_StrUniqueNumber;
+@end
+
 #pragma mark --UIView扩展
 typedef  void (^UILayoutBlock)(SDAutoLayoutModel *sd_layout);
 typedef  UIView* (^UILayoutActionBlock)(UIView*superview,UILayoutBlock value);
 typedef  UIView * (^UISetValueBlock)(id value);
+typedef  UIView * (^UIAddSubviewBlock)(id value);
 typedef  UIView * (^UISetCGRectBlock)(CGRect value);
 typedef  UIView * (^UISetCGSizeBlock)(CGSize value);
 typedef  UIView * (^UISetCGPointBlock)(CGPoint value);
 typedef  UIView* (^UIViewAnimationActionBlock)(UIViewAnimationBlock value,UIViewAnimationCurve curve,NSTimeInterval duration);
 typedef  UIView * (^UITapGestureBlock)(NSInteger numberTouches,NSInteger numberTaps,ClickBlock value);
+typedef  UIView * (^UIViewMoreSubviewBlock)(UIView* value,...);
 @interface UIView (LHUI)
 @property (nonatomic,readonly) UISetValueBlock lh_layer_cornerRadius;
 @property (nonatomic,readonly) UISetValueBlock lh_backgroundColor;
 @property (nonatomic,readonly) UISetValueBlock lh_alpha;
 @property (nonatomic,readonly) UISetCGRectBlock lh_frame;
+@property (nonatomic,readonly) UIAddSubviewBlock lh_addSubview;
+@property (nonatomic,readonly) UIViewMoreSubviewBlock lh_addMoreSubview;//uiview结尾必须nill
+@property (nonatomic,readonly) UIAddSubviewBlock lh_beAddSubview;
 @property (nonatomic,readonly) UISetCGSizeBlock lh_size;
 @property (nonatomic,readonly) UISetCGPointBlock lh_point;
 @property (nonatomic,readonly) UISetValueBlock lh_hidden;
@@ -110,11 +120,26 @@ typedef  UILabel * (^UILabelSetTextBlock)(NSString* value);
 
 
 #pragma mark --UIImageView扩展
+@interface LHUIImageView:UIImageView
+@end
+
 typedef  UIImageView * (^UIImageViewSetImageBlock)(UIImage* value);
 typedef  UIImageView * (^UIImageViewSetNameBlock)(NSString* value);
+
+typedef  UIImageView * (^UIImageViewSetImageTintColorBlock)(UIImage* value,UIColor *color);
+typedef  UIImageView * (^UIImageViewSetNameTintColorBlock)(NSString* value,UIColor *color);
+
+typedef  UIImageView * (^UIViewContentModeBlock)(UIViewContentMode value);
+typedef  UIImageView * (^UIViewTintColorBlock)(UIColor* value);
 @interface UIImageView (LHUI)
 @property (nonatomic,readonly) UIImageViewSetImageBlock lh_image;
 @property (nonatomic,readonly) UIImageViewSetNameBlock lh_name;
+@property (nonatomic,readonly) UIImageViewSetImageTintColorBlock lh_imageAndTintColor;
+@property (nonatomic,readonly) UIImageViewSetNameTintColorBlock lh_nameAndTintColor;
+
+@property (nonatomic,readonly) UIViewContentModeBlock lh_contentMode;
+@property (nonatomic,readonly) UIViewTintColorBlock lh_tintColor;
+
 @end
 
 #pragma mark --UIActionSheet扩展
@@ -139,27 +164,35 @@ typedef  UIProgressView * (^UIProgressViewSetPropertyBlock)(UIColor* value);
 @property (nonatomic,readonly) UIProgressViewSetPropertyBlock lh_trackTintColor;
 @end
 
-#pragma mark --UIProgressView扩展 切记退出的时候调用lh_clear
-typedef  UITableView * (^UITableViewDelegateBlock)(id<UITableViewDelegate> value);
-typedef  UITableView * (^UITableViewDataSourceBlock)(id<UITableViewDataSource> value);
-typedef  UITableView * (^UITableDelegateAndDataBlock)(id value);
-typedef  UITableView * (^UITableViewCellSeparatorStyleBlock)(UITableViewCellSeparatorStyle value);
-typedef  UITableView * (^UITableViewStyleBlock)(UITableViewStyle value);
-typedef  UITableView * (^UITableViewSetUIViewBlock)(UIView* value);
-typedef  UITableView * (^UITableViewSetUIEdgeInsetsBlock)(UIEdgeInsets value);
+#pragma mark --UITableView扩展
+@interface LHUITableView:UITableView
+@end
+
+typedef  LHUITableView * (^UITableViewDelegateBlock)(id<UITableViewDelegate> value);
+typedef  LHUITableView * (^UITableViewDataSourceBlock)(id<UITableViewDataSource> value);
+typedef  LHUITableView * (^UITableDelegateAndDataBlock)(id value);
+typedef  LHUITableView * (^UITableViewCellSeparatorStyleBlock)(UITableViewCellSeparatorStyle value);
+typedef  LHUITableView * (^UITableViewStyleBlock)(UITableViewStyle value);
+typedef  LHUITableView * (^UITableViewSetUIViewBlock)(UIView* value);
+typedef  LHUITableView * (^UITableViewSetUIEdgeInsetsBlock)(UIEdgeInsets value);
 typedef  NSUInteger (^DataSourceNumberOfRowsBlock)(NSInteger section);
 typedef  CGFloat (^DelegatehHeightForRowAtIndexPathBlock)(NSIndexPath *indexPath);
 typedef  void (^DelegateDidSelectRowBlock)(NSIndexPath *indexPath);
-typedef  UITableView* (^UITableDataSourceNumberOfRowsBlock)(DataSourceNumberOfRowsBlock value);
-typedef  UITableView* (^UITableViewDelegatehHeightForRowAtIndexPathBlock)(DelegatehHeightForRowAtIndexPathBlock value);
-typedef  UITableView* (^UITableViewDelegateDidSelectRowBlock)(DelegateDidSelectRowBlock value);
+typedef  LHUITableView* (^UITableDataSourceNumberOfRowsBlock)(DataSourceNumberOfRowsBlock value);
+typedef  LHUITableView* (^UITableViewDelegatehHeightForRowAtIndexPathBlock)(DelegatehHeightForRowAtIndexPathBlock value);
+typedef  LHUITableView* (^UITableViewDelegateDidSelectRowBlock)(DelegateDidSelectRowBlock value);
 typedef  NSUInteger (^NumberOfSectionsBlock)(id value);
-typedef  UITableView* (^UITableDataSourceNumberOfSectionsBlock)(NumberOfSectionsBlock value);
+typedef  LHUITableView* (^UITableDataSourceNumberOfSectionsBlock)(NumberOfSectionsBlock value);
 
 typedef  id (^CellForRowAtIndexPathBlock)(NSIndexPath *indexPath);
-typedef  UITableView* (^UITableDataSourceCellForRowAtIndexPathBlock)(CellForRowAtIndexPathBlock value);
-typedef  UITableView * (^UITableViewRegisterClass)(Class value);
-@interface UITableView (LHUI)<UITableViewDelegate,UITableViewDataSource>
+typedef  LHUITableView* (^UITableDataSourceCellForRowAtIndexPathBlock)(CellForRowAtIndexPathBlock value);
+typedef  LHUITableView * (^UITableViewRegisterClass)(Class value);
+
+typedef  UIView* (^ViewForHeaderInSectionBlock)(NSInteger section);
+typedef  CGFloat (^HeightForHeaderInSectionBlock)(NSInteger section);
+typedef  LHUITableView* (^UITableViewDelegateViewForHeaderInSectionBlock)(ViewForHeaderInSectionBlock value);
+typedef  LHUITableView* (^UITableViewDelegateHeightForHeaderInSectionBlock)(HeightForHeaderInSectionBlock value);
+@interface LHUITableView (LHUI)<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,readonly) UITableViewDelegateBlock lh_delegate;
 @property (nonatomic,readonly) UITableViewDataSourceBlock lh_dataSource;
 @property (nonatomic,readonly) UITableDelegateAndDataBlock lh_delegateDataSource;
@@ -173,6 +206,9 @@ typedef  UITableView * (^UITableViewRegisterClass)(Class value);
 @property (nonatomic,readonly) UITableViewDelegateDidSelectRowBlock lh_didSelectRowAtIndexPath;
 @property (nonatomic,readonly) UITableDataSourceNumberOfSectionsBlock lh_numberOfSectionsInTableView;
 @property (nonatomic,readonly) UITableDataSourceCellForRowAtIndexPathBlock lh_cellForRowAtIndexPath;
+@property (nonatomic,readonly) UITableViewDelegateViewForHeaderInSectionBlock lh_viewForHeaderInSection;
+@property (nonatomic,readonly) UITableViewDelegateHeightForHeaderInSectionBlock lh_heightForHeaderInSection;
+
 @property (nonatomic,readonly) UITableViewRegisterClass lh_registerClass;
 @end
 
@@ -187,18 +223,18 @@ typedef  UICollectionViewFlowLayout * (^UICollectionViewFlowLayoutSectionInsetBl
 @end
 
 #pragma mark --UICollectionView扩展
+@interface LHUICollectionView:UICollectionView
+@end
 typedef  UICollectionViewLayout * (^UICollectionViewGetLayout)();
-typedef  UICollectionView * (^UICollectionViewSetLayout)(UICollectionViewGetLayout value);
-typedef  UICollectionView * (^UICollectionViewRegisterClass)(Class value);
-typedef  UICollectionView * (^UICollectionViewDataSourceAndDelegateBlock)(id value);
-
-
+typedef  LHUICollectionView * (^UICollectionViewSetLayout)(UICollectionViewGetLayout value);
+typedef  LHUICollectionView * (^UICollectionViewRegisterClass)(Class value);
+typedef  LHUICollectionView * (^UICollectionViewDataSourceAndDelegateBlock)(id value);
 typedef  NSUInteger (^NumberOfItemsInSectionBlock)(NSInteger value);
-typedef  UICollectionView* (^UICollectionViewDelegateDidSelectRowBlock)(DelegateDidSelectRowBlock value);
-typedef  UICollectionView* (^UICollectionDataSourceNumberOfItemsInSectionBlock)(NumberOfItemsInSectionBlock value);
-typedef  UICollectionView* (^UICollectionDataSourceNumberOfSectionsBlock)(NumberOfSectionsBlock value);
-typedef  UICollectionView* (^UICollectionDataSourceCellForItemAtIndexPathBlock)(CellForRowAtIndexPathBlock value);
-@interface UICollectionView (LHUI)<UICollectionViewDelegate,UICollectionViewDataSource>
+typedef  LHUICollectionView* (^UICollectionViewDelegateDidSelectRowBlock)(DelegateDidSelectRowBlock value);
+typedef  LHUICollectionView* (^UICollectionDataSourceNumberOfItemsInSectionBlock)(NumberOfItemsInSectionBlock value);
+typedef  LHUICollectionView* (^UICollectionDataSourceNumberOfSectionsBlock)(NumberOfSectionsBlock value);
+typedef  LHUICollectionView* (^UICollectionDataSourceCellForItemAtIndexPathBlock)(CellForRowAtIndexPathBlock value);
+@interface LHUICollectionView (LHUI)<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic,readonly) UICollectionViewDataSourceAndDelegateBlock lh_delegate;
 @property (nonatomic,readonly) UICollectionViewDataSourceAndDelegateBlock lh_dataSource;
 @property (nonatomic,readonly) UICollectionViewDataSourceAndDelegateBlock lh_delegateDataSource;
@@ -211,6 +247,26 @@ typedef  UICollectionView* (^UICollectionDataSourceCellForItemAtIndexPathBlock)(
 @property (nonatomic,readonly) UICollectionDataSourceCellForItemAtIndexPathBlock lh_cellForItemAtIndexPath;
 + (instancetype)return:(ReturnBlock)block;
 @end
+
+
+#pragma mark --UIScrollView扩展
+@interface LHUIScrollView:UIScrollView
+@end
+typedef  UIScrollView * (^UIScrollViewDelegateBlock)(id value);
+typedef  void (^ScrollViewBlock)(UIScrollView *scrollView);
+typedef  UIScrollView* (^UIScrollViewBlock)(ScrollViewBlock value);
+@interface UIScrollView (LHUI)<UIScrollViewDelegate>
+@property (nonatomic,readonly) UIScrollViewDelegateBlock lh_delegate;
+@property (nonatomic,readonly) UIScrollViewBlock lh_scrollViewDidScroll;
+@property (nonatomic,readonly) UIScrollViewBlock lh_scrollViewDidZoom;
+@property (nonatomic,readonly) UIScrollViewBlock lh_scrollViewWillBeginDragging;
+@property (nonatomic,readonly) UIScrollViewBlock lh_scrollViewWillBeginDecelerating;
+@property (nonatomic,readonly) UIScrollViewBlock lh_scrollViewDidEndDecelerating;
+@property (nonatomic,readonly) UIScrollViewBlock lh_scrollViewDidEndScrollingAnimation;
+@property (nonatomic,readonly) UIScrollViewBlock lh_scrollViewDidScrollToTop;
+
+@end
+
 #pragma mark --UIColor扩展
 @interface UIColor (LHUI)
 + (UIColor*)lh_ff32ff;

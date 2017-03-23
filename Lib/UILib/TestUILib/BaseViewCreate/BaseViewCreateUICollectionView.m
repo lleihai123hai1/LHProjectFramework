@@ -43,10 +43,10 @@
 }
 
 #pragma mark -UICollectionView Delegate and DataSource
--(UICollectionView*)collection{
+-(LHUICollectionView*)collection{
     if(!_collection){
         @weakify(self);
-        _collection = [UICollectionView return:^NSObject *(UICollectionView* value) {
+        _collection = [LHUICollectionView return:^NSObject *(LHUICollectionView* value) {
             @strongify(self);
             return value
             .lh_delegateDataSource(self)

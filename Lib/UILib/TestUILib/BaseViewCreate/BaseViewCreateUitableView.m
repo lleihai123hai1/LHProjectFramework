@@ -49,10 +49,10 @@
 }
 
 #pragma mark - tableview datasourece and delegate
--(UITableView*)table{
+-(LHUITableView*)table{
     if(!_table){
         @weakify(self);
-        _table = [UITableView return:^NSObject *(UITableView* value) {
+        _table = [LHUITableView return:^NSObject *(LHUITableView* value) {
             @strongify(self);
             return value
             .lh_delegateDataSource(self)

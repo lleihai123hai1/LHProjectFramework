@@ -4,7 +4,7 @@ NSMutableArray* lh_valist(NSUInteger count, NSString* value,...){
     NSMutableArray*array = [NSMutableArray array];
     va_list params;
     va_start(params, value);
-     NSString*valueeee = [[NSString alloc] initWithFormat:@"%@" arguments:params];
+    NSString*valueeee = [[NSString alloc] initWithFormat:@"%@" arguments:params];
     NSLog(@"%@",valueeee);
     [array addObject:value];
     NSString *temp = nil;
@@ -152,7 +152,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
         return self;
     };
     return tmpBlock;
-
+    
 }
 
 -(GetWeakObjBlock)lh_weakGet{
@@ -186,6 +186,21 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 @end
 
+@implementation NSString (LHUI)
+-(NSUInteger)lh_StrUniqueNumber{
+    NSUInteger value = 1;
+    NSUInteger count = 15;
+    if(self.length && self.length <= count){
+        count = self.length;
+    }
+    NSUInteger diffCount = self.length/count;
+    for(int i=0; i < self.length; ){
+        value += ([self characterAtIndex: i])*value;
+        i += diffCount;
+    }
+    return value+self.length;
+}
+@end
 
 @implementation UIView (LHUI)
 
@@ -195,7 +210,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
         @strongify(self);
         return (UIView*)(self
                          .lh_propertyById(@"layer.cornerRadius",value)
-                         .lh_propertyById(@"layer.masksToBounds",0));
+                         .lh_propertyById(@"layer.masksToBounds",@(0)));
     };
     return tmpBlock;
 }
@@ -206,7 +221,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UISetValueBlock tmpBlock= ^(id value){
         @strongify(self);
         return (UIView*)(self
-        .lh_propertyById(@"backgroundColor",value));
+                         .lh_propertyById(@"backgroundColor",value));
     };
     return tmpBlock;
 }
@@ -215,7 +230,65 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UISetValueBlock tmpBlock= ^(id value){
         @strongify(self);
         return (UIView*)(self
-        .lh_propertyById(@"alpha",value));
+                         .lh_propertyById(@"alpha",value));
+    };
+    return tmpBlock;
+}
+
+-(UIAddSubviewBlock)lh_addSubview{
+    @weakify(self);
+    UIAddSubviewBlock tmpBlock= ^(UIView* value){
+        @strongify(self);
+        [self addSubview:value];
+        return self;
+    };
+    return tmpBlock;
+}
+
+-(UIViewMoreSubviewBlock)lh_addMoreSubview{
+    @weakify(self);
+    UIViewMoreSubviewBlock tmpBlock= ^(id value,...){
+        @strongify(self);
+        if(!value){
+            return self;
+        }else if ([value isKindOfClass:[NSArray class]]){
+            for (UIView* v in value) {
+                [self addSubview:v];
+            }
+            return self;
+        }
+        va_list params;
+        va_start(params, value);
+        if (value) {
+            [self addSubview:value];
+            UIView *temp = nil;;
+            while (YES) {
+                NSLog(@"%@",[NSString stringWithCString:params encoding:NSUTF8StringEncoding]);
+                @try{
+                    temp = va_arg(params, UIView*);
+                }@catch(NSException* e) {
+                    NSLog(@"Error:动态读取属性错误");
+                    break;
+                }
+                if (temp ==nil) {
+                    break;
+                }else{
+                    [self addSubview:temp];
+                }
+            }
+        }
+        va_end(params);
+        return self;
+    };
+    return tmpBlock;
+}
+
+-(UIAddSubviewBlock)lh_beAddSubview{
+    @weakify(self);
+    UIAddSubviewBlock tmpBlock= ^(UIView* value){
+        @strongify(self);
+        [value addSubview:self];
+        return self;
     };
     return tmpBlock;
 }
@@ -315,9 +388,15 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
         tap.numberOfTouchesRequired = numberTouches; //手指数
         tap.numberOfTapsRequired = numberTaps; //tap次数
         [[tap rac_gestureSignal] subscribeNext:^(id x) {
-            if(value){
-                value(x);
+            @try{
+                if(value){
+                    value(x);
+                }
+            }@catch(NSException* e) {
+                NSLog(@"Error:lh_gesture");
             }
+            
+            
         }];
         self.userInteractionEnabled = YES;
         [self addGestureRecognizer:tap];
@@ -368,7 +447,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UIButtonSetTitleFontBlock tmpBlock= ^(UIFont* value){
         @strongify(self);
         return (UIButton*)(self
-                         .lh_propertyById(@"titleLabel.font",value));
+                           .lh_propertyById(@"titleLabel.font",value));
     };
     return tmpBlock;
 }
@@ -482,7 +561,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
         return self;
     };
     return tmpBlock;
-
+    
 }
 @end
 
@@ -511,7 +590,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UILabelSetTextColorBlock tmpBlock= ^(UIColor* value){
         @strongify(self);
         return (UILabel*)(self
-                         .lh_propertyById(@"textColor",value));
+                          .lh_propertyById(@"textColor",value));
     };
     return tmpBlock;
 }
@@ -550,7 +629,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     @weakify(self);
     UILabelSetTextBlock tmpBlock=  ^(NSString* value){
         @strongify(self);
-        return (UILabel*)(self              
+        return (UILabel*)(self
                           .lh_propertyById(@"text",value));
     };
     return tmpBlock;
@@ -559,7 +638,18 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 @end
 
 
-
+@implementation LHUIImageView
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent*)event
+{
+    CGFloat lhwidth = 55;
+    CGRect bounds = self.bounds;
+    //若原热区小于55x55，则放大热区，否则保持原大小不变
+    CGFloat widthDelta = MAX(lhwidth - bounds.size.width, 0);
+    CGFloat heightDelta = MAX(lhwidth - bounds.size.height, 0);
+    bounds = CGRectInset(bounds, -0.5 * widthDelta, -0.5 * heightDelta);
+    return CGRectContainsPoint(bounds, point);
+}
+@end
 #pragma mark --UIImageView扩展
 @implementation UIImageView (LHUI)
 -(UIImageViewSetImageBlock)lh_image{
@@ -567,7 +657,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UIImageViewSetImageBlock tmpBlock=  ^(UIImage* value){
         @strongify(self);
         return (UIImageView*)(self
-                          .lh_propertyById(@"image",value));
+                              .lh_propertyById(@"image",value));
     };
     return tmpBlock;
 }
@@ -576,11 +666,55 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     UIImageViewSetNameBlock tmpBlock=  ^(NSString* value){
         @strongify(self);
         NullReturn(value);
-        self.image = [UIImage imageNamed:value];
+        return (UIImageView*)(self
+                              .lh_propertyById(@"image",[UIImage imageNamed:value]));
         return self;
     };
     return tmpBlock;
 }
+
+-(UIImageViewSetImageTintColorBlock)lh_imageAndTintColor{
+    @weakify(self);
+    UIImageViewSetImageTintColorBlock tmpBlock=  ^(UIImage* value,UIColor*color){
+        @strongify(self);
+        return (UIImageView*)(self
+                              .lh_propertyById(@"image",[value imageWithRenderingMode:(UIImageRenderingModeAlwaysTemplate)])
+                              .lh_propertyById(@"tintColor",color));
+    };
+    return tmpBlock;
+}
+-(UIImageViewSetNameTintColorBlock)lh_nameAndTintColor{
+    @weakify(self);
+    UIImageViewSetNameTintColorBlock tmpBlock=  ^(NSString* value,UIColor*color){
+        @strongify(self);
+        NullReturn(value);
+        return (UIImageView*)(self
+                              .lh_propertyById(@"image",[[UIImage imageNamed:value] imageWithRenderingMode:(UIImageRenderingModeAlwaysTemplate)])
+                              .lh_propertyById(@"tintColor",color));
+        return self;
+    };
+    return tmpBlock;
+}
+
+-(UIViewContentModeBlock)lh_contentMode{
+    @weakify(self);
+    UIViewContentModeBlock tmpBlock=  ^(UIViewContentMode value){
+        @strongify(self);
+        self.contentMode = value;
+        return self;
+    };
+    return tmpBlock;
+}
+-(UIViewTintColorBlock)lh_tintColor{
+    @weakify(self);
+    UIViewTintColorBlock tmpBlock=  ^(UIColor* value){
+        @strongify(self);
+        self.tintColor = value;
+        return self;
+    };
+    return tmpBlock;
+}
+
 @end
 
 #pragma mark --UIActionSheet扩展
@@ -688,7 +822,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     return tmpBlock;
 }
 -(void)lh_initView{
-   UIActionSheet* tmpSelf = [self initWithTitle:[self.lh_Mudict strValue:@"title"] delegate:nil cancelButtonTitle:[self.lh_Mudict strValue:@"cancelButtonTitle"] destructiveButtonTitle:[self.lh_Mudict strValue:@"destructiveButtonTitle"] otherButtonTitles: nil];
+    UIActionSheet* tmpSelf = [self initWithTitle:[self.lh_Mudict strValue:@"title"] delegate:nil cancelButtonTitle:[self.lh_Mudict strValue:@"cancelButtonTitle"] destructiveButtonTitle:[self.lh_Mudict strValue:@"destructiveButtonTitle"] otherButtonTitles: nil];
     NSMutableArray*array = [self.lh_Mudict arraymuValue:@"btnTitle"];
     for (NSString*title in array) {
         [tmpSelf addButtonWithTitle:title];
@@ -718,8 +852,10 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 @end
 
-#pragma mark --UIProgressView扩展
-@implementation UITableView (LHUI)
+#pragma mark --UITableView扩展
+@implementation LHUITableView
+@end
+@implementation LHUITableView (LHUI)
 -(UITableViewDelegateBlock)lh_delegate{
     @weakify(self);
     UITableViewDelegateBlock tmpBlock= ^(id<UITableViewDelegate> value){
@@ -768,7 +904,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     @weakify(self);
     UITableViewStyleBlock tmpBlock= ^(UITableViewStyle value){
         @strongify(self);
-        UITableView*tmpself = [self initWithFrame:self.frame style:value];
+        id tmpself = [self initWithFrame:self.frame style:value];
         return tmpself;
     };
     return tmpBlock;
@@ -816,13 +952,13 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     @try{
-        id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
-        if(value && [value respondsToSelector:@selector(tableView:numberOfRowsInSection:)]){
-            return [value tableView:tableView numberOfRowsInSection:section];
-        }
         DataSourceNumberOfRowsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfRowsInSection"];
         if(valueBlcok){
             return  valueBlcok(section);
+        }
+        id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
+        if(value && [value respondsToSelector:@selector(tableView:numberOfRowsInSection:)]){
+            return [value tableView:tableView numberOfRowsInSection:section];
         }
     }@catch(NSException* e) {
         NSLog(@"Error:numberOfRowsInSection");
@@ -844,13 +980,13 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     @try{
-        id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
-        if(value && [value respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]){
-            return [value tableView:tableView heightForRowAtIndexPath:indexPath];
-        }
         DelegatehHeightForRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_heightForRowAtIndexPath"];
         if(valueBlcok){
             return  valueBlcok(indexPath);
+        }
+        id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]){
+            return [value tableView:tableView heightForRowAtIndexPath:indexPath];
         }
     }@catch(NSException* e) {
         NSLog(@"Error:heightForRowAtIndexPath");
@@ -873,13 +1009,13 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     @try{
-        id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
-        if(value && [value respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]){
-            return [value tableView:tableView didSelectRowAtIndexPath:indexPath];
-        }
         DelegateDidSelectRowBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_didSelectRowAtIndexPath"];
         if(valueBlcok){
             valueBlcok(indexPath);
+        }
+        id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]){
+            return [value tableView:tableView didSelectRowAtIndexPath:indexPath];
         }
     }@catch(NSException* e) {
         NSLog(@"Error:didSelectRowAtIndexPath");
@@ -901,15 +1037,14 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     @try{
-        id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
-        if(value && [value respondsToSelector:@selector(numberOfSectionsInTableView:)]){
-            return [value numberOfSectionsInTableView:self];
-        }
         NumberOfSectionsBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_numberOfSectionsInTableView"];
         if(valueBlcok){
             return valueBlcok(self);
         }
-
+        id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
+        if(value && [value respondsToSelector:@selector(numberOfSectionsInTableView:)]){
+            return [value numberOfSectionsInTableView:self];
+        }
     }@catch(NSException* e) {
         NSLog(@"Error:numberOfSectionsInTableView");
     }
@@ -930,13 +1065,13 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     @try{
-        id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
-        if(value && [value respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]){
-            return [value tableView:tableView cellForRowAtIndexPath:indexPath];
-        }
         CellForRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_cellForRowAtIndexPath"];
         if(valueBlcok){
             return valueBlcok(indexPath);
+        }
+        id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
+        if(value && [value respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]){
+            return [value tableView:tableView cellForRowAtIndexPath:indexPath];
         }
     }@catch(NSException* e) {
         NSLog(@"Error:cellForRowAtIndexPath");
@@ -959,6 +1094,62 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     };
     return tmpBlock;
 }
+
+
+-(UITableViewDelegateViewForHeaderInSectionBlock)lh_viewForHeaderInSection{
+    @weakify(self);
+    UITableViewDelegateViewForHeaderInSectionBlock tmpBlock= ^(ViewForHeaderInSectionBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_viewForHeaderInSection"];
+        return self;
+    };
+    return tmpBlock;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    @try{
+        ViewForHeaderInSectionBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_viewForHeaderInSection"];
+        if(valueBlcok){
+            return valueBlcok(section);
+        }
+        id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(tableView:viewForHeaderInSection:)]){
+            return [value tableView:tableView viewForHeaderInSection:section];
+        }
+        
+    }@catch(NSException* e) {
+        NSLog(@"Error:viewForHeaderInSection");
+    }
+    return [UIView new];
+}
+
+-(UITableViewDelegateHeightForHeaderInSectionBlock)lh_heightForHeaderInSection{
+    @weakify(self);
+    UITableViewDelegateHeightForHeaderInSectionBlock tmpBlock= ^(HeightForHeaderInSectionBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_heightForHeaderInSection"];
+        return self;
+    };
+    return tmpBlock;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    @try{
+        HeightForHeaderInSectionBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_heightForHeaderInSection"];
+        if(valueBlcok){
+            return valueBlcok(section);
+        }
+        id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(tableView:heightForHeaderInSection:)]){
+            return [value tableView:self heightForHeaderInSection:section];
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:heightForHeaderInSection");
+    }
+    return 0.0;
+}
+
 @end
 
 #pragma mark --UICollectionViewFlowLayout扩展
@@ -992,7 +1183,9 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 @end
 #pragma mark --UICollectionView扩展
-@implementation UICollectionView (LHUI)
+@implementation LHUICollectionView
+@end
+@implementation LHUICollectionView (LHUI)
 -(UICollectionViewSetLayout)lh_collectionViewLayout{
     @weakify(self);
     UICollectionViewSetLayout tmpBlock= ^(UICollectionViewGetLayout value){
@@ -1135,7 +1328,7 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
         }];
     }
     return cell;
-
+    
 }
 
 -(UICollectionViewDelegateDidSelectRowBlock)lh_didSelectItemAtIndexPath{
@@ -1170,6 +1363,222 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 @end
 
+#pragma mark --UIScrollView扩展
+@implementation LHUIScrollView
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if (self.contentOffset.x <= 0) {
+        if ([otherGestureRecognizer.delegate isKindOfClass:NSClassFromString(@"_FDFullscreenPopGestureRecognizerDelegate")]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [[self nextResponder] touchesBegan:touches withEvent:event];
+    [super touchesBegan:touches withEvent:event];
+}
+@end
+
+@implementation UIScrollView (LHUI)
+-(UIScrollViewDelegateBlock)lh_delegate{
+    @weakify(self);
+    UIScrollViewDelegateBlock tmpBlock= ^(id value){
+        @strongify(self);
+        NullReturn(value);
+        self.lh_weakSet(@"delegate",value);
+        self.delegate = self;
+        return self;
+    };
+    return tmpBlock;
+}
+
+-(UIScrollViewBlock)lh_scrollViewDidScroll{
+    @weakify(self);
+    UIScrollViewBlock tmpBlock= ^(ScrollViewBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_scrollViewDidScroll"];
+        return self;
+    };
+    return tmpBlock;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    @try{
+        ScrollViewBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_scrollViewDidScroll"];
+        if(valueBlcok){
+            return valueBlcok(self);
+        }
+        id<UIScrollViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(scrollViewDidScroll:)]){
+            return [value scrollViewDidScroll:self];
+        }
+        
+    }@catch(NSException* e) {
+        NSLog(@"Error:scrollViewDidScroll");
+    }
+}
+
+
+-(UIScrollViewBlock)lh_scrollViewDidZoom{
+    @weakify(self);
+    UIScrollViewBlock tmpBlock= ^(ScrollViewBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_scrollViewDidZoom"];
+        return self;
+    };
+    return tmpBlock;
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView{
+    @try{
+        ScrollViewBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_scrollViewDidZoom"];
+        if(valueBlcok){
+            return valueBlcok(self);
+        }
+        id<UIScrollViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(scrollViewDidZoom:)]){
+            return [value scrollViewDidZoom:self];
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:scrollViewDidZoom");
+    }
+}
+
+
+
+-(UIScrollViewBlock)lh_scrollViewWillBeginDragging{
+    @weakify(self);
+    UIScrollViewBlock tmpBlock= ^(ScrollViewBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_scrollViewWillBeginDragging"];
+        return self;
+    };
+    return tmpBlock;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    @try{
+        ScrollViewBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_scrollViewWillBeginDragging"];
+        if(valueBlcok){
+            return valueBlcok(self);
+        }
+        id<UIScrollViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(scrollViewWillBeginDragging:)]){
+            return [value scrollViewWillBeginDragging:self];
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:scrollViewWillBeginDragging");
+    }
+}
+
+
+
+-(UIScrollViewBlock)lh_scrollViewWillBeginDecelerating{
+    @weakify(self);
+    UIScrollViewBlock tmpBlock= ^(ScrollViewBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_scrollViewWillBeginDecelerating"];
+        return self;
+    };
+    return tmpBlock;
+}
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    @try{
+        ScrollViewBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_scrollViewWillBeginDecelerating"];
+        if(valueBlcok){
+            return valueBlcok(self);
+        }
+        id<UIScrollViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(scrollViewWillBeginDecelerating:)]){
+            return [value scrollViewWillBeginDecelerating:self];
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:scrollViewWillBeginDecelerating");
+    }
+}
+
+
+-(UIScrollViewBlock)lh_scrollViewDidEndDecelerating{
+    @weakify(self);
+    UIScrollViewBlock tmpBlock= ^(ScrollViewBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_scrollViewDidEndDecelerating"];
+        return self;
+    };
+    return tmpBlock;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    @try{
+        
+        ScrollViewBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_scrollViewDidEndDecelerating"];
+        if(valueBlcok){
+            return valueBlcok(self);
+        }
+        id<UIScrollViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(scrollViewDidEndDecelerating:)]){
+            return [value scrollViewWillBeginDragging:self];
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:scrollViewDidEndDecelerating");
+    }
+}
+-(UIScrollViewBlock)lh_scrollViewDidEndScrollingAnimation{
+    @weakify(self);
+    UIScrollViewBlock tmpBlock= ^(ScrollViewBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_scrollViewDidEndScrollingAnimation"];
+        return self;
+    };
+    return tmpBlock;
+}
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    @try{
+        
+        ScrollViewBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_scrollViewDidEndScrollingAnimation"];
+        if(valueBlcok){
+            return valueBlcok(self);
+        }
+        id<UIScrollViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)]){
+            return [value scrollViewDidEndScrollingAnimation:self];
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:scrollViewDidEndScrollingAnimation");
+    }
+}
+
+-(UIScrollViewBlock)lh_scrollViewDidScrollToTop{
+    @weakify(self);
+    UIScrollViewBlock tmpBlock= ^(ScrollViewBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_scrollViewDidScrollToTop"];
+        return self;
+    };
+    return tmpBlock;
+}
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView{
+    @try{
+        ScrollViewBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_scrollViewDidScrollToTop"];
+        if(valueBlcok){
+            return valueBlcok(self);
+        }
+        id<UIScrollViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(scrollViewDidScrollToTop:)]){
+            return [value scrollViewDidScrollToTop:self];
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:scrollViewDidScrollToTop");
+    }
+}
+@end
 #pragma mark --UIColor扩展
 @implementation UIColor(LHUI)
 + (NSObject*)lh_manager{
