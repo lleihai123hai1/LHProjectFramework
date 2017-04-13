@@ -17,7 +17,7 @@
 @end
 
 @interface BaseViewCreateUICollectionView ()
-@property (strong, nonatomic) UICollectionView *collection;
+@property (strong, nonatomic) LHUICollectionView *collection;
 @end
 
 @implementation BaseViewCreateUICollectionView{

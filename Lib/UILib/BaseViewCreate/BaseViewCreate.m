@@ -1357,9 +1357,9 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
 }
 + (instancetype)return:(ReturnBlock)block{
     if(block){
-        return (UICollectionView*)block([[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]]);
+        return (LHUICollectionView*)block([[LHUICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]]);
     }
-    return [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]];
+    return [[LHUICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]];
 }
 @end
 

@@ -23,7 +23,7 @@
 
 
 @interface BaseViewCreateUitableView ()
-@property(nonatomic,strong)UITableView*table;
+@property(nonatomic,strong)LHUITableView*table;
 @end
 
 @implementation BaseViewCreateUitableView{

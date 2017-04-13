@@ -13,6 +13,7 @@
 #import "LhCoreDataViewController.h"
 #import "BaseViewCreateUitableView.h"
 #import "BaseViewCreateUICollectionView.h"
+#import "LhViewControllerSort.h"
 @interface MainViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView*table;
 @end
@@ -31,7 +32,9 @@
                      ,@{@"title":@"LhCoreDataViewController",@"content":@"测试数据库存储"}
                      ,@{@"title":@"BaseViewCreateUitableView",@"content":@"测试uitable"}
                      ,@{@"title":@"BaseViewCreateUICollectionView",@"content":@"测试UICollectionView"}
-                     ,@{@"title":@"BaseViewCreateViewController",@"content":@"测试BaseViewCreate"},];
+                     ,@{@"title":@"BaseViewCreateViewController",@"content":@"测试BaseViewCreate"}
+                     ,@{@"title":@"LhViewControllerSort",@"content":@"自定义cell拖动排序"}
+                     ,@{@"title":@"SysTemViewControllerSort",@"content":@"系统cell拖动排序"},];
     [self.view addSubview:self.table];
     [self.table reloadData];
 }
