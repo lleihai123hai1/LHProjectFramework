@@ -3,7 +3,7 @@
 #import "XRDragTableView.h"
 @interface SysTemViewControllerSort () {
 }
-@property (nonatomic, strong) XRDragTableView *table;
+@property (nonatomic, strong) LHUITableView *table;
 @property (nonatomic, retain) NSMutableArray *dataArray;
 @end
 
@@ -12,30 +12,20 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self.view addSubview:self.table];
-    self.table.dataArray = self.dataArray;
     [self.table reloadData];
+    self.table.editing = YES;
 }
 
 - (NSMutableArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = [NSMutableArray arrayWithArray:@[@{@"title":@"1",@"content":@"自动布局"}
-                                                      ,@{@"title":@"2",@"content":@"热修复"}
-                                                      ,@{@"title":@"3",@"content":@"测试"}
-                                                      ,@{@"title":@"4",@"content":@"存储"}
-                                                      ,@{@"title":@"5",@"content":@"数据库存储"}
-                                                      ,@{@"title":@"6",@"content":@"年度"}
-                                                      ,@{@"title":@"7",@"content":@"存储中级"}
-                                                      ,@{@"title":@"8",@"content":@"dailyyoga"}
-                                                      ,@{@"title":@"9",@"content":@"test"}
-                                                      ,@{@"title":@"10",@"content":@"年代是"}
-                                                      ,@{@"title":@"11",@"content":@"ios"},]];
+        _dataArray = [NSMutableArray arrayWithArray:[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ShoppingGoodsList" ofType:@"plist"]]];
     }
     return _dataArray;
 }
--(XRDragTableView*)table{
+-(LHUITableView*)table{
     if(!_table){
         @weakify(self);
-        _table = [XRDragTableView return:^NSObject *(LHUITableView* value) {
+        _table = [LHUITableView return:^NSObject *(LHUITableView* value) {
             return value
             .lh_registerClass([LhViewControllerSortCell class])
             .lh_delegateDataSource(self)
@@ -52,7 +42,7 @@
                 return self.dataArray.count;
             })
             .lh_heightForRowAtIndexPath(^(NSIndexPath *indexPath){
-                return (CGFloat)90;
+                return (CGFloat)130;
             })
             .lh_frame(self.view.bounds);
             ;
@@ -62,4 +52,26 @@
     return _table;
 }
 
+#pragma mark 选择编辑模式，添加模式很少用,默认是删除
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row % 2 == 1){
+        return UITableViewCellEditingStyleDelete;
+    }
+    return UITableViewCellEditingStyleNone;
+    
+}
+
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row % 2 == 1){
+        return YES ;
+    }
+    return NO;
+    
+    
+}
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    
+}
 @end

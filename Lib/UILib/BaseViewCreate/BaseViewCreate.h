@@ -187,7 +187,10 @@ typedef  LHUITableView* (^UITableDataSourceNumberOfSectionsBlock)(NumberOfSectio
 typedef  id (^CellForRowAtIndexPathBlock)(NSIndexPath *indexPath);
 typedef  LHUITableView* (^UITableDataSourceCellForRowAtIndexPathBlock)(CellForRowAtIndexPathBlock value);
 typedef  LHUITableView * (^UITableViewRegisterClass)(Class value);
-
+typedef  BOOL (^CanMoveRowAtIndexPathBlock)(NSIndexPath* value);
+typedef  UITableViewCellEditingStyle (^EditingStyleForRowAtIndexPathBlock)(NSIndexPath * value);
+typedef  LHUITableView* (^UITableViewDelegateEditingStyleForRowAtIndexPathBlock)(EditingStyleForRowAtIndexPathBlock value);
+typedef  LHUITableView* (^UITableDataSourceCanMoveRowAtIndexPathBlockBlock)(CanMoveRowAtIndexPathBlock value);
 typedef  UIView* (^ViewForHeaderInSectionBlock)(NSInteger section);
 typedef  CGFloat (^HeightForHeaderInSectionBlock)(NSInteger section);
 typedef  LHUITableView* (^UITableViewDelegateViewForHeaderInSectionBlock)(ViewForHeaderInSectionBlock value);
@@ -208,7 +211,8 @@ typedef  LHUITableView* (^UITableViewDelegateHeightForHeaderInSectionBlock)(Heig
 @property (nonatomic,readonly) UITableDataSourceCellForRowAtIndexPathBlock lh_cellForRowAtIndexPath;
 @property (nonatomic,readonly) UITableViewDelegateViewForHeaderInSectionBlock lh_viewForHeaderInSection;
 @property (nonatomic,readonly) UITableViewDelegateHeightForHeaderInSectionBlock lh_heightForHeaderInSection;
-
+@property (nonatomic,readonly) UITableDataSourceCanMoveRowAtIndexPathBlockBlock lh_canMoveRowAtIndexPath;
+@property (nonatomic,readonly) UITableViewDelegateEditingStyleForRowAtIndexPathBlock lh_editingStyleForRowAtIndexPath;
 @property (nonatomic,readonly) UITableViewRegisterClass lh_registerClass;
 @end
 

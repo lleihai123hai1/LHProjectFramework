@@ -345,6 +345,7 @@
 		EBDCF6861E9F7D1200119FAB /* LhViewControllerSort.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDCF6851E9F7D1200119FAB /* LhViewControllerSort.m */; };
 		EBDCF6891E9F7E2B00119FAB /* LhViewControllerSortCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDCF6881E9F7E2B00119FAB /* LhViewControllerSortCell.m */; };
 		EBDCF68C1E9F826600119FAB /* SysTemViewControllerSort.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDCF68B1E9F826600119FAB /* SysTemViewControllerSort.m */; };
+		EBE73E171EA0BA1A00EDE098 /* ShoppingGoodsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBE73E161EA0BA1A00EDE098 /* ShoppingGoodsList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1038,6 +1039,7 @@
 		EBDCF6881E9F7E2B00119FAB /* LhViewControllerSortCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LhViewControllerSortCell.m; sourceTree = "<group>"; };
 		EBDCF68A1E9F826600119FAB /* SysTemViewControllerSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysTemViewControllerSort.h; sourceTree = "<group>"; };
 		EBDCF68B1E9F826600119FAB /* SysTemViewControllerSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysTemViewControllerSort.m; sourceTree = "<group>"; };
+		EBE73E161EA0BA1A00EDE098 /* ShoppingGoodsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShoppingGoodsList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2685,6 +2687,7 @@
 		EBDCF6831E9F7D1200119FAB /* XRDragTableView */ = {
 			isa = PBXGroup;
 			children = (
+				EBE73E161EA0BA1A00EDE098 /* ShoppingGoodsList.plist */,
 				EBDCF68A1E9F826600119FAB /* SysTemViewControllerSort.h */,
 				EBDCF68B1E9F826600119FAB /* SysTemViewControllerSort.m */,
 				EBDCF6871E9F7E2B00119FAB /* LhViewControllerSortCell.h */,
@@ -2767,6 +2770,7 @@
 				EB12C40C1E5C40CB00564DE6 /* MLEmoji_Expression.bundle in Resources */,
 				EB12C40D1E5C40CB00564DE6 /* MLEmoji_Expression.plist in Resources */,
 				EB12C3501E5C3C8200564DE6 /* LICENSE in Resources */,
+				EBE73E171EA0BA1A00EDE098 /* ShoppingGoodsList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

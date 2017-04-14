@@ -1150,6 +1150,86 @@ const static void *lh_Mudict_Key = &lh_Mudict_Key;
     return 0.0;
 }
 
+-(UITableViewDelegateEditingStyleForRowAtIndexPathBlock)lh_editingStyleForRowAtIndexPath{
+    @weakify(self);
+    UITableViewDelegateEditingStyleForRowAtIndexPathBlock tmpBlock= ^(EditingStyleForRowAtIndexPathBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"delegate_editingStyleForRowAtIndexPath"];
+        return self;
+    };
+    return tmpBlock;
+}
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    @try{
+        EditingStyleForRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"delegate_editingStyleForRowAtIndexPath"];
+        if(valueBlcok){
+            return valueBlcok(indexPath);
+        }
+        id<UITableViewDelegate> value = self.lh_weakGet(@"delegate");
+        if(value && [value respondsToSelector:@selector(tableView:editingStyleForRowAtIndexPath:)]){
+            return [value tableView:self editingStyleForRowAtIndexPath:indexPath];
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:heightForHeaderInSection");
+    }
+    return UITableViewCellEditingStyleNone;
+    
+}
+
+-(UITableDataSourceCanMoveRowAtIndexPathBlockBlock)lh_canMoveRowAtIndexPath{
+    @weakify(self);
+    UITableDataSourceCanMoveRowAtIndexPathBlockBlock tmpBlock= ^(CanMoveRowAtIndexPathBlock value){
+        @strongify(self);
+        NullReturn(value);
+        [self.lh_Mudict setObject:value forKey:@"dataSource_canMoveRowAtIndexPath"];
+        return self;
+    };
+    return tmpBlock;
+}
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+    @try{
+        CanMoveRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_canMoveRowAtIndexPath"];
+        if(valueBlcok){
+            return valueBlcok(indexPath);
+        }
+        id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
+        if(value && [value respondsToSelector:@selector(tableView:canMoveRowAtIndexPath:)]){
+            return [value tableView:tableView canMoveRowAtIndexPath:indexPath];
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:cellForRowAtIndexPath");
+    }
+    return  NO;
+}
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    @try{
+        CanMoveRowAtIndexPathBlock valueBlcok = [self.lh_Mudict objectForKey:@"dataSource_canMoveRowAtIndexPath"];
+        if(valueBlcok){
+            valueBlcok(indexPath);
+        }
+        id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
+        if(value && [value respondsToSelector:@selector(tableView:commitEditingStyle:forRowAtIndexPath:)]){
+            return [value tableView:tableView commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:cellForRowAtIndexPath");
+    }
+}
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+    @try{
+        id<UITableViewDataSource> value = self.lh_weakGet(@"dataSource");
+        if(value && [value respondsToSelector:@selector(tableView:moveRowAtIndexPath:toIndexPath:)]){
+            return [value tableView:tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
+        }
+    }@catch(NSException* e) {
+        NSLog(@"Error:cellForRowAtIndexPath");
+    }
+    
+}
 @end
 
 #pragma mark --UICollectionViewFlowLayout扩展

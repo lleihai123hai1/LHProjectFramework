@@ -42,6 +42,7 @@
             .lh_cellForRowAtIndexPath(^(NSIndexPath *indexPath){
                 @strongify(self);
                 NSDictionary*dict = self.dataArray[indexPath.row];
+                dict = @{@"title":@(indexPath.row),@"content":[dict strValue:@"content"]};
                 return [LhViewControllerSortCell getLhDemoCell:self.table dict:dict];
             })
             .lh_separatorStyle(UITableViewCellSeparatorStyleNone)
