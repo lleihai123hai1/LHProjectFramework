@@ -168,6 +168,7 @@
 		EB12C4391E5C40CB00564DE6 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C4061E5C40CB00564DE6 /* UIImageView+HighlightedWebCache.m */; };
 		EB12C43A1E5C40CB00564DE6 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C4081E5C40CB00564DE6 /* UIImageView+WebCache.m */; };
 		EB12C43B1E5C40CB00564DE6 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C40A1E5C40CB00564DE6 /* UIView+WebCacheOperation.m */; };
+		EB4BE6141EF0E16E00E54692 /* ValueForKeyPathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4BE6131EF0E16E00E54692 /* ValueForKeyPathViewController.m */; };
 		EB5FAD171E695F8900DD3E2A /* LhTestModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAD161E695F8900DD3E2A /* LhTestModelViewController.m */; };
 		EB5FAD1A1E69665E00DD3E2A /* LHBaseCoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAD191E69665E00DD3E2A /* LHBaseCoreModel.m */; };
 		EB82113E1E656F8E00EA9F31 /* BaseViewCreateUitableView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB82113D1E656F8E00EA9F31 /* BaseViewCreateUitableView.m */; };
@@ -669,6 +670,8 @@
 		EB12C4081E5C40CB00564DE6 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		EB12C4091E5C40CB00564DE6 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		EB12C40A1E5C40CB00564DE6 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		EB4BE6121EF0E16E00E54692 /* ValueForKeyPathViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueForKeyPathViewController.h; sourceTree = "<group>"; };
+		EB4BE6131EF0E16E00E54692 /* ValueForKeyPathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueForKeyPathViewController.m; sourceTree = "<group>"; };
 		EB5FAD151E695F8900DD3E2A /* LhTestModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LhTestModelViewController.h; sourceTree = "<group>"; };
 		EB5FAD161E695F8900DD3E2A /* LhTestModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LhTestModelViewController.m; sourceTree = "<group>"; };
 		EB5FAD181E69665E00DD3E2A /* LHBaseCoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHBaseCoreModel.h; sourceTree = "<group>"; };
@@ -1982,6 +1985,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		EB4BE6111EF0E16E00E54692 /* KVC */ = {
+			isa = PBXGroup;
+			children = (
+				EB4BE6121EF0E16E00E54692 /* ValueForKeyPathViewController.h */,
+				EB4BE6131EF0E16E00E54692 /* ValueForKeyPathViewController.m */,
+			);
+			path = KVC;
+			sourceTree = "<group>";
+		};
 		EB8822E71E5FD23A00CBCFD2 /* LhCoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -2638,6 +2650,7 @@
 		EBB4AC641E5EC3DC0011AEB1 /* TestFuncionLib */ = {
 			isa = PBXGroup;
 			children = (
+				EB4BE6111EF0E16E00E54692 /* KVC */,
 				EBB4AC651E5EC3DC0011AEB1 /* jspathlib */,
 			);
 			name = TestFuncionLib;
@@ -2892,6 +2905,7 @@
 				EBB4AC471E5EC2BA0011AEB1 /* win32_i386.S in Sources */,
 				EBB4AB851E5EC0FB0011AEB1 /* NSSet+RACSequenceAdditions.m in Sources */,
 				EBB4AB971E5EC0FB0011AEB1 /* RACEagerSequence.m in Sources */,
+				EB4BE6141EF0E16E00E54692 /* ValueForKeyPathViewController.m in Sources */,
 				EB12C38A1E5C3C8200564DE6 /* SDBaseTableViewController.m in Sources */,
 				EBB4ABA21E5EC0FB0011AEB1 /* RACMulticastConnection.m in Sources */,
 				EBB4AC521E5EC2BA0011AEB1 /* JPUIImage.m in Sources */,

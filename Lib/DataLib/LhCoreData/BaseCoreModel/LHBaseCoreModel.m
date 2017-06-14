@@ -16,7 +16,7 @@ static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedManager = [NSObject new];
     });
-    return _sharedManager.lh_weakGet([NSString stringWithFormat:@"%@_%@",[self class],hostID]);;
+    return [_sharedManager.lh_Mudict objectForKey:[NSString stringWithFormat:@"%@_%@",[self class],hostID]];
 }
 
 /**
@@ -28,7 +28,8 @@ static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedManager = [NSObject new];
     });
-    _sharedManager.lh_weakSet([NSString stringWithFormat:@"%@_%@",[model class],model.hostID],model);;
+    //缓存最新的model即和数据库一直的数据model，以后都可以 先读缓存，在读数据库。
+    [_sharedManager.lh_Mudict setObject:[model copy] forKey:[NSString stringWithFormat:@"%@_%@",[model class],model.hostID]];
 }
 
 

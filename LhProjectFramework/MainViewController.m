@@ -34,7 +34,9 @@
                      ,@{@"title":@"BaseViewCreateUICollectionView",@"content":@"测试UICollectionView"}
                      ,@{@"title":@"BaseViewCreateViewController",@"content":@"测试BaseViewCreate"}
                      ,@{@"title":@"LhViewControllerSort",@"content":@"自定义cell拖动排序"}
-                     ,@{@"title":@"SysTemViewControllerSort",@"content":@"系统cell拖动排序"},];
+                     ,@{@"title":@"SysTemViewControllerSort",@"content":@"系统cell拖动排序"},
+                     @{@"title":@"ValueForKeyPathViewController",@"content":@"ValueForKeyPath"},
+                     ];
     [self.view addSubview:self.table];
     [self.table reloadData];
 }
