@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		24D412F11E6A606A0068BFA2 /* CityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D412F01E6A606A0068BFA2 /* CityTest.m */; };
+		38B9B9152088685800EF74F8 /* YBAOPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9B9142088685800EF74F8 /* YBAOPManager.m */; };
+		38B9B9192088691D00EF74F8 /* YBAOPManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9B9182088691C00EF74F8 /* YBAOPManagerViewController.m */; };
 		EB12C2091E5C3BBF00564DE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C2081E5C3BBF00564DE6 /* main.m */; };
 		EB12C20C1E5C3BBF00564DE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C20B1E5C3BBF00564DE6 /* AppDelegate.m */; };
 		EB12C2121E5C3BBF00564DE6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C2111E5C3BBF00564DE6 /* MainViewController.m */; };
@@ -352,6 +354,10 @@
 /* Begin PBXFileReference section */
 		24D412EF1E6A606A0068BFA2 /* CityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTest.h; sourceTree = "<group>"; };
 		24D412F01E6A606A0068BFA2 /* CityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTest.m; sourceTree = "<group>"; };
+		38B9B9132088685800EF74F8 /* YBAOPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBAOPManager.h; sourceTree = "<group>"; };
+		38B9B9142088685800EF74F8 /* YBAOPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBAOPManager.m; sourceTree = "<group>"; };
+		38B9B9172088691C00EF74F8 /* YBAOPManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBAOPManagerViewController.h; sourceTree = "<group>"; };
+		38B9B9182088691C00EF74F8 /* YBAOPManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBAOPManagerViewController.m; sourceTree = "<group>"; };
 		EB12C2041E5C3BBF00564DE6 /* LhProjectFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LhProjectFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB12C2081E5C3BBF00564DE6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB12C20A1E5C3BBF00564DE6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1057,6 +1063,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38B9B9122088685800EF74F8 /* YBAOPManager */ = {
+			isa = PBXGroup;
+			children = (
+				38B9B9132088685800EF74F8 /* YBAOPManager.h */,
+				38B9B9142088685800EF74F8 /* YBAOPManager.m */,
+			);
+			path = YBAOPManager;
+			sourceTree = "<group>";
+		};
+		38B9B9162088691C00EF74F8 /* YBAOPManager */ = {
+			isa = PBXGroup;
+			children = (
+				38B9B9172088691C00EF74F8 /* YBAOPManagerViewController.h */,
+				38B9B9182088691C00EF74F8 /* YBAOPManagerViewController.m */,
+			);
+			path = YBAOPManager;
+			sourceTree = "<group>";
+		};
 		EB12C1FB1E5C3BBF00564DE6 = {
 			isa = PBXGroup;
 			children = (
@@ -1124,6 +1148,7 @@
 		EB12C2271E5C3C2C00564DE6 /* FuncionLib */ = {
 			isa = PBXGroup;
 			children = (
+				38B9B9122088685800EF74F8 /* YBAOPManager */,
 				EBB4ABD01E5EC2BA0011AEB1 /* jspathlib */,
 				EBB4AAB01E5EC0FB0011AEB1 /* ReactiveCocoa */,
 			);
@@ -2650,6 +2675,7 @@
 		EBB4AC641E5EC3DC0011AEB1 /* TestFuncionLib */ = {
 			isa = PBXGroup;
 			children = (
+				38B9B9162088691C00EF74F8 /* YBAOPManager */,
 				EB4BE6111EF0E16E00E54692 /* KVC */,
 				EBB4AC651E5EC3DC0011AEB1 /* jspathlib */,
 			);
@@ -2907,6 +2933,7 @@
 				EBB4AB971E5EC0FB0011AEB1 /* RACEagerSequence.m in Sources */,
 				EB4BE6141EF0E16E00E54692 /* ValueForKeyPathViewController.m in Sources */,
 				EB12C38A1E5C3C8200564DE6 /* SDBaseTableViewController.m in Sources */,
+				38B9B9152088685800EF74F8 /* YBAOPManager.m in Sources */,
 				EBB4ABA21E5EC0FB0011AEB1 /* RACMulticastConnection.m in Sources */,
 				EBB4AC521E5EC2BA0011AEB1 /* JPUIImage.m in Sources */,
 				EB12C36F1E5C3C8200564DE6 /* SDAnalogDataGenerator.m in Sources */,
@@ -3011,6 +3038,7 @@
 				EB12C3631E5C3C8200564DE6 /* UIView+MJExtension.m in Sources */,
 				EB12C3831E5C3C8200564DE6 /* DemoVC7Cell.m in Sources */,
 				EBB4ABB61E5EC0FB0011AEB1 /* RACTargetQueueScheduler.m in Sources */,
+				38B9B9192088691D00EF74F8 /* YBAOPManagerViewController.m in Sources */,
 				EB12C3761E5C3C8200564DE6 /* DemoVC14.m in Sources */,
 				EBB4AC4A1E5EC2BA0011AEB1 /* JPCGContext.m in Sources */,
 				EB12C37C1E5C3C8200564DE6 /* TestCell2.m in Sources */,

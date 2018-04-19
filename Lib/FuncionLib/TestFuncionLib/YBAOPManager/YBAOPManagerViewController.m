@@ -6,20 +6,15 @@
 //  Copyright © 2017年 LH. All rights reserved.
 //
 
-#import "MainViewController.h"
-#import "EnterSDAutoLayoutViewController.h"
-#import "JsPathViewController.h"
-#import "BaseViewCreateViewController.h"
-#import "LhCoreDataViewController.h"
-#import "BaseViewCreateUitableView.h"
-#import "BaseViewCreateUICollectionView.h"
-#import "LhViewControllerSort.h"
 #import "YBAOPManagerViewController.h"
-@interface MainViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+@interface YBAOPManagerViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView*table;
 @end
 
-@implementation MainViewController{
+@implementation YBAOPManagerViewController
+
+{
     NSArray *_contenArray;
 }
 
@@ -28,22 +23,23 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    _contenArray = @[@{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"}
-                     ,@{@"title":@"JsPathViewController",@"content":@"热修复"}
-                     ,@{@"title":@"LhCoreDataViewController",@"content":@"测试数据库存储"}
-                     ,@{@"title":@"BaseViewCreateUitableView",@"content":@"测试uitable"}
-                     ,@{@"title":@"BaseViewCreateUICollectionView",@"content":@"测试UICollectionView"}
-                     ,@{@"title":@"BaseViewCreateViewController",@"content":@"测试BaseViewCreate"}
-                     ,@{@"title":@"LhViewControllerSort",@"content":@"自定义cell拖动排序"}
-                     ,@{@"title":@"SysTemViewControllerSort",@"content":@"系统cell拖动排序"},
-                     @{@"title":@"ValueForKeyPathViewController",@"content":@"ValueForKeyPath"},
-                     @{@"title":@"YBAOPManagerViewController",@"content":@"模块拆分"},
-                     ];
+    _contenArray = @[@{@"title":@"test1",@"content":@"模块拆分案例1"},
+                     @{@"title":@"test2",@"content":@"模块拆分案例2"},
+                     @{@"title":@"test3",@"content":@"模块拆分案例3"}];
     [self.view addSubview:self.table];
     [self.table reloadData];
 }
 
-#pragma mark - tableview datasourece and delegate
+-(void)test1{
+    
+}
+-(void)test2{
+    
+}
+-(void)test3{
+
+}
+
 #pragma mark - tableview datasourece and delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -66,11 +62,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary*dict = _contenArray[indexPath.row];
-    NSString *demoClassString = [dict strValue:@"title"];
-    UIViewController *vc = [NSClassFromString(demoClassString) new];
-    vc.title = demoClassString;
-    [self.navigationController pushViewController:vc animated:YES];
+    NSDictionary*dict = self->_contenArray[indexPath.row];
+    SEL selecter = NSSelectorFromString([dict strValue:@"title"]);
+    if([self respondsToSelector:selecter]){
+        [self performSelector:selecter];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -85,5 +81,6 @@
     }
     return _table;
 }
+
 
 @end
