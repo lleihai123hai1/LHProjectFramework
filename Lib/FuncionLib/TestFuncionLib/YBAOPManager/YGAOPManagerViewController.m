@@ -6,52 +6,52 @@
 //  Copyright © 2017年 LH. All rights reserved.
 //
 
-#import "YBAOPManagerViewController.h"
-#import "YBAOPManager.h"
+#import "YGAOPManagerViewController.h"
+#import "YGAOPManager.h"
 
-@implementation YBAOPNSObject1
+@implementation YGAOPNSObject1
 -(void)setObj1Str:(NSString*)obj1Str{
     _obj1Str = obj1Str;
-    NSLog(@"YBAOPNSObject1_setObj1Str_%@",_obj1Str);
+    NSLog(@"YGAOPNSObject1_setObj1Str_%@",_obj1Str);
 }
 -(NSString*)getObj1Str{
-    NSLog(@"YBAOPNSObject1_getObj1Str_%@",_obj1Str);
+    NSLog(@"YGAOPNSObject1_getObj1Str_%@",_obj1Str);
     return _obj1Str;
 }
 -(void)Object1{
-    NSLog(@"YBAOPNSObject1_Object1");
+    NSLog(@"YGAOPNSObject1_Object1");
 }
 -(void)Object0{
-    NSLog(@"YBAOPNSObject1_Object0");
+    NSLog(@"YGAOPNSObject1_Object0");
 }
 @end
 
-@implementation YBAOPNSObject2
+@implementation YGAOPNSObject2
 -(void)Object2{
-    NSLog(@"YBAOPNSObject2_Object2");
+    NSLog(@"YGAOPNSObject2_Object2");
 }
 -(void)Object3:(NSInteger)value{
-    NSLog(@"YBAOPNSObject3_Object3 (value:%@)",@(value));
+    NSLog(@"YGAOPNSObject3_Object3 (value:%@)",@(value));
 }
 @end
 
-@implementation YBAOPNSObject3
+@implementation YGAOPNSObject3
 -(void)Object3{
-    NSLog(@"YBAOPNSObject3_Object3");
+    NSLog(@"YGAOPNSObject3_Object3");
 }
 -(void)Object3:(NSInteger)value str:(NSString*)str{
-    NSLog(@"YBAOPNSObject3_Object3 (value:%@,str:%@)",@(value),str);
+    NSLog(@"YGAOPNSObject3_Object3 (value:%@,str:%@)",@(value),str);
 }
 @end
-@interface YBAOPManagerViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface YGAOPManagerViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView*table;
-@property (nonatomic, strong) NSObject <YBAOPManagerViewControllerDelegate>* ygObject;
-@property (nonatomic, strong) YBAOPNSObject1*obj1;
-@property (nonatomic, strong) YBAOPNSObject2*obj2;
-@property (nonatomic, strong) YBAOPNSObject3*obj3;
+@property (nonatomic, strong) NSObject <YGAOPManagerViewControllerDelegate>* ygObject;
+@property (nonatomic, strong) YGAOPNSObject1*obj1;
+@property (nonatomic, strong) YGAOPNSObject2*obj2;
+@property (nonatomic, strong) YGAOPNSObject3*obj3;
 @end
 
-@implementation YBAOPManagerViewController
+@implementation YGAOPManagerViewController
 
 {
     NSArray *_contenArray;
@@ -68,17 +68,17 @@
     [self.view addSubview:self.table];
     [self.table reloadData];
 
-    YBAOPManager*aopManager = [YBAOPManager new];
-    self.obj1 = [YBAOPNSObject1 new];
-    self.obj2 = [YBAOPNSObject2 new];
-    self.obj3 = [YBAOPNSObject3 new];
+    YGAOPManager*aopManager = [YGAOPManager new];
+    self.obj1 = [YGAOPNSObject1 new];
+    self.obj2 = [YGAOPNSObject2 new];
+    self.obj3 = [YGAOPNSObject3 new];
     
     [aopManager addTarget:self.obj1];
     [aopManager addTarget:self.obj2];
     [aopManager addTarget:self.obj3];
     
     
-    self.ygObject = (NSObject <YBAOPManagerViewControllerDelegate> *)aopManager;
+    self.ygObject = (NSObject <YGAOPManagerViewControllerDelegate> *)aopManager;
 }
 
 -(void)test1{

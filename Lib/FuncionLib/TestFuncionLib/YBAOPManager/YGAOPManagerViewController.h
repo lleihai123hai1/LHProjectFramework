@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YBAOPNSObject1 : NSObject
+@interface YGAOPNSObject1 : NSObject
 @property(nonatomic,strong)NSString*obj1Str;
 @end
 
-@interface YBAOPNSObject2 : NSObject
+@interface YGAOPNSObject2 : NSObject
 @end
 
-@interface YBAOPNSObject3 : NSObject
+@interface YGAOPNSObject3 : NSObject
 @end
 
 
-@protocol YBAOPManagerViewControllerDelegate
+@protocol YGAOPManagerViewControllerDelegate
 @property(nonatomic,strong)NSString*obj1Str;
 @optional
 -(void)Object1;
@@ -29,7 +29,7 @@
 -(void)Object3:(NSInteger)value str:(NSString*)str;
 @end
 
-@interface YBAOPManagerViewController : UIViewController
+@interface YGAOPManagerViewController : UIViewController
 
 @end
 

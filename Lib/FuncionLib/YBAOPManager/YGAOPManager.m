@@ -1,15 +1,7 @@
-//
-//  YBAOPManager.m
-//  YbAOPCuttingModule
-//
-//  Created by 杨少 on 2018/3/30.
-//  Copyright © 2018年 杨波. All rights reserved.
-//
-
-#import "YBAOPManager.h"
+#import "YGAOPManager.h"
 #import <pthread.h>
 
-@interface YBAOPManager ()
+@interface YGAOPManager ()
 {
     pthread_mutex_t lock;
 }
@@ -17,7 +9,7 @@
 
 @end
 
-@implementation YBAOPManager
+@implementation YGAOPManager
 
 #pragma mark life cycle
 - (void)dealloc {

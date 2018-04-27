@@ -14,7 +14,7 @@
 #import "BaseViewCreateUitableView.h"
 #import "BaseViewCreateUICollectionView.h"
 #import "LhViewControllerSort.h"
-#import "YBAOPManagerViewController.h"
+#import "YGAOPManagerViewController.h"
 @interface MainViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView*table;
 @end
@@ -37,7 +37,7 @@
                      ,@{@"title":@"LhViewControllerSort",@"content":@"自定义cell拖动排序"}
                      ,@{@"title":@"SysTemViewControllerSort",@"content":@"系统cell拖动排序"},
                      @{@"title":@"ValueForKeyPathViewController",@"content":@"ValueForKeyPath"},
-                     @{@"title":@"YBAOPManagerViewController",@"content":@"模块拆分"},
+                     @{@"title":@"YGAOPManagerViewController",@"content":@"模块拆分"},
                      ];
     [self.view addSubview:self.table];
     [self.table reloadData];
