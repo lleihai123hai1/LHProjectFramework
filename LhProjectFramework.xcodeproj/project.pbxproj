@@ -10,6 +10,9 @@
 		24D412F11E6A606A0068BFA2 /* CityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D412F01E6A606A0068BFA2 /* CityTest.m */; };
 		38B9B9152088685800EF74F8 /* YGAOPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9B9142088685800EF74F8 /* YGAOPManager.m */; };
 		38B9B9192088691D00EF74F8 /* YGAOPManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9B9182088691C00EF74F8 /* YGAOPManagerViewController.m */; };
+		38E8AFA72178567400837CAE /* YGMultiAdhesiveBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8AFA62178567400837CAE /* YGMultiAdhesiveBaseModel.m */; };
+		38E8AFAA2178569D00837CAE /* YGMultiBusinessLogicBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8AFA92178569D00837CAE /* YGMultiBusinessLogicBaseModel.m */; };
+		38E8AFAD217856C300837CAE /* YGMultiOriginBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8AFAC217856C300837CAE /* YGMultiOriginBaseModel.m */; };
 		EB12C2091E5C3BBF00564DE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C2081E5C3BBF00564DE6 /* main.m */; };
 		EB12C20C1E5C3BBF00564DE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C20B1E5C3BBF00564DE6 /* AppDelegate.m */; };
 		EB12C2121E5C3BBF00564DE6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12C2111E5C3BBF00564DE6 /* MainViewController.m */; };
@@ -355,6 +358,12 @@
 		38B9B9142088685800EF74F8 /* YGAOPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGAOPManager.m; sourceTree = "<group>"; };
 		38B9B9172088691C00EF74F8 /* YGAOPManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAOPManagerViewController.h; sourceTree = "<group>"; };
 		38B9B9182088691C00EF74F8 /* YGAOPManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGAOPManagerViewController.m; sourceTree = "<group>"; };
+		38E8AFA52178567400837CAE /* YGMultiAdhesiveBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGMultiAdhesiveBaseModel.h; sourceTree = "<group>"; };
+		38E8AFA62178567400837CAE /* YGMultiAdhesiveBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGMultiAdhesiveBaseModel.m; sourceTree = "<group>"; };
+		38E8AFA82178569D00837CAE /* YGMultiBusinessLogicBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGMultiBusinessLogicBaseModel.h; sourceTree = "<group>"; };
+		38E8AFA92178569D00837CAE /* YGMultiBusinessLogicBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGMultiBusinessLogicBaseModel.m; sourceTree = "<group>"; };
+		38E8AFAB217856C300837CAE /* YGMultiOriginBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGMultiOriginBaseModel.h; sourceTree = "<group>"; };
+		38E8AFAC217856C300837CAE /* YGMultiOriginBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGMultiOriginBaseModel.m; sourceTree = "<group>"; };
 		EB12C2041E5C3BBF00564DE6 /* LhProjectFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LhProjectFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB12C2081E5C3BBF00564DE6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB12C20A1E5C3BBF00564DE6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1078,6 +1087,43 @@
 			path = YBAOPManager;
 			sourceTree = "<group>";
 		};
+		38E8AFA12178563600837CAE /* YGMultiAgentDesign */ = {
+			isa = PBXGroup;
+			children = (
+				38E8AFA22178563600837CAE /* YGMultiAdhesive */,
+				38E8AFA32178563600837CAE /* YGMultiBusinessLogic */,
+				38E8AFA42178563600837CAE /* YGMultiOrigin */,
+			);
+			path = YGMultiAgentDesign;
+			sourceTree = "<group>";
+		};
+		38E8AFA22178563600837CAE /* YGMultiAdhesive */ = {
+			isa = PBXGroup;
+			children = (
+				38E8AFA52178567400837CAE /* YGMultiAdhesiveBaseModel.h */,
+				38E8AFA62178567400837CAE /* YGMultiAdhesiveBaseModel.m */,
+			);
+			path = YGMultiAdhesive;
+			sourceTree = "<group>";
+		};
+		38E8AFA32178563600837CAE /* YGMultiBusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				38E8AFA82178569D00837CAE /* YGMultiBusinessLogicBaseModel.h */,
+				38E8AFA92178569D00837CAE /* YGMultiBusinessLogicBaseModel.m */,
+			);
+			path = YGMultiBusinessLogic;
+			sourceTree = "<group>";
+		};
+		38E8AFA42178563600837CAE /* YGMultiOrigin */ = {
+			isa = PBXGroup;
+			children = (
+				38E8AFAB217856C300837CAE /* YGMultiOriginBaseModel.h */,
+				38E8AFAC217856C300837CAE /* YGMultiOriginBaseModel.m */,
+			);
+			path = YGMultiOrigin;
+			sourceTree = "<group>";
+		};
 		EB12C1FB1E5C3BBF00564DE6 = {
 			isa = PBXGroup;
 			children = (
@@ -1126,6 +1172,7 @@
 		EB12C2241E5C3C2C00564DE6 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				38E8AFA12178563600837CAE /* YGMultiAgentDesign */,
 				EBB4AAAB1E5EBC040011AEB1 /* Category */,
 				EB12C2261E5C3C2C00564DE6 /* DataLib */,
 				EB12C2271E5C3C2C00564DE6 /* FuncionLib */,
@@ -3027,6 +3074,7 @@
 				EB12C4161E5C40CB00564DE6 /* NSString+MLExpression.m in Sources */,
 				EB12C22F1E5C3C2C00564DE6 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				EB12C4151E5C40CB00564DE6 /* NSAttributedString+MLExpression.m in Sources */,
+				38E8AFA72178567400837CAE /* YGMultiAdhesiveBaseModel.m in Sources */,
 				EBB4ABC71E5EC0FB0011AEB1 /* UIRefreshControl+RACCommandSupport.m in Sources */,
 				EBB4AC5E1E5EC2BA0011AEB1 /* README.md in Sources */,
 				EB12C3631E5C3C8200564DE6 /* UIView+MJExtension.m in Sources */,
@@ -3061,6 +3109,7 @@
 				EB8823591E5FD23A00CBCFD2 /* SBJsonStreamParserAdapter.m in Sources */,
 				EBB4AC4D1E5EC2BA0011AEB1 /* JPCGPath.m in Sources */,
 				EB82113E1E656F8E00EA9F31 /* BaseViewCreateUitableView.m in Sources */,
+				38E8AFAD217856C300837CAE /* YGMultiOriginBaseModel.m in Sources */,
 				EB12C3531E5C3C8200564DE6 /* MJRefreshComponent.m in Sources */,
 				EB12C35B1E5C3C8200564DE6 /* MJRefreshBackStateFooter.m in Sources */,
 				EBB4ABA61E5EC0FB0011AEB1 /* RACReplaySubject.m in Sources */,
@@ -3134,6 +3183,7 @@
 				EBB4AB741E5EC0FB0011AEB1 /* EXTRuntimeExtensions.m in Sources */,
 				EB12C33F1E5C3C8200564DE6 /* UIAlertView+AFNetworking.m in Sources */,
 				EBB4AC4B1E5EC2BA0011AEB1 /* JPCGGeometry.m in Sources */,
+				38E8AFAA2178569D00837CAE /* YGMultiBusinessLogicBaseModel.m in Sources */,
 				EB12C37D1E5C3C8200564DE6 /* DemoVC4.m in Sources */,
 				EB12C4321E5C40CB00564DE6 /* SDWebImageDownloaderOperation.m in Sources */,
 				EBB4ABCF1E5EC0FB0011AEB1 /* UITextView+RACSignalSupport.m in Sources */,
