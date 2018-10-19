@@ -9,5 +9,9 @@
 #import "YGMultiAdhesiveBaseModel.h"
 
 @implementation YGMultiAdhesiveBaseModel
-
+-(id)createYGObject:(YGMultiOriginBaseModel*)originBaseModel initializeModel:(YGMultiInitializeModel*)initializeModel logicBaseModel:(YGMultiBusinessLogicBaseModel*)logicBaseModel{
+    initializeModel.ygMultiOriginBaseModel = originBaseModel;
+    initializeModel.ygMultiBusinessLogicBaseModel = logicBaseModel;
+    return [initializeModel ygMultiInitialize];
+}
 @end

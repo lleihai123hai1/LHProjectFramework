@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+//多代理业务处理
 @interface YGMultiBusinessLogicBaseModel : NSObject
 
 @end

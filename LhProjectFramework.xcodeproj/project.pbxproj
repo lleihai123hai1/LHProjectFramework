@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24D412F11E6A606A0068BFA2 /* CityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D412F01E6A606A0068BFA2 /* CityTest.m */; };
+		3829BAFB2179C4CC009B7C6C /* YGMultiInitializeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3829BAFA2179C4CC009B7C6C /* YGMultiInitializeModel.m */; };
 		38B9B9152088685800EF74F8 /* YGAOPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9B9142088685800EF74F8 /* YGAOPManager.m */; };
 		38B9B9192088691D00EF74F8 /* YGAOPManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9B9182088691C00EF74F8 /* YGAOPManagerViewController.m */; };
 		38E8AFA72178567400837CAE /* YGMultiAdhesiveBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8AFA62178567400837CAE /* YGMultiAdhesiveBaseModel.m */; };
@@ -354,6 +355,8 @@
 /* Begin PBXFileReference section */
 		24D412EF1E6A606A0068BFA2 /* CityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTest.h; sourceTree = "<group>"; };
 		24D412F01E6A606A0068BFA2 /* CityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTest.m; sourceTree = "<group>"; };
+		3829BAF92179C4CC009B7C6C /* YGMultiInitializeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGMultiInitializeModel.h; sourceTree = "<group>"; };
+		3829BAFA2179C4CC009B7C6C /* YGMultiInitializeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGMultiInitializeModel.m; sourceTree = "<group>"; };
 		38B9B9132088685800EF74F8 /* YGAOPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAOPManager.h; sourceTree = "<group>"; };
 		38B9B9142088685800EF74F8 /* YGAOPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGAOPManager.m; sourceTree = "<group>"; };
 		38B9B9172088691C00EF74F8 /* YGAOPManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAOPManagerViewController.h; sourceTree = "<group>"; };
@@ -1069,6 +1072,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3829BAF82179C4B6009B7C6C /* YGMultiInitialize */ = {
+			isa = PBXGroup;
+			children = (
+				3829BAF92179C4CC009B7C6C /* YGMultiInitializeModel.h */,
+				3829BAFA2179C4CC009B7C6C /* YGMultiInitializeModel.m */,
+			);
+			path = YGMultiInitialize;
+			sourceTree = "<group>";
+		};
 		38B9B9122088685800EF74F8 /* YBAOPManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1092,6 +1104,7 @@
 			children = (
 				38E8AFA22178563600837CAE /* YGMultiAdhesive */,
 				38E8AFA32178563600837CAE /* YGMultiBusinessLogic */,
+				3829BAF82179C4B6009B7C6C /* YGMultiInitialize */,
 				38E8AFA42178563600837CAE /* YGMultiOrigin */,
 			);
 			path = YGMultiAgentDesign;
@@ -2991,6 +3004,7 @@
 				EBB4AC3A1E5EC2BA0011AEB1 /* JPStructPointer.m in Sources */,
 				EB12C38D1E5C3C8200564DE6 /* SDTimeLineCell.m in Sources */,
 				EB8823561E5FD23A00CBCFD2 /* SBJsonParser.m in Sources */,
+				3829BAFB2179C4CC009B7C6C /* YGMultiInitializeModel.m in Sources */,
 				EBB4AB881E5EC0FB0011AEB1 /* NSString+RACSupport.m in Sources */,
 				EB12C41D1E5C40CB00564DE6 /* TAAbstractDotView.m in Sources */,
 				EB12C3901E5C3C8200564DE6 /* SDTimeLineCellOperationMenu.m in Sources */,
