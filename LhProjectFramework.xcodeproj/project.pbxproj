@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		24D412F11E6A606A0068BFA2 /* CityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D412F01E6A606A0068BFA2 /* CityTest.m */; };
 		3829BAFB2179C4CC009B7C6C /* YGMultiInitializeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3829BAFA2179C4CC009B7C6C /* YGMultiInitializeModel.m */; };
+		387AA46D218451C200203A53 /* YGMultiAgentDesignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387AA46C218451C200203A53 /* YGMultiAgentDesignViewController.m */; };
 		38B9B9152088685800EF74F8 /* YGAOPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9B9142088685800EF74F8 /* YGAOPManager.m */; };
 		38B9B9192088691D00EF74F8 /* YGAOPManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9B9182088691C00EF74F8 /* YGAOPManagerViewController.m */; };
 		38E8AFA72178567400837CAE /* YGMultiAdhesiveBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8AFA62178567400837CAE /* YGMultiAdhesiveBaseModel.m */; };
@@ -357,6 +358,8 @@
 		24D412F01E6A606A0068BFA2 /* CityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTest.m; sourceTree = "<group>"; };
 		3829BAF92179C4CC009B7C6C /* YGMultiInitializeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGMultiInitializeModel.h; sourceTree = "<group>"; };
 		3829BAFA2179C4CC009B7C6C /* YGMultiInitializeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGMultiInitializeModel.m; sourceTree = "<group>"; };
+		387AA46B218451C200203A53 /* YGMultiAgentDesignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGMultiAgentDesignViewController.h; sourceTree = "<group>"; };
+		387AA46C218451C200203A53 /* YGMultiAgentDesignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGMultiAgentDesignViewController.m; sourceTree = "<group>"; };
 		38B9B9132088685800EF74F8 /* YGAOPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAOPManager.h; sourceTree = "<group>"; };
 		38B9B9142088685800EF74F8 /* YGAOPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGAOPManager.m; sourceTree = "<group>"; };
 		38B9B9172088691C00EF74F8 /* YGAOPManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAOPManagerViewController.h; sourceTree = "<group>"; };
@@ -1079,6 +1082,15 @@
 				3829BAFA2179C4CC009B7C6C /* YGMultiInitializeModel.m */,
 			);
 			path = YGMultiInitialize;
+			sourceTree = "<group>";
+		};
+		387AA46A218451C200203A53 /* YGMultiAgentDesign */ = {
+			isa = PBXGroup;
+			children = (
+				387AA46B218451C200203A53 /* YGMultiAgentDesignViewController.h */,
+				387AA46C218451C200203A53 /* YGMultiAgentDesignViewController.m */,
+			);
+			path = YGMultiAgentDesign;
 			sourceTree = "<group>";
 		};
 		38B9B9122088685800EF74F8 /* YBAOPManager */ = {
@@ -2732,6 +2744,7 @@
 		EBB4AC641E5EC3DC0011AEB1 /* TestFuncionLib */ = {
 			isa = PBXGroup;
 			children = (
+				387AA46A218451C200203A53 /* YGMultiAgentDesign */,
 				38B9B9162088691C00EF74F8 /* YBAOPManager */,
 				EB4BE6111EF0E16E00E54692 /* KVC */,
 				EBB4AC651E5EC3DC0011AEB1 /* jspathlib */,
@@ -2918,6 +2931,7 @@
 				EB12C42F1E5C40CB00564DE6 /* SDWebImageCompat.m in Sources */,
 				EB8823571E5FD23A00CBCFD2 /* SBJsonStreamParser.m in Sources */,
 				EBB4AC581E5EC2BA0011AEB1 /* JPPlayground.m in Sources */,
+				387AA46D218451C200203A53 /* YGMultiAgentDesignViewController.m in Sources */,
 				EB12C3481E5C3C8200564DE6 /* MJProperty.m in Sources */,
 				EBB4AC601E5EC2BA0011AEB1 /* JPSpecialInit.m in Sources */,
 				EBB4ABBC1E5EC0FB0011AEB1 /* RACValueTransformer.m in Sources */,

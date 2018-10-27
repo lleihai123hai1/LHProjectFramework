@@ -38,6 +38,8 @@
                      ,@{@"title":@"SysTemViewControllerSort",@"content":@"系统cell拖动排序"},
                      @{@"title":@"ValueForKeyPathViewController",@"content":@"ValueForKeyPath"},
                      @{@"title":@"YGAOPManagerViewController",@"content":@"模块拆分"},
+                     @{@"title":@"YGMultiAgentDesignViewController",@"content":@"多代理设计"},
+                     
                      ];
     [self.view addSubview:self.table];
     [self.table reloadData];
