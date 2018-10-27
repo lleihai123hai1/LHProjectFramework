@@ -16,5 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YGMultiInitializeModel : NSObject
 @property(nonatomic,strong)YGMultiInitializeModelBlock intitBlock;
 @end
-
+#define YGMultiInitializeModelBindBlock(block) [YGMultiInitializeModel return:^NSObject *(YGMultiInitializeModel* value) {\
+value.intitBlock = block;\
+return value;\
+}]
 NS_ASSUME_NONNULL_END

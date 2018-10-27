@@ -14,5 +14,8 @@ typedef  void (^YGMultiBusinessLogicBaseModelBlock)(id value);
 @interface YGMultiBusinessLogicBaseModel : NSObject
 @property(nonatomic,strong)YGMultiBusinessLogicBaseModelBlock logicBlock;
 @end
-
+#define YGMultiBusinessLogicBaseModelBindBlock(block) [YGMultiBusinessLogicBaseModel return:^YGMultiBusinessLogicBaseModel *(YGMultiBusinessLogicBaseModel* value) {\
+value.logicBlock = block;\
+return value;\
+}]
 NS_ASSUME_NONNULL_END

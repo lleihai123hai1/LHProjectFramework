@@ -13,5 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YGMultiOriginBaseModel : NSObject
 @property(nonatomic,strong) id ygOriginObject;
 @end
-
+#define YGMultiOriginBaseModelBindClass(class) [YGMultiOriginBaseModel return:^NSObject *(YGMultiOriginBaseModel* value) {\
+value.ygOriginObject = [class new];\
+return value;\
+}]
 NS_ASSUME_NONNULL_END
