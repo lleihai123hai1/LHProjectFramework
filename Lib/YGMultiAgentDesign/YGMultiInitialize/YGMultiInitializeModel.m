@@ -9,7 +9,5 @@
 #import "YGMultiInitializeModel.h"
 
 @implementation YGMultiInitializeModel
--(id)multiInitialize{
-    return self.ygMultiOriginBaseModel.ygOriginObject;
-}
+
 @end

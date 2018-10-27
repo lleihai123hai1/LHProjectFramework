@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 //@end
 
 @interface YGMultiAdhesiveBaseModel : NSObject
--(id)createYGObject:(YGMultiOriginBaseModel*)originBaseModel initializeModel:(YGMultiInitializeModel*)initializeModel logicBaseModel:(YGMultiBusinessLogicBaseModel*)logicBaseModel;
++(YGMultiOriginBaseModel*)createYGObject:(YGMultiOriginBaseModel*)originBaseModel initializeModel:(YGMultiInitializeModel*)initializeModel logicBaseModel:(YGMultiBusinessLogicBaseModel*)logicBaseModel;
 @end
 
 NS_ASSUME_NONNULL_END

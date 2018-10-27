@@ -7,7 +7,10 @@
 //
 
 #import "YGMultiAgentDesignViewController.h"
-
+#import "YGMultiOriginBaseModel.h"
+#import "YGMultiInitializeModel.h"
+#import "YGMultiBusinessLogicBaseModel.h"
+#import "YGMultiAdhesiveBaseModel.h"
 @interface YGMultiAgentDesignViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView*table;
 @end
@@ -31,10 +34,48 @@
 }
 
 -(void)test1{
-    
+    UILabel*sessionDetail = [[UILabel alloc]init];
+    sessionDetail.frame = CGRectMake(16,124,100, 60);
+    sessionDetail.textColor = [UIColor redColor];
+    sessionDetail.font = [UIFont fontWithName:@"AvenirNext-Regular" size:(10)];
+    sessionDetail.textAlignment = NSTextAlignmentLeft;
+    sessionDetail.numberOfLines = 3;
+    sessionDetail.text = @"dddddd";
+    @weakify(self);
+    sessionDetail.lh_gesture(1, 1, ^(id value) {
+        @strongify(self);
+    });
+    [self.table addSubview:sessionDetail];
 
 }
 -(void)test2{
+    
+    YGMultiOriginBaseModel*baseModel = [[YGMultiOriginBaseModel alloc]init];
+    baseModel.ygOriginObject = [[UILabel alloc]init];
+    
+    YGMultiBusinessLogicBaseModel*logicModel = [[YGMultiBusinessLogicBaseModel alloc]init];
+    logicModel.logicBlock = ^(id value) {
+        NSLog(@"ddddddd");
+    };
+    YGMultiInitializeModel*initModel = [[YGMultiInitializeModel alloc]init];
+    initModel.intitBlock = ^(YGMultiOriginBaseModel*baseModel,YGMultiBusinessLogicBaseModel*logicModel) {
+        UILabel*value = baseModel.ygOriginObject;
+        value.frame = CGRectMake(16,124,100, 60);
+        value.textColor = [UIColor redColor];
+        value.font = [UIFont fontWithName:@"AvenirNext-Regular" size:(10)];
+        value.textAlignment = NSTextAlignmentLeft;
+        value.numberOfLines = 3;
+        value.text = @"dddddd";
+        value.lh_gesture(1, 1, ^(id value) {
+            if(logicModel.logicBlock){
+                logicModel.logicBlock(value);
+            }
+        });
+        return baseModel;
+    };
+    baseModel = [YGMultiAdhesiveBaseModel createYGObject:baseModel initializeModel:initModel logicBaseModel:logicModel];
+    [self.table addSubview:baseModel.ygOriginObject];
+    
     
 }
 -(void)test3{

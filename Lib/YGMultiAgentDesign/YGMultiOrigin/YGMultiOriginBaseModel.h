@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 //多代理拆分对象存储
 @interface YGMultiOriginBaseModel : NSObject
-@property(nonatomic,weak) id ygOriginObject;
+@property(nonatomic,strong) id ygOriginObject;
 @end
 
 NS_ASSUME_NONNULL_END

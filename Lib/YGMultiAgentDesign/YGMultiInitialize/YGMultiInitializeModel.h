@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "YGMultiOriginBaseModel.h"
 #import "YGMultiBusinessLogicBaseModel.h"
+
+typedef  YGMultiOriginBaseModel* (^YGMultiInitializeModelBlock)(YGMultiOriginBaseModel*baseModel,YGMultiBusinessLogicBaseModel*logicModel);
 NS_ASSUME_NONNULL_BEGIN
 //多代理初始化
 @interface YGMultiInitializeModel : NSObject
-@property(nonatomic,strong)YGMultiOriginBaseModel* ygMultiOriginBaseModel;
-@property(nonatomic,strong)YGMultiBusinessLogicBaseModel* ygMultiBusinessLogicBaseModel;
--(id)ygMultiInitialize;
+@property(nonatomic,strong)YGMultiInitializeModelBlock intitBlock;
 @end
 
 NS_ASSUME_NONNULL_END
