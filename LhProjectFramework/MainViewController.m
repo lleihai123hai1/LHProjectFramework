@@ -39,7 +39,7 @@
                      @{@"title":@"ValueForKeyPathViewController",@"content":@"ValueForKeyPath"},
                      @{@"title":@"YGAOPManagerViewController",@"content":@"模块拆分"},
                      @{@"title":@"YGMultiAgentDesignViewController",@"content":@"多代理设计"},
-                     
+                     @{@"title":@"YGLuaViewController",@"content":@"Lua测试"},
                      ];
     [self.view addSubview:self.table];
     [self.table reloadData];

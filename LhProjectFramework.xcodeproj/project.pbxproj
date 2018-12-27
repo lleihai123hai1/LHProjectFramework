@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		24D412F11E6A606A0068BFA2 /* CityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D412F01E6A606A0068BFA2 /* CityTest.m */; };
 		3829BAFB2179C4CC009B7C6C /* YGMultiInitializeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3829BAFA2179C4CC009B7C6C /* YGMultiInitializeModel.m */; };
+		382DE8A921D463B500766B3C /* NSString+Paths.m in Sources */ = {isa = PBXBuildFile; fileRef = 382DE8A521D463B500766B3C /* NSString+Paths.m */; };
+		382DE8AA21D463B500766B3C /* LuaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 382DE8A721D463B500766B3C /* LuaManager.m */; };
+		382DE8AD21D463E600766B3C /* configuration.lua in Resources */ = {isa = PBXBuildFile; fileRef = 382DE8AB21D463E600766B3C /* configuration.lua */; };
+		382DE8AE21D463E600766B3C /* utilities.lua in Resources */ = {isa = PBXBuildFile; fileRef = 382DE8AC21D463E600766B3C /* utilities.lua */; };
+		382DE8B121D464A300766B3C /* YGLuaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382DE8B021D464A300766B3C /* YGLuaViewController.m */; };
 		38365DC921D38118005DA851 /* lauxlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365D8E21D38118005DA851 /* lauxlib.c */; };
 		38365DCA21D38118005DA851 /* liolib.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365D9421D38118005DA851 /* liolib.c */; };
 		38365DCB21D38118005DA851 /* lopcodes.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365D9521D38118005DA851 /* lopcodes.c */; };
@@ -391,6 +396,14 @@
 		24D412F01E6A606A0068BFA2 /* CityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTest.m; sourceTree = "<group>"; };
 		3829BAF92179C4CC009B7C6C /* YGMultiInitializeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGMultiInitializeModel.h; sourceTree = "<group>"; };
 		3829BAFA2179C4CC009B7C6C /* YGMultiInitializeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGMultiInitializeModel.m; sourceTree = "<group>"; };
+		382DE8A421D463B500766B3C /* LuaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaManager.h; sourceTree = "<group>"; };
+		382DE8A521D463B500766B3C /* NSString+Paths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Paths.m"; sourceTree = "<group>"; };
+		382DE8A621D463B500766B3C /* NSString+Paths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Paths.h"; sourceTree = "<group>"; };
+		382DE8A721D463B500766B3C /* LuaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LuaManager.m; sourceTree = "<group>"; };
+		382DE8AB21D463E600766B3C /* configuration.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = configuration.lua; sourceTree = "<group>"; };
+		382DE8AC21D463E600766B3C /* utilities.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = utilities.lua; sourceTree = "<group>"; };
+		382DE8AF21D464A300766B3C /* YGLuaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGLuaViewController.h; sourceTree = "<group>"; };
+		382DE8B021D464A300766B3C /* YGLuaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGLuaViewController.m; sourceTree = "<group>"; };
 		38365D8E21D38118005DA851 /* lauxlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lauxlib.c; sourceTree = "<group>"; };
 		38365D8F21D38118005DA851 /* lmem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lmem.h; sourceTree = "<group>"; };
 		38365D9021D38118005DA851 /* llimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = llimits.h; sourceTree = "<group>"; };
@@ -1176,6 +1189,38 @@
 			path = YGMultiInitialize;
 			sourceTree = "<group>";
 		};
+		382DE89C21D45EB900766B3C /* TestLua */ = {
+			isa = PBXGroup;
+			children = (
+				382DE8A821D463B500766B3C /* demo */,
+				382DE8A321D463B500766B3C /* LuaMangeLib */,
+			);
+			name = TestLua;
+			path = Lib/Lua/TestLua;
+			sourceTree = "<group>";
+		};
+		382DE8A321D463B500766B3C /* LuaMangeLib */ = {
+			isa = PBXGroup;
+			children = (
+				382DE8A421D463B500766B3C /* LuaManager.h */,
+				382DE8A521D463B500766B3C /* NSString+Paths.m */,
+				382DE8A621D463B500766B3C /* NSString+Paths.h */,
+				382DE8A721D463B500766B3C /* LuaManager.m */,
+			);
+			path = LuaMangeLib;
+			sourceTree = "<group>";
+		};
+		382DE8A821D463B500766B3C /* demo */ = {
+			isa = PBXGroup;
+			children = (
+				382DE8AF21D464A300766B3C /* YGLuaViewController.h */,
+				382DE8B021D464A300766B3C /* YGLuaViewController.m */,
+				382DE8AB21D463E600766B3C /* configuration.lua */,
+				382DE8AC21D463E600766B3C /* utilities.lua */,
+			);
+			path = demo;
+			sourceTree = "<group>";
+		};
 		38365D8D21D38118005DA851 /* Lua */ = {
 			isa = PBXGroup;
 			children = (
@@ -1330,14 +1375,14 @@
 			isa = PBXGroup;
 			children = (
 				EB12C20A1E5C3BBF00564DE6 /* AppDelegate.h */,
+				EB12C20B1E5C3BBF00564DE6 /* AppDelegate.m */,
+				EB12C2191E5C3BBF00564DE6 /* Assets.xcassets */,
+				EB12C21E1E5C3BBF00564DE6 /* Info.plist */,
+				EB12C21B1E5C3BBF00564DE6 /* LaunchScreen.storyboard */,
 				EB82113A1E651C3700EA9F31 /* LhDefine.h */,
 				EB12C2101E5C3BBF00564DE6 /* MainViewController.h */,
-				EB12C20B1E5C3BBF00564DE6 /* AppDelegate.m */,
 				EB12C2111E5C3BBF00564DE6 /* MainViewController.m */,
 				EBB4AAAA1E5EB9F10011AEB1 /* PrefixHeader.pch */,
-				EB12C21E1E5C3BBF00564DE6 /* Info.plist */,
-				EB12C2191E5C3BBF00564DE6 /* Assets.xcassets */,
-				EB12C21B1E5C3BBF00564DE6 /* LaunchScreen.storyboard */,
 				EB12C39A1E5C400400564DE6 /* selfClass */,
 				EB12C2071E5C3BBF00564DE6 /* Supporting Files */,
 			);
@@ -2445,6 +2490,7 @@
 		EB8823761E6016BF00CBCFD2 /* TestLib */ = {
 			isa = PBXGroup;
 			children = (
+				382DE89C21D45EB900766B3C /* TestLua */,
 				EB12C2311E5C3C8200564DE6 /* TestUILib */,
 				EBB4AC641E5EC3DC0011AEB1 /* TestFuncionLib */,
 				EB8823681E5FD63C00CBCFD2 /* TestDataLib */,
@@ -3030,12 +3076,14 @@
 				EB12C40E1E5C40CB00564DE6 /* MLEmoji_ExpressionImage.plist in Resources */,
 				EB12C4271E5C40CB00564DE6 /* sdRefeshView_arrow@2x.png in Resources */,
 				EB12C21A1E5C3BBF00564DE6 /* Assets.xcassets in Resources */,
+				382DE8AD21D463E600766B3C /* configuration.lua in Resources */,
 				EB12C35F1E5C3C8200564DE6 /* MJRefresh.bundle in Resources */,
 				EBB4AC621E5EC2BA0011AEB1 /* JSPatch.js in Resources */,
 				EBB4AC631E5EC2BA0011AEB1 /* lh.js in Resources */,
 				EB12C40C1E5C40CB00564DE6 /* MLEmoji_Expression.bundle in Resources */,
 				EB12C40D1E5C40CB00564DE6 /* MLEmoji_Expression.plist in Resources */,
 				EBE73E171EA0BA1A00EDE098 /* ShoppingGoodsList.plist in Resources */,
+				382DE8AE21D463E600766B3C /* utilities.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3070,6 +3118,7 @@
 				EBB4ABC31E5EC0FB0011AEB1 /* UIControl+RACSignalSupportPrivate.m in Sources */,
 				EBB4ABAB1E5EC0FB0011AEB1 /* RACSerialDisposable.m in Sources */,
 				EBB4AAAF1E5EBC040011AEB1 /* LhNSDictionary.m in Sources */,
+				382DE8AA21D463B500766B3C /* LuaManager.m in Sources */,
 				EB12C3651E5C3C8200564DE6 /* XYString.m in Sources */,
 				EBB4ABA41E5EC0FB0011AEB1 /* RACPassthroughSubscriber.m in Sources */,
 				EB12C3841E5C3C8200564DE6 /* DemoVC7Cell2.m in Sources */,
@@ -3094,6 +3143,7 @@
 				EB8823571E5FD23A00CBCFD2 /* SBJsonStreamParser.m in Sources */,
 				EBB4AC581E5EC2BA0011AEB1 /* JPPlayground.m in Sources */,
 				387AA46D218451C200203A53 /* YGMultiAgentDesignViewController.m in Sources */,
+				382DE8B121D464A300766B3C /* YGLuaViewController.m in Sources */,
 				EB12C3481E5C3C8200564DE6 /* MJProperty.m in Sources */,
 				EBB4AC601E5EC2BA0011AEB1 /* JPSpecialInit.m in Sources */,
 				38365DC921D38118005DA851 /* lauxlib.c in Sources */,
@@ -3124,6 +3174,7 @@
 				EB12C4351E5C40CB00564DE6 /* UIButton+WebCache.m in Sources */,
 				EBB4AB7B1E5EC0FB0011AEB1 /* NSIndexSet+RACSequenceAdditions.m in Sources */,
 				EB12C33D1E5C3C8200564DE6 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				382DE8A921D463B500766B3C /* NSString+Paths.m in Sources */,
 				EB12C3911E5C3C8200564DE6 /* SDWeiXinPhotoContainerView.m in Sources */,
 				EBB4AC381E5EC2BA0011AEB1 /* JPCFunction.m in Sources */,
 				EB12C35A1E5C3C8200564DE6 /* MJRefreshBackNormalFooter.m in Sources */,
