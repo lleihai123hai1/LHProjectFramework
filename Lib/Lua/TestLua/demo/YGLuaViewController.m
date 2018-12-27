@@ -35,7 +35,7 @@
 }
 
 - (void)test3 {
-    NSString*test = @"local i = 1 ; i = 1 + i;print(i)";
+    NSString*test = @"local i = 1 ; i = 1 + i;print(string.format(\"%s%d\",\"result:\",i))";
     if([[LuaManager defaultManager] isAllowedToExecute:test]){
         [[LuaManager defaultManager] runCodeFromString:test];
         NSLog(@"允许执行");
