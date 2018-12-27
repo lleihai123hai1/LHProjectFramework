@@ -30,7 +30,7 @@
 #import "DemoCell.h"
 #import "BaseViewCreate.h"
 #import "LhDefine.h"
-
+#include <ftw.h>
 #define AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES
 #define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_ 1
 #endif
