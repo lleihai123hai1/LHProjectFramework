@@ -19,7 +19,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     _contenArray = @[@{ @"title": @"test1", @"content": @"测试功能函数" },
-                     @{ @"title": @"test2", @"content": @"测试oc和lua相互调用" }];
+                     @{ @"title": @"test2", @"content": @"测试oc和lua相互调用"},
+                     @{ @"title": @"test3", @"content": @"测试错误回调"}];
     [self.view addSubview:self.table];
     [self.table reloadData];
 }
@@ -34,6 +35,11 @@
 }
 
 - (void)test3 {
+    if([[LuaManager defaultManager] isAllowedToExecute:@"ddddd"]){
+        NSLog(@"允许执行");
+    }else{
+        NSLog(@"不允许执行");
+    }
 }
 
 -(void)testLuaCallBack{

@@ -44,16 +44,13 @@ static LuaManager *sManager = nil;
 - (BOOL)isAllowedToExecute:(NSString *)string{
     [self openFile:@"configuration.lua"];
     lua_State *L = self.state;
-    
     lua_getglobal(L, "isAllowedToExecute");
     lua_pushstring(L, to_cString(string));
     if (lua_pcall(L, 1, 1, 0) != LUA_OK) {
         NSLog(@"error in running");
     }
-    
     NSInteger result = lua_toboolean(L, -1);
     lua_pop(L, 1);
-    
     return result;
 }
 
