@@ -84,9 +84,9 @@ static LuaManager *sManager = nil;
 
 - (lua_State *)state{
     if (!_state) {
-        _state = luaL_newstate();
-        luaL_openlibs(_state);
-        lua_settop(_state, 0);
+        _state = luaL_newstate();//创建虚拟机
+        luaL_openlibs(_state);//加载基本库
+        lua_settop(_state, 0);//来清空栈
     }
     return _state;
 }
@@ -123,28 +123,27 @@ static LuaManager *sManager = nil;
     
     [self openFile:file];
     lua_State *L = self.state;
-    lua_getglobal(L, to_cString(function));
-    
-    
+    lua_getglobal(L, to_cString(function));//把自己定义函数函数 压入栈中
+
     va_list ap;
-    va_start(ap, obj);
+    va_start(ap, obj);//可变参数开始读取
     
     int objCount = 0;
     int index = 2;
     while (obj != NULL) {
-        lua_pushnumber(L,(int) obj);
-        obj = va_arg(ap, void *);
+        lua_pushnumber(L,(int) obj);// 压入一个数字
+        obj = va_arg(ap, void *);//获取参数，调用va_arg，它的第一个参数是ap，第二个参数是要获取的参数的指定类型，然后返回这个指定类型的值，并且把 ap 的位置指向变参表的下一个变量位置
         objCount++;
         index++;
     }
-    va_end(ap);
+    va_end(ap);//可变参数结束读取
     
-    if (lua_pcall(L, objCount, 1, 0)){
+    if (lua_pcall(L, objCount, 1, 0)){//如果运行时出错，lua_pcall会返回一个非零的结果，如果指定了错误处理函数会先调用错误处理函数，然后在将错误信息入栈，在将返回结果或者错误信息入栈之前会先将函数和参数从栈中移除。错误处理函数必须要在被调用函数和其参数入栈之前入栈。
         NSLog(@"error");
     }
     
-    int result = lua_tonumber(L, -1);
-    lua_pop(L, 1);
+    int result = lua_tonumber(L, -1);//返回的是double类型，转型才能的到正确答案
+    lua_pop(L, 1);//去操作的话，可以弹出指定的位置的栈内容
     
     return (void *)result;
 }
