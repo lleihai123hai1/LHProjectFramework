@@ -11,7 +11,7 @@
 
 #define to_cString(s) ([s cStringUsingEncoding:[NSString defaultCStringEncoding]])
 
-int l_updateConsolePosition(lua_State *L){
+int l_testOcFunction(lua_State *L){
     YGLuaViewController *vc = (__bridge YGLuaViewController *)lua_touserdata(L, 1);
     [vc performSelector:@selector(testLuaCallBack) withObject:nil];
     return 0;
@@ -68,9 +68,9 @@ static LuaManager *sManager = nil;
     return y;
 }
 
-- (void)updateConsole:(UIViewController *)vc{
-    [self registerFunction:l_updateConsolePosition withName:@"callUpdateConsoleFunctionInObjC"];
-    [[LuaManager defaultManager] callFunctionNamed:@"updateConsole" withObject:vc];
+- (void)testRegisterOcFunction:(UIViewController *)vc{
+    [self registerFunction:l_testOcFunction withName:@"testOcFunctionCallback"];//注册ios方法
+    [[LuaManager defaultManager] callFunctionNamed:@"testOcFunction" withObject:vc];//利用脚本文件执行注册的ios方法
 }
 
 

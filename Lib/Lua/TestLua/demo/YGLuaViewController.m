@@ -18,9 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    _contenArray = @[@{ @"title": @"test1", @"content": @"功能函数" },
-                     @{ @"title": @"test2", @"content": @"框架利用多代理" },
-                     @{ @"title": @"test3", @"content": @"基本方法利用多代理" }];
+    _contenArray = @[@{ @"title": @"test1", @"content": @"测试功能函数" },
+                     @{ @"title": @"test2", @"content": @"测试oc和lua相互调用" }];
     [self.view addSubview:self.table];
     [self.table reloadData];
 }
@@ -31,14 +30,14 @@
 }
 
 - (void)test2 {
-   
+    [[LuaManager defaultManager] testRegisterOcFunction:self];
 }
 
 - (void)test3 {
 }
 
 -(void)testLuaCallBack{
-    NSLog(@"testLuaCallBack");
+    NSLog(@"回调成功_testLuaCallBack");
 }
 #pragma mark - tableview datasourece and delegate
 

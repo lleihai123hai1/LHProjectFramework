@@ -22,7 +22,7 @@
 - (BOOL)isAllowedToExecute:(NSString *)string;
 
 - (NSInteger)consolePosition;
-- (void)updateConsole:(UIViewController *)vc;
+- (void)testRegisterOcFunction:(UIViewController *)vc;
 
 - (void *)performFuntionOnLuaFile:(NSString *)file function:(NSString *)function withObjects:(void *)obj,... NS_REQUIRES_NIL_TERMINATION;
 

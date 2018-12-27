@@ -9,6 +9,6 @@ end
 
 consoleYPosition = 40
 
-function updateConsole(obj)
-	callUpdateConsoleFunctionInObjC(obj)
+function testOcFunction(obj)
+	testOcFunctionCallback(obj)
 end
