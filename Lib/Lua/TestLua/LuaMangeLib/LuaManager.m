@@ -10,13 +10,11 @@
 #import "NSString+Paths.h"
 
 #define to_cString(s) ([s cStringUsingEncoding:[NSString defaultCStringEncoding]])
-
 int l_testOcFunction(lua_State *L){
     YGLuaViewController *vc = (__bridge YGLuaViewController *)lua_touserdata(L, 1);
     [vc performSelector:@selector(testLuaCallBack) withObject:nil];
     return 0;
 }
-
 
 static LuaManager *sManager = nil;
 
@@ -155,13 +153,9 @@ static LuaManager *sManager = nil;
     // get state
     [self openFile:@"configuration.lua"];
     lua_State *L = self.state;
-    
-    // prepare for "function(object)"
-    lua_getglobal(L, to_cString(name));
-    lua_pushlightuserdata(L, (__bridge void *)(object));
-    
-    // run
-    int error = lua_pcall(L, 1, 0, 0);
+    lua_getglobal(L, to_cString(name));// prepare for "function(object)"
+    lua_pushlightuserdata(L, (__bridge void *)(object));//传递参数
+    int error = lua_pcall(L, 1, 0, 0);//执行方法
     if (error) {
         luaL_error(L, "cannot run Lua code: %s", lua_tostring(L, -1));
         return;
