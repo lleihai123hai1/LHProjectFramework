@@ -36,7 +36,7 @@ static LuaManager *sManager = nil;
         NSLog(@"error in running");
     }
     
-    NSInteger result = lua_tonumber(L, -1);
+    NSInteger result = lua_tonumber(L, -1);//这里的-1 表示栈顶。因为返回值在栈顶
     lua_pop(L, 1);
     return result;
 }
@@ -100,9 +100,7 @@ static LuaManager *sManager = nil;
         luaL_error(L, "error : %s",lua_tostring(L, -1));
         return;
     }
-    
-    error = lua_pcall(L, 0, 0, 0);
-    if (error) {
+    if (lua_pcall(L, 0, 0, 0) != LUA_OK) {
         luaL_error(L, "run error: %s",lua_tostring(L, -1));
         return;
     }
@@ -138,7 +136,7 @@ static LuaManager *sManager = nil;
     }
     va_end(ap);//可变参数结束读取
     
-    if (lua_pcall(L, objCount, 1, 0)){//如果运行时出错，lua_pcall会返回一个非零的结果，如果指定了错误处理函数会先调用错误处理函数，然后在将错误信息入栈，在将返回结果或者错误信息入栈之前会先将函数和参数从栈中移除。错误处理函数必须要在被调用函数和其参数入栈之前入栈。
+    if (lua_pcall(L, objCount, 1, 0)  != LUA_OK){//如果运行时出错，lua_pcall会返回一个非零的结果，如果指定了错误处理函数会先调用错误处理函数，然后在将错误信息入栈，在将返回结果或者错误信息入栈之前会先将函数和参数从栈中移除。错误处理函数必须要在被调用函数和其参数入栈之前入栈。
         NSLog(@"error");
     }
     
@@ -149,13 +147,16 @@ static LuaManager *sManager = nil;
 }
 
 - (void)callFunctionNamed:(NSString *)name withObject:(NSObject *)object {
+//    lua_pcall(lua_State *L,int nargs,int nresults,int errfunc)
+//    nargs 参数个数
+//    nresults 返回值个数
+//    errFunc 错误处理函数，0表示无，表示错误处理函数在栈中的索引
     // get state
     [self openFile:@"configuration.lua"];
     lua_State *L = self.state;
     lua_getglobal(L, to_cString(name));// prepare for "function(object)"
     lua_pushlightuserdata(L, (__bridge void *)(object));//传递参数
-    int error = lua_pcall(L, 1, 0, 0);//执行方法
-    if (error) {
+    if (lua_pcall(L, 1, 0, 0) != LUA_OK) {//执行方法
         luaL_error(L, "cannot run Lua code: %s", lua_tostring(L, -1));
         return;
     }
