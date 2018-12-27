@@ -48,16 +48,16 @@ static LuaManager *sManager = nil;
     lua_pushstring(L, to_cString(string));
     if (lua_pcall(L, 1, 1, 0) != LUA_OK) {
         NSLog(@"error in running");
+        return NO;
     }
     NSInteger result = lua_toboolean(L, -1);
     lua_pop(L, 1);
     return result;
 }
-
+#pragma mark --configuration.lua/consoleYPosition
 - (NSInteger)consolePosition{
     [self openFile:@"configuration.lua"];
     lua_State *L = self.state;
-    
     lua_getglobal(L, "consoleYPosition");
     NSInteger y = lua_tointeger(L, -1);
     return y;

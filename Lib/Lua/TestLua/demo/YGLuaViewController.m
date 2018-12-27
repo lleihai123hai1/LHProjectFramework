@@ -20,14 +20,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     _contenArray = @[@{ @"title": @"test1", @"content": @"测试功能函数" },
                      @{ @"title": @"test2", @"content": @"测试oc和lua相互调用"},
-                     @{ @"title": @"test3", @"content": @"测试错误回调"}];
+                     @{ @"title": @"test3", @"content": @"测试字符串调用回调"}];
     [self.view addSubview:self.table];
     [self.table reloadData];
 }
 
 - (void)test1 {
    NSInteger result = [[LuaManager defaultManager] calculate:5];
-    NSLog(@"%ld",(long)result);
+   NSLog(@"%ld",(long)result);
 }
 
 - (void)test2 {
@@ -35,7 +35,9 @@
 }
 
 - (void)test3 {
-    if([[LuaManager defaultManager] isAllowedToExecute:@"ddddd"]){
+    NSString*test = @"local i = 1 ; i = 1 + i;print(i)";
+    if([[LuaManager defaultManager] isAllowedToExecute:test]){
+        [[LuaManager defaultManager] runCodeFromString:test];
         NSLog(@"允许执行");
     }else{
         NSLog(@"不允许执行");
