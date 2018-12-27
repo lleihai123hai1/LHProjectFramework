@@ -1203,9 +1203,9 @@
 			isa = PBXGroup;
 			children = (
 				382DE8A421D463B500766B3C /* LuaManager.h */,
-				382DE8A521D463B500766B3C /* NSString+Paths.m */,
-				382DE8A621D463B500766B3C /* NSString+Paths.h */,
 				382DE8A721D463B500766B3C /* LuaManager.m */,
+				382DE8A621D463B500766B3C /* NSString+Paths.h */,
+				382DE8A521D463B500766B3C /* NSString+Paths.m */,
 			);
 			path = LuaMangeLib;
 			sourceTree = "<group>";

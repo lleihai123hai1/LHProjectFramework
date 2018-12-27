@@ -37,6 +37,9 @@
 - (void)test3 {
 }
 
+-(void)testLuaCallBack{
+    NSLog(@"testLuaCallBack");
+}
 #pragma mark - tableview datasourece and delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

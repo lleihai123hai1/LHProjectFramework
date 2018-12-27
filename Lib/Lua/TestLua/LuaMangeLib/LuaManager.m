@@ -5,15 +5,15 @@
 //  Created by Ogan Topkaya on 17/02/14.
 //  Copyright (c) 2014 Peak Games. All rights reserved.
 //
-
+#import "YGLuaViewController.h"
 #import "LuaManager.h"
 #import "NSString+Paths.h"
 
 #define to_cString(s) ([s cStringUsingEncoding:[NSString defaultCStringEncoding]])
 
 int l_updateConsolePosition(lua_State *L){
-    UIViewController *vc = (__bridge UIViewController *)lua_touserdata(L, 1);
-    [vc performSelector:@selector(updateConsolePosition) withObject:nil];
+    YGLuaViewController *vc = (__bridge YGLuaViewController *)lua_touserdata(L, 1);
+    [vc performSelector:@selector(testLuaCallBack) withObject:nil];
     return 0;
 }
 
@@ -27,7 +27,55 @@ static LuaManager *sManager = nil;
 @end
 
 @implementation LuaManager
+#pragma mark 执行脚本文件单独方法
+#pragma mark --utilities.lua/calculate
+- (NSInteger)calculate:(NSInteger)number{
+    [self openFile:@"utilities.lua"];
+    lua_State *L = self.state;
+    lua_getglobal(L, "calculate");
+    lua_pushnumber(L, number);
+    if (lua_pcall(L, 1, 1, 0) != LUA_OK) {
+        NSLog(@"error in running");
+    }
+    
+    NSInteger result = lua_tonumber(L, -1);
+    lua_pop(L, 1);
+    return result;
+}
+#pragma mark --configuration.lua/isAllowedToExecute
+- (BOOL)isAllowedToExecute:(NSString *)string{
+    [self openFile:@"configuration.lua"];
+    lua_State *L = self.state;
+    
+    lua_getglobal(L, "isAllowedToExecute");
+    lua_pushstring(L, to_cString(string));
+    if (lua_pcall(L, 1, 1, 0) != LUA_OK) {
+        NSLog(@"error in running");
+    }
+    
+    NSInteger result = lua_toboolean(L, -1);
+    lua_pop(L, 1);
+    
+    return result;
+}
 
+- (NSInteger)consolePosition{
+    [self openFile:@"configuration.lua"];
+    lua_State *L = self.state;
+    
+    lua_getglobal(L, "consoleYPosition");
+    NSInteger y = lua_tointeger(L, -1);
+    return y;
+}
+
+- (void)updateConsole:(UIViewController *)vc{
+    [self registerFunction:l_updateConsolePosition withName:@"callUpdateConsoleFunctionInObjC"];
+    [[LuaManager defaultManager] callFunctionNamed:@"updateConsole" withObject:vc];
+}
+
+
+
+#pragma mark --基本类方法
 + (instancetype)defaultManager{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -61,53 +109,6 @@ static LuaManager *sManager = nil;
         return;
     }
 }
-
-- (NSInteger)calculate:(NSInteger)number{
-    [self openFile:@"utilities.lua"];
-    lua_State *L = self.state;
-    
-    lua_getglobal(L, "calculate");
-    lua_pushnumber(L, number);
-    if (lua_pcall(L, 1, 1, 0) != LUA_OK) {
-        NSLog(@"error in running");
-    }
-    
-    NSInteger result = lua_tonumber(L, -1);
-    lua_pop(L, 1);
-    
-    return result;
-}
-
-- (BOOL)isAllowedToExecute:(NSString *)string{
-    [self openFile:@"configuration.lua"];
-    lua_State *L = self.state;
-    
-    lua_getglobal(L, "isAllowedToExecute");
-    lua_pushstring(L, to_cString(string));
-    if (lua_pcall(L, 1, 1, 0) != LUA_OK) {
-        NSLog(@"error in running");
-    }
-    
-    NSInteger result = lua_toboolean(L, -1);
-    lua_pop(L, 1);
-    
-    return result;
-}
-
-- (NSInteger)consolePosition{
-    [self openFile:@"configuration.lua"];
-    lua_State *L = self.state;
-    
-    lua_getglobal(L, "consoleYPosition");
-    NSInteger y = lua_tointeger(L, -1);
-    return y;
-}
-
-- (void)updateConsole:(UIViewController *)vc{
-    [self registerFunction:l_updateConsolePosition withName:@"callUpdateConsoleFunctionInObjC"];
-    [[LuaManager defaultManager] callFunctionNamed:@"updateConsole" withObject:vc];
-}
-
 - (void)openFile:(NSString *)file{
     lua_State *L = self.state;
     NSString *path = [NSString getLuaPath:file];

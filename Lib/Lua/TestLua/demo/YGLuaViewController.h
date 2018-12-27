@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @interface YGLuaViewController : UIViewController
-
+-(void)testLuaCallBack;
 @end
 
