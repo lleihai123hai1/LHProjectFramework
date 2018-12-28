@@ -28,7 +28,7 @@ static LuaManager *sManager = nil;
 #pragma mark 执行脚本文件单独方法
 #pragma mark --utilities.lua/calculate
 - (NSInteger)calculate:(NSInteger)number{
-    [self openFile:@"utilities.lua"];
+    [self loadLuaFile:@"utilities.lua"];
     lua_State *L = self.state;
     lua_getglobal(L, "calculate");
     lua_pushnumber(L, number);
@@ -42,7 +42,7 @@ static LuaManager *sManager = nil;
 }
 #pragma mark --configuration.lua/isAllowedToExecute
 - (BOOL)isAllowedToExecute:(NSString *)string{
-    [self openFile:@"configuration.lua"];
+    [self loadLuaFile:@"configuration.lua"];
     lua_State *L = self.state;
     lua_getglobal(L, "isAllowedToExecute");
     lua_pushstring(L, to_cString(string));
@@ -56,7 +56,7 @@ static LuaManager *sManager = nil;
 }
 #pragma mark --configuration.lua/consoleYPosition
 - (NSInteger)consolePosition{
-    [self openFile:@"configuration.lua"];
+    [self loadLuaFile:@"configuration.lua"];
     lua_State *L = self.state;
     lua_getglobal(L, "consoleYPosition");
     NSInteger y = lua_tointeger(L, -1);
@@ -102,7 +102,7 @@ static LuaManager *sManager = nil;
         return;
     }
 }
-- (void)openFile:(NSString *)file{
+- (void)loadLuaFile:(NSString *)file{
     lua_State *L = self.state;
     NSString *path = [NSString getLuaPath:file];
     if (luaL_loadfile(L, to_cString(path)) != LUA_OK || lua_pcall(L, 0, 0, 0) != LUA_OK) {
@@ -116,7 +116,7 @@ static LuaManager *sManager = nil;
 
 - (void *)performFuntionOnLuaFile:(NSString *)file function:(NSString *)function withObjects:(void *)obj,... NS_REQUIRES_NIL_TERMINATION{
     
-    [self openFile:file];
+    [self loadLuaFile:file];
     lua_State *L = self.state;
     lua_getglobal(L, to_cString(function));//把自己定义函数函数 压入栈中
 
@@ -149,7 +149,7 @@ static LuaManager *sManager = nil;
 //    nresults 返回值个数
 //    errFunc 错误处理函数，0表示无，表示错误处理函数在栈中的索引
     // get state
-    [self openFile:@"configuration.lua"];
+    [self loadLuaFile:@"configuration.lua"];
     lua_State *L = self.state;
     lua_getglobal(L, to_cString(name));// prepare for "function(object)"
     lua_pushlightuserdata(L, (__bridge void *)(object));//传递参数
