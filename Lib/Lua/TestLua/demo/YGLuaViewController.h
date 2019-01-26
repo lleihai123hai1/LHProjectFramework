@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface YGLuaViewController : UIViewController
+#import "LuaScriptCore.h"
+@interface YGLuaViewController : UIViewController<LSCExportType>
 -(void)testLuaCallBack;
 @end
 

@@ -24,6 +24,8 @@
 + (lua_State *)newState
 {
     return luaL_newstate();
+    
+//    创建一个新的 Lua 状态机
 }
 
 + (void)close:(lua_State *)state
@@ -39,6 +41,18 @@
 + (int)gc:(lua_State *)state what:(LSCGCType)what data:(int)data
 {
     return lua_gc(state, what, data);
+//    控制垃圾收集器
+//    这个函数根据其参数 what 发起几种不同的任务：
+//
+//LUA_GCSTOP: 停止垃圾收集器。
+//LUA_GCRESTART: 重启垃圾收集器。
+//LUA_GCCOLLECT: 发起一次完整的垃圾收集循环。
+//LUA_GCCOUNT: 返回 Lua 使用的内存总量（以 K 字节为单位）。
+//LUA_GCCOUNTB: 返回当前内存使用量除以 1024 的余数。
+//LUA_GCSTEP: 发起一步增量垃圾收集。
+//LUA_GCSETPAUSE: 把 data 设为 垃圾收集器间歇率 （参见 §2.5），并返回之前设置的值。
+//LUA_GCSETSTEPMUL: 把 data 设为 垃圾收集器步进倍率 （参见 §2.5），并返回之前设置的值。
+//LUA_GCISRUNNING: 返回收集器是否在运行（即没有停止）。
 }
 
 + (void)openLibs:(lua_State *)state

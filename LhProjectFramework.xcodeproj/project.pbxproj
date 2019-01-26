@@ -31,6 +31,8 @@
 		382E99F621D6288800CD921B /* LSCSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 382E99E121D6288800CD921B /* LSCSession.m */; };
 		382E99F721D6288800CD921B /* LSCManagedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 382E99E221D6288800CD921B /* LSCManagedValue.m */; };
 		382E99F821D6288800CD921B /* LSCExportsTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 382E99E421D6288800CD921B /* LSCExportsTypeManager.m */; };
+		3831417421FC024100F8A6EC /* LSCTPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 3831417321FC024000F8A6EC /* LSCTPerson.m */; };
+		3831417621FC034000F8A6EC /* test.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3831417521FC033F00F8A6EC /* test.lua */; };
 		38365DC921D38118005DA851 /* lauxlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365D8E21D38118005DA851 /* lauxlib.c */; };
 		38365DCA21D38118005DA851 /* liolib.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365D9421D38118005DA851 /* liolib.c */; };
 		38365DCB21D38118005DA851 /* lopcodes.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365D9521D38118005DA851 /* lopcodes.c */; };
@@ -467,6 +469,9 @@
 		382E99E521D6288800CD921B /* LSCTuple_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCTuple_Private.h; sourceTree = "<group>"; };
 		382E99E621D6288800CD921B /* LSCExportTypeDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCExportTypeDescriptor.h; sourceTree = "<group>"; };
 		382E99E721D6288800CD921B /* LSCFunction_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCFunction_Private.h; sourceTree = "<group>"; };
+		3831417221FC024000F8A6EC /* LSCTPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCTPerson.h; sourceTree = "<group>"; };
+		3831417321FC024000F8A6EC /* LSCTPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCTPerson.m; sourceTree = "<group>"; };
+		3831417521FC033F00F8A6EC /* test.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.lua; sourceTree = "<group>"; };
 		38365D8E21D38118005DA851 /* lauxlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lauxlib.c; sourceTree = "<group>"; };
 		38365D8F21D38118005DA851 /* lmem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lmem.h; sourceTree = "<group>"; };
 		38365D9021D38118005DA851 /* llimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = llimits.h; sourceTree = "<group>"; };
@@ -1276,10 +1281,13 @@
 		382DE8A821D463B500766B3C /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				382DE8AB21D463E600766B3C /* configuration.lua */,
+				3831417221FC024000F8A6EC /* LSCTPerson.h */,
+				3831417321FC024000F8A6EC /* LSCTPerson.m */,
+				3831417521FC033F00F8A6EC /* test.lua */,
+				382DE8AC21D463E600766B3C /* utilities.lua */,
 				382DE8AF21D464A300766B3C /* YGLuaViewController.h */,
 				382DE8B021D464A300766B3C /* YGLuaViewController.m */,
-				382DE8AB21D463E600766B3C /* configuration.lua */,
-				382DE8AC21D463E600766B3C /* utilities.lua */,
 			);
 			path = demo;
 			sourceTree = "<group>";
@@ -3192,6 +3200,7 @@
 				EB12C3781E5C3C8200564DE6 /* DemoVC14Cell.xib in Resources */,
 				EB12C40E1E5C40CB00564DE6 /* MLEmoji_ExpressionImage.plist in Resources */,
 				EB12C4271E5C40CB00564DE6 /* sdRefeshView_arrow@2x.png in Resources */,
+				3831417621FC034000F8A6EC /* test.lua in Resources */,
 				EB12C21A1E5C3BBF00564DE6 /* Assets.xcassets in Resources */,
 				382DE8AD21D463E600766B3C /* configuration.lua in Resources */,
 				EB12C35F1E5C3C8200564DE6 /* MJRefresh.bundle in Resources */,
@@ -3447,6 +3456,7 @@
 				EB12C3451E5C3C8200564DE6 /* MJDictionaryCache.m in Sources */,
 				EBB4AB9D1E5EC0FB0011AEB1 /* RACImmediateScheduler.m in Sources */,
 				EB12C3851E5C3C8200564DE6 /* DemoVC7Model.m in Sources */,
+				3831417421FC024100F8A6EC /* LSCTPerson.m in Sources */,
 				EB12C33E1E5C3C8200564DE6 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				EB12C3701E5C3C8200564DE6 /* DemoVC11.m in Sources */,
 				38365DCB21D38118005DA851 /* lopcodes.c in Sources */,

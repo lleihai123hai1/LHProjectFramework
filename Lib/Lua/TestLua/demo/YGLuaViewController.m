@@ -7,8 +7,11 @@
 //
 #import "LuaManager.h"
 #import "YGLuaViewController.h"
+#import "LuaScriptCore.h"
+
 @interface YGLuaViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong) UITableView *table;
+@property (nonatomic, strong) LSCContext *context;
 @end
 
 @implementation YGLuaViewController {
@@ -17,6 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.context = [[LSCContext alloc] init];
+    [self.context onException:^(NSString *message) {
+        
+        NSLog(@"lsc exception = %@", message);
+        
+    }];
+    [self.context evalScriptFromFile:@"configuration.lua"];
+    [self.context evalScriptFromFile:@"utilities.lua"];
     self.view.backgroundColor = [UIColor whiteColor];
     _contenArray = @[@{ @"title": @"test1", @"content": @"测试功能函数" },
                      @{ @"title": @"test2", @"content": @"测试oc和lua相互调用"},
@@ -26,22 +37,42 @@
 }
 
 - (void)test1 {
-   NSInteger result = [[LuaManager defaultManager] calculate:5];
-   NSLog(@"%ld",(long)result);
+
+    NSArray<LSCValue *> *args = @[[LSCValue integerValue:5]];
+    LSCValue *retVal = [self.context callMethodWithName:@"calculate" arguments:args];
+   
+   NSLog(@"%ld",(long) [retVal toInteger]);
+    
+    NSInteger result = [[LuaManager defaultManager] calculate:5];
+    NSLog(@"%ld",(long) result);
 }
 
 - (void)test2 {
-    [[LuaManager defaultManager] testRegisterOcFunction:self];
+    @try {
+        @weakify(self);
+        [self.context registerMethodWithName:@"testOcFunctionCallback" block:^LSCValue *(NSArray<LSCValue *> *arguments) {
+            @strongify(self);
+            [self testLuaCallBack];
+            return [LSCValue objectValue:self];
+        }];
+    } @catch (NSException *exception) {
+        NSLog(@"%@",exception);
+    }
+    
+    LSCValue *retVal = [self.context callMethodWithName:@"testOcFunctionCallback" arguments:nil];
+    NSLog(@"%@",[retVal toObject]);
+//    [[LuaManager defaultManager] testRegisterOcFunction:self];
 }
 
 - (void)test3 {
-    NSString*test = @"local i = 1 ; i = 1 + i;print(string.format(\"%s%d\",\"result:\",i))";
-    if([[LuaManager defaultManager] isAllowedToExecute:test]){
-        [[LuaManager defaultManager] runCodeFromString:test];
-        NSLog(@"允许执行");
-    }else{
-        NSLog(@"不允许执行");
-    }
+//    NSString*test = @"local i = 1 ; i = 1 + i;print(string.format(\"%s%d\",\"result:\",i))";
+//    if([[LuaManager defaultManager] isAllowedToExecute:test]){
+//        [[LuaManager defaultManager] runCodeFromString:test];
+//        NSLog(@"允许执行");
+//    }else{
+//        NSLog(@"不允许执行");
+//    }
+    [self.context evalScriptFromFile:@"test.lua"];
 }
 
 -(void)testLuaCallBack{
