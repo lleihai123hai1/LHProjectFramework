@@ -38,10 +38,13 @@
 
 -(UIButton*)button{
     if(!_button){
+        @weakify(self);
         _button = [UIButton return:^NSObject *(UIButton* value) {
             return value
             .lh_title(@"normal image",UIControlStateNormal)
             .lh_clickAction(^(UIButton *sender){
+                
+                @strongify(self);
                 self.uiImageView.image = [UIImage imageNamed:@"yg_80_gold_pro_bg.png"];
                 [self.scroollView addSubview:self.uiImageView];
                 [self.scroollView setupAutoContentSizeWithBottomView:self.uiImageView bottomMargin:100];
@@ -60,12 +63,20 @@
 
 -(UIButton*)ygCuttingbutton{
     if(!_ygCuttingbutton){
+        @weakify(self);
         _ygCuttingbutton = [UIButton return:^NSObject *(UIButton* value) {
             return value
             .lh_title(@"cut image",UIControlStateNormal)
             .lh_clickAction(^(UIButton *sender){
+                @strongify(self);
                 NSLog(@"clickAction");
-                self.ygCuttingImageView.image = [UIImage imageNamed:@"yg_80_gold_pro_bg.png"];
+                
+                NSBundle *bundle = [NSBundle mainBundle];
+                NSString *resourcePath = [bundle resourcePath];
+                NSString *filePath = [resourcePath stringByAppendingPathComponent:@"yg_80_gold_pro_bg.png"];
+                UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+                
+                self.ygCuttingImageView.image = image;//[UIImage imageNamed:@"yg_80_gold_pro_bg.png"];
                 [self.scroollView addSubview:self.ygCuttingImageView];
                 [self.scroollView setupAutoContentSizeWithBottomView:self.ygCuttingImageView bottomMargin:100];
             })
