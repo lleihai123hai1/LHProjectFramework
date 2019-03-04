@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YGCuttingImageView : UIImageView
-
+@property(nonatomic,strong)NSMutableArray*ygImageViewMuArray;
 @end
 
 NS_ASSUME_NONNULL_END
