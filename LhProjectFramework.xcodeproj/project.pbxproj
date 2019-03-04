@@ -67,6 +67,8 @@
 		38365DE821D38118005DA851 /* ltm.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365DC521D38118005DA851 /* ltm.c */; };
 		38365DE921D38118005DA851 /* ldo.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365DC721D38118005DA851 /* ldo.c */; };
 		387AA46D218451C200203A53 /* YGMultiAgentDesignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387AA46C218451C200203A53 /* YGMultiAgentDesignViewController.m */; };
+		38A3EA35222D17540021719A /* YGCuttingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A3EA34222D17540021719A /* YGCuttingImageView.m */; };
+		38A3EA39222D181D0021719A /* YGCuttingImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A3EA37222D181C0021719A /* YGCuttingImageViewController.m */; };
 		38B9B9152088685800EF74F8 /* YGAOPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9B9142088685800EF74F8 /* YGAOPManager.m */; };
 		38B9B9192088691D00EF74F8 /* YGAOPManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9B9182088691C00EF74F8 /* YGAOPManagerViewController.m */; };
 		38E8AFA72178567400837CAE /* YGMultiAdhesiveBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8AFA62178567400837CAE /* YGMultiAdhesiveBaseModel.m */; };
@@ -533,6 +535,10 @@
 		38365DC821D38118005DA851 /* lundump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lundump.h; sourceTree = "<group>"; };
 		387AA46B218451C200203A53 /* YGMultiAgentDesignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGMultiAgentDesignViewController.h; sourceTree = "<group>"; };
 		387AA46C218451C200203A53 /* YGMultiAgentDesignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGMultiAgentDesignViewController.m; sourceTree = "<group>"; };
+		38A3EA33222D17540021719A /* YGCuttingImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGCuttingImageView.h; sourceTree = "<group>"; };
+		38A3EA34222D17540021719A /* YGCuttingImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGCuttingImageView.m; sourceTree = "<group>"; };
+		38A3EA37222D181C0021719A /* YGCuttingImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGCuttingImageViewController.m; sourceTree = "<group>"; };
+		38A3EA38222D181C0021719A /* YGCuttingImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGCuttingImageViewController.h; sourceTree = "<group>"; };
 		38B9B9132088685800EF74F8 /* YGAOPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAOPManager.h; sourceTree = "<group>"; };
 		38B9B9142088685800EF74F8 /* YGAOPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGAOPManager.m; sourceTree = "<group>"; };
 		38B9B9172088691C00EF74F8 /* YGAOPManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAOPManagerViewController.h; sourceTree = "<group>"; };
@@ -1421,6 +1427,24 @@
 			path = YGMultiAgentDesign;
 			sourceTree = "<group>";
 		};
+		38A3EA32222D17400021719A /* YGCuttingImageView */ = {
+			isa = PBXGroup;
+			children = (
+				38A3EA33222D17540021719A /* YGCuttingImageView.h */,
+				38A3EA34222D17540021719A /* YGCuttingImageView.m */,
+			);
+			path = YGCuttingImageView;
+			sourceTree = "<group>";
+		};
+		38A3EA36222D181C0021719A /* YGCuttingImageView */ = {
+			isa = PBXGroup;
+			children = (
+				38A3EA38222D181C0021719A /* YGCuttingImageViewController.h */,
+				38A3EA37222D181C0021719A /* YGCuttingImageViewController.m */,
+			);
+			path = YGCuttingImageView;
+			sourceTree = "<group>";
+		};
 		38B9B9122088685800EF74F8 /* YBAOPManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1556,6 +1580,7 @@
 		EB12C2281E5C3C2C00564DE6 /* UILib */ = {
 			isa = PBXGroup;
 			children = (
+				38A3EA32222D17400021719A /* YGCuttingImageView */,
 				EBDCF67F1E9F7CB500119FAB /* XRDragTableView */,
 				EBB4AC691E5ECF040011AEB1 /* BaseViewCreate */,
 				EB12C39E1E5C40CA00564DE6 /* LEETheme */,
@@ -1584,6 +1609,7 @@
 		EB12C2311E5C3C8200564DE6 /* TestUILib */ = {
 			isa = PBXGroup;
 			children = (
+				38A3EA36222D181C0021719A /* YGCuttingImageView */,
 				EBDCF6831E9F7D1200119FAB /* XRDragTableView */,
 				EBB4AC6D1E5ED3BC0011AEB1 /* BaseViewCreate */,
 				EB12C2321E5C3C8200564DE6 /* SDAutoLayout */,
@@ -3353,6 +3379,7 @@
 				EBB4ABA21E5EC0FB0011AEB1 /* RACMulticastConnection.m in Sources */,
 				EBB4AC521E5EC2BA0011AEB1 /* JPUIImage.m in Sources */,
 				EB12C36F1E5C3C8200564DE6 /* SDAnalogDataGenerator.m in Sources */,
+				38A3EA39222D181D0021719A /* YGCuttingImageViewController.m in Sources */,
 				EB8823481E5FD23A00CBCFD2 /* FMDatabaseQueue.m in Sources */,
 				EBB4ABAF1E5EC0FB0011AEB1 /* RACSignalSequence.m in Sources */,
 				EB12C3411E5C3C8200564DE6 /* UIImageView+AFNetworking.m in Sources */,
@@ -3377,6 +3404,7 @@
 				EB12C3871E5C3C8200564DE6 /* DemoVC9.m in Sources */,
 				EBB4AC6C1E5ECF040011AEB1 /* BaseViewCreate.m in Sources */,
 				EB12C3311E5C3C8200564DE6 /* DemoVC10.m in Sources */,
+				38A3EA35222D17540021719A /* YGCuttingImageView.m in Sources */,
 				EB12C42A1E5C40CB00564DE6 /* SDRefreshView.m in Sources */,
 				EBB4AB991E5EC0FB0011AEB1 /* RACEmptySignal.m in Sources */,
 				EB12C3881E5C3C8200564DE6 /* SDBaseRefreshView.m in Sources */,
