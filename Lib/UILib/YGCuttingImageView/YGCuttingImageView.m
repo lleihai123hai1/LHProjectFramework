@@ -75,6 +75,7 @@
     UIImage *smallImage = [UIImage imageWithCGImage:subImageRef];
 
     UIGraphicsEndImageContext();
+    CGImageRelease(subImageRef);
     return smallImage;
 }
 
