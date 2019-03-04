@@ -70,13 +70,13 @@
             .lh_clickAction(^(UIButton *sender){
                 @strongify(self);
                 NSLog(@"clickAction");
+//                
+//                NSBundle *bundle = [NSBundle mainBundle];
+//                NSString *resourcePath = [bundle resourcePath];
+//                NSString *filePath = [resourcePath stringByAppendingPathComponent:@"yg_80_gold_pro_bg.png"];
+//                UIImage *image = [UIImage imageWithContentsOfFile:filePath];
                 
-                NSBundle *bundle = [NSBundle mainBundle];
-                NSString *resourcePath = [bundle resourcePath];
-                NSString *filePath = [resourcePath stringByAppendingPathComponent:@"yg_80_gold_pro_bg.png"];
-                UIImage *image = [UIImage imageWithContentsOfFile:filePath];
-                
-                self.ygCuttingImageView.image = image;//[UIImage imageNamed:@"yg_80_gold_pro_bg.png"];
+                self.ygCuttingImageView.image = [UIImage imageNamed:@"yg_80_gold_pro_bg.png"];
                 [self.scroollView addSubview:self.ygCuttingImageView];
                 [self.scroollView setupAutoContentSizeWithBottomView:self.ygCuttingImageView bottomMargin:100];
             })

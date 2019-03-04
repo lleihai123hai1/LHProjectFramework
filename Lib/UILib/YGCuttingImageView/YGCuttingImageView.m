@@ -34,14 +34,25 @@
     CGFloat viewWidth = self.width/maxColumn;
     CGFloat viewHeight = self.height/maxLine;
     
+//    BOOL flag = NO;
+    BOOL flag = YES;
     for (NSInteger j = 0; j < maxLine ; j++) {
         for (NSInteger i = 0; i < maxColumn ; i++) {
             CGRect rect = CGRectMake(i*widthDiff, j*heightDiff , widthDiff, heightDiff);
-            UIImage*tmpImage = [self getImageByCuttingImage:image Rect:rect];
+            UIImage*tmpImage;
+            if(flag){
+                tmpImage = [self getImageByCuttingImage:image Rect:rect];
+            }else{
+                tmpImage = [UIImage imageWithContentsOfFile:[self getpathByName:[NSString stringWithFormat:@"%ld_%ld.png",(long)i,(long)j]]];;
+            }
             UIImageView*imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i*viewWidth, j*viewHeight, viewWidth, viewHeight)];
             imageView.image = tmpImage;
             [self addSubview:imageView];
             [self.ygImageViewMuArray addObject:imageView];
+            if(flag){
+                [UIImagePNGRepresentation(tmpImage) writeToFile:[self getpathByName:[NSString stringWithFormat:@"%ld_%ld.png",(long)i,(long)j]] atomically:YES];
+            }
+            
             NSLog(@"%@",tmpImage);
             
         }
@@ -79,4 +90,10 @@
     return smallImage;
 }
 
+
+-(NSString *)getpathByName:(NSString*)name{
+    NSArray *paths =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *filePath = [[paths objectAtIndex:0]stringByAppendingPathComponent:name];  // 保存文件的名称
+    return filePath;
+}
 @end
