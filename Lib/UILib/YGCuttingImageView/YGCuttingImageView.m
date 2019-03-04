@@ -11,7 +11,8 @@
 @implementation YGCuttingImageView
 
 - (void)setImage:(UIImage *)image {
-    NSMutableArray *tmpYGImageViewMuArray = [self.ygImageViewMuArray copy];
+    
+    NSMutableArray *tmpYGImageViewMuArray = [NSMutableArray arrayWithArray:self.ygImageViewMuArray?:@[]];
     for (UIView *view in tmpYGImageViewMuArray) {
         [view removeFromSuperview];
     }
@@ -23,8 +24,8 @@
     NSInteger diff = 256;
     CGSize imageSize = image.size;
     
-    NSInteger maxLine = floorf(imageSize.height/diff);
-    NSInteger maxColumn = floorf(imageSize.width/diff);
+    NSInteger maxLine = ceilf(imageSize.height/diff);
+    NSInteger maxColumn = ceilf(imageSize.width/diff);
     
     CGFloat widthDiff = imageSize.width/ maxColumn;
     CGFloat heightDiff = imageSize.height/ maxLine;
@@ -74,7 +75,6 @@
     UIImage *smallImage = [UIImage imageWithCGImage:subImageRef];
 
     UIGraphicsEndImageContext();
-
     return smallImage;
 }
 
