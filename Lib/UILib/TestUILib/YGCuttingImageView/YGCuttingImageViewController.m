@@ -1,5 +1,6 @@
 #import "YGCuttingImageViewController.h"
 #import "YGCuttingImageView.h"
+#import "YYImage.h"
 @interface YGCuttingImageViewController ()
 @property (nonatomic, strong) UIScrollView *scroollView;
 @property(nonatomic,strong)UIButton*button;
@@ -45,7 +46,7 @@
             .lh_clickAction(^(UIButton *sender){
                 
                 @strongify(self);
-                self.uiImageView.image = [UIImage imageNamed:@"yg_80_gold_pro_bg.png"];
+                self.uiImageView.image = [YYImage imageNamed:@"yg_80_gold_pro_bg.png"];
                 [self.scroollView addSubview:self.uiImageView];
                 [self.scroollView setupAutoContentSizeWithBottomView:self.uiImageView bottomMargin:100];
             })
