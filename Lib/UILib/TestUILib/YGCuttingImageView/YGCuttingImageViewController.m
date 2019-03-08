@@ -18,7 +18,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.scroollView.hidden = NO;
     [self.view addSubview:self.button];
-    [self.view addSubview:self.ygCuttingbutton];
+//    [self.view addSubview:self.ygCuttingbutton];
     
     
     
@@ -36,6 +36,25 @@
     return _scroollView;
 }
 
+-(NSString *)getPathByName:(NSString*)Name {
+    //成功找到标志
+    BOOL success = NO;
+    NSString* path = nil;
+    //搜索mainBundle
+    if (!success){
+        path = [[NSBundle mainBundle] bundlePath];
+        path = [path stringByAppendingString:[NSString stringWithFormat:@"/%@",Name]];
+        success = [[NSFileManager defaultManager] fileExistsAtPath:path];
+    }
+    
+    if (success) {
+        //        EBLog(@"path %@",path);
+        return path;
+    }else{
+        //        EBLog(@"do not find file:%@",Name);
+        return  nil;
+    }
+}
 
 -(UIButton*)button{
     if(!_button){
@@ -46,7 +65,15 @@
             .lh_clickAction(^(UIButton *sender){
                 
                 @strongify(self);
-                self.uiImageView.image = [YYImage imageNamed:@"yg_80_gold_pro_bg.png"];
+               
+//               self.uiImageView.image =  [UIImage imageWithContentsOfFile: [self getPathByName:@"yg_80_gold_pro_bg.png"]];
+//                self.uiImageView.image = [YYImage imageNamed:@"yg_80_gold_pro_bg.png"];
+//
+                
+                self.uiImageView.image =  [UIImage imageNamed:@"Coupons_GoldPro_trial"];
+//                self.uiImageView.image = [YYImage imageNamed:@"jpg_Coupons_GoldPro_trial"];
+                
+                
                 [self.scroollView addSubview:self.uiImageView];
                 [self.scroollView setupAutoContentSizeWithBottomView:self.uiImageView bottomMargin:100];
             })
@@ -62,37 +89,37 @@
     return _button;
 }
 
--(UIButton*)ygCuttingbutton{
-    if(!_ygCuttingbutton){
-        @weakify(self);
-        _ygCuttingbutton = [UIButton return:^NSObject *(UIButton* value) {
-            return value
-            .lh_title(@"cut image",UIControlStateNormal)
-            .lh_clickAction(^(UIButton *sender){
-                @strongify(self);
-                NSLog(@"clickAction");
-//                
-//                NSBundle *bundle = [NSBundle mainBundle];
-//                NSString *resourcePath = [bundle resourcePath];
-//                NSString *filePath = [resourcePath stringByAppendingPathComponent:@"yg_80_gold_pro_bg.png"];
-//                UIImage *image = [UIImage imageWithContentsOfFile:filePath];
-                
-                self.ygCuttingImageView.image = [UIImage imageNamed:@"yg_80_gold_pro_bg.png"];
-                [self.scroollView addSubview:self.ygCuttingImageView];
-                [self.scroollView setupAutoContentSizeWithBottomView:self.ygCuttingImageView bottomMargin:100];
-            })
-            .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
-                sd_layout.leftSpaceToView(self.view,10)
-                .topSpaceToView(self.view,350)
-                .widthIs(160)
-                .heightIs(40);
-            })
-            .lh_backgroundColor([UIColor redColor]);
-        }];
-    }
-    return _ygCuttingbutton;
-}
-
+//-(UIButton*)ygCuttingbutton{
+//    if(!_ygCuttingbutton){
+//        @weakify(self);
+//        _ygCuttingbutton = [UIButton return:^NSObject *(UIButton* value) {
+//            return value
+//            .lh_title(@"cut image",UIControlStateNormal)
+//            .lh_clickAction(^(UIButton *sender){
+//                @strongify(self);
+//                NSLog(@"clickAction");
+////
+////                NSBundle *bundle = [NSBundle mainBundle];
+////                NSString *resourcePath = [bundle resourcePath];
+////                NSString *filePath = [resourcePath stringByAppendingPathComponent:@"yg_80_gold_pro_bg.png"];
+////                UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+//
+//                self.ygCuttingImageView.image = [UIImage imageNamed:@"yg_80_gold_pro_bg.png"];
+//                [self.scroollView addSubview:self.ygCuttingImageView];
+//                [self.scroollView setupAutoContentSizeWithBottomView:self.ygCuttingImageView bottomMargin:100];
+//            })
+//            .lh_layout(self.view,^(SDAutoLayoutModel *sd_layout){
+//                sd_layout.leftSpaceToView(self.view,10)
+//                .topSpaceToView(self.view,350)
+//                .widthIs(160)
+//                .heightIs(40);
+//            })
+//            .lh_backgroundColor([UIColor redColor]);
+//        }];
+//    }
+//    return _ygCuttingbutton;
+//}
+//
 
 
 -(UIImageView*)uiImageView{
@@ -106,14 +133,14 @@
     return _uiImageView;
 }
 
--(YGCuttingImageView*)ygCuttingImageView{
-    if(!_ygCuttingImageView){
-        _ygCuttingImageView = [YGCuttingImageView return:^NSObject *(UIImageView* value) {
-            return value;
-        }];
-        _ygCuttingImageView.frame = CGRectMake(0, 0, self.view.width, self.view.width*2727/1125);
-        _ygCuttingImageView.backgroundColor = [UIColor lh_randomColor];
-    }
-    return _ygCuttingImageView;
-}
+//-(YGCuttingImageView*)ygCuttingImageView{
+//    if(!_ygCuttingImageView){
+//        _ygCuttingImageView = [YGCuttingImageView return:^NSObject *(UIImageView* value) {
+//            return value;
+//        }];
+//        _ygCuttingImageView.frame = CGRectMake(0, 0, self.view.width, self.view.width*2727/1125);
+//        _ygCuttingImageView.backgroundColor = [UIColor lh_randomColor];
+//    }
+//    return _ygCuttingImageView;
+//}
 @end

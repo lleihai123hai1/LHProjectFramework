@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24D412F11E6A606A0068BFA2 /* CityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D412F01E6A606A0068BFA2 /* CityTest.m */; };
+		3827362C2231156F00854EB3 /* jpg_Coupons_GoldPro_trial.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3827362B2231156F00854EB3 /* jpg_Coupons_GoldPro_trial.jpg */; };
 		3829BAFB2179C4CC009B7C6C /* YGMultiInitializeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3829BAFA2179C4CC009B7C6C /* YGMultiInitializeModel.m */; };
 		382DE8A921D463B500766B3C /* NSString+Paths.m in Sources */ = {isa = PBXBuildFile; fileRef = 382DE8A521D463B500766B3C /* NSString+Paths.m */; };
 		382DE8AA21D463B500766B3C /* LuaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 382DE8A721D463B500766B3C /* LuaManager.m */; };
@@ -421,6 +422,7 @@
 /* Begin PBXFileReference section */
 		24D412EF1E6A606A0068BFA2 /* CityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTest.h; sourceTree = "<group>"; };
 		24D412F01E6A606A0068BFA2 /* CityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTest.m; sourceTree = "<group>"; };
+		3827362B2231156F00854EB3 /* jpg_Coupons_GoldPro_trial.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jpg_Coupons_GoldPro_trial.jpg; sourceTree = "<group>"; };
 		3829BAF92179C4CC009B7C6C /* YGMultiInitializeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGMultiInitializeModel.h; sourceTree = "<group>"; };
 		3829BAFA2179C4CC009B7C6C /* YGMultiInitializeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGMultiInitializeModel.m; sourceTree = "<group>"; };
 		382DE8A421D463B500766B3C /* LuaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaManager.h; sourceTree = "<group>"; };
@@ -1474,6 +1476,7 @@
 		38A3EA36222D181C0021719A /* YGCuttingImageView */ = {
 			isa = PBXGroup;
 			children = (
+				3827362B2231156F00854EB3 /* jpg_Coupons_GoldPro_trial.jpg */,
 				38A3EA3A222D1F370021719A /* yg_80_gold_pro_bg.png */,
 				38A3EA38222D181C0021719A /* YGCuttingImageViewController.h */,
 				38A3EA37222D181C0021719A /* YGCuttingImageViewController.m */,
@@ -3262,6 +3265,7 @@
 				EB12C3781E5C3C8200564DE6 /* DemoVC14Cell.xib in Resources */,
 				EB12C40E1E5C40CB00564DE6 /* MLEmoji_ExpressionImage.plist in Resources */,
 				EB12C4271E5C40CB00564DE6 /* sdRefeshView_arrow@2x.png in Resources */,
+				3827362C2231156F00854EB3 /* jpg_Coupons_GoldPro_trial.jpg in Resources */,
 				3831417621FC034000F8A6EC /* test.lua in Resources */,
 				EB12C21A1E5C3BBF00564DE6 /* Assets.xcassets in Resources */,
 				382DE8AD21D463E600766B3C /* configuration.lua in Resources */,
