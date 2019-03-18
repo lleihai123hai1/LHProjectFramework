@@ -15,6 +15,7 @@
 #import "BaseViewCreateUICollectionView.h"
 #import "LhViewControllerSort.h"
 #import "YGAOPManagerViewController.h"
+#import "YGUICollectionViewCrash.h"
 @interface MainViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView*table;
 @end
@@ -28,7 +29,8 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    _contenArray = @[@{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"}
+    _contenArray = @[@{@"title":@"YGUICollectionViewCrash",@"content":@"UICollectionView闪退自测"},
+                     @{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"}
                      ,@{@"title":@"JsPathViewController",@"content":@"热修复"}
                      ,@{@"title":@"LhCoreDataViewController",@"content":@"测试数据库存储"}
                      ,@{@"title":@"BaseViewCreateUitableView",@"content":@"测试uitable"}
