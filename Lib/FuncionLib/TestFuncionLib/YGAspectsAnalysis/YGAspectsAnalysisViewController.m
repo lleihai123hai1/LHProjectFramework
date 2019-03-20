@@ -62,44 +62,16 @@ static NSString *const AspectsMessagePrefix = @"aspects_";
     
 }
 -(void)test2{
+    //    objc_allocateClassPair(Class superclass, const char *name, size_t extraBytes)
+    //    添加类 superclass 类是父类   name 类的名字  size_t 类占的空间
     SEL selector = @selector(test3);
-   Class klass = aspect_hookClass(self, nil);//生成self的一个子类
+    Class klass = aspect_hookClass(self, nil);//生成self的一个子类
     Method targetMethod = class_getInstanceMethod(klass, selector);
     const char *typeEncoding = method_getTypeEncoding(targetMethod);
     // We use forwardInvocation to hook in.
-    class_replaceMethod(klass, selector, aspect_getMsgForwardIMP(self, selector), typeEncoding);
-//    objc_allocateClassPair(Class superclass, const char *name, size_t extraBytes)
-//    添加类 superclass 类是父类   name 类的名字  size_t 类占的空间
+    class_replaceMethod(klass, selector, _objc_msgForward, typeEncoding);
+
 }
-
-
-static IMP aspect_getMsgForwardIMP(NSObject *self, SEL selector) {
-    IMP msgForwardIMP = _objc_msgForward;
-#if !defined(__arm64__)
-    // As an ugly internal runtime implementation detail in the 32bit runtime, we need to determine of the method we hook returns a struct or anything larger than id.
-    // https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/LowLevelABI/000-Introduction/introduction.html
-    // https://github.com/ReactiveCocoa/ReactiveCocoa/issues/783
-    // http://infocenter.arm.com/help/topic/com.arm.doc.ihi0042e/IHI0042E_aapcs.pdf (Section 5.4)
-    Method method = class_getInstanceMethod(self.class, selector);
-    const char *encoding = method_getTypeEncoding(method);
-    BOOL methodReturnsStructValue = encoding[0] == _C_STRUCT_B;
-    if (methodReturnsStructValue) {
-        @try {
-            NSUInteger valueSize = 0;
-            NSGetSizeAndAlignment(encoding, &valueSize, NULL);
-            
-            if (valueSize == 1 || valueSize == 2 || valueSize == 4 || valueSize == 8) {
-                methodReturnsStructValue = NO;
-            }
-        } @catch (__unused NSException *e) {}
-    }
-    if (methodReturnsStructValue) {
-        msgForwardIMP = (IMP)_objc_msgForward_stret;
-    }
-#endif
-    return msgForwardIMP;
-}
-
 
 -(void)test3{
     
@@ -148,34 +120,22 @@ static IMP aspect_getMsgForwardIMP(NSObject *self, SEL selector) {
 }
 
 static Class aspect_hookClass(NSObject *self, NSError **error) {
-    Class statedClass = self.class;
     Class baseClass = object_getClass(self);
     NSString *className = NSStringFromClass(baseClass);
-    // Default case. Create dynamic subclass.
     const char *subclassName = [className stringByAppendingString:AspectsSubclassSuffix].UTF8String;
     Class subclass = objc_getClass(subclassName);//获取添加后缀的类名
     if (subclass == nil) {
         subclass = objc_allocateClassPair(baseClass, subclassName, 0);//注册添加后缀的类名
-        if (subclass == nil) {
-            return nil;
-        }
         aspect_swizzleForwardInvocation(subclass);//类方法交换
         objc_registerClassPair(subclass);
     }
     object_setClass(self, subclass);
     return subclass;
 }
-static NSString *const AspectsForwardInvocationSelectorName = @"__aspects_forwardInvocation:";
-static void aspect_swizzleForwardInvocation(Class klass) {
-    NSCParameterAssert(klass);
-    // If there is no method, replace will act like class_addMethod.
-    IMP originalImplementation = class_replaceMethod(klass, @selector(forwardInvocation:), (IMP)__ASPECTS_ARE_BEING_CALLED__, "v@:@");
-//    class_replaceMethod返回的是原方法对应的IMP,如果原来方法没有实现就返回nil,调用了class_replaceMethod会把原来方法的IMP指向另一个方法的实现
-    if (originalImplementation) {
-        class_addMethod(klass, NSSelectorFromString(AspectsForwardInvocationSelectorName), originalImplementation, "v@:@");
-    }
-}
 
+static void aspect_swizzleForwardInvocation(Class klass) {
+    class_replaceMethod(klass, @selector(forwardInvocation:), (IMP)__ASPECTS_ARE_BEING_CALLED__, "v@:@");
+}
 // This is the swizzled forwardInvocation: method.
 static void __ASPECTS_ARE_BEING_CALLED__(__unsafe_unretained NSObject *self, SEL selector, NSInvocation *invocation) {
     NSLog(@"__ASPECTS_ARE_BEING_CALLED__  __ASPECTS_ARE_BEING_CALLED__");
