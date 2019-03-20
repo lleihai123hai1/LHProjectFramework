@@ -8,26 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-//@interface YGAOPNSObject1 : NSObject
-//@property(nonatomic,strong)NSString*obj1Str;
-//@end
-//
-//@interface YGAOPNSObject2 : NSObject
-//@end
-//
-//@interface YGAOPNSObject3 : NSObject
-//@end
-//
-//
-//@protocol YGAOPManagerViewControllerDelegate
-//@property(nonatomic,strong)NSString*obj1Str;
-//@optional
-//-(void)Object1;
-//-(void)Object2;
-//-(void)Object3;
-//-(void)Object3:(NSInteger)value;
-//-(void)Object3:(NSInteger)value str:(NSString*)str;
-//@end
+@interface Person1 : NSObject
+@property(nonatomic,strong)NSString*name1;
+-(void)testPrint;
+@end
+@interface Person2 : NSObject
+@property(nonatomic,strong)NSString*name2;
+-(void)testPrint;
+@end
+@interface Person3 : NSObject
+@end
 
 @interface YGAspectsAnalysisViewController : UIViewController
 
