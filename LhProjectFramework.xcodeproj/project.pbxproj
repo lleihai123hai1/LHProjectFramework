@@ -34,6 +34,9 @@
 		382E99F821D6288800CD921B /* LSCExportsTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 382E99E421D6288800CD921B /* LSCExportsTypeManager.m */; };
 		3831417421FC024100F8A6EC /* LSCTPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 3831417321FC024000F8A6EC /* LSCTPerson.m */; };
 		3831417621FC034000F8A6EC /* test.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3831417521FC033F00F8A6EC /* test.lua */; };
+		3834D21E2241E88100E8BD3B /* YGAspectsAnalysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3834D21D2241E88100E8BD3B /* YGAspectsAnalysisViewController.m */; };
+		3834D2222241E8D600E8BD3B /* YGAspectsAnalysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3834D2212241E8D600E8BD3B /* YGAspectsAnalysisViewController.m */; };
+		3834D2262241E8E400E8BD3B /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3834D2252241E8E400E8BD3B /* Aspects.m */; };
 		38365DC921D38118005DA851 /* lauxlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365D8E21D38118005DA851 /* lauxlib.c */; };
 		38365DCA21D38118005DA851 /* liolib.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365D9421D38118005DA851 /* liolib.c */; };
 		38365DCB21D38118005DA851 /* lopcodes.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365D9521D38118005DA851 /* lopcodes.c */; };
@@ -483,6 +486,12 @@
 		3831417221FC024000F8A6EC /* LSCTPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCTPerson.h; sourceTree = "<group>"; };
 		3831417321FC024000F8A6EC /* LSCTPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCTPerson.m; sourceTree = "<group>"; };
 		3831417521FC033F00F8A6EC /* test.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.lua; sourceTree = "<group>"; };
+		3834D21C2241E88100E8BD3B /* YGAspectsAnalysisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAspectsAnalysisViewController.h; sourceTree = "<group>"; };
+		3834D21D2241E88100E8BD3B /* YGAspectsAnalysisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGAspectsAnalysisViewController.m; sourceTree = "<group>"; };
+		3834D2202241E8D600E8BD3B /* YGAspectsAnalysisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAspectsAnalysisViewController.h; sourceTree = "<group>"; };
+		3834D2212241E8D600E8BD3B /* YGAspectsAnalysisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGAspectsAnalysisViewController.m; sourceTree = "<group>"; };
+		3834D2242241E8E400E8BD3B /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
+		3834D2252241E8E400E8BD3B /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
 		38365D8E21D38118005DA851 /* lauxlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lauxlib.c; sourceTree = "<group>"; };
 		38365D8F21D38118005DA851 /* lmem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lmem.h; sourceTree = "<group>"; };
 		38365D9021D38118005DA851 /* llimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = llimits.h; sourceTree = "<group>"; };
@@ -1373,6 +1382,33 @@
 			path = LuaScriptCore;
 			sourceTree = "<group>";
 		};
+		3834D21B2241E88100E8BD3B /* YGAspectsAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				3834D21C2241E88100E8BD3B /* YGAspectsAnalysisViewController.h */,
+				3834D21D2241E88100E8BD3B /* YGAspectsAnalysisViewController.m */,
+			);
+			path = YGAspectsAnalysis;
+			sourceTree = "<group>";
+		};
+		3834D21F2241E8D600E8BD3B /* YGAspectsAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				3834D2202241E8D600E8BD3B /* YGAspectsAnalysisViewController.h */,
+				3834D2212241E8D600E8BD3B /* YGAspectsAnalysisViewController.m */,
+			);
+			path = YGAspectsAnalysis;
+			sourceTree = "<group>";
+		};
+		3834D2232241E8E400E8BD3B /* Aspects */ = {
+			isa = PBXGroup;
+			children = (
+				3834D2242241E8E400E8BD3B /* Aspects.h */,
+				3834D2252241E8E400E8BD3B /* Aspects.m */,
+			);
+			path = Aspects;
+			sourceTree = "<group>";
+		};
 		38365D8D21D38118005DA851 /* Lua */ = {
 			isa = PBXGroup;
 			children = (
@@ -1621,6 +1657,7 @@
 		EB12C2271E5C3C2C00564DE6 /* FuncionLib */ = {
 			isa = PBXGroup;
 			children = (
+				3834D2232241E8E400E8BD3B /* Aspects */,
 				38B9B9122088685800EF74F8 /* YBAOPManager */,
 				EBB4ABD01E5EC2BA0011AEB1 /* jspathlib */,
 				EBB4AAB01E5EC0FB0011AEB1 /* ReactiveCocoa */,
@@ -3152,6 +3189,8 @@
 		EBB4AC641E5EC3DC0011AEB1 /* TestFuncionLib */ = {
 			isa = PBXGroup;
 			children = (
+				3834D21B2241E88100E8BD3B /* YGAspectsAnalysis */,
+				3834D21F2241E8D600E8BD3B /* YGAspectsAnalysis */,
 				387AA46A218451C200203A53 /* YGMultiAgentDesign */,
 				38B9B9162088691C00EF74F8 /* YBAOPManager */,
 				EB4BE6111EF0E16E00E54692 /* KVC */,
@@ -3346,6 +3385,7 @@
 				EB12C3741E5C3C8200564DE6 /* DemoVC12.m in Sources */,
 				EB88236C1E5FD63C00CBCFD2 /* LhCoreDataViewController.m in Sources */,
 				EBB4AC3C1E5EC2BA0011AEB1 /* sysv_arm64.S in Sources */,
+				3834D2222241E8D600E8BD3B /* YGAspectsAnalysisViewController.m in Sources */,
 				EB12C33C1E5C3C8200564DE6 /* README.md in Sources */,
 				EBB4ABBE1E5EC0FB0011AEB1 /* UIAlertView+RACSignalSupport.m in Sources */,
 				EB12C42F1E5C40CB00564DE6 /* SDWebImageCompat.m in Sources */,
@@ -3387,6 +3427,7 @@
 				EB12C33D1E5C3C8200564DE6 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				382DE8A921D463B500766B3C /* NSString+Paths.m in Sources */,
 				EB12C3911E5C3C8200564DE6 /* SDWeiXinPhotoContainerView.m in Sources */,
+				3834D2262241E8E400E8BD3B /* Aspects.m in Sources */,
 				382E99EE21D6288800CD921B /* LSCOperationQueue.m in Sources */,
 				EBB4AC381E5EC2BA0011AEB1 /* JPCFunction.m in Sources */,
 				EB12C35A1E5C3C8200564DE6 /* MJRefreshBackNormalFooter.m in Sources */,
@@ -3557,6 +3598,7 @@
 				EB12C3631E5C3C8200564DE6 /* UIView+MJExtension.m in Sources */,
 				EB12C3831E5C3C8200564DE6 /* DemoVC7Cell.m in Sources */,
 				EBB4ABB61E5EC0FB0011AEB1 /* RACTargetQueueScheduler.m in Sources */,
+				3834D21E2241E88100E8BD3B /* YGAspectsAnalysisViewController.m in Sources */,
 				38B9B9192088691D00EF74F8 /* YGAOPManagerViewController.m in Sources */,
 				EB12C3761E5C3C8200564DE6 /* DemoVC14.m in Sources */,
 				38365DCA21D38118005DA851 /* liolib.c in Sources */,

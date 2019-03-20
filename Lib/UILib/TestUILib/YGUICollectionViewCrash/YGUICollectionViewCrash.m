@@ -22,7 +22,6 @@
         UICollectionViewFlowLayout *fl = [[UICollectionViewFlowLayout alloc]init];
         fl.minimumInteritemSpacing = 0;
         fl.minimumLineSpacing = 5;
-        self.view.bounds
         _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height)collectionViewLayout:fl];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
@@ -49,10 +48,10 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return 4;
 }
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return  [UICollectionViewCell new];
-}
+//
+//- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    return  [UICollectionViewCell new];
+//}
 
 
 
