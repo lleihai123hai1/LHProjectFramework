@@ -64,7 +64,7 @@ static NSString *const AspectsMessagePrefix = @"aspects_";
 -(void)test2{
     //    objc_allocateClassPair(Class superclass, const char *name, size_t extraBytes)
     //    添加类 superclass 类是父类   name 类的名字  size_t 类占的空间
-    SEL selector = @selector(test3);
+    SEL selector = @selector(function:);
     Class klass = aspect_hookClass(self, nil);//生成self的一个子类
     Method targetMethod = class_getInstanceMethod(klass, selector);
     const char *typeEncoding = method_getTypeEncoding(targetMethod);
@@ -74,9 +74,12 @@ static NSString *const AspectsMessagePrefix = @"aspects_";
 }
 
 -(void)test3{
-    
+    [self function:@"ddddddd"];
 }
 
+-(void)function:(NSString*)function{
+    NSLog(@"%@",function);
+}
 #pragma mark - tableview datasourece and delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
