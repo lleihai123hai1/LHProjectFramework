@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@interface NSArray (ForwardingIteration)
+@end
+
 @interface Person1 : NSObject
 @property(nonatomic,strong)NSString*name1;
 -(void)testPrint;

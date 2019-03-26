@@ -43,12 +43,12 @@
             .lh_clickAction(^(UIButton *sender){
                 
                 @strongify(self);
-                self.uiImageView.image =  [UIImage imageNamed:@"Coupons_GoldPro_trial"];
-                self.uiImageView1.image =  [UIImage imageNamed:@"Coupons_GoldPro_trial"];
-                self.uiImageView2.image =  [UIImage imageNamed:@"Coupons_GoldPro_trial"];
-//                self.uiImageView.image = [YYImage imageNamed:@"jpg_Coupons_GoldPro_trial"];
-//                self.uiImageView1.image = [YYImage imageNamed:@"jpg_Coupons_GoldPro_trial"];
-//                self.uiImageView2.image = [YYImage imageNamed:@"jpg_Coupons_GoldPro_trial"];
+//                self.uiImageView.image =  [UIImage imageNamed:@"Coupons_GoldPro_trial"];
+//                self.uiImageView1.image =  [UIImage imageNamed:@"yg_80_gold_pro_bg"];
+//                self.uiImageView2.image =  [UIImage imageNamed:@"giftBoxCard-1"];
+                self.uiImageView.image = [YYImage imageNamed:@"jpg_Coupons_GoldPro_trial"];
+                self.uiImageView1.image = [YYImage imageNamed:@"yg_80_gold_pro_bg"];
+                self.uiImageView2.image = [YYImage imageNamed:@"giftBoxCard-1"];
                 [self.scroollView addSubview:self.uiImageView];
                 [self.scroollView addSubview:self.uiImageView1];
                 [self.scroollView addSubview:self.uiImageView2];
