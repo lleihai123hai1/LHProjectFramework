@@ -72,6 +72,7 @@
 		38365DE821D38118005DA851 /* ltm.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365DC521D38118005DA851 /* ltm.c */; };
 		38365DE921D38118005DA851 /* ldo.c in Sources */ = {isa = PBXBuildFile; fileRef = 38365DC721D38118005DA851 /* ldo.c */; };
 		383E5CD92238F9B5005B1CBB /* YGUICollectionViewCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 383E5CD82238F9B5005B1CBB /* YGUICollectionViewCrash.m */; };
+		385185342260611600C65792 /* YGHttpImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385185332260611600C65792 /* YGHttpImageViewController.m */; };
 		387AA46D218451C200203A53 /* YGMultiAgentDesignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387AA46C218451C200203A53 /* YGMultiAgentDesignViewController.m */; };
 		38819477222E6F5300BB9179 /* YYSpriteSheetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 38819470222E6F5300BB9179 /* YYSpriteSheetImage.m */; };
 		38819478222E6F5300BB9179 /* YYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 38819472222E6F5300BB9179 /* YYImage.m */; };
@@ -555,6 +556,8 @@
 		38365DC821D38118005DA851 /* lundump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lundump.h; sourceTree = "<group>"; };
 		383E5CD72238F9B5005B1CBB /* YGUICollectionViewCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGUICollectionViewCrash.h; sourceTree = "<group>"; };
 		383E5CD82238F9B5005B1CBB /* YGUICollectionViewCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGUICollectionViewCrash.m; sourceTree = "<group>"; };
+		385185322260611600C65792 /* YGHttpImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGHttpImageViewController.h; sourceTree = "<group>"; };
+		385185332260611600C65792 /* YGHttpImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGHttpImageViewController.m; sourceTree = "<group>"; };
 		387AA46B218451C200203A53 /* YGMultiAgentDesignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGMultiAgentDesignViewController.h; sourceTree = "<group>"; };
 		387AA46C218451C200203A53 /* YGMultiAgentDesignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGMultiAgentDesignViewController.m; sourceTree = "<group>"; };
 		3881946D222E6F5300BB9179 /* YYImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYImage.h; sourceTree = "<group>"; };
@@ -1487,6 +1490,15 @@
 			path = YGUICollectionViewCrash;
 			sourceTree = "<group>";
 		};
+		38518531226060D300C65792 /* YGHttpImageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				385185322260611600C65792 /* YGHttpImageViewController.h */,
+				385185332260611600C65792 /* YGHttpImageViewController.m */,
+			);
+			path = YGHttpImageViewController;
+			sourceTree = "<group>";
+		};
 		387AA46A218451C200203A53 /* YGMultiAgentDesign */ = {
 			isa = PBXGroup;
 			children = (
@@ -1700,6 +1712,7 @@
 		EB12C2311E5C3C8200564DE6 /* TestUILib */ = {
 			isa = PBXGroup;
 			children = (
+				38518531226060D300C65792 /* YGHttpImageViewController */,
 				383E5CD62238F9B5005B1CBB /* YGUICollectionViewCrash */,
 				38A3EA36222D181C0021719A /* YGCuttingImageView */,
 				EBDCF6831E9F7D1200119FAB /* XRDragTableView */,
@@ -3451,6 +3464,7 @@
 				EB12C3751E5C3C8200564DE6 /* DemoVC13.m in Sources */,
 				EB12C37F1E5C3C8200564DE6 /* DemoVC5CellTableViewCell.m in Sources */,
 				EBB4AC531E5EC2BA0011AEB1 /* JPUIKit.m in Sources */,
+				385185342260611600C65792 /* YGHttpImageViewController.m in Sources */,
 				EB12C3331E5C3C8200564DE6 /* AFHTTPRequestOperationManager.m in Sources */,
 				382E99F121D6288800CD921B /* LSCVirtualInstance.m in Sources */,
 				EBB4AB7C1E5EC0FB0011AEB1 /* NSInvocation+RACTypeParsing.m in Sources */,
