@@ -23,7 +23,7 @@
 }
 
 -(void)addHttpImage{
-    NSArray *url = @[@"http://st3.dailyyoga.com.edgesuite.net//2d/3c/2d3cec3618e4758e1fe364c3ab9b6c0d.jpeg?size=1920-1080_",
+    NSArray *urlArray = @[@"http://st3.dailyyoga.com.edgesuite.net//2d/3c/2d3cec3618e4758e1fe364c3ab9b6c0d.jpeg?size=1920-1080_",
                      @"http://st3.dailyyoga.com.edgesuite.net//97/ff/97ffee2fb6283bafd3b24dc0537403c4.jpeg?size=1920-1080_",
                      @"http://st3.dailyyoga.com.edgesuite.net//84/6c/846cff018cde4837ea8cca3042134390.jpeg?size=1920-1080_",
                      @"http://st3.dailyyoga.com.edgesuite.net//bd/ee/bdee5005c8a516bc844bb94b794e7617.jpeg?size=1920-1080_",
@@ -39,19 +39,22 @@
                      @"http://st3.dailyyoga.com.edgesuite.net//84/7f/847f04ab33bbfc009619bc066ea2193c.jpeg?size=1920-1080_",
                      @"http://st3.dailyyoga.com.edgesuite.net//22/c9/22c9db8db09b088ca04bf89aef2d77ae.jpeg?size=1920-1080_",
                      @"http://st3.dailyyoga.com.edgesuite.net//5d/62/5d622cd5ff255cf828594f38a9948fc1.jpeg?size=1920-1080_"];
-    NSInteger imageViewCount = url.count;
+    NSInteger imageViewCount = urlArray.count;
     CGFloat width = self.view.width/2;
     CGFloat height = 2*self.view.height/imageViewCount;
+    
+    NSMutableArray*url = [NSMutableArray new];
+    for (NSString *strUrl  in urlArray) {
+//        [url addObject: [strUrl stringByAppendingString:@"1024-700"]];
+        [url addObject: strUrl];
+    }
+    
     self.ygStartTime = CFAbsoluteTimeGetCurrent();
     for (NSInteger i = 0 ; i < url.count; i++) {
        UIImageView* uiImageView = [[UIImageView alloc]initWithFrame:CGRectMake((i%2)*width, i/2*height, width, height)];
         uiImageView.layer.borderWidth = 2;
         uiImageView.layer.borderColor = [UIColor blackColor].CGColor;
-//        [uiImageView sd_setImageWithURL:[NSURL URLWithString:url[i]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//            uiImageView.image = image;
-//            self.ygEndTime = CFAbsoluteTimeGetCurrent();
-//        }];
-        [uiImageView sd_setImageWithURL:[NSURL URLWithString:[url[i] stringByAppendingString:@"1024-700"]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [uiImageView sd_setImageWithURL:[NSURL URLWithString:url[i]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             uiImageView.image = image;
             self.ygEndTime = CFAbsoluteTimeGetCurrent();
         }];
