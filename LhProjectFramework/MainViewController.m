@@ -18,6 +18,7 @@
 #import "YGUICollectionViewCrash.h"
 #import "YGAspectsAnalysisViewController.h"
 #import "YGHttpImageViewController.h"
+#import "YGHttpLocalImageViewController.h"
 @interface MainViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView*table;
 @end
@@ -33,7 +34,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-    _contenArray = @[@{@"title":@"YGHttpImageViewController",@"content":@"网络图片内存测试"},
+    _contenArray = @[@{@"title":@"YGHttpLocalImageViewController",@"content":@"网络图片本地缓存，内存测试"},
+                     @{@"title":@"YGHttpImageViewController",@"content":@"网络图片内存测试"},
                      @{@"title":@"YGAspectsAnalysisViewController",@"content":@"Aspects 分析源码"},
                      @{@"title":@"YGUICollectionViewCrash",@"content":@"UICollectionView闪退自测"},
                      @{@"title":@"EnterSDAutoLayoutViewController",@"content":@"自动布局"}

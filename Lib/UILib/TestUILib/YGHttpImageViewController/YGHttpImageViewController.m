@@ -45,13 +45,13 @@
     
     NSMutableArray*url = [NSMutableArray new];
     for (NSString *strUrl  in urlArray) {
-//        [url addObject: [strUrl stringByAppendingString:@"1024-700"]];
-        [url addObject: strUrl];
+        [url addObject: [strUrl stringByAppendingString:@"1024-700"]];
+//        [url addObject: strUrl];
     }
-    
     self.ygStartTime = CFAbsoluteTimeGetCurrent();
     for (NSInteger i = 0 ; i < url.count; i++) {
        UIImageView* uiImageView = [[UIImageView alloc]initWithFrame:CGRectMake((i%2)*width, i/2*height, width, height)];
+        uiImageView.contentMode = UIViewContentModeScaleAspectFit;
         uiImageView.layer.borderWidth = 2;
         uiImageView.layer.borderColor = [UIColor blackColor].CGColor;
         [uiImageView sd_setImageWithURL:[NSURL URLWithString:url[i]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
