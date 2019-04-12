@@ -16,5 +16,8 @@
 #define NSLog(FORMAT, ...) nil
 #endif
 
+// 获取时间间隔
+#define YGHttpBegin                        CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+#define YGHttpEnd                          NSLog(@"HY: Function Run Time: %f", CFAbsoluteTimeGetCurrent() - start);
 
 #endif /* LhDefine_h */
