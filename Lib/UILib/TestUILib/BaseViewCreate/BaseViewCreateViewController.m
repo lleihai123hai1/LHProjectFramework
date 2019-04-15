@@ -16,9 +16,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.lh_signalForSelector(@selector(touchesBegan:withEvent:),^(RACTuple *tuple) {
-        NSLog(@"touchesBegan")
+        NSLog(@"touchesBegan");
     }).lh_signalForSelector(@selector(test),^(RACTuple *tuple) {
-        NSLog(@"test")
+        NSLog(@"test");
     });
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.button];

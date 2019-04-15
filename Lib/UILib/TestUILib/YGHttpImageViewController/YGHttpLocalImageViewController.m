@@ -8,7 +8,10 @@
 
 #import "YGHttpLocalImageViewController.h"
 #import "YYImage.h"
-@interface YGHttpLocalImageViewController ()
+#import "UIImageView+WebCache.h"
+#import "UIImage+WebP.h"
+@interface YGHttpLocalImageViewController (){
+}
 @property(nonatomic,assign)CGFloat ygStartTime;
 @property(nonatomic,assign)CGFloat ygEndTime;
 @end
@@ -24,24 +27,35 @@
 
 -(void)addHttpImage{
    
-    NSInteger imageViewCount = 16;
+    NSInteger imageViewCount = 10;
     CGFloat width = self.view.width/2;
     CGFloat height = 2*self.view.height/imageViewCount;
     
     NSMutableArray*url = [NSMutableArray new];
     for (NSInteger i = 1; i <= imageViewCount; i++) {
-//        [url addObject: [NSString stringWithFormat:@"a%ld.jpeg",(long)i]];
-        [url addObject: [NSString stringWithFormat:@"old%ld.jpeg",(long)i]];
+         [url addObject: [NSString stringWithFormat:@"old%ld",(long)i]];
+//         [url addObject: [NSString stringWithFormat:@"a%ld",(long)i]];
+//        [url addObject: [NSString stringWithFormat:@"a%ld",(long)i]];
     }
     self.ygStartTime = CFAbsoluteTimeGetCurrent();
+    NSInteger imageAllCountLength = 0;
     for (NSInteger i = 0 ; i < url.count; i++) {
         UIImageView* uiImageView = [[UIImageView alloc]initWithFrame:CGRectMake((i%2)*width, i/2*height, width, height)];
         uiImageView.contentMode = UIViewContentModeScaleAspectFit;
         uiImageView.layer.borderWidth = 2;
         uiImageView.layer.borderColor = [UIColor blackColor].CGColor;
-        uiImageView.image = [YYImage imageNamed:url[i]];
+        
+//        NSString *SuperBgImgPath = [[NSBundle mainBundle] pathForResource:url[i] ofType:@"webp"];
+        NSString *SuperBgImgPath = [[NSBundle mainBundle] pathForResource:url[i] ofType:@"jpeg"];
+        NSData *data  = [NSData dataWithContentsOfFile: SuperBgImgPath];
+        uiImageView.image = [UIImage sd_imageWithWebPData:data];
+//        uiImageView.image = [YYImage imageNamed:url[i]];
         [self.view addSubview:uiImageView];
+        imageAllCountLength += UIImageJPEGRepresentation(uiImageView.image, 1).length;
     }
+    
+    
+    NSLog(@"imageAllCountLength: %ld", (long)imageAllCountLength);
     self.ygEndTime = CFAbsoluteTimeGetCurrent();
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

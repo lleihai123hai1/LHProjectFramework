@@ -22,6 +22,7 @@
 #endif
 
 #ifdef __OBJC__
+#define SD_WEBP
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "ReactiveCocoa.h"
@@ -31,6 +32,7 @@
 #import "BaseViewCreate.h"
 #import "LhDefine.h"
 #include <ftw.h>
+
 #define AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES
 #define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_ 1
 #endif

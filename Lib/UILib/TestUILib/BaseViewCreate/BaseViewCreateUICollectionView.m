@@ -68,7 +68,7 @@
             .lh_didSelectItemAtIndexPath(^(NSIndexPath *indexPath){
                 @strongify(self);
                 NSDictionary*dict = self->_contenArray[indexPath.row];
-                NSLog(@"%@",[dict strValue:@"title"])
+                NSLog(@"%@",[dict strValue:@"title"]);
             })
             .lh_cellForItemAtIndexPath(^(NSIndexPath *indexPath){
                 @strongify(self);

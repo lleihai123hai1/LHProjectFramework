@@ -45,8 +45,8 @@
     
     NSMutableArray*url = [NSMutableArray new];
     for (NSString *strUrl  in urlArray) {
-        [url addObject: [strUrl stringByAppendingString:@"1024-700"]];
-//        [url addObject: strUrl];
+//        [url addObject: [strUrl stringByAppendingString:@"1024-700"]];
+        [url addObject: strUrl];
     }
     self.ygStartTime = CFAbsoluteTimeGetCurrent();
     for (NSInteger i = 0 ; i < url.count; i++) {
